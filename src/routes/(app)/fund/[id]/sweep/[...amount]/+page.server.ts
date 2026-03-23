@@ -37,7 +37,7 @@ export async function load({ cookies, request, params, parent }) {
 
 		let redirectUrl = `/fund/${id}/sweep`;
 		if (params.amount && !params.currency) redirectUrl += `/${params.amount}`;
-		if (params.currency) redirectUrl += `/${params.amount}/params.currency}`;
+		if (params.currency) redirectUrl += `/${params.amount}/${params.currency}`;
 
 		const extraHeaders: Record<string, string> = {};
 		if (env.INTERNAL_API_KEY)

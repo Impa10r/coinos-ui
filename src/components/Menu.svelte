@@ -10,7 +10,7 @@
   let menuButtons = [
     { key: "nav.settings", icon: "ph:gear-bold", href: `/settings` },
     { key: "nav.support", icon: "ph:lifebuoy-bold", href: `/support` },
-    { key: "nav.map", icon: "ph:map-trifold-bold", href: `/map` },
+    { key: "nav.map", icon: "ph:map-trifold-bold", href: `https://btcmap.org` },
     // {
     //   key: "nav.merch",
     //   icon: "ph:storefront-bold",

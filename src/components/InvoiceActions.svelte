@@ -28,7 +28,7 @@
     class:bg-base-300={type === types.ecash}
     class:text-secondary={type === types.ecash}
     class:hidden={type !== types.ecash}
-    onclick={setType(types.ecash)}
+    onclick={() => setType(types.ecash)}
   >
     <img src="/images/cash.png" class="w-8 my-auto" />
     <div class="my-auto text-lg">Ecash</div>

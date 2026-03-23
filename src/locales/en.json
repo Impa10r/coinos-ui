@@ -402,7 +402,8 @@
 			"email": "Email",
 			"accountName": "Account Name",
 			"message": "Message",
-			"send": "Send"
+			"send": "Send",
+			"chat": "Chat with us on SimpleX"
 		}
 	},
 	"payments": {

@@ -2,19 +2,20 @@
   import DarkToggle from "$comp/DarkToggle.svelte";
   import LocaleSelector from "$comp/LocaleSelector.svelte";
   import { t } from "$lib/translations";
+  import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
 
   const followLinks = [
     {
       url: "nostr:nprofile1qy28wue69uhnzv3h9cczuvpwxyargwpk8yhszxrhwvaz7tmhda6zucnjd9nksarzdak8gtnwv46z7qpqw27mc4aa6m0ufe3xs5z3m6qyr52gc0rglept7vqlwx4xeaf72tasv5xyqv",
       titleID: "nostr",
     },
-    { url: "https://t.me/coinoswallet", titleID: "telegram" },
+    { url: PUBLIC_TELEGRAM_URL, titleID: "telegram" },
     { url: "https://linktr.ee/coinos.io", titleID: "linktree" },
   ];
 
   const companyLinks = [
     { url: "/docs", titleID: "documentation" },
-    { url: "/support", titleID: "support" },
+    { url: PUBLIC_SIMPLEX_URL, titleID: "support" },
   ];
 </script>
 

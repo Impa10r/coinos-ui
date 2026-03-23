@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://coinos.io/sitemap.xml
+Sitemap: https://coinos.pro/sitemap.xml

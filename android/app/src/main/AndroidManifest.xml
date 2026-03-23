@@ -73,12 +73,12 @@
                 <data android:scheme="nostr" />
             </intent-filter>
 
-            <!-- Deep linking to https://coinos.io -->
+            <!-- Deep linking to https://coinos.pro -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="coinos.io" />
+                <data android:scheme="https" android:host="coinos.pro" />
             </intent-filter>
         </activity>
 

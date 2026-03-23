@@ -5,7 +5,12 @@
 </script>
 
 {#snippet cp(something)}
-  <button type="button" class="ml-auto" onclick={() => copy(something)}>
+  <button
+    type="button"
+    class="ml-auto"
+    aria-label="Copy"
+    onclick={() => copy(something)}
+  >
     <iconify-icon noobserver icon="ph:copy-bold" width="42"></iconify-icon>
   </button>
 {/snippet}

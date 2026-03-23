@@ -1,4 +1,5 @@
 <script>
+  import { PUBLIC_DOMAIN } from "$env/static/public";
   import { t } from "$lib/translations";
   import Icon from "$comp/Icon.svelte";
 </script>
@@ -13,7 +14,7 @@
           <img src="/icons/logo-symbol.svg" class="w-20" />
           <div>
             <div class="text-xl">Coinos</div>
-            <div class="text-secondary">https://mint.coinos.io</div>
+            <div class="text-secondary">https://mint.{PUBLIC_DOMAIN}</div>
           </div>
         </div>
       </a>

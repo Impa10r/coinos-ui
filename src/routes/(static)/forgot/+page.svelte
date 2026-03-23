@@ -1,4 +1,5 @@
 <script>
+  import { PUBLIC_DOMAIN } from "$env/static/public";
   import { focus } from "$lib/utils";
   import { enhance } from "$app/forms";
   import { t } from "$lib/translations";
@@ -16,6 +17,8 @@
 
   <div class="text-secondary">
     {$t("login.resetDesc")}
-    <a href="mailto:support@coinos.io" class="font-bold">support@coinos.io</a>
+    <a href={`mailto:support@${PUBLIC_DOMAIN}`} class="font-bold"
+      >support@{PUBLIC_DOMAIN}</a
+    >
   </div>
 </div>

@@ -1,4 +1,5 @@
 <script>
+  import { PUBLIC_DOMAIN } from "$env/static/public";
   import { SvelteToast } from "@zerodevx/svelte-toast";
   import { onDestroy, onMount } from "svelte";
   import { close, connect, send, socket } from "$lib/socket";
@@ -112,7 +113,10 @@
 <svelte:head>
   {#if subject}
     <title>coinos - {subject.username}</title>
-    <meta name="lightning" content={`lnurlp:${subject.username}@coinos.io`} />
+    <meta
+      name="lightning"
+      content={`lnurlp:${subject.username}@${PUBLIC_DOMAIN}`}
+    />
   {:else}
     <title>coinos</title>
   {/if}

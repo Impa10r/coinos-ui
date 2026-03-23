@@ -144,7 +144,6 @@
     </button>
   </div>
 
-
   <button type="button" class="btn" onclick={toggleType}>
     <img src="/images/liquid.svg" class="w-8" alt="Liquid" />
     <img src="/images/cash.png" class="w-8 my-auto" />

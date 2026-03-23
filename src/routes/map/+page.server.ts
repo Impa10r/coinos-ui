@@ -1,11 +1,11 @@
 import { get } from "$lib/utils";
 
 export const load = async () => {
-	let data = { locations: [] };
+  let data = { locations: [] };
 
-	try {
-		data = await get("/locations");
-	} catch (e) {}
+  try {
+    data = await get("/locations");
+  } catch (e) {}
 
-	return data;
+  return data;
 };

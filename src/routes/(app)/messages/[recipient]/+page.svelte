@@ -1,5 +1,5 @@
 <script>
-  import { run, preventDefault } from 'svelte/legacy';
+  import { run, preventDefault } from "svelte/legacy";
 
   import { cubicInOut } from "svelte/easing";
   import { browser } from "$app/environment";
@@ -39,7 +39,8 @@
   }
 
   let { messages, recipient, user } = $state(data);
-  let input, pane = $state();
+  let input,
+    pane = $state();
 
   let initialize = async (p) => {
     await Promise.all(
@@ -62,7 +63,9 @@
     }
   });
 
-  let sent, submitting, message = $state();
+  let sent,
+    submitting,
+    message = $state();
   let submit = async () => {
     submitting = true;
 
@@ -177,7 +180,7 @@
       class="grow break-all py-4 outline-none mt-0 pl-4"
       bind:innerHTML={message}
       onkeydown={keydown}
-></div>
+    ></div>
     <button type="submit" class="my-auto shrink-0">
       <Icon icon="send" style="w-8" />
     </button>

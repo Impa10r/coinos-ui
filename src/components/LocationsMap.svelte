@@ -263,11 +263,12 @@
   ></div>
   <div class="absolute flex top-2 left-2 gap-2">
     <button
-       aria-label="Back"
+      aria-label="Back"
       class="rounded-full border-2 border-black bg-base-100 w-16 h-16 flex items-center justify-center bg-opacity-80"
       onclick={back}
     >
-      <iconify-icon noobserver icon="ph:arrow-left-bold" width="24"></iconify-icon>
+      <iconify-icon noobserver icon="ph:arrow-left-bold" width="24"
+      ></iconify-icon>
     </button>
   </div>
   <div class="relative">
@@ -280,10 +281,12 @@
           <div class="flex gap-1 absolute right-6 top-3">
             {#if search}
               <button type="button" onclick={clearSearch} aria-label="Clear">
-                <iconify-icon noobserver icon="ph:x-bold" width="32"></iconify-icon>
+                <iconify-icon noobserver icon="ph:x-bold" width="32"
+                ></iconify-icon>
               </button>
             {:else}
-              <iconify-icon noobserver icon="ph:search-bold" width="32"></iconify-icon>
+              <iconify-icon noobserver icon="ph:search-bold" width="32"
+              ></iconify-icon>
             {/if}
           </div>
         </div>
@@ -312,9 +315,11 @@
         onclick={toggle}
       >
         {#if timeout}
-          <iconify-icon noobserver icon="ph:pause-bold" width="24"></iconify-icon>
+          <iconify-icon noobserver icon="ph:pause-bold" width="24"
+          ></iconify-icon>
         {:else}
-          <iconify-icon noobserver icon="ph:play-bold" width="24"></iconify-icon>
+          <iconify-icon noobserver icon="ph:play-bold" width="24"
+          ></iconify-icon>
         {/if}
       </button>
     </div>

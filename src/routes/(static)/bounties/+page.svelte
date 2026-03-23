@@ -1,4 +1,5 @@
 <script>
+  import { PUBLIC_DOMAIN } from "$env/static/public";
   import Avatar from "$comp/Avatar.svelte";
   import { s } from "$lib/utils";
   import Amount from "$comp/Amount.svelte";
@@ -164,8 +165,8 @@
 
   <p>
     Reach out to <a
-      href="mailto:bounties@coinos.io"
-      class="text-blue-600 hover:underline">bounties@coinos.io</a
+      href={`mailto:bounties@${PUBLIC_DOMAIN}`}
+      class="text-blue-600 hover:underline">bounties@{PUBLIC_DOMAIN}</a
     > and let us know who we should contact
   </p>
 

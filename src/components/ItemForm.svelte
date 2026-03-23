@@ -1,5 +1,5 @@
 <script>
-  import { preventDefault } from 'svelte/legacy';
+  import { preventDefault } from "svelte/legacy";
 
   import { t } from "$lib/translations";
   import { upload } from "$lib/upload";
@@ -8,7 +8,11 @@
   import Spinner from "$comp/Spinner.svelte";
   let { item = $bindable(), user } = $props();
 
-  let fileInput = $state(), formElement = $state(), file, submitting = $state(), progress;
+  let fileInput = $state(),
+    formElement = $state(),
+    file,
+    submitting = $state(),
+    progress;
   let select = () => fileInput.click();
   let src = $state();
 
@@ -122,7 +126,7 @@
             onclick={select}
             onkeydown={select}
             alt="Banner"
-></div>
+          ></div>
         {/if}
       </div>
     </div>

@@ -1,11 +1,13 @@
 <script>
-  import { run, preventDefault } from 'svelte/legacy';
+  import { run, preventDefault } from "svelte/legacy";
 
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
   import Icon from "$comp/Icon.svelte";
-  let el = $state(), text = $state(), pasted = $state();
+  let el = $state(),
+    text = $state(),
+    pasted = $state();
 
   let keypress = (e) =>
     e.key === "Enter" ? e.preventDefault() || el.click() : (pasted = false);
@@ -38,7 +40,7 @@
         bind:value={text}
         onpaste={() => (pasted = true)}
         autocapitalize="none"
-></textarea>
+      ></textarea>
     </div>
 
     <div class="flex gap-2">

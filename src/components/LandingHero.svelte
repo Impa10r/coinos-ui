@@ -14,10 +14,11 @@
       {$t("landing.header_before_icon")}
       <span class="relative">
         {$t("landing.header_with_icon")}
-        <iconify-icon noobserver
+        <iconify-icon
+          noobserver
           icon="coinos:rays"
           class="absolute -top-16 left-5 md:left-8 lg:left-14 2xl:left-24"
-></iconify-icon>
+        ></iconify-icon>
       </span>
       {$t("landing.header_after_icon")}
     </h1>

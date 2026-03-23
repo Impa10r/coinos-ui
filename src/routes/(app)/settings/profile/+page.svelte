@@ -7,8 +7,12 @@
 
   let { data } = $props();
   let { user } = $derived(data);
-  let { id } = user;
-  let { about, banner, picture, display, username } = $state(user);
+  let id = $derived(user.id);
+  let about = $state(user.about);
+  let banner = $state(user.banner);
+  let picture = $state(user.picture);
+  let display = $state(user.display);
+  let username = $state(user.username);
 
   let avatarFile,
     avatarInput = $state(),
@@ -73,7 +77,10 @@
     >{$t("user.settings.newPassword")}</label
   >
 
-  <PasswordInput bind:value={password} placeholder="(Leave blank to keep unchanged)" />
+  <PasswordInput
+    bind:value={password}
+    placeholder="(Leave blank to keep unchanged)"
+  />
 </div>
 
 <div>
@@ -90,6 +97,8 @@
     {#if $avatar || picture}
       <div
         class="relative rounded-full overflow-hidden text-center w-20 h-20 my-auto hover:opacity-80 cursor-pointer"
+        role="button"
+        tabindex="0"
         onclick={selectAvatar}
         onkeydown={selectAvatar}
       >
@@ -102,6 +111,8 @@
     {:else}
       <div
         class="rounded-full border-4 border-base-100 p-4 bg-base-200 w-24 h-24 my-auto hover:opacity-80 cursor-pointer"
+        role="button"
+        tabindex="0"
         onclick={selectAvatar}
         onkeydown={selectAvatar}
       ></div>
@@ -134,19 +145,25 @@
   </div>
 
   {#if $bannerStore || banner}
-    <img
-      src={$bannerStore ? $bannerStore.src : banner}
-      class="w-full object-cover object-center visible overflow-hidden h-48 mb-4 hover:opacity-80"
+    <div
+      role="button"
+      tabindex="0"
       onclick={selectBanner}
       onkeydown={selectBanner}
-      alt="Banner"
-    />
+    >
+      <img
+        src={$bannerStore ? $bannerStore.src : banner}
+        class="w-full object-cover object-center visible overflow-hidden h-48 mb-4 hover:opacity-80"
+        alt="Banner"
+      />
+    </div>
   {:else}
     <div
       class="bg-base-200 w-full h-48 mb-4 cursor-pointer hover:opacity-80"
+      role="button"
+      tabindex="0"
       onclick={selectBanner}
       onkeydown={selectBanner}
-      alt="Banner"
     ></div>
   {/if}
 

@@ -44,8 +44,7 @@
         <span class=" text-red-600">{$t("payments.spent")}</span>
       </div>
       <div>
-        <span class="text-secondary font-normal text-xl"
-          >⚡️{`${s(spent)}`}</span
+        <span class="text-secondary font-normal text-xl">⚡️{`${s(spent)}`}</span
         >
       </div>
     </div>

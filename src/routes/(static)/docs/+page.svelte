@@ -7,7 +7,7 @@
 
   let { data } = $props();
 
-  let { user, ro, token } = data;
+  let { user, ro, token } = $derived(data);
 
   let api = PUBLIC_DOMAIN.includes("localhost")
     ? `${PUBLIC_COINOS_URL}`
@@ -21,7 +21,12 @@
 </script>
 
 {#snippet cp(something)}
-  <button type="button" class="ml-auto" onclick={() => copy(something)}>
+  <button
+    type="button"
+    class="ml-auto"
+    aria-label="Copy"
+    onclick={() => copy(something)}
+  >
     <iconify-icon noobserver icon="ph:copy-bold" width="42"></iconify-icon>
   </button>
 {/snippet}
@@ -61,7 +66,8 @@
       or get one from the /login endpoint.
     {/if}
 
-    Save it in a variable called <b>$token</b> to run the examples. It gives full access to your account so keep it safe.
+    Save it in a variable called <b>$token</b> to run the examples. It gives full
+    access to your account so keep it safe.
   </p>
 
   <div
@@ -73,8 +79,8 @@
 
   {#if ro}
     <p class="text-secondary">
-      This read-only token has permission to create invoices and fetch
-      payments but can't be used to make withdrawals
+      This read-only token has permission to create invoices and fetch payments
+      but can't be used to make withdrawals
     </p>
     <div
       class="bg-primary text-primary-content rounded-lg p-4 flex gap-4 items-center"

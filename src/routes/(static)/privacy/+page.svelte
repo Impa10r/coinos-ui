@@ -1,3 +1,7 @@
+<script>
+  import { PUBLIC_DOMAIN } from "$env/static/public";
+</script>
+
 <div class="space-y-5">
   <div class="text-2xl font-bold">Privacy Policy</div>
 
@@ -11,6 +15,6 @@
   <div>
     We keep records of payment history associated to accounts and may be
     obligated to share our records with financial authorities. You may request
-    that your account be deleted by visiting https://coinos.pro/removal
+    that your account be deleted by visiting https://{PUBLIC_DOMAIN}/removal
   </div>
 </div>

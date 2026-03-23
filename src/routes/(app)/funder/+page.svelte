@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-let here = false;
+  import { onMount } from "svelte";
+  import { PUBLIC_DOMAIN } from "$env/static/public";
+  let here = false;
   let ready = false;
   let success = false;
   let controller: AbortController | null = null;
@@ -26,21 +27,21 @@ let here = false;
         {
           records: [
             {
-              recordType: 'url',
-              data: 'https://coinos.io',
+              recordType: "url",
+              data: `https://${PUBLIC_DOMAIN}`,
             },
           ],
         },
-        { signal: controller.signal }
+        { signal: controller.signal },
       );
 
       success = true;
     } catch (err) {
-      if (err.name === 'AbortError') {
-        console.warn('Previous write aborted');
+      if (err.name === "AbortError") {
+        console.warn("Previous write aborted");
       } else {
-        console.error('Write failed', err);
-        alert('❌ Write failed: ' + err.message);
+        console.error("Write failed", err);
+        alert("❌ Write failed: " + err.message);
       }
     } finally {
       await NfcWriter.disableExclusiveNfcMode();

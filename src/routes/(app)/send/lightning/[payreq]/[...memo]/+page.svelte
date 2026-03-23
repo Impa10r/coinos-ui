@@ -38,7 +38,7 @@
     <div class="text-red-600 text-center">
       {#if form.message.includes($t("payments.insufficientFunds"))}
         <div>{form.message}</div>
-        <div>{$t("payments.lockedBalance")}: {locked}</div>        
+        <div>{$t("payments.lockedBalance")}: {locked}</div>
       {:else}
         {$t("payments.failedToRoute")}
       {/if}

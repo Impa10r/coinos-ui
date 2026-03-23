@@ -1,5 +1,5 @@
 <script>
-  import { run, preventDefault } from 'svelte/legacy';
+  import { run, preventDefault } from "svelte/legacy";
 
   import { goto } from "$app/navigation";
   import { mnemonic } from "$lib/store";
@@ -10,7 +10,9 @@
   import { validateMnemonic } from "@scure/bip39";
   import { wordlist } from "@scure/bip39/wordlists/english.js";
 
-  let el = $state(), pasted = $state(), text = $state();
+  let el = $state(),
+    pasted = $state(),
+    text = $state();
 
   let paste = async () => {
     text = await navigator.clipboard.readText();
@@ -45,7 +47,7 @@
         class="w-full p-4 border rounded-xl h-48 text-xl"
         bind:value={text}
         autocapitalize="none"
-></textarea>
+      ></textarea>
       <button
         bind:this={el}
         type="submit"

@@ -30,7 +30,7 @@
 
   let togglePassword = () => (passwordPrompt = !passwordPrompt);
   let handler = ({ cancel }) => {
-    if (account.seed && !signed) cancel(), togglePassword();
+    if (account.seed && !signed) (cancel(), togglePassword());
     return async ({ result }) => {
       if (result.type === "redirect") {
         goto(result.location);

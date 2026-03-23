@@ -14,7 +14,7 @@
 
   let { data } = $props();
 
-  let { amount, payments, managers, rate, user } = data;
+  let { amount, payments, managers, rate, user } = $derived(data);
   let { id } = $page.params;
   let locale = loc(user);
 

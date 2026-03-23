@@ -77,11 +77,21 @@
   </p>
 
   <div class="relative">
-    <a href="https://btcmap.org" target="_blank" rel="noreferrer" class="contents">
+    <a
+      href="https://btcmap.org"
+      target="_blank"
+      rel="noreferrer"
+      class="contents"
+    >
       <img src="/map.png" class="mx-auto" alt="Map" />
     </a>
 
-    <a href="https://btcmap.org" target="_blank" rel="noreferrer" class="contents">
+    <a
+      href="https://btcmap.org"
+      target="_blank"
+      rel="noreferrer"
+      class="contents"
+    >
       <button
         class="bg-black text-white border border-4 rounded-full px-6 py-2 font-bold hover:bg-secondary absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl"
       >

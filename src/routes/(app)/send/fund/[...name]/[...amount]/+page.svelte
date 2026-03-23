@@ -10,7 +10,8 @@
   import { applyAction, deserialize } from "$app/forms";
 
   let { data, form } = $props();
-  let { amount, user } = $state(data);
+  let amount = $state(data.amount);
+  let user = $derived(data.user);
   let { balance, currency } = $derived(user);
   let { name, rate } = $derived(data);
   let loading = $state();

@@ -13,9 +13,12 @@
   import { PUBLIC_VAPID_PUBKEY } from "$env/static/public";
 
   let { data } = $props();
-  let { user } = $state(data);
-  let { connect, rates, subscriptions } = data;
-  let { currency, email, tip, verified } = $state(user);
+  let { user } = $derived(data);
+  let { connect, rates, subscriptions } = $derived(data);
+  let currency = $state(user.currency);
+  let email = $state(user.email);
+  let tip = $state(user.tip);
+  let verified = $state(user.verified);
   let rate = rates[currency];
 
   let fiats = Object.keys(rates).sort((a, b) => a.localeCompare(b));
@@ -325,7 +328,7 @@
 
 {#if connect !== "connected"}
   <a href={connect} class="btn flex">
-    <img src="/images/square.svg" class="w-12" />
+    <img src="/images/square.svg" class="w-12" alt="Square" />
     <div>{$t("user.settings.connectSquare")}</div></a
   >
 {:else}
@@ -334,6 +337,7 @@
       src="/images/square.svg"
       class="w-12"
       class:invert={$theme === "dark"}
+      alt="Square"
     />
     <div>{$t("user.settings.revokeSquare")}</div>
   </button>

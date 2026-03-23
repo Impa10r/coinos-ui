@@ -19,9 +19,9 @@
 
   // --- Defaults ---
   const LITTLEFS_ADDRESS_DEFAULT = 0x3d0000; // your existing LittleFS offset
-  const FW_ADDRESS_DEFAULT = 0x10000;        // typical app offset on ESP32-C3
-  const CONNECT_BAUD = 115200;               // initial
-  const WORK_BAUD = 921600;                  // fast flashing
+  const FW_ADDRESS_DEFAULT = 0x10000; // typical app offset on ESP32-C3
+  const CONNECT_BAUD = 115200; // initial
+  const WORK_BAUD = 921600; // fast flashing
 
   // --- Shared state ---
   let esploader = $state();
@@ -37,7 +37,7 @@
 
   // --- New firmware flashing path ---
   let fwFile = $state(null);
-  let fwBytes = $state();             // Uint8Array
+  let fwBytes = $state(); // Uint8Array
   let fwAddress = $state(FW_ADDRESS_DEFAULT);
   let fwEraseAll = $state(false);
   let fwProgress = $state(0);
@@ -59,7 +59,9 @@
       chip = await esploader.main();
 
       connected = true;
-      portInfo = (await device.getInfo?.()) ? JSON.stringify(await device.getInfo()) : "Connected";
+      portInfo = (await device.getInfo?.())
+        ? JSON.stringify(await device.getInfo())
+        : "Connected";
     } catch (e) {
       console.log(e);
       connected = false;
@@ -147,17 +149,25 @@
   </h1>
 
   {#if !connected}
-  <div class="text-center">
-    <button class="btn" onclick={connect}>Connect</button>
-    <div class="text-sm mt-2 opacity-70">{portInfo}</div>
-  </div>
-{/if}
+    <div class="text-center">
+      <button class="btn" onclick={connect}>Connect</button>
+      <div class="text-sm mt-2 opacity-70">{portInfo}</div>
+    </div>
+  {/if}
 
   {#if connected}
     <!-- Tabs -->
     <div class="flex gap-2 justify-center">
-      <button class="btn" class:btn-neutral={tab === "config"} onclick={() => (tab = "config")}>Flash config</button>
-      <button class="btn" class:btn-neutral={tab === "firmware"} onclick={() => (tab = "firmware")}>Flash firmware</button>
+      <button
+        class="btn"
+        class:btn-neutral={tab === "config"}
+        onclick={() => (tab = "config")}>Flash config</button
+      >
+      <button
+        class="btn"
+        class:btn-neutral={tab === "firmware"}
+        onclick={() => (tab = "firmware")}>Flash firmware</button
+      >
     </div>
 
     {#if tab === "config"}
@@ -168,17 +178,28 @@
         {:else}
           <div>Generated config file (<b>{bytes.length} bytes</b>)</div>
           <label class="label mt-2">LittleFS address (hex)</label>
-            <input class="input" bind:value={littlefsAddress} onchange={(e) => (littlefsAddress = Number(e.target.value))} />
+          <input
+            class="input"
+            bind:value={littlefsAddress}
+            onchange={(e) => (littlefsAddress = Number(e.target.value))}
+          />
           <div class="mt-3">
             <button class="btn" onclick={flashConfig}>Flash config</button>
           </div>
-          {#if configProgress > 0}<div class="mt-2">Progress: {configProgress}%</div>{/if}
+          {#if configProgress > 0}<div class="mt-2">
+              Progress: {configProgress}%
+            </div>{/if}
         {/if}
       {:else}
         <form method="POST" use:enhance class="space-y-2">
           <input name="ssid" placeholder="Wifi SSID" class="input" />
           <input name="key" placeholder="Wifi password" class="input" />
-          <input name="token" bind:value={token} placeholder="Coinos API token" class="input" />
+          <input
+            name="token"
+            bind:value={token}
+            placeholder="Coinos API token"
+            class="input"
+          />
           <button type="submit" class="btn">Generate Config</button>
         </form>
       {/if}
@@ -186,10 +207,19 @@
       <!-- NEW FIRMWARE FLOW -->
       <div class="space-y-3">
         <label class="label">Select .ino.bin (firmware)</label>
-        <input type="file" accept=".bin,application/octet-stream" class="input" onchange={onPickFw} />
+        <input
+          type="file"
+          accept=".bin,application/octet-stream"
+          class="input"
+          onchange={onPickFw}
+        />
 
         <label class="label">Firmware address (hex, default 0x10000)</label>
-        <input class="input" bind:value={fwAddress} onchange={(e) => (fwAddress = Number(e.target.value))} />
+        <input
+          class="input"
+          bind:value={fwAddress}
+          onchange={(e) => (fwAddress = Number(e.target.value))}
+        />
 
         <label class="flex items-center gap-2 mt-2">
           <input type="checkbox" bind:checked={fwEraseAll} />
@@ -197,8 +227,10 @@
         </label>
 
         <div class="mt-3">
-          <button class="btn" disabled={!fwBytes} onclick={flashFirmware}>Flash firmware</button>
-          </div>
+          <button class="btn" disabled={!fwBytes} onclick={flashFirmware}
+            >Flash firmware</button
+          >
+        </div>
 
         {#if fwProgress > 0 && !fwDone}
           <div>Progress: {fwProgress}%</div>
@@ -217,8 +249,16 @@
 <style>
   @reference "../../../app.css";
 
-  .btn { @apply px-4 py-2 rounded-2xl shadow; }
-  .btn-neutral { @apply bg-gray-200; }
-  .input { @apply w-full px-3 py-2 border rounded-xl; }
-  .label { @apply text-sm opacity-70; }
+  .btn {
+    @apply px-4 py-2 rounded-2xl shadow;
+  }
+  .btn-neutral {
+    @apply bg-gray-200;
+  }
+  .input {
+    @apply w-full px-3 py-2 border rounded-xl;
+  }
+  .label {
+    @apply text-sm opacity-70;
+  }
 </style>

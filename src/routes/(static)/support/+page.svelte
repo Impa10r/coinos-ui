@@ -11,8 +11,14 @@
     {$t("user.support.header")}
   </h1>
 
-  <a href={PUBLIC_SIMPLEX_URL} target="_blank" rel="noreferrer" class="btn w-full">
-    <iconify-icon noobserver icon="ph:chat-circle-text-bold" width="32"></iconify-icon>
+  <a
+    href={PUBLIC_SIMPLEX_URL}
+    target="_blank"
+    rel="noreferrer"
+    class="btn w-full"
+  >
+    <iconify-icon noobserver icon="ph:chat-circle-text-bold" width="32"
+    ></iconify-icon>
     {$t("user.support.chat")}
   </a>
 </div>

@@ -165,30 +165,31 @@
   <div class="font-bold">{$t("user.nostrPubkey")}</div>
   <textarea name="pubkey" bind:value={npub} rows={3}></textarea>
   <div>
-  <div class="flex my-auto gap-1">
-    <button
-      type="button"
-      class="my-auto btn btn-circle !w-auto grow"
-      onclick={() => copy(npub)}
-      aria-label="Copy"
-      ><iconify-icon noobserver icon="ph:copy-bold" width="32"
-      ></iconify-icon> {$t("accounts.copy")}</button
-    >
+    <div class="flex my-auto gap-1">
+      <button
+        type="button"
+        class="my-auto btn btn-circle !w-auto grow"
+        onclick={() => copy(npub)}
+        aria-label="Copy"
+        ><iconify-icon noobserver icon="ph:copy-bold" width="32"></iconify-icon>
+        {$t("accounts.copy")}</button
+      >
 
-    <a
-      href={`/qr/${encodeURIComponent(npub)}`}
-      class="my-auto btn btn-circle !w-auto grow"
-      aria-label="QR"
-    >
-      <iconify-icon noobserver icon="ph:qr-code-bold" width="32"></iconify-icon>
-{$t("accounts.qr")}
-    </a>
+      <a
+        href={`/qr/${encodeURIComponent(npub)}`}
+        class="my-auto btn btn-circle !w-auto grow"
+        aria-label="QR"
+      >
+        <iconify-icon noobserver icon="ph:qr-code-bold" width="32"
+        ></iconify-icon>
+        {$t("accounts.qr")}
+      </a>
     </div>
   </div>
 
   {#if extensionAvailable}
     <button class="btn" type="button" onclick={getPubkey}>
-      <img src="/images/alby.svg" width="32" />
+      <img src="/images/alby.svg" width="32" alt="Alby" />
       {$t("user.settings.syncWithExtension")}</button
     >
   {/if}

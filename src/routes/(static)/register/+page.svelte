@@ -35,7 +35,8 @@
   onMount(() => {
     if (!isTor && recaptchaSiteKey) {
       let s = document.createElement("script");
-      s.src = "https://www.google.com/recaptcha/api.js?render=" + recaptchaSiteKey;
+      s.src =
+        "https://www.google.com/recaptcha/api.js?render=" + recaptchaSiteKey;
       document.head.appendChild(s);
     }
   });
@@ -53,7 +54,7 @@
   });
 
   let username = $state();
-  let { index } = $state(data);
+  let index = $state(data.index);
   let revealPassword = $state(false);
 
   let cleared;
@@ -107,7 +108,8 @@
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor) return resolve("");
-      if (!browser || !grecaptcha) return reject(new Error("captcha unavailable"));
+      if (!browser || !grecaptcha)
+        return reject(new Error("captcha unavailable"));
       grecaptcha.ready(() => {
         grecaptcha
           .execute(recaptchaSiteKey, { action: "register" })
@@ -382,7 +384,7 @@
           <Spinner />
         </div>
       {:else}
-        <img src="/images/nostr.png" class="w-8" />
+        <img src="/images/nostr.png" class="w-8" alt="Nostr" />
       {/if}
       <div class="my-auto">{$t("login.nostr")}</div>
     </button>

@@ -45,7 +45,8 @@
   onMount(() => {
     if (!isTor && recaptchaSiteKey) {
       let s = document.createElement("script");
-      s.src = "https://www.google.com/recaptcha/api.js?render=" + recaptchaSiteKey;
+      s.src =
+        "https://www.google.com/recaptcha/api.js?render=" + recaptchaSiteKey;
       document.head.appendChild(s);
     }
   });
@@ -67,7 +68,8 @@
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor || !recaptchaSiteKey) return resolve("");
-      if (!browser || typeof grecaptcha === "undefined") return reject(new Error("captcha unavailable"));
+      if (!browser || typeof grecaptcha === "undefined")
+        return reject(new Error("captcha unavailable"));
       grecaptcha.ready(() => {
         grecaptcha
           .execute(recaptchaSiteKey, { action: "login" })
@@ -208,7 +210,7 @@
           <Spinner />
         </div>
       {:else}
-        <img src="/images/nostr.png" class="w-8" />
+        <img src="/images/nostr.png" class="w-8" alt="Nostr" />
       {/if}
       <div class="my-auto">{$t("login.nostr")}</div>
     </button>
@@ -229,7 +231,9 @@
   <div
     class="fixed bg-base-100 bg-opacity-90 inset-0 h-full w-full z-50 cursor-default"
     onclick={(e) => e.stopPropagation()}
+    onkeydown={(e) => e.stopPropagation()}
     role="dialog"
+    tabindex="0"
     aria-labelledby="title"
   >
     <div

@@ -1,5 +1,5 @@
 <script>
-  import { run } from 'svelte/legacy';
+  import { run } from "svelte/legacy";
 
   import Nostr from "$comp/Nostr.svelte";
   import { SvelteToast } from "@zerodevx/svelte-toast";

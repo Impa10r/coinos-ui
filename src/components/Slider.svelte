@@ -18,5 +18,3 @@
   class="range"
   oninput={handle}
 />
-
-

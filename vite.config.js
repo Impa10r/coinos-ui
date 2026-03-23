@@ -12,14 +12,10 @@ export default defineConfig({
 			$comp: path.resolve("src/components"),
 		},
 	},
-	preview: {
-		allowedHosts: [
-			"coinos.io",
-			"6un2jrlcumn5vduhbq6i3i2wrwiydamwjwop472obg6cy2bfo6ua3oad.onion",
-			"vm7h454g5hiy2nt3u5o7evtz3vigtypo2mkyausakvdkbmd7wpyhx5qd.onion",
-		],
-	},
 	server: {
+		allowedHosts: [
+			"coinos.pro"
+		],
 		proxy:
 			process.env.NODE_ENV === "development"
 				? {

@@ -118,7 +118,8 @@
 		"telegram": "টেলিগ্রাম",
 		"twitter": "টুইটার",
 		"nostr": "সংযোগ",
-		"documentation": "নথিপত্র"
+		"documentation": "নথিপত্র",
+		"about": "আমাদের সম্পর্কে"
 	},
 	"howItWorks": {
 		"header": "কিভাবে কাজ করে",

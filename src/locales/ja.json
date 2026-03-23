@@ -63,7 +63,8 @@
 		"telegram": "電報",
 		"twitter": "ツイッター",
 		"documentation": "ドキュメンテーション",
-		"nostr": "ノストル"
+		"nostr": "ノストル",
+		"about": "概要"
 	},
 	"howItWorks": {
 		"header": "使い方",

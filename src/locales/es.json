@@ -63,7 +63,8 @@
 		"telegram": "Telegram",
 		"twitter": "Twitter",
 		"documentation": "Documentación",
-		"nostr": "Nostálgico"
+		"nostr": "Nostálgico",
+		"about": "Acerca de"
 	},
 	"howItWorks": {
 		"header": "Cómo Funciona",

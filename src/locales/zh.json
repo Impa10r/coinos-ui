@@ -63,7 +63,8 @@
 		"telegram": "电报",
 		"twitter": "推特",
 		"documentation": "文档",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "关于"
 	},
 	"howItWorks": {
 		"header": "如何操作",

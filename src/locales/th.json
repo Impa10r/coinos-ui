@@ -118,7 +118,8 @@
 		"telegram": "เทเลแกรม",
 		"twitter": "ทวิตเตอร์",
 		"nostr": "โหนด",
-		"documentation": "เอกสาร"
+		"documentation": "เอกสาร",
+		"about": "เกี่ยวกับ"
 	},
 	"howItWorks": {
 		"header": "มันทํางานอย่างไร",

@@ -79,7 +79,8 @@
 		"telegram": "Telegram",
 		"twitter": "Twitter",
 		"documentation": "Τεκμηρίωση",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "Σχετικά"
 	},
 	"howItWorks": {
 		"header": "Πως δουλεύει",

@@ -127,7 +127,8 @@
 		"telegram": "Telegram",
 		"twitter": "Twitter",
 		"nostr": "Nostr",
-		"documentation": "Documentation"
+		"documentation": "Documentation",
+		"about": "About"
 	},
 	"howItWorks": {
 		"header": "How it works",

@@ -118,7 +118,8 @@
 		"telegram": "टेलीग्राम",
 		"twitter": "ट्विटर",
 		"nostr": "Nostr",
-		"documentation": "दस्तावेज़ीकरण"
+		"documentation": "दस्तावेज़ीकरण",
+		"about": "हमारे बारे में"
 	},
 	"howItWorks": {
 		"header": "यह कैसे काम करता है",

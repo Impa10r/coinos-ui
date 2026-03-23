@@ -63,7 +63,8 @@
 		"jobs": "Emplois",
 		"linktree": "Linktree",
 		"documentation": "Documentation",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "À propos"
 	},
 	"howItWorks": {
 		"header": "Comment cela Fonctionne",

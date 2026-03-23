@@ -118,7 +118,8 @@
 		"telegram": "Telegram",
 		"twitter": "Twitter",
 		"nostr": "Nostr",
-		"documentation": "Documentatie"
+		"documentation": "Documentatie",
+		"about": "Over ons"
 	},
 	"howItWorks": {
 		"header": "Hoe het werkt",

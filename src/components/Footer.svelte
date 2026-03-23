@@ -15,7 +15,7 @@
 
   const companyLinks = [
     { url: "/docs", titleID: "documentation" },
-    { url: PUBLIC_SIMPLEX_URL, titleID: "support" },
+    { url: "/about", titleID: "about" },
   ];
 </script>
 

@@ -118,7 +118,8 @@
 		"telegram": "Telegram",
 		"twitter": "تويتر",
 		"nostr": "Nostr",
-		"documentation": "الوثائق"
+		"documentation": "الوثائق",
+		"about": "حول"
 	},
 	"howItWorks": {
 		"header": "كيف يعمل",

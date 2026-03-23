@@ -118,7 +118,8 @@
 		"telegram": "Telgraf",
 		"twitter": "Twitter",
 		"nostr": "Hayır",
-		"documentation": "Dokümantasyon"
+		"documentation": "Dokümantasyon",
+		"about": "Hakkında"
 	},
 	"howItWorks": {
 		"header": "Nasıl çalışır",

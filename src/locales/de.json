@@ -80,7 +80,8 @@
 		"news": "Neuigkeiten",
 		"linktree": "Linktree",
 		"documentation": "Dokumentation",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "Über uns"
 	},
 	"howItWorks": {
 		"header": "So funktioniert's",

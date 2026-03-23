@@ -79,7 +79,8 @@
 		"telegram": "Telegram",
 		"twitter": "Twitter",
 		"documentation": "Documentação",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "Sobre"
 	},
 	"howItWorks": {
 		"header": "Como funciona",

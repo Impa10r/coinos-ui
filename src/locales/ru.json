@@ -63,7 +63,8 @@
 		"telegram": "Телеграм",
 		"twitter": "Twitter",
 		"documentation": "Документация",
-		"nostr": "Nostr"
+		"nostr": "Nostr",
+		"about": "О нас"
 	},
 	"howItWorks": {
 		"header": "Как это работает",

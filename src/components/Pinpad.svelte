@@ -68,7 +68,12 @@
       placeholder="_ _ _ _ _ _"
     />
   {/if}
-  <button type="button" class="contents" onclick={toggle}>
+  <button
+    type="button"
+    class="contents"
+    aria-label="Toggle PIN visibility"
+    onclick={toggle}
+  >
     <iconify-icon
       noobserver
       icon={hide ? "ph:eye-slash-bold" : "ph:eye-bold"}

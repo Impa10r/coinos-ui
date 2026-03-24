@@ -18,7 +18,7 @@
   });
 
   let { accounts, subject, rate, user } = $derived(data);
-  let { locked } = $derived(user);
+  let locked = $derived(user.locked);
 
   let install = async () => {
     if (!$installPrompt) return;
@@ -27,7 +27,9 @@
   };
 
   let pubkey = $state();
-  if (user) user.savings = 0;
+  $effect(() => {
+    if (user) user.savings = 0;
+  });
   let { host } = $derived($page.url);
 </script>
 

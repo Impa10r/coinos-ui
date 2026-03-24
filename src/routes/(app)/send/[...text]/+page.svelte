@@ -147,13 +147,20 @@
                 <p class="ml-1 text-lg break-words">{c.username}</p>
               </div>
               <div class="flex ml-auto gap-1">
-                <button onclick={(e) => pin(e, c)}>
+                <button
+                  aria-label={c.pinned ? "Unpin contact" : "Pin contact"}
+                  onclick={(e) => pin(e, c)}
+                >
                   <iconify-icon
                     icon={c.pinned ? "ph:push-pin-fill" : "ph:push-pin-bold"}
                     width={32}
                   ></iconify-icon>
                 </button>
-                <button class="ml-auto" onclick={(e) => trust(e, c)}>
+                <button
+                  class="ml-auto"
+                  aria-label={c.trusted ? "Untrust contact" : "Trust contact"}
+                  onclick={(e) => trust(e, c)}
+                >
                   <iconify-icon
                     icon={c.trusted ? "ph:star-fill" : "ph:star-bold"}
                     width={32}

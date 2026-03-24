@@ -1,5 +1,5 @@
 <script>
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import handler from "$lib/handler";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
@@ -15,8 +15,8 @@
   let { currency } = $derived(user);
   let loading = $state();
   let { id, balance, rate } = $derived(data);
-  let amount = $state(data.amount);
-  let locale = loc(user);
+  let amount = $state(untrack(() => data.amount));
+  let locale = $derived(loc(user));
 
   let submit = $state();
   let submitting = $state();

@@ -30,12 +30,11 @@
         class="contents"
         aria-label="Settings"
       >
-        <button class="flex gap-1 mb-auto pb-4 pl-4 ml-auto">
-          <iconify-icon
-            noobserver
-            icon="ph:gear-bold"
-            width="32"
-            aria-label="Settings"
+        <button
+          class="flex gap-1 mb-auto pb-4 pl-4 ml-auto"
+          aria-label="Settings"
+        >
+          <iconify-icon noobserver icon="ph:gear-bold" width="32"
           ></iconify-icon>
         </button>
       </a>

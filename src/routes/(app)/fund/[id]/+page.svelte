@@ -8,6 +8,7 @@
   import { toast } from "@zerodevx/svelte-toast";
   import { t } from "$lib/translations";
   import { types, copy, f, s, sat, sats, loc } from "$lib/utils";
+  import { untrack } from "svelte";
   import { loginRedirect } from "$lib/store";
   import { bech32 } from "@scure/base";
   const encoder = new TextEncoder();
@@ -16,9 +17,9 @@
 
   let { amount, payments, managers, rate, user } = $derived(data);
   let { id } = $page.params;
-  let locale = loc(user);
+  let locale = $derived(loc(user));
 
-  let currency = user ? user.currency : "CAD";
+  let currency = $derived(user ? user.currency : "CAD");
 
   let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
   $effect(() => ($loginRedirect = $page.url.pathname));

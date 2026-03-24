@@ -7,8 +7,9 @@
 
   let show = $state();
   let { id, user, rate, balance } = $props();
-  let { currency, locked } = $derived(user);
-  let locale = loc(user);
+  let currency = $derived(user.currency);
+  let locked = $derived(user.locked);
+  let locale = $derived(loc(user));
   let toggleShow = (e) => {
     e.preventDefault();
     e.stopPropagation();

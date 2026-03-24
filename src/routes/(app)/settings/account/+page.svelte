@@ -2,7 +2,7 @@
   import { run } from "svelte/legacy";
   import { theme } from "$lib/store";
 
-  import { onMount, tick } from "svelte";
+  import { onMount, tick, untrack } from "svelte";
   import { browser } from "$app/environment";
   import Numpad from "$comp/Numpad.svelte";
   import LocaleSelector from "$comp/LocaleSelector.svelte";
@@ -13,15 +13,15 @@
   import { PUBLIC_VAPID_PUBKEY } from "$env/static/public";
 
   let { data } = $props();
-  let { user } = $derived(data);
+  let user = $state(untrack(() => data.user));
   let { connect, rates, subscriptions } = $derived(data);
-  let currency = $state(user.currency);
-  let email = $state(user.email);
-  let tip = $state(user.tip);
-  let verified = $state(user.verified);
-  let rate = rates[currency];
+  let currency = $state(untrack(() => data.user?.currency));
+  let email = $state(untrack(() => data.user?.email));
+  let tip = $state(untrack(() => data.user?.tip));
+  let verified = $state(untrack(() => data.user?.verified));
+  let rate = $state(untrack(() => data.rates?.[data.user?.currency]));
 
-  let fiats = Object.keys(rates).sort((a, b) => a.localeCompare(b));
+  let fiats = $derived(Object.keys(rates).sort((a, b) => a.localeCompare(b)));
   let keypress = (e) => e.key === "Enter" && (e.preventDefault() || el.click());
 
   let editingReserve = $state(),
@@ -45,8 +45,8 @@
     thresholdEl.focus();
   };
 
-  if (!user.threshold) user.threshold = 1000000;
-  if (!user.reserve) user.reserve = 100000;
+  if (user && !user.threshold) user.threshold = 1000000;
+  if (user && !user.reserve) user.reserve = 100000;
   let reserveEl = $state(),
     thresholdEl = $state();
 

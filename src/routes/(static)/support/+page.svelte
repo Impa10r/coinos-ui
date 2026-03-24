@@ -3,7 +3,7 @@
   import { t } from "$lib/translations";
 
   let { data } = $props();
-  let { user } = data;
+  let { user } = $derived(data);
 </script>
 
 <div class="container max-w-lg mx-auto space-y-8 p-4 pb-20">

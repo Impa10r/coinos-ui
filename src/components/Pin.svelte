@@ -50,7 +50,9 @@
   <div
     role="dialog"
     class="fixed bg-base-100 bg-opacity-90 inset-0 h-full w-full z-50 cursor-default"
+    tabindex="0"
     on:click|preventDefault
+    on:keydown|preventDefault
     aria-labelledby="title"
   >
     <div

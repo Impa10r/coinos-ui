@@ -37,7 +37,7 @@
   } = $derived(data);
 
   let { currency, npub, username: n, display } = $derived(subject);
-  let locale = loc(user);
+  let locale = $derived(loc(user));
 
   let list = $state([]);
   let follow = async () => {
@@ -131,12 +131,20 @@
     <div
       class="flex text-3xl font-bold text-center mx-auto justify-center gap-1 items-center"
     >
-      <button class="flex gap-1 items-center" onclick={toggleDetails}>
+      <button
+        class="flex gap-1 items-center"
+        aria-label="Toggle details"
+        onclick={toggleDetails}
+      >
         <div class="break-words">{display || username}</div>
         <iconify-icon noobserver icon="ph:list-bold" width="32"></iconify-icon>
       </button>
       {#if subject.id === user?.id}
-        <a href="/settings/profile" class="btn contents">
+        <a
+          href="/settings/profile"
+          class="btn contents"
+          aria-label="Edit profile"
+        >
           <iconify-icon noobserver icon="ph:pencil-bold" width="32"
           ></iconify-icon>
         </a>
@@ -150,6 +158,8 @@
       <div
         class="text-secondary mx-auto text-center lg:mx-0 break-words space-y-1"
         class:line-clamp-2={!showBio}
+        role="button"
+        tabindex="0"
         onclick={toggleBio}
         onkeydown={toggleBio}
       >
@@ -194,11 +204,18 @@
                 {lnaddr}
               </div>
               <div class="flex mb-auto gap-1">
-                <button class="my-auto" onclick={() => copy(lnaddr)}
+                <button
+                  class="my-auto"
+                  aria-label="Copy lightning address"
+                  onclick={() => copy(lnaddr)}
                   ><iconify-icon noobserver icon="ph:copy-bold" width="32"
                   ></iconify-icon></button
                 >
-                <a href={`/qr/${encodeURIComponent(lnaddr)}`} class="my-auto">
+                <a
+                  href={`/qr/${encodeURIComponent(lnaddr)}`}
+                  class="my-auto"
+                  aria-label="QR code for lightning address"
+                >
                   <iconify-icon noobserver icon="ph:qr-code-bold" width="32"
                   ></iconify-icon>
                 </a>
@@ -213,7 +230,10 @@
               {profile}
             </div>
             <div class="flex mb-auto gap-1">
-              <button class="my-auto" onclick={() => copy(profile)}
+              <button
+                class="my-auto"
+                aria-label="Copy profile URL"
+                onclick={() => copy(profile)}
                 ><iconify-icon noobserver icon="ph:copy-bold" width="32"
                 ></iconify-icon></button
               >
@@ -222,6 +242,7 @@
                   `${$page.url.protocol}//${profile}`,
                 )}`}
                 class="my-auto"
+                aria-label="QR code for profile URL"
               >
                 <iconify-icon noobserver icon="ph:qr-code-bold" width="32"
                 ></iconify-icon>
@@ -236,13 +257,17 @@
               {lnurl}
             </div>
             <div class="flex mb-auto gap-1">
-              <button class="my-auto" onclick={() => copy(`lightning:${lnurl}`)}
+              <button
+                class="my-auto"
+                aria-label="Copy LNURL"
+                onclick={() => copy(`lightning:${lnurl}`)}
                 ><iconify-icon noobserver icon="ph:copy-bold" width="32"
                 ></iconify-icon></button
               >
               <a
                 href={`/${n}/accepted/${encodeURIComponent(`lightning:${lnurl}`)}`}
                 class="my-auto"
+                aria-label="QR code for LNURL"
               >
                 <iconify-icon noobserver icon="ph:qr-code-bold" width="32"
                 ></iconify-icon>
@@ -306,6 +331,7 @@
           <input placeholder="Password reset" bind:value={password} />
           <button
             type="submit"
+            aria-label="Reset password"
             class="rounded-2xl border py-5 px-6 font-bold hover:opacity-80 flex w-60"
           >
             <div class="mx-auto flex">

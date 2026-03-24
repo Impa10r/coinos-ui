@@ -1,5 +1,5 @@
 <script>
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import { t } from "$lib/translations";
   import { goto, invalidateAll } from "$app/navigation";
   import { enhance } from "$app/forms";
@@ -15,7 +15,8 @@
   let locale = $derived(loc(subject));
   let next = $state();
 
-  let amount = $state(form?.amount || data.amount);
+  let initialAmount = untrack(() => form?.amount || data.amount);
+  let amount = $state(initialAmount);
   let fiat = $state(!initialAmount);
   let formElement = $state();
 

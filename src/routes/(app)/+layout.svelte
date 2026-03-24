@@ -27,7 +27,7 @@
   let { data, children } = $props();
 
   let { user, subject, token } = $derived(data);
-  let { theme } = $state(data);
+  let theme = $state();
 
   $effect(() => ($themeStore = theme));
   $effect(() => (theme = $themeStore));

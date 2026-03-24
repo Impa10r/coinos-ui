@@ -1,12 +1,13 @@
 <script>
   import { focus, fail, post } from "$lib/utils";
+  import { untrack } from "svelte";
   import { enhance } from "$app/forms";
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
 
   let { data } = $props();
   let { id, managers } = $derived(data);
-  let m = $state(data.managers);
+  let m = $state(untrack(() => data.managers));
   $effect(() => (m = data.managers));
   let username = $state();
   let del = async (e, user) => {
@@ -37,7 +38,11 @@
             <div class="my-auto text-left">
               <p class="ml-1 text-lg break-words">{c.username}</p>
             </div>
-            <button onclick={(e) => del(e, c)} class="ml-auto">
+            <button
+              onclick={(e) => del(e, c)}
+              class="ml-auto"
+              aria-label="Remove manager"
+            >
               <iconify-icon icon="ph:trash-bold" width="32"></iconify-icon>
             </button>
           </div>

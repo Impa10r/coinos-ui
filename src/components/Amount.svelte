@@ -20,7 +20,13 @@
       class="text-2xl md:text-3xl font-semibold flex items-end cursor-copy"
       class:justify-center={align !== "left"}
     >
-      <div class="flex items-center" onclick={() => copy(amount)}>
+      <div
+        class="flex items-center"
+        role="button"
+        tabindex="0"
+        onclick={() => copy(amount)}
+        onkeydown={(e) => e.key === "Enter" && copy(amount)}
+      >
         <iconify-icon noobserver {icon} class="text-yellow-300"
         ></iconify-icon>{s(amount, locale)}
       </div>
@@ -34,10 +40,14 @@
         </div>
       {/if}
     </h2>
-    <h3
+    <div
       class="flex text-secondary md:text-lg cursor-copy items-center gap-1"
       class:justify-center={align !== "left"}
+      role="button"
+      tabindex="0"
       onclick={() => copy(toFiat(amount, rate).toFixed(2))}
+      onkeydown={(e) =>
+        e.key === "Enter" && copy(toFiat(amount, rate).toFixed(2))}
     >
       {f(toFiat(amount, rate), currency, locale)}
       {#if tip}
@@ -45,6 +55,6 @@
           +{f(toFiat(tip, rate), currency, locale)}
         </span>
       {/if}
-    </h3>
+    </div>
   </div>
 {/if}

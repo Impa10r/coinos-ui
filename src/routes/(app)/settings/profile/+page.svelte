@@ -1,5 +1,5 @@
 <script>
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import { avatar, banner as bannerStore } from "$lib/store";
   import { t } from "$lib/translations";
   import { page } from "$app/stores";
@@ -8,11 +8,11 @@
   let { data } = $props();
   let { user } = $derived(data);
   let id = $derived(user.id);
-  let about = $state(user.about);
-  let banner = $state(user.banner);
-  let picture = $state(user.picture);
-  let display = $state(user.display);
-  let username = $state(user.username);
+  let about = $state(untrack(() => user.about));
+  let banner = $derived(user.banner);
+  let picture = $derived(user.picture);
+  let display = $state(untrack(() => user.display));
+  let username = $state(untrack(() => user.username));
 
   let avatarFile,
     avatarInput = $state(),

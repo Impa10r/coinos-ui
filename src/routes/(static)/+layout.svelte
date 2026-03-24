@@ -8,8 +8,8 @@
   import { theme as themeStore } from "$lib/store";
 
   let { data, children } = $props();
-  let { theme } = $state(data);
   let { user } = $derived(data);
+  let theme = $state();
   run(() => {
     theme = $themeStore;
   });

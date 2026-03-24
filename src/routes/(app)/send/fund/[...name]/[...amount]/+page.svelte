@@ -7,16 +7,17 @@
   import { pin } from "$lib/store";
   import handler from "$lib/handler";
   import { loc, s } from "$lib/utils";
+  import { untrack } from "svelte";
   import { applyAction, deserialize } from "$app/forms";
 
   let { data, form } = $props();
-  let amount = $state(data.amount);
+  let amount = $state(untrack(() => data.amount));
   let user = $derived(data.user);
   let { balance, currency } = $derived(user);
   let { name, rate } = $derived(data);
   let loading = $state();
   let fiat = $state();
-  let locale = loc(user);
+  let locale = $derived(loc(user));
 
   let submit = $state();
   let submitting = $state();

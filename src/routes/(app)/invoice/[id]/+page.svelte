@@ -14,7 +14,7 @@
     s,
     sats,
   } from "$lib/utils";
-  import { tick, onMount, onDestroy } from "svelte";
+  import { tick, onMount, onDestroy, untrack } from "svelte";
   import { browser } from "$app/environment";
   import { last, showQr, amountPrompt } from "$lib/store";
   import Avatar from "$comp/Avatar.svelte";
@@ -37,12 +37,13 @@
 
   let readingerror = (e) => console.log("nfc error", e);
 
-  let { id, subject, user } = $state(data);
+  let { subject, user } = $derived(data);
+  let id = $state(untrack(() => data.id));
   let { invoice, src } = $derived(data);
   let { aid, amount, rate, tip, hash, text, type } = $derived(invoice);
-  let { memo } = $state(invoice);
+  let memo = $state(untrack(() => invoice.memo));
   let { username, currency } = $derived(invoice.user);
-  let locale = loc(user);
+  let locale = $derived(loc(user));
 
   let tipPercent = $derived(tip ? (tip / amount) * 100 : 0);
 

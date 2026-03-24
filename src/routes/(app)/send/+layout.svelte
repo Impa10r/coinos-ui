@@ -5,7 +5,7 @@
 
   let { data, children } = $props();
 
-  let { user } = data;
+  let { user } = $derived(data);
   let cancel = () => goto(`/${user.username}`);
 </script>
 

@@ -16,7 +16,10 @@
       class="grid grid-cols-12 border-b border-base-200 hover:bg-base-200 px-1 py-2 lg:p-4 cursor-pointer"
       class:border-b-0={i === payments.length - 1}
       class:text-error={amount < 0}
+      role="button"
+      tabindex="0"
       onclick={() => goto(`/payment/${p.id}`)}
+      onkeydown={(e) => e.key === "Enter" && goto(`/payment/${p.id}`)}
     >
       <div class="whitespace-nowrap my-auto col-span-3">
         <div class="font-bold flex items-center">
@@ -86,7 +89,7 @@
                 class="text-yellow-300 text-3xl"
               ></iconify-icon>
             {:else if p.type === types.ecash}
-              <img src="/images/cash.png" class="w-12" />
+              <img src="/images/cash.png" class="w-12" alt="Ecash" />
             {:else if p.type === types.reconcile}
               <iconify-icon noobserver icon="ph:scales-bold" width="32"
               ></iconify-icon>

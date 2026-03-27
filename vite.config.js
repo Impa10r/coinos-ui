@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      allowedHosts: env.PUBLIC_DOMAIN ? [env.PUBLIC_DOMAIN] : [],
+      allowedHosts: [env.PUBLIC_DOMAIN, env.PUBLIC_DOMAIN_TOR].filter(Boolean),
       proxy:
         process.env.NODE_ENV === "development"
           ? {

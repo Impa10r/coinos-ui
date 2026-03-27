@@ -6,7 +6,7 @@
   import { upload } from "$lib/upload";
   import { afterNavigate, invalidateAll } from "$app/navigation";
   import { applyAction, deserialize } from "$app/forms";
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import { fly } from "svelte/transition";
   import { enhance } from "$app/forms";
 
@@ -54,7 +54,7 @@
   });
 
   let username = $state();
-  let index = $state(data.index);
+  let index = $state(untrack(() => data.index));
   let revealPassword = $state(false);
 
   let cleared;

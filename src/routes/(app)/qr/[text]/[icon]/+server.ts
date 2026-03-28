@@ -3,6 +3,11 @@ import QRCode from "qrcode";
 
 export async function GET({ params }) {
   const { icon, text } = params;
+
+  if (!/^[\w-]+\.(png|jpg|jpeg|svg|webp)$/.test(icon)) {
+    return new Response("Invalid icon", { status: 400 });
+  }
+
   const size = 600;
 
   const canvas = createCanvas(size, size);

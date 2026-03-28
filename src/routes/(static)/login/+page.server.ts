@@ -2,6 +2,9 @@ import { PUBLIC_COINOS_URL } from "$env/static/public";
 import { fd, get, login } from "$lib/utils";
 import { fail, redirect } from "@sveltejs/kit";
 
+const safeRedirect = (url: string | undefined) =>
+  url && /^\/(?!\/)/.test(url) ? url : undefined;
+
 export const load = async ({ parent }) => {
   const { user } = await parent();
   if (user?.pubkey) redirect(307, `/${user.username}`);
@@ -23,6 +26,7 @@ export const actions = {
     };
 
     if (loginRedirect === "undefined") loginRedirect = undefined;
+    loginRedirect = safeRedirect(loginRedirect);
 
     try {
       await login(
@@ -43,6 +47,7 @@ export const actions = {
     const form = await fd(request);
     let { challenge, event, loginRedirect, recaptcha } = form;
     if (loginRedirect === "null") loginRedirect = undefined;
+    loginRedirect = safeRedirect(loginRedirect);
     event = JSON.parse(event);
 
     const maxAge = 380 * 24 * 60 * 60;

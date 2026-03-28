@@ -32,7 +32,8 @@
     {/if}
 
     <button type="button" class="btn" onclick={generate}>
-      <iconify-icon noobserver icon="ph:dice-three-bold" width="32"></iconify-icon>
+      <iconify-icon noobserver icon="ph:dice-three-bold" width="32"
+      ></iconify-icon>
       <div class="my-auto">{$t("accounts.regenerate")}</div>
     </button>
 

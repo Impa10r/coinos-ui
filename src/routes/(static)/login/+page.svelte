@@ -34,7 +34,8 @@
 
   onMount(() => {
     let lang = $page.url.searchParams.get("lang");
-    if (lang) document.cookie = `lang=${lang} ;`;
+    if (lang && /^[a-z]{2}(-[A-Z]{2})?$/.test(lang))
+      document.cookie = `lang=${lang} ;`;
   });
 
   let { challenge } = $derived(data);

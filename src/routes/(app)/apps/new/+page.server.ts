@@ -14,11 +14,21 @@ export const load = async ({ parent, url }) => {
   let max_amount = url.searchParams.get("max_amount");
   max_amount = max_amount ? Math.round(Number(max_amount) / 1000) : undefined;
 
+  const rawPubkey = url.searchParams.get("pubkey") || "";
+  const pubkey = /^[0-9a-f]{64}$/.test(rawPubkey) ? rawPubkey : undefined;
+
+  const validRenewals = ["daily", "weekly", "monthly", "yearly", "never"];
+  const budget_renewal = validRenewals.includes(
+    url.searchParams.get("budget_renewal") || "",
+  )
+    ? url.searchParams.get("budget_renewal")
+    : undefined;
+
   const app = {
-    name: url.searchParams.get("name"),
-    pubkey: url.searchParams.get("pubkey"),
+    name: (url.searchParams.get("name") || "").slice(0, 200),
+    pubkey,
     max_amount,
-    budget_renewal: url.searchParams.get("budget_renewal"),
+    budget_renewal,
   };
 
   const rates = await getRates();

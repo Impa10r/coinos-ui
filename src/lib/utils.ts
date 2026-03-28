@@ -209,7 +209,7 @@ export const login = async (
     try {
       cookies.set("sk", bytesToHex(decrypt(u.nsec, user.password)), {
         ...opts,
-        httpOnly: false,
+        httpOnly: true,
         sameSite: "lax",
       });
     } catch (e) {}

@@ -7,7 +7,11 @@ const config = {
   kit: {
     adapter: adapter(),
     csrf: {
-      trustedOrigins: ["*"],
+      trustedOrigins: [
+        process.env.PUBLIC_DOMAIN,
+        process.env.PUBLIC_DOMAIN_TOR,
+        process.env.PUBLIC_DOMAIN_EXTRA,
+      ].filter(Boolean),
     },
     prerender: {
       crawl: false,

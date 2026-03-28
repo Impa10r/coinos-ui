@@ -178,7 +178,7 @@
       use:focus
       contenteditable
       class="grow break-all py-4 outline-none mt-0 pl-4"
-      bind:innerHTML={message}
+      oninput={(e) => (message = e.target.innerText)}
       onkeydown={keydown}
     ></div>
     <button type="submit" class="my-auto shrink-0">

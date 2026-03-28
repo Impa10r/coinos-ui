@@ -11,7 +11,14 @@
   let { data, form } = $props();
 
   let { currency, username } = $derived(data.user);
-  let { defaultDescription, minWithdrawable, maxWithdrawable, k1, callback, rate } = $derived(data);
+  let {
+    defaultDescription,
+    minWithdrawable,
+    maxWithdrawable,
+    k1,
+    callback,
+    rate,
+  } = $derived(data);
 
   let amount = $state(Math.round(minWithdrawable / 1000));
   let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));

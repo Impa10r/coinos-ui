@@ -65,13 +65,6 @@ export const decrypt = async ({ event, user }) => {
 
 export const getPrivateKey = async (user: User): Promise<Uint8Array> => {
   let k;
-  if (browser) {
-    k = localStorage.getItem("nsec");
-    if (k) {
-      return nip19.decode(k).data as unknown as Uint8Array;
-    }
-  }
-
   const { nsec } = user;
 
   if (nsec) {
@@ -80,7 +73,6 @@ export const getPrivateKey = async (user: User): Promise<Uint8Array> => {
     throw new Error("nsec not available");
   }
 
-  localStorage.setItem("nsec", nip19.nsecEncode(k));
   return k;
 };
 

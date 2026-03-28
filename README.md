@@ -18,4 +18,4 @@ You'll need to run [`coinos-server`](https://github.com/coinos/coinos-server) as
 
 # Docs
 
-Checkout the API documentation at: http://localhost:5173/docs
+Checkout the API documentation at: [`/docs`](/docs).

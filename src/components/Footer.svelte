@@ -2,7 +2,11 @@
   import DarkToggle from "$comp/DarkToggle.svelte";
   import LocaleSelector from "$comp/LocaleSelector.svelte";
   import { t } from "$lib/translations";
-  import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
+  import {
+    PUBLIC_DOMAIN_TOR,
+    PUBLIC_SIMPLEX_URL,
+    PUBLIC_TELEGRAM_URL,
+  } from "$env/static/public";
 
   const followLinks = [
     {
@@ -15,7 +19,10 @@
 
   const companyLinks = [
     { url: "/docs", titleID: "documentation" },
-    { url: "/#about", titleID: "about" },
+    { url: "https://github.com/coinos", titleID: "github" },
+    ...(PUBLIC_DOMAIN_TOR
+      ? [{ url: `http://${PUBLIC_DOMAIN_TOR}`, titleID: "onion" }]
+      : []),
   ];
 </script>
 
@@ -66,8 +73,11 @@
     <ul class="mt-5 text-secondary space-y-3">
       {#each companyLinks as link}
         <li>
-          <a href={link.url} class="hover:opacity-80"
-            >{$t("footer." + link.titleID)}</a
+          <a
+            href={link.url}
+            target={link.url.startsWith("http") ? "_blank" : undefined}
+            rel={link.url.startsWith("http") ? "noreferrer" : undefined}
+            class="hover:opacity-80">{$t("footer." + link.titleID)}</a
           >
         </li>
       {/each}

@@ -9,7 +9,7 @@
   import { wordlist } from "@scure/bip39/wordlists/english.js";
 
   let { data } = $props();
-  let { user } = data;
+  let { user } = $derived(data);
 
   onMount(async () => {
     if (!browser) return;
@@ -32,12 +32,12 @@
     {/if}
 
     <button type="button" class="btn" onclick={generate}>
-      <iconify-icon noobserver icon="ph:dice-three-bold" width="32" />
+      <iconify-icon noobserver icon="ph:dice-three-bold" width="32"></iconify-icon>
       <div class="my-auto">{$t("accounts.regenerate")}</div>
     </button>
 
     <button type="button" class="btn" onclick={() => copy($mnemonic)}>
-      <iconify-icon noobserver icon="ph:copy-bold" width="32" />
+      <iconify-icon noobserver icon="ph:copy-bold" width="32"></iconify-icon>
       <div class="my-auto">
         {$t("payments.copy")}
       </div>

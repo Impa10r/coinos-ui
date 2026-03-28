@@ -31,7 +31,7 @@
   let { address, hash, payreq, user: recipient, tip } = $derived(invoice);
   let { currency } = $derived(user);
   let locale = $derived(loc(user));
-  let amount = $state((form || invoice).amount);
+  let amount = $state(untrack(() => (form || invoice).amount));
 
   let rate = $derived(invoice.rate * (data.rate / data.invoiceRate));
 

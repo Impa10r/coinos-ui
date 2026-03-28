@@ -1,5 +1,6 @@
 import { ipStore } from "$lib/server/ip";
 import { setIpGetter } from "$lib/utils";
+import { PUBLIC_DOMAIN_TOR } from "$env/static/public";
 import type { Handle } from "@sveltejs/kit";
 
 setIpGetter(() => ipStore.getStore());
@@ -10,5 +11,14 @@ export const handle: Handle = async ({ event, resolve }) => {
     event.request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     event.getClientAddress();
 
-  return ipStore.run(ip, () => resolve(event));
+  const response = await ipStore.run(ip, () => resolve(event));
+
+  if (PUBLIC_DOMAIN_TOR) {
+    response.headers.set(
+      "Onion-Location",
+      `http://${PUBLIC_DOMAIN_TOR}${event.url.pathname}${event.url.search}`,
+    );
+  }
+
+  return response;
 };

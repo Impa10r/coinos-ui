@@ -15,12 +15,19 @@ export const actions = {
   default: async ({ cookies, request }) => {
     const ip = request.headers.get("cf-connecting-ip");
     const host = request.headers.get("host");
+    const isTor = host?.endsWith(".onion");
     const form = await fd(request);
     const { picture, username, password, challenge, recaptcha } = form;
     let { loginRedirect } = form;
     if (loginRedirect === "undefined") loginRedirect = undefined;
 
-    const user = { picture, username, password, challenge, recaptcha };
+    const user = {
+      picture,
+      username,
+      password,
+      challenge,
+      recaptcha: isTor ? undefined : recaptcha,
+    };
     return register(user, ip, cookies, loginRedirect, host);
   },
 };

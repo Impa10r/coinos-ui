@@ -33,7 +33,7 @@
   let isTor = browser && location.hostname.endsWith(".onion");
 
   onMount(() => {
-    if (recaptchaSiteKey) {
+    if (!isTor && recaptchaSiteKey) {
       let s = document.createElement("script");
       s.src =
         "https://www.google.com/recaptcha/api.js?render=" + recaptchaSiteKey;
@@ -107,9 +107,9 @@
   let loading = $state();
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
-      if (!recaptchaSiteKey) return resolve("");
+      if (isTor || !recaptchaSiteKey) return resolve("");
       if (!browser || typeof grecaptcha === "undefined")
-        return reject(new Error("captcha unavailable"));
+        return resolve("");
       grecaptcha.ready(() => {
         grecaptcha
           .execute(recaptchaSiteKey, { action: "register" })

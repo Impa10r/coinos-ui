@@ -513,6 +513,7 @@ export const register = async (
     ...extraHeaders,
   };
   if (ip) headers["cf-connecting-ip"] = ip;
+  if (host) headers["x-forwarded-host"] = host;
 
   let sk;
   try {

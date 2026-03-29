@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { avatar, banner } from "$lib/store";
-  import { punk } from "$lib/utils";
+  import { avatar } from "$lib/store";
+  import punks from "$lib/punks";
 
   interface Props {
     user: any;
@@ -19,11 +19,15 @@
   let profile = $derived(
     user?.profile ? `${base}/${user.profile}.webp` : user?.picture,
   );
-  let fallback = $derived(
-    `${base}/punks/` + punk(user?.pubkey || user?.id || "aa"),
-  );
+  let fallback = $derived.by(() => {
+    const k = user?.pubkey || user?.id || "aa";
+    const index = Math.floor((parseInt(k.slice(-2), 16) / 256) * 64);
+    return `${base}/${punks[index]}.webp`;
+  });
   let tmp = $derived($avatar?.id && $avatar.id === user?.id && $avatar.src);
-  let src = $derived(tmp || profile || fallback);
+  let errored = $state(false);
+  let src = $derived(errored ? fallback : (tmp || profile || fallback));
+  $effect(() => { void profile; errored = false; });
 </script>
 
 {#snippet body()}
@@ -32,6 +36,7 @@
   >
     <img
       {src}
+      onerror={() => (errored = true)}
       class="w-full h-full object-cover object-center overflow-hidden"
       alt={user?.username}
     />

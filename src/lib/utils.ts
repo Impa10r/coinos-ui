@@ -32,8 +32,7 @@ const ipHeaders = (): Record<string, string> => {
   return ip ? { "cf-connecting-ip": ip } : {};
 };
 
-export const punk = (k: string) =>
-  `${Math.floor((parseInt(k.slice(-2), 16) / 256) * 64) + 1}.webp`;
+
 
 export const g = (url: string, fetch: any, headers: object) =>
   fetch(base + url, { headers: { ...ipHeaders(), ...headers } })

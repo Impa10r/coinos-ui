@@ -105,7 +105,7 @@
   let lnaddr = $derived(
     subject?.anon
       ? subject.lud16 || undefined
-      : `${stripped}@${$page.url.host}`,
+      : `${stripped}@${PUBLIC_DOMAIN}`,
   );
   let profile = $derived(`${$page.url.host}/${subject.anon ? npub : stripped}`);
   let lnurl = $derived(

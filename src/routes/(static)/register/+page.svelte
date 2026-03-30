@@ -108,8 +108,7 @@
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor || !recaptchaSiteKey) return resolve("");
-      if (!browser || typeof grecaptcha === "undefined")
-        return resolve("");
+      if (!browser || typeof grecaptcha === "undefined") return resolve("");
       grecaptcha.ready(() => {
         grecaptcha
           .execute(recaptchaSiteKey, { action: "register" })

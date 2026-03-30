@@ -32,8 +32,6 @@ const ipHeaders = (): Record<string, string> => {
   return ip ? { "cf-connecting-ip": ip } : {};
 };
 
-
-
 export const g = (url: string, fetch: any, headers: object) =>
   fetch(base + url, { headers: { ...ipHeaders(), ...headers } })
     .then((r: Response) => r.text())

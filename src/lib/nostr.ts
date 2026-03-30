@@ -1,5 +1,4 @@
 import { Buffer } from "buffer";
-import { browser } from "$app/environment";
 import {
   decrypted,
   eventToSign,

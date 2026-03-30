@@ -26,8 +26,11 @@
   });
   let tmp = $derived($avatar?.id && $avatar.id === user?.id && $avatar.src);
   let errored = $state(false);
-  let src = $derived(errored ? fallback : (tmp || profile || fallback));
-  $effect(() => { void profile; errored = false; });
+  let src = $derived(errored ? fallback : tmp || profile || fallback);
+  $effect(() => {
+    void profile;
+    errored = false;
+  });
 </script>
 
 {#snippet body()}

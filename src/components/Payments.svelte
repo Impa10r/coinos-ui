@@ -114,7 +114,9 @@
                   ? p.confirmed
                     ? $t("payments.received")
                     : $t("payments.pending")
-                  : $t("payments.sent")}
+                  : p.type === types.bitcoin && !p.confirmed
+                    ? $t("payments.pending")
+                    : $t("payments.sent")}
               {/if}
             </div>
           </div>

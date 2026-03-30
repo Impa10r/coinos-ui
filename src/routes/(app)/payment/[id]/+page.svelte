@@ -57,11 +57,18 @@
     success("Printing!");
   };
 
+  let bumping = $state(false);
   let bump = async () => {
+    bumping = true;
     try {
-      await post(`/payment/${id}/bump`, { id });
+      const { txid, fee } = await post(`/payment/${id}/bump`, { id });
+      success(`Bumped! New txid: ${txid}`);
+      p.hash = txid;
+      p.fee = fee;
     } catch (e) {
       fail(e.message);
+    } finally {
+      bumping = false;
     }
   };
 
@@ -97,7 +104,9 @@
 
 <div class="container mx-auto max-w-lg px-4 space-y-8 break-all text-2xl">
   <h1 class="px-3 md:px-0 text-center text-3xl md:text-4xl font-semibold mb-10">
-    {$t(amount < 0 ? "payments.sent" : "payments.received")}
+    {type === "bitcoin" && !confirmed
+      ? $t("payments.pending")
+      : $t(amount < 0 ? "payments.sent" : "payments.received")}
   </h1>
 
   {#if p.with}
@@ -197,6 +206,12 @@
       <span class="text-lg text-secondary">{$t("payments.preimage")}</span>
       <div>{ref}</div>
     </div>
+  {/if}
+
+  {#if type === "bitcoin" && amount < 0 && !confirmed}
+    <button onclick={bump} disabled={bumping} class="btn btn-warning w-full">
+      {bumping ? "Bumping..." : "Bump Fee"}
+    </button>
   {/if}
 
   {#if type === "bitcoin" || type === "liquid"}

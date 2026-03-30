@@ -84,7 +84,7 @@
   let { feeRate } = $state(data);
 
   $effect(() => {
-    delete fees.minimumFee;
+    fees.fastestFee = Math.ceil(fees.fastestFee);
     feeRate = feeRate
       ? closest(Object.values(fees), feeRate)
       : fees.halfHourFee;
@@ -103,6 +103,7 @@
     fastestFee: $t("payments.fastest"),
     halfHourFee: $t("payments.fast"),
     hourFee: $t("payments.medium"),
+    minimumFee: $t("payments.slow"),
   };
 
   let toggleSettings = () => (showSettings = !showSettings);

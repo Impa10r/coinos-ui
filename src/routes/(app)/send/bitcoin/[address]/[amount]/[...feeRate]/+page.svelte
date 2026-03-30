@@ -2,11 +2,9 @@
   import { tick } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
-  import Toggle from "$comp/Toggle.svelte";
   import Spinner from "$comp/Spinner.svelte";
   import WalletPass from "$comp/WalletPass.svelte";
-  import { page } from "$app/stores";
-  import { toFiat, f, focus, s, sat, closest, network } from "$lib/utils";
+  import { focus, closest, network } from "$lib/utils";
   import { pin } from "$lib/store";
   import { goto, invalidate } from "$app/navigation";
   import { rate } from "$lib/store";
@@ -22,7 +20,7 @@
 
   let { data, form } = $props();
 
-  let { encode, decode } = hexUtil;
+  let { decode } = hexUtil;
   let passwordPrompt = $state();
   let password = $state();
   let cancel = $state(() => (passwordPrompt = false));
@@ -50,7 +48,7 @@
 
     let tx = btc.Transaction.fromRaw(decode(hex));
 
-    for (let [i, input] of tx.inputs.entries()) {
+    for (let [i] of tx.inputs.entries()) {
       let { witnessUtxo, path } = inputs[i];
       witnessUtxo.amount = BigInt(witnessUtxo.amount);
       witnessUtxo.script = decode(witnessUtxo.script);
@@ -66,8 +64,6 @@
     submit.click();
   };
 
-  let toggle = () => (submitting = !submitting);
-
   let {
     account,
     amount,
@@ -81,7 +77,7 @@
     inputs,
   } = $derived(data);
 
-  let { feeRate } = $state(data);
+  let feeRate = $state(data.feeRate);
 
   $effect(() => {
     fees.fastestFee = Math.ceil(fees.fastestFee);
@@ -94,22 +90,18 @@
     if (!$rate) $rate = data.rate;
   });
 
-  let { balance, currency } = data.user;
+  let { currency } = data.user;
   let submitting = $state(),
-    submit = $state(),
-    showSettings;
+    submit = $state();
 
   let feeNames = {
     fastestFee: $t("payments.fastest"),
     halfHourFee: $t("payments.fast"),
     hourFee: $t("payments.medium"),
-    minimumFee: $t("payments.slow"),
+    economyFee: $t("payments.slow"),
   };
 
-  let toggleSettings = () => (showSettings = !showSettings);
-
   let setFee = () => goto(`/send/bitcoin/${address}/${amount}/${feeRate}`);
-  let goBack = () => goto(`/send/bitcoin/${address}`);
 </script>
 
 <div
@@ -156,6 +148,9 @@
     <form method="POST" use:enhance={handler}>
       <input name="pin" value={$pin} type="hidden" />
       <input name="hex" value={hex} type="hidden" />
+      <input name="address" value={address} type="hidden" />
+      <input name="amount" value={amount} type="hidden" />
+      <input name="feeRate" value={feeRate} type="hidden" />
       <input name="rate" value={$rate} type="hidden" />
       <input name="aid" value={account.id} type="hidden" />
       <input name="signed" value={signed} type="hidden" />

@@ -23,6 +23,9 @@
 
   let { data } = $props();
   let { user, payment: p } = $state(untrack(() => data));
+  $effect(() => {
+    p = data.payment;
+  });
   let locale = user ? locales[user.language] : locales["en"];
   let userLocale = loc(user);
 

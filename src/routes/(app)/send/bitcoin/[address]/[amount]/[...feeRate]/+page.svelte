@@ -98,7 +98,7 @@
     fastestFee: $t("payments.fastest"),
     halfHourFee: $t("payments.fast"),
     hourFee: $t("payments.medium"),
-    economyFee: $t("payments.slow"),
+    minimumFee: $t("payments.slow"),
   };
 
   let setFee = () => goto(`/send/bitcoin/${address}/${amount}/${feeRate}`);

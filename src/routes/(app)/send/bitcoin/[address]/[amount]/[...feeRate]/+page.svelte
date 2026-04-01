@@ -77,7 +77,7 @@
     inputs,
   } = $derived(data);
 
-  let feeRate = $state(data.feeRate);
+  let feeRate = $state(data.feeRate ?? null);
 
   $effect(() => {
     fees.fastestFee = Math.ceil(fees.fastestFee);

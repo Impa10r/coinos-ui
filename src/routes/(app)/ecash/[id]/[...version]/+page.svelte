@@ -1,13 +1,13 @@
 <script>
   import { enhance } from "$app/forms";
-  import { copy, sats, f, s } from "$lib/utils";
+  import { copy } from "$lib/utils";
   import { t } from "$lib/translations";
   import { page } from "$app/stores";
 
   let { data, form } = $props();
 
   let link = $page.url.href;
-  let { id, total, token, external, spent } = $state(data);
+  let { id, total, token, external, spent } = $derived(data);
 
   let peanut = $derived(
     "🥜" +

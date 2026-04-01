@@ -1,7 +1,6 @@
 <script>
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
-  import { browser } from "$app/environment";
   import VirtualScroll from "svelte-virtual-scroll-list";
 
   let { data } = $props();
@@ -26,7 +25,6 @@
           >
             <div
               class="flex border-b last:border-b-0 py-4 text-2xl text-secondary"
-              :key={data.pubkey}
             >
               <div class="mb-auto mr-2">
                 <div class="md:hidden">

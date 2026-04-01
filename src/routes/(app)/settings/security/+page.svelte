@@ -1,55 +1,23 @@
 <script>
-  import { getContext } from "svelte";
   import { tick } from "svelte";
   import { t } from "$lib/translations";
   import Pin from "$comp/Pin.svelte";
   import Qr from "$comp/Qr.svelte";
-  import { copy, post, success, fail } from "$lib/utils";
+  import { post, success, fail } from "$lib/utils";
   import { save, pin as current } from "$lib/store";
-  import { invalidate } from "$app/navigation";
-  import { page } from "$app/stores";
 
   let { data } = $props();
   let { user } = $derived(data);
-  let id = $derived(user.id);
   let { haspin } = $derived(user);
 
   let confirming2fa = $state(),
     disabling2fa = $state(),
-    importing = $state(),
-    newNsec = $state(),
-    nsec = $state(),
     otp = $state(),
     pin = $state(""),
-    revealSeed,
-    revealNsec = $state(),
     token = $state(""),
     setting2fa = $state(),
     settingPin = $state(),
     verify = $state("");
-
-  let toggleImporting = () => {
-    revealNsec = false;
-    importing = !importing;
-  };
-
-  let toggleNsec = async () => {
-    try {
-      nsec = await getNsec(user);
-      revealNsec = !revealNsec;
-      importing = false;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  let toggleSeed = async () => {
-    try {
-      revealSeed = !revealSeed;
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   let checkPin = async () => {
     try {
@@ -57,7 +25,7 @@
         $current = pin;
         pin = "";
         verify = "";
-        $save.click();
+        /** @type {any} */ ($save).click();
         settingPin = false;
         verifying = false;
       } else {
@@ -85,7 +53,7 @@
       try {
         disablingPin = true;
         await tick();
-        $save.click();
+        /** @type {any} */ ($save).click();
       } catch (e) {
         console.log(e);
         fail("Failed to disable pin");
@@ -110,16 +78,17 @@
   let startDisabling2fa = () => (disabling2fa = true);
   let startConfirming2fa = () => (confirming2fa = true);
   let cancel = () => {
-    pin = null;
-    token = null;
+    pin = "";
+    token = "";
     verifying = false;
     settingPin = false;
     setting2fa = false;
     confirming2fa = false;
     disabling2fa = false;
+    return "";
   };
 
-  let enable2fa = async (twoFa) => {
+  let enable2fa = async () => {
     try {
       if (setting2fa && token.length === 6) {
         await post("/enable2fa", { token });
@@ -148,9 +117,15 @@
   };
   let verifying = $derived(pin?.length > 5);
 
-  $effect(() => verify && checkPin(pin));
-  $effect(() => setting2fa && enable2fa(token));
-  $effect(() => disabling2fa && disable2fa(token));
+  $effect(() => {
+    if (verify) void checkPin();
+  });
+  $effect(() => {
+    if (setting2fa) void enable2fa();
+  });
+  $effect(() => {
+    if (disabling2fa) void disable2fa();
+  });
 </script>
 
 <input type="hidden" name="newpin" value={disablingPin ? "delete" : pin} />
@@ -222,13 +197,7 @@
   {/if}
 
   {#if confirming2fa || disabling2fa}
-    <Pin
-      bind:value={token}
-      title="Enter 2FA Code"
-      {cancel}
-      persist={false}
-      notify={false}
-    />
+    <Pin bind:value={token} title="Enter 2FA Code" {cancel} notify={false} />
   {/if}
 </div>
 

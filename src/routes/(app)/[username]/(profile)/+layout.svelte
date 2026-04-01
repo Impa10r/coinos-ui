@@ -1,21 +1,6 @@
 <script>
-  import { invalidate } from "$app/navigation";
-  import { browser } from "$app/environment";
-  import { hexToUint8Array } from "uint8array-extras";
-  import {
-    copy,
-    f,
-    loc,
-    get,
-    post,
-    s,
-    sats,
-    success,
-    fail,
-    si,
-  } from "$lib/utils";
+  import { copy, f, loc, post, s, sats, success, fail } from "$lib/utils";
   import { t } from "$lib/translations";
-  import { sign, send } from "$lib/nostr";
   import { bech32 } from "@scure/base";
   import { page } from "$app/stores";
   import { PUBLIC_DOMAIN } from "$env/static/public";
@@ -24,63 +9,10 @@
 
   let { encode, toWords } = bech32;
 
-  let {
-    events,
-    rate,
-    user,
-    subject,
-    src,
-    text,
-    follows,
-    followers,
-    followList,
-  } = $derived(data);
+  let { rate, user, subject } = $derived(data);
 
   let { currency, npub, username: n, display } = $derived(subject);
   let locale = $derived(loc(user));
-
-  let list = $state([]);
-  let follow = async () => {
-    list = [...list, subject.pubkey];
-    let pubkeys = await get(
-      `/api/${user.pubkey}/follows?pubkeysOnly=true&nocache=true`,
-    );
-    pubkeys.push(subject.pubkey);
-    await update(pubkeys);
-  };
-
-  let unfollow = async () => {
-    list.splice(
-      list.findIndex((t) => t[1] === subject.pubkey),
-      1,
-    );
-    list = list;
-    let pubkeys = await get(
-      `/api/${user.pubkey}/follows?pubkeysOnly=true&nocache=true`,
-    );
-    pubkeys.splice(pubkeys.indexOf(subject.pubkey), 1);
-    await update(pubkeys);
-  };
-
-  let update = async (pubkeys) => {
-    if (!browser) return;
-
-    let event = {
-      pubkey: user.pubkey,
-      created_at: Math.floor(Date.now() / 1000),
-      kind: 3,
-      content: "",
-      tags: pubkeys.map((p) => ["p", p]),
-    };
-
-    try {
-      let signed = await sign(event);
-      send(signed);
-      invalidate("app:user");
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   let showBio = $state();
   let toggleBio = () => (showBio = !showBio);
@@ -117,8 +49,6 @@
       20000,
     ),
   );
-  $effect(() => followList.then((l) => (list = l)));
-  let following = $derived(list.some((t) => t.includes(subject.pubkey)));
 </script>
 
 <div class="container mx-auto w-full px-4 flex flex-wrap lg:flex-nowrap">

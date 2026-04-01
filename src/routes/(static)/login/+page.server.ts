@@ -58,8 +58,9 @@ export const actions = {
       headers: {
         "content-type": "application/json",
         accept: "application/json",
-        "cf-connecting-ip": request.headers.get("cf-connecting-ip"),
-        "x-forwarded-host": request.headers.get("host"),
+        "cf-connecting-ip":
+          request.headers.get("cf-connecting-ip") ?? undefined,
+        "x-forwarded-host": request.headers.get("host") ?? undefined,
       },
     });
 

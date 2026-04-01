@@ -1,7 +1,8 @@
 import { get } from "$lib/utils";
 import type { Message } from "$lib/types";
 
-export async function load({ params, parent }) {
+export async function load({ params: _params, parent }) {
+  const params = _params as any;
   const { user } = await parent();
   const { since = 0 } = params;
 

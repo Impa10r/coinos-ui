@@ -1,17 +1,13 @@
 <script>
-  import Icon from "$comp/Icon.svelte";
   import Qr from "$comp/Qr.svelte";
-  import { back, copy } from "$lib/utils";
+  import { copy } from "$lib/utils";
   import { bech32 } from "@scure/base";
-  import { page } from "$app/stores";
   import { PUBLIC_DOMAIN } from "$env/static/public";
 
   let { encode, toWords } = bech32;
   let { data } = $props();
   let { nfc, text } = $derived(data);
   let { username } = $derived(data.subject);
-  let url = $derived(`https://${PUBLIC_DOMAIN}/p/${username.toLowerCase()}`);
-
   let lnurl = $derived(
     `https://${PUBLIC_DOMAIN}/ln/${encode(
       "lnurl",

@@ -1,7 +1,7 @@
 <script>
   import Amount from "$comp/Amount.svelte";
   import Pin from "$comp/Pin.svelte";
-  import { loc, f, toFiat, s, si, sat, sats } from "$lib/utils";
+  import { loc } from "$lib/utils";
   import { pin } from "$lib/store";
   import { t } from "$lib/translations";
 
@@ -18,7 +18,12 @@
 </script>
 
 {#if show && user.haspin && $pin?.length !== 6}
-  <Pin cancel={() => (show = false)} />
+  <Pin
+    cancel={() => {
+      show = false;
+      return "";
+    }}
+  />
 {/if}
 
 <div>
@@ -35,6 +40,7 @@
         {rate}
         {currency}
         {locale}
+        tip={0}
         align="left"
       />
       {#if locked && id === user.id}

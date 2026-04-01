@@ -1,13 +1,12 @@
 <script>
-  import Icon from "$comp/Icon.svelte";
   import Qr from "$comp/Qr.svelte";
-  import { back, copy } from "$lib/utils";
+  import { copy } from "$lib/utils";
   let { data } = $props();
   let { text } = $derived(data);
 </script>
 
 <div class="container px-4 max-w-4xl mx-auto space-y-5">
-  <Qr {text} />
+  <Qr {text} icon="" />
 
   <button
     type="button"

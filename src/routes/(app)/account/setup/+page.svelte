@@ -1,5 +1,4 @@
 <script>
-  import { t } from "$lib/translations";
 </script>
 
 <div class="space-y-5">

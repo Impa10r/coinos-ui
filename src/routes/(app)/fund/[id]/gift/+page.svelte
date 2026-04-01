@@ -2,12 +2,10 @@
   import Amount from "$comp/Amount.svelte";
   import { t } from "$lib/translations";
   import { page } from "$app/stores";
-  import Icon from "$comp/Icon.svelte";
-  import Qr from "$comp/Qr.svelte";
   import { loc, copy } from "$lib/utils";
 
   let { data } = $props();
-  let { id, user, amount, rate } = $derived(data);
+  let { user, amount, rate } = $derived(data);
 
   let text = $page.url.href.replace("gift", "sweep");
   let currency = $derived(user ? user.currency : "CAD");

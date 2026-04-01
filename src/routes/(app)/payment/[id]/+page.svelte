@@ -1,7 +1,6 @@
 <script>
-  import { browser } from "$app/environment";
-  import { onMount, tick, untrack } from "svelte";
-  import { t, loading } from "$lib/translations";
+  import { onMount, untrack } from "svelte";
+  import { t } from "$lib/translations";
   import {
     copy,
     f,
@@ -19,8 +18,6 @@
   import { format } from "date-fns";
   import { PUBLIC_EXPLORER, PUBLIC_LIQUID_EXPLORER } from "$env/static/public";
   import locales from "$lib/locales";
-  import { goto } from "$app/navigation";
-
   let { data } = $props();
   let { user, payment: p } = $state(untrack(() => data));
   $effect(() => {
@@ -55,11 +52,6 @@
     }[type],
   );
 
-  let print = async () => {
-    await post(`/payment/${id}/print`, { id });
-    success("Printing!");
-  };
-
   let bumping = $state(false);
   let bump = async () => {
     bumping = true;
@@ -69,7 +61,7 @@
       p.hash = txid;
       p.fee = fee;
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     } finally {
       bumping = false;
     }

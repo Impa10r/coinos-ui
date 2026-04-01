@@ -1,6 +1,6 @@
 <script>
   import { t, locale, locales } from "$lib/translations";
-  let { style } = $props();
+  let {} = $props();
 
   const handleChange = ({ currentTarget }) => {
     const { value } = currentTarget;

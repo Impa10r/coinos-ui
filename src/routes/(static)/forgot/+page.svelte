@@ -1,13 +1,6 @@
 <script>
   import { PUBLIC_DOMAIN } from "$env/static/public";
-  import { focus } from "$lib/utils";
-  import { enhance } from "$app/forms";
   import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
-  import Spinner from "$comp/Spinner.svelte";
-  import { fly } from "svelte/transition";
-
-  let loading;
 </script>
 
 <div

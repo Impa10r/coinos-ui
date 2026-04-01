@@ -1,5 +1,4 @@
 <script>
-  import Icon from "$comp/Icon.svelte";
   import LocationsMap from "$comp/LocationsMap.svelte";
   let { data } = $props();
 

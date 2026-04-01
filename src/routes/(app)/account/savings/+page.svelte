@@ -1,6 +1,5 @@
 <script>
   import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
 </script>
 
 <div class="space-y-5">

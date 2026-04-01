@@ -1,7 +1,6 @@
 <script>
   import { PUBLIC_RECAPTCHA_SITE_KEY } from "$env/static/public";
   import { browser } from "$app/environment";
-  import handler from "$lib/handler";
   import { applyAction, deserialize } from "$app/forms";
   import { onDestroy, onMount, tick } from "svelte";
   import { fly } from "svelte/transition";
@@ -15,8 +14,6 @@
   import { page } from "$app/stores";
   import { sign } from "$lib/nostr";
   import { invalidateAll } from "$app/navigation";
-  import { sha256 } from "@noble/hashes/sha2.js";
-  import { bytesToHex } from "@noble/hashes/utils.js";
 
   let { data, form } = $props();
 
@@ -52,28 +49,29 @@
     }
   });
 
-  let cancel = () => (need2fa = false);
+  let cancel = () => {
+    need2fa = false;
+    return "";
+  };
 
   let username = $state(),
-    email,
     btn = $state();
 
-  $effect(() => form && ({ username, password: $password } = form));
-  let need2fa = $derived(form?.message === "2fa");
   $effect(() => {
-    if (need2fa && form.token === token) token = "";
+    if (form) ({ username, password: $password } = form);
   });
-
-  let revealPassword = $state(false);
+  let need2fa = $derived(/** @type {any} */ (form)?.message === "2fa");
+  $effect(() => {
+    if (need2fa && /** @type {any} */ (form)?.token === token) token = "";
+  });
 
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor || !recaptchaSiteKey) return resolve("");
-      if (!browser || typeof grecaptcha === "undefined")
-        return reject(new Error("captcha unavailable"));
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute(recaptchaSiteKey, { action: "login" })
+      let gc = /** @type {any} */ (window).grecaptcha;
+      if (!browser || !gc) return reject(new Error("captcha unavailable"));
+      gc.ready(() => {
+        gc.execute(recaptchaSiteKey, { action: "login" })
           .then(resolve)
           .catch(reject);
       });
@@ -84,7 +82,7 @@
       const recaptcha = await getRecaptchaToken();
       formData.set("recaptcha", recaptcha);
     } catch (err) {
-      fail(err.message || "captcha failed");
+      fail(err instanceof Error ? err.message : "captcha failed");
       cancel();
       return;
     }
@@ -99,8 +97,8 @@
   };
 
   $effect(() => {
-    token?.length === 6 &&
-      tick().then(() => {
+    if (token?.length === 6)
+      void tick().then(() => {
         btn.click();
       });
   });
@@ -121,17 +119,18 @@
       ],
     };
 
-    let signedEvent = await sign(event);
+    let user = /** @type {any} */ ({});
+    let signedEvent = await sign(event, user);
 
     const formData = new FormData();
 
     try {
       const recaptcha = await getRecaptchaToken();
-      formData.append("loginRedirect", redirect);
+      formData.append("loginRedirect", String(redirect ?? ""));
       formData.append("token", token);
       formData.append("event", JSON.stringify(signedEvent));
-      formData.append("challenge", challenge);
-      formData.append("recaptcha", recaptcha);
+      formData.append("challenge", String(challenge));
+      formData.append("recaptcha", String(recaptcha));
 
       let response = await fetch("/login?/nostr", {
         method: "POST",
@@ -142,14 +141,14 @@
 
       applyAction(result);
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     }
   };
 
   onDestroy(() => {
     if (!browser) return;
     const nodeBadge = document.querySelector(".grecaptcha-badge");
-    if (nodeBadge) {
+    if (nodeBadge && nodeBadge.parentNode) {
       document.body.removeChild(nodeBadge.parentNode);
     }
 

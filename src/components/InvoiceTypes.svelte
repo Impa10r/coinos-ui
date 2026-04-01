@@ -5,10 +5,8 @@
   let {
     newAmount = $bindable(),
     invoice,
-    user,
     t,
     toggleType,
-    setAmount,
     setType,
     activeOnly,
   } = $props();

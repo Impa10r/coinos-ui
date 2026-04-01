@@ -3,34 +3,27 @@
   import { SvelteToast } from "@zerodevx/svelte-toast";
   import { onDestroy, onMount } from "svelte";
   import { close, connect, send, socket } from "$lib/socket";
-  import {
-    last,
-    invoice,
-    request,
-    ndef,
-    passwordPrompt,
-    selectSigner,
-    password,
-    pin,
-    theme as themeStore,
-  } from "$lib/store";
+  import { last, passwordPrompt, pin, theme as themeStore } from "$lib/store";
   import { page } from "$app/stores";
   import { browser } from "$app/environment";
-  import LoadingSplash from "$comp/LoadingSplash.svelte";
   import AppHeader from "$comp/AppHeader.svelte";
   import Nostr from "$comp/Nostr.svelte";
   import Password from "$comp/Password.svelte";
-  import { getCookie, warning } from "$lib/utils";
-  import { t, locale, loading } from "$lib/translations";
-  import { goto, afterNavigate, preloadData } from "$app/navigation";
+  import { getCookie } from "$lib/utils";
+  import { loading } from "$lib/translations";
+  import { afterNavigate, preloadData } from "$app/navigation";
 
   let { data, children } = $props();
 
   let { user, subject, token } = $derived(data);
   let theme = $state();
 
-  $effect(() => ($themeStore = theme));
-  $effect(() => (theme = $themeStore));
+  $effect(() => {
+    $themeStore = theme;
+  });
+  $effect(() => {
+    theme = $themeStore;
+  });
 
   afterNavigate(() => {
     document.cookie = `pathname=${$page.url.pathname}; path=/; max-age=86400`;

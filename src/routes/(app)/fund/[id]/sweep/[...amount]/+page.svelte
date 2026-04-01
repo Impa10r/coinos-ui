@@ -1,25 +1,13 @@
 <script>
   import { onMount } from "svelte";
   import { password } from "$lib/store";
-  import Amount from "$comp/Amount.svelte";
   import Success from "$comp/Success.svelte";
-  import { scale } from "svelte/transition";
-  import { toFiat, f, s } from "$lib/utils";
-  import Icon from "$comp/Icon.svelte";
   import { t } from "$lib/translations";
   import { loc } from "$lib/utils";
 
   let { data } = $props();
 
-  let {
-    amount,
-    currency,
-    id,
-    user,
-    rate,
-    rates,
-    password: pw,
-  } = $derived(data);
+  let { amount, currency, user, rate, password: pw } = $derived(data);
   let locale = $derived(loc(user));
 
   onMount(() => ($password = pw));

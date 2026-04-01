@@ -2,33 +2,20 @@
   import { invalidate } from "$app/navigation";
   import { untrack } from "svelte";
   import handler from "$lib/handler";
-  import { onDestroy, onMount } from "svelte";
   import { t } from "$lib/translations";
-  import { goto, invalidateAll } from "$app/navigation";
+  import { goto } from "$app/navigation";
   import { pin } from "$lib/store";
   import { enhance } from "$app/forms";
   import Amount from "$comp/Amount.svelte";
   import Avatar from "$comp/Avatar.svelte";
-  import Icon from "$comp/Icon.svelte";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { page } from "$app/stores";
-  import {
-    btc,
-    sat,
-    post,
-    back,
-    f,
-    toFiat,
-    s,
-    sats,
-    focus,
-    loc,
-  } from "$lib/utils";
-  let { data, form } = $props();
+  import { btc, sat, post, f, s, loc } from "$lib/utils";
+  let { data, form: _form } = $props();
+  let form = $derived(/** @type {any} */ (_form));
 
   let { trusted, balance, invoice, user } = $derived(data);
-  let { address, hash, payreq, user: recipient, tip } = $derived(invoice);
+  let { address, payreq, user: recipient, tip } = $derived(invoice);
   let { currency } = $derived(user);
   let locale = $derived(loc(user));
   let amount = $state(untrack(() => (form || invoice).amount));
@@ -36,13 +23,10 @@
   let rate = $derived(invoice.rate * (data.rate / data.invoiceRate));
 
   let a = $state(),
-    af = $state(),
     fiat = $state(untrack(() => !amount));
 
-  let amountFiat = $state((untrack(() => amount) * untrack(() => rate)) / sats);
   let setAmount = () => {
     amount = a;
-    amountFiat = af;
   };
 
   let submit = $state(),
@@ -121,14 +105,14 @@
       {$t("payments.send")}
     </h1>
 
-    <Amount {amount} {tip} {rate} {currency} {locale} />
+    <Amount {amount} {tip} {rate} {currency} {locale} align="center" />
 
     <h1 class="text-xl text-secondary">
       {$t("payments.to")}
     </h1>
 
     <div class="flex p-1 gap-2 justify-center">
-      <Avatar user={recipient} size={"20"} />
+      <Avatar user={recipient} size={20} />
       <p class="text-4xl break-words my-auto">
         {recipient.username}
       </p>
@@ -155,14 +139,7 @@
       {/each}
     {/if}
   {:else}
-    <Numpad
-      bind:amount={a}
-      bind:amountFiat={af}
-      bind:fiat
-      {currency}
-      {rate}
-      {submit}
-    />
+    <Numpad bind:amount={a} bind:fiat {currency} {locale} {rate} {submit} />
   {/if}
 
   <form method="POST" use:enhance={handler(toggle)} class="space-y-2">
@@ -174,12 +151,7 @@
 
     <div class="flex w-full text-xl">
       {#if amount}
-        <button
-          use:focus
-          type="submit"
-          class="btn btn-primary"
-          disabled={submitting}
-        >
+        <button type="submit" class="btn btn-primary" disabled={submitting}>
           {#if submitting}
             <Spinner />
           {:else}

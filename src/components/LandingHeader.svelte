@@ -7,7 +7,12 @@
   import DarkToggle from "$comp/DarkToggle.svelte";
   import LocaleSelector from "$comp/LocaleSelector.svelte";
 
-  let { howItWorks, faq, about, user } = $props();
+  let {
+    howItWorks = undefined,
+    faq = undefined,
+    about = undefined,
+    user,
+  } = $props();
 
   let showMobileMenu = $state(false);
   let header = $state();
@@ -45,7 +50,7 @@
         <button
           class="btn !w-auto !rounded-full"
           onclick={() => goto(`/${user.username}`)}
-          >{$t("nav.home")}
+          >{$t("nav.account")}
         </button>
         <button
           class="btn !w-auto !rounded-full"

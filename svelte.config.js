@@ -6,6 +6,12 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter(),
+    alias: {
+      $lib: "src/lib",
+      "$lib/*": "src/lib/*",
+      $comp: "src/components",
+      "$comp/*": "src/components/*",
+    },
     csrf: {
       trustedOrigins: [
         process.env.PUBLIC_DOMAIN,

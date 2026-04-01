@@ -1,7 +1,4 @@
 <script>
-  import { focus } from "$lib/utils";
-  import { goto } from "$app/navigation";
-  import Icon from "$comp/Icon.svelte";
   import Image from "$comp/Image.svelte";
   import { t } from "$lib/translations";
 </script>
@@ -31,7 +28,6 @@
     <div class="flex justify-center">
       <a href="/register">
         <button
-          use:focus
           class="btn !rounded-full bg-primary text-primary-content hover:bg-primary hover:bg-opacity-80"
         >
           {$t("nav.startInSeconds")}

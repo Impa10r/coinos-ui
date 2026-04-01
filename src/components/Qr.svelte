@@ -1,6 +1,6 @@
 <script>
   import screenfull from "screenfull";
-  let { icon, text } = $props();
+  let { icon = undefined, text } = $props();
   let qr = $state();
 
   let src = $derived(

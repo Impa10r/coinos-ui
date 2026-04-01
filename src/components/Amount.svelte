@@ -1,6 +1,5 @@
 <script>
   import { copy, s, f, toFiat } from "$lib/utils";
-  import { fiat } from "$lib/store";
   const {
     align,
     amount,

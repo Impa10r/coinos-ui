@@ -5,7 +5,7 @@
   let { data, form } = $props();
   let { address } = $derived(data);
   let message = $state();
-  let { signature } = $derived(form);
+  let signature = $derived(/** @type {any} */ (form)?.signature);
 </script>
 
 <div class="container px-4 max-w-xl mx-auto space-y-5 text-center">

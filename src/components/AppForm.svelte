@@ -3,15 +3,12 @@
   import { applyAction, deserialize } from "$app/forms";
   import { page } from "$app/stores";
   import AmountField from "$comp/AmountField.svelte";
-  import Numpad from "$comp/Numpad.svelte";
-  import Toggle from "$comp/Toggle.svelte";
   import { getPublicKey } from "nostr-tools";
-  import { onMount, tick } from "svelte";
+  import { onMount } from "svelte";
   import { bytesToHex, randomBytes } from "@noble/hashes/utils.js";
   import { goto } from "$app/navigation";
   import { copy, focus, fail, post } from "$lib/utils";
   import { t } from "$lib/translations";
-  import { enhance } from "$app/forms";
   import {
     PUBLIC_COINOS_PUBKEY as walletPubkey,
     PUBLIC_COINOS_RELAY as relayUrl,
@@ -67,7 +64,7 @@
       await post(`/post/apps/delete`, { pubkey });
       goto("/settings/nostr");
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     }
   };
 </script>
@@ -147,7 +144,7 @@
         >{$t("accounts.secret")}</label
       >
       <div class="flex gap-1 items-center">
-        <textarea rows={3} name="secret" bind:value={secret} lcass="grow"
+        <textarea rows={3} name="secret" bind:value={secret} class="grow"
         ></textarea>
 
         <div class="space-y-2 w-24">

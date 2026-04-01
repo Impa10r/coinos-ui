@@ -1,20 +1,11 @@
 <script>
-  import { run } from "svelte/legacy";
-
-  import { goto } from "$app/navigation";
-  import Icon from "$comp/Icon.svelte";
   import Balance from "$comp/Balance.svelte";
   import { t } from "$lib/translations";
 
   let { user, rate, account, last } = $props();
-  let { name, seed, balance, id } = $derived(account);
+  let { balance, id } = $derived(account);
 
   let setAccount = () => (document.cookie = `aid=${id}; path=/; max-age=86400`);
-  let go = () => {
-    setAccount();
-    goto("/payments");
-  };
-  let type = $derived(seed ? "Savings" : "Cash");
 </script>
 
 <div

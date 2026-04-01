@@ -1,7 +1,8 @@
 <script>
   import LandingHeader from "$comp/LandingHeader.svelte";
+  import { untrack } from "svelte";
   let { data, children } = $props();
-  let { user } = data;
+  let { user } = $state(untrack(() => data));
 </script>
 
 <LandingHeader {user} />

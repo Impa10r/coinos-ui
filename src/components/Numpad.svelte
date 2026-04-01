@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Left from "$comp/Left.svelte";
-  import { f, s, focus, warning, sat, sats } from "$lib/utils";
+  import { f, s, focus, warning, sats } from "$lib/utils";
   import { t } from "$lib/translations";
   import { fiat as fiatStore } from "$lib/store";
 
@@ -10,9 +10,9 @@
     amount = $bindable(),
     currency = "USD",
     fiat = $bindable(),
-    element,
+    element = $bindable(undefined),
     rate = $bindable(),
-    locale,
+    locale = undefined,
     submit = undefined,
     amountFiat = 0,
   } = $props();
@@ -35,7 +35,7 @@
       maximumFractionDigits: 2,
     });
     const parts = formatter.formatToParts(123456.78);
-    const { value: decimal } = parts.find((p) => p.type === "decimal");
+    const decimal = parts.find((p) => p.type === "decimal")?.value ?? ".";
     const currencyPart = parts.find((p) => p.type === "currency");
     const sym = currencyPart ? currencyPart.value : "";
     const firstNumberIndex = parts.findIndex((p) => p.type === "integer");
@@ -73,14 +73,16 @@
     if (fiat) {
       const numericFiat =
         parseFloat((fiatDigits || "0").replace(/\D/g, "")) / 100;
-      amountFiat = isFinite(numericFiat) ? numericFiat.toFixed(2) : "0.00";
+      amountFiat = isFinite(numericFiat)
+        ? parseFloat(numericFiat.toFixed(2))
+        : 0;
       amount = numericFiat ? Math.round((numericFiat * sats) / rate) : 0;
     } else {
       // integer-only sats, already normalized
       const a = parseInt((html || "0").replace(/[^\d]/g, "")) || 0;
       amount = a || 0;
       const fval = amount ? (amount * rate) / sats : 0;
-      amountFiat = fval ? fval.toFixed(2) : "0.00";
+      amountFiat = fval ? parseFloat(fval.toFixed(2)) : 0;
     }
   };
 
@@ -103,15 +105,7 @@
 
   let prevHtml = $state("");
 
-  // (kept for completeness; no longer used in sats path)
-  function trimTrailingZeros(str) {
-    if (!str.includes(".")) return str;
-    let out = str.replace(/(\.\d*?[1-9])0+$/, "$1");
-    out = out.replace(/\.0*$/, "");
-    return out;
-  }
-
-  const input = (e, fromPad = false) => {
+  const input = (_e, fromPad = false) => {
     if (fiat) {
       if (!fromPad) {
         const raw = (element?.textContent ?? "").replace(/[^\d]/g, "");
@@ -148,8 +142,8 @@
         const L = node.length ?? node.textContent?.length ?? 0;
         range.setStart(node, L);
         range.setEnd(node, L);
-        sel.removeAllRanges();
-        sel.addRange(range);
+        sel?.removeAllRanges();
+        sel?.addRange(range);
       });
     }
     prevHtml = html.toString();
@@ -187,8 +181,8 @@
     const range = document.createRange();
     range.selectNodeContents(e.target);
     const sel = getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
+    sel?.removeAllRanges();
+    sel?.addRange(range);
   };
 
   const blur = () => {
@@ -207,7 +201,9 @@
       element && (element.innerHTML = html);
     } else {
       // going -> fiat
-      const cents = Math.round((parseFloat(amountFiat || "0") || 0) * 100);
+      const cents = Math.round(
+        (parseFloat(String(amountFiat || 0)) || 0) * 100,
+      );
       fiatDigits = Math.max(0, cents).toString();
       fiat = true;
       html = formatFiatFromDigits(fiatDigits, decimalChar);
@@ -225,8 +221,8 @@
       const L = node.length ?? node.textContent?.length ?? 0;
       range.setStart(node, L);
       range.setEnd(node, L);
-      sel.removeAllRanges();
-      sel.addRange(range);
+      sel?.removeAllRanges();
+      sel?.addRange(range);
     });
 
     $fiatStore = fiat;
@@ -251,7 +247,9 @@
   onMount(() => {
     fiat = $fiatStore;
     if (fiat) {
-      const cents = Math.round((parseFloat(amountFiat || "0") || 0) * 100);
+      const cents = Math.round(
+        (parseFloat(String(amountFiat || 0)) || 0) * 100,
+      );
       fiatDigits = Math.max(0, cents).toString();
       html = formatFiatFromDigits(fiatDigits, decimalChar); // keep html in sync on mount
     } else {

@@ -1,25 +1,28 @@
 <script>
   import { tick } from "svelte";
   import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
   import Numpad from "$comp/Numpad.svelte";
   import { page } from "$app/stores";
   import { rate } from "$lib/store";
-  import { loc, fail, s } from "$lib/utils";
+  import { loc, s } from "$lib/utils";
 
   let { data } = $props();
 
-  let { balance, user } = data;
+  let { balance, user } = $derived(data);
   let { address } = $page.params;
-  let { currency, username } = user;
-  let locale = loc(user);
+  let { currency } = $derived(user);
+  let locale = $derived(loc(user));
 
   let amount = $state(0);
   let a = $state(0);
   let submit = $state(),
     fiat = $state();
-  $effect(() => ($rate = data.rate));
-  $effect(() => (amount = a));
+  $effect(() => {
+    $rate = data.rate;
+  });
+  $effect(() => {
+    amount = a;
+  });
 
   let setMax = async (e) => {
     e.preventDefault();

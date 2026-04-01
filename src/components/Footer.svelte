@@ -2,24 +2,17 @@
   import DarkToggle from "$comp/DarkToggle.svelte";
   import LocaleSelector from "$comp/LocaleSelector.svelte";
   import { t } from "$lib/translations";
-  import {
-    PUBLIC_DOMAIN_TOR,
-    PUBLIC_SIMPLEX_URL,
-    PUBLIC_TELEGRAM_URL,
-  } from "$env/static/public";
+  import { PUBLIC_DOMAIN_TOR, PUBLIC_TELEGRAM_URL } from "$env/static/public";
 
   const followLinks = [
-    {
-      url: "nostr:nprofile1qy28wue69uhnzv3h9cczuvpwxyargwpk8yhszxrhwvaz7tmhda6zucnjd9nksarzdak8gtnwv46z7qpqw27mc4aa6m0ufe3xs5z3m6qyr52gc0rglept7vqlwx4xeaf72tasv5xyqv",
-      titleID: "nostr",
-    },
     { url: PUBLIC_TELEGRAM_URL, titleID: "telegram" },
+    { url: "https://github.com/coinos", titleID: "github" },
     { url: "https://linktr.ee/coinos.io", titleID: "linktree" },
   ];
 
   const companyLinks = [
     { url: "/docs", titleID: "documentation" },
-    { url: "https://github.com/coinos", titleID: "github" },
+    { url: "/support", titleID: "support" },
     ...(PUBLIC_DOMAIN_TOR
       ? [{ url: `http://${PUBLIC_DOMAIN_TOR}`, titleID: "onion" }]
       : []),

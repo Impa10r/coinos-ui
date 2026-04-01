@@ -1,12 +1,12 @@
 <script>
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import handler from "$lib/handler";
   import { sats, f, s } from "$lib/utils";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { fiat, pin } from "$lib/store";
+  import { fiat } from "$lib/store";
 
   let { data, form } = $props();
 
@@ -20,7 +20,7 @@
     rate,
   } = $derived(data);
 
-  let amount = $state(Math.round(minWithdrawable / 1000));
+  let amount = $state(Math.round(untrack(() => minWithdrawable) / 1000));
   let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
 
   let submit = $state();

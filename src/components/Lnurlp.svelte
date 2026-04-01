@@ -1,6 +1,5 @@
 <script>
-  import { run } from "svelte/legacy";
-
+  import { untrack } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";
@@ -12,7 +11,7 @@
   let { minSendable, maxSendable, commentAllowed, callback, metadata, rate } =
     $derived(data);
 
-  let amount = $state(Math.round(minSendable / 1000)),
+  let amount = $state(Math.round(untrack(() => minSendable) / 1000)),
     loading = $state();
   let submit = () => (loading = true);
 </script>

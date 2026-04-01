@@ -3,12 +3,19 @@
   import { scale } from "svelte/transition";
   import Amount from "$comp/Amount.svelte";
   import { Confetti } from "svelte-confetti";
-  const { amount, tip, rate, currency, locale, title } = $props();
+  const {
+    amount = undefined,
+    tip = undefined,
+    rate = undefined,
+    currency = undefined,
+    locale = undefined,
+    title = "",
+  } = $props();
 
   let loaded = $state(false);
   $effect(() => {
     if (browser)
-      window.requestAnimationFrame((p) => {
+      window.requestAnimationFrame((_p) => {
         loaded = true;
       });
   });
@@ -19,19 +26,19 @@
     <div class="relative flex justify-center">
       <div class="absolute top-64 pointer-events-none">
         <Confetti
-          amount="20"
-          size="40"
-          duration="1600"
+          amount={20}
+          size={40}
+          duration={1600}
           delay={[0, 500]}
           fallDistance="50px"
           colorArray={["url(/images/bolt.svg)"]}
         />
         <Confetti
-          amount="40"
+          amount={40}
           delay={[0, 500]}
-          size="15"
+          size={15}
           fallDistance="50px"
-          duration="1600"
+          duration={1600}
           colorArray={[
             "#FFD700", // Gold
             "#FF6F61", // Coral
@@ -56,5 +63,7 @@
     ></iconify-icon>
   {/if}
   <h1 class="text-3xl md:text-4xl font-bold mb-6">{title}</h1>
-  <Amount {amount} {tip} {rate} {currency} {locale} />
+  {#if amount !== undefined}
+    <Amount {amount} {tip} {rate} {currency} {locale} align="center" />
+  {/if}
 </div>

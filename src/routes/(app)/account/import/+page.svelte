@@ -3,7 +3,7 @@
 
   import { goto } from "$app/navigation";
   import { mnemonic } from "$lib/store";
-  import { fail, focus, versions } from "$lib/utils";
+  import { fail, focus } from "$lib/utils";
   import { t } from "$lib/translations";
   import { browser } from "$app/environment";
   import Icon from "$comp/Icon.svelte";
@@ -13,11 +13,6 @@
   let el = $state(),
     pasted = $state(),
     text = $state();
-
-  let paste = async () => {
-    text = await navigator.clipboard.readText();
-    pasted = true;
-  };
 
   let submit = () => {
     text = text.replace(/,/g, " ").trim();
@@ -31,7 +26,7 @@
   };
 
   run(() => {
-    if (browser && pasted && text) form.submit() && (pasted = false);
+    if (browser && pasted && text) el.click() && (pasted = false);
   });
 </script>
 

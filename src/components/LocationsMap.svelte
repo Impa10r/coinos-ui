@@ -1,5 +1,5 @@
 <script>
-  import { tick, onMount, onDestroy, mount } from "svelte";
+  import { onMount, onDestroy, mount } from "svelte";
   import { browser } from "$app/environment";
   import Popup from "$comp/Popup.svelte";
   import { back } from "$lib/utils";
@@ -8,46 +8,13 @@
 
   let { locations } = $props();
   let map;
-  let mapContainer = $state(),
-    mapWrapper = $state();
+  let mapContainer = $state();
   let markers = [];
   let search = $state();
-  let clearSearch = (e) => (search = "");
+  let clearSearch = () => (search = "");
 
   let currentIndex = -1;
   let timeout = $state();
-
-  let full = () => {
-    if (!document.fullscreenElement) {
-      if (mapWrapper.requestFullscreen) {
-        mapWrapper.requestFullscreen();
-      } else if (mapWrapper.mozRequestFullScreen) {
-        /* Firefox */
-        mapWrapper.mozRequestFullScreen();
-      } else if (mapWrapper.webkitRequestFullscreen) {
-        /* Chrome, Safari & Opera */
-        mapWrapper.webkitRequestFullscreen();
-      } else if (mapWrapper.msRequestFullscreen) {
-        /* IE/Edge */
-        mapWrapper.msRequestFullscreen();
-      }
-
-      map.resize();
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        /* Firefox */
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        /* Chrome, Safari and Opera */
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        /* IE/Edge */
-        document.msExitFullscreen();
-      }
-    }
-  };
 
   let scroll = () => {
     const el = document.querySelector(".selected");
@@ -154,12 +121,10 @@
   let updateLabelVisibility = debounce(() => {
     inview = [];
     if (!map) return;
-    let zoom = map.getZoom();
     let bounds = map.getBounds();
 
     for (let marker of markers) {
       let isInView = bounds.contains(marker.getLngLat());
-      let { tags } = marker;
 
       if (isInView) {
         inview.push(marker);
@@ -255,7 +220,7 @@
   );
 </script>
 
-<div class="w-screen h-dvh flex" id="map" bind:this={mapWrapper}>
+<div class="w-screen h-dvh flex" id="map">
   <div
     id="map-container"
     class="mx-auto h-full w-full z-0"
@@ -291,7 +256,7 @@
           </div>
         </div>
 
-        {#each list as marker, i}
+        {#each list as marker}
           <button
             onclick={() => select(marker)}
             class:font-bold={selected === marker}

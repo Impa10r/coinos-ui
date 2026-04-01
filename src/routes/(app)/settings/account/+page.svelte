@@ -8,8 +8,7 @@
   import LocaleSelector from "$comp/LocaleSelector.svelte";
   import Toggle from "$comp/Toggle.svelte";
   import { locale, t } from "$lib/translations";
-  import { post, success, fail } from "$lib/utils";
-  import { page } from "$app/stores";
+  import { post } from "$lib/utils";
   import { PUBLIC_VAPID_PUBKEY } from "$env/static/public";
 
   let { data } = $props();
@@ -22,12 +21,10 @@
   let rate = $state(untrack(() => data.rates?.[data.user?.currency]));
 
   let fiats = $derived(Object.keys(rates).sort((a, b) => a.localeCompare(b)));
-  let keypress = (e) => e.key === "Enter" && (e.preventDefault() || el.click());
 
   let editingReserve = $state(),
     editingThreshold = $state(),
-    doneReserve = $state(),
-    doneThreshold;
+    doneReserve = $state();
   let doneEditing = () => {
     editingReserve = false;
     editingThreshold = false;
@@ -59,15 +56,15 @@
 
     pm =
       navigator?.serviceWorker &&
-      (await navigator.serviceWorker.getRegistration()).pushManager;
+      (await navigator.serviceWorker.getRegistration())?.pushManager;
 
-    permission = await pm.permissionState({
+    permission = await pm?.permissionState({
       userVisibleOnly: true,
       applicationServerKey: PUBLIC_VAPID_PUBKEY,
     });
 
     if (permission === "granted") {
-      subscription = await pm.getSubscription();
+      subscription = await pm?.getSubscription();
       if (subscriptions.includes(JSON.stringify(subscription))) push = true;
     }
   });
@@ -81,7 +78,7 @@
     }
 
     if (push && permission !== "denied") {
-      subscription = await pm.subscribe({
+      subscription = await pm?.subscribe({
         userVisibleOnly: true,
         applicationServerKey: PUBLIC_VAPID_PUBKEY,
       });
@@ -218,7 +215,6 @@
     <textarea
       name="destination"
       placeholder={$t("user.settings.destinationPlaceholder")}
-      onkeypress={keypress}
       class="w-full p-4 border rounded-xl h-48"
       bind:value={user.destination}
     ></textarea>
@@ -285,7 +281,7 @@
         bind:amount={user.threshold}
         {currency}
         bind:rate
-        bind:submit={doneReserve}
+        submit={doneReserve}
         bind:element={thresholdEl}
       />
 
@@ -311,9 +307,9 @@
       </h1>
       <Numpad
         bind:amount={user.reserve}
-        bind:currency
+        {currency}
         bind:rate
-        bind:submit={doneReserve}
+        submit={doneReserve}
         bind:element={reserveEl}
       />
       <button

@@ -1,9 +1,6 @@
 <script lang="ts">
   import { t } from "$lib/translations";
   import Event from "$comp/Event.svelte";
-  import { get, post } from "$lib/utils";
-  import { onMount } from "svelte";
-  import { ignore } from "$lib/store";
 
   let { data } = $props();
   let { events, subject, user } = $derived(data);

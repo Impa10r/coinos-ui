@@ -3,20 +3,20 @@
   import Mnemonic from "$comp/Mnemonic.svelte";
   import WalletPass from "$comp/WalletPass.svelte";
   import { goto } from "$app/navigation";
-  import { copy, fail, focus, post } from "$lib/utils";
-  import { enhance } from "$app/forms";
+  import { copy, fail, post } from "$lib/utils";
   import { t } from "$lib/translations";
   import { decrypt } from "nostr-tools/nip49";
-  import { entropyToMnemonic, mnemonicToSeed } from "@scure/bip39";
+  import { entropyToMnemonic } from "@scure/bip39";
   import { wordlist } from "@scure/bip39/wordlists/english.js";
   import {
     PUBLIC_COINOS_PUBKEY as pk,
     PUBLIC_COINOS_RELAY as relay,
   } from "$env/static/public";
 
+  import { untrack } from "svelte";
   let { data } = $props();
-  let { account, user } = data;
-  let { id, name, seed } = account;
+  let { account, user } = $state(untrack(() => data));
+  let { id, seed } = account;
   let mnemonic = $state(),
     password = $state();
   let passwordPrompt = $state();
@@ -36,7 +36,7 @@
       await post("/api/account/delete", { id });
       goto(`/${user.username}`);
     } catch (e) {
-      fail(e.message);
+      fail(String(e));
     }
   };
 

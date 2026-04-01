@@ -1,34 +1,17 @@
 <script>
-  import { run } from "svelte/legacy";
-  import {
-    btc,
-    loc,
-    post,
-    copy,
-    fail,
-    f,
-    get,
-    types,
-    sat,
-    s,
-    sats,
-  } from "$lib/utils";
-  import { tick, onMount, onDestroy } from "svelte";
-  import { browser } from "$app/environment";
-  import { last, showQr, amountPrompt } from "$lib/store";
-  import Avatar from "$comp/Avatar.svelte";
+  import { loc, post, copy, fail, types } from "$lib/utils";
+  import { onMount } from "svelte";
+  import { showQr, amountPrompt } from "$lib/store";
   import InvoiceData from "$comp/InvoiceData.svelte";
   import InvoiceActions from "$comp/InvoiceActions.svelte";
   import SetAmount from "$comp/SetAmount.svelte";
   import SetMemo from "$comp/SetMemo.svelte";
   import SetType from "$comp/SetType.svelte";
   import { t } from "$lib/translations";
-  import { goto, invalidate } from "$app/navigation";
+  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
 
   let { data } = $props();
-
-  let showOptions;
 
   let id = $state();
   let { rate, subject, user, text } = $derived(data);
@@ -38,20 +21,20 @@
   let username = $derived(subject.username);
   let type = types.lightning;
   let hash = "";
-  let qr;
 
   let aid = $derived(subject.id);
-  let invoice = $derived({
-    aid,
-    type: types.lightning,
-    items: [],
-    rate,
-    text,
-    uid: subject.id,
-    user: subject,
-  });
+  let invoice = /** @type {any} */ (
+    $derived({
+      aid,
+      type: types.lightning,
+      items: [],
+      rate,
+      text,
+      uid: subject.id,
+      user: subject,
+    })
+  );
   let amount = $state(),
-    amountFiat,
     tip;
 
   let update = async () => {
@@ -67,7 +50,7 @@
 
       goto(url, { invalidateAll: true, noScroll: true });
     } catch (e) {
-      fail(e.message);
+      fail(String(e));
     }
   };
 
@@ -136,11 +119,9 @@
   <InvoiceData
     {locale}
     {link}
-    {qr}
     {txt}
     {invoice}
     {amount}
-    {amountFiat}
     {currency}
     {tip}
     {rate}
@@ -150,7 +131,6 @@
 
   <InvoiceActions
     bind:newAmount
-    {setAmount}
     {toggleType}
     {setType}
     {toggleAmount}
@@ -159,7 +139,6 @@
     {invoice}
     {copy}
     {link}
-    {type}
     {showQr}
     {txt}
     t={$t}
@@ -181,10 +160,8 @@
 <SetMemo bind:memo {settingMemo} {setMemo} {toggleMemo} t={$t} />
 
 <SetType
-  {aid}
   {invoice}
   {user}
-  {type}
   {settingType}
   {setType}
   {toggleType}

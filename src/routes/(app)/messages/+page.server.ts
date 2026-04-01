@@ -10,7 +10,8 @@ interface Note {
   seen: number;
 }
 
-export async function load({ params, parent }) {
+export async function load({ params: _params, parent }) {
+  const params = _params as any;
   const { user } = await parent();
   if (user.username !== params.username) redirect(307, `/${params.username}`);
   const { since = 0 } = params;

@@ -1,14 +1,11 @@
 <script>
-  import Avatar from "$comp/Avatar.svelte";
   import Payments from "$comp/Payments.svelte";
-  import { onMount } from "svelte";
-  import { format } from "date-fns";
   import { newPayment } from "$lib/store";
   import { t } from "$lib/translations";
-  import { get, f, s, si, sat, loc, sats, types } from "$lib/utils";
+  import { get, f, loc, sats } from "$lib/utils";
   import { page } from "$app/stores";
   import { differenceInDays, getUnixTime, sub } from "date-fns";
-  import { goto, invalidate } from "$app/navigation";
+  import { invalidate } from "$app/navigation";
   let { data } = $props();
   let {
     start,
@@ -22,13 +19,6 @@
   } = $derived(data);
 
   let locale = $derived(loc(user));
-
-  let change = ({ target: { value } }) => goto(value);
-  let link = (p) => {
-    if (p.pot) return `/pot/${p.pot}`;
-    if (p.with) return "/" + p.with.username;
-    return `/p/${p.id}`;
-  };
 
   let presets = $derived([
     {
@@ -125,19 +115,15 @@
 
     let filename = "payments.csv";
     let blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    if (navigator.msSaveBlob) {
-      navigator.msSaveBlob(blob, filename);
-    } else {
-      let link = document.createElement("a");
-      if (link.download !== undefined) {
-        let url = URL.createObjectURL(blob);
-        link.setAttribute("href", url);
-        link.setAttribute("download", filename);
-        link.style.visibility = "hidden";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+    let link = document.createElement("a");
+    if (link.download !== undefined) {
+      let url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", filename);
+      link.style.visibility = "hidden";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 
@@ -172,7 +158,7 @@
 
   <div class="container w-full mx-auto text-lg px-2 max-w-xl space-y-2">
     <div class="mx-auto flex justify-center w-full gap-1">
-      {#each presets as { start, end, title }, i}
+      {#each presets as { start, title }, i}
         <a
           href={`/payments/${getUnixTime(start)}/1`}
           class="btn !w-auto"
@@ -206,28 +192,23 @@
       {/if}
     </div>
 
-    <Payments {payments} {locale} {user} />
+    <Payments {payments} {locale} {user} fund={false} />
 
     <div class="grid grid-cols-3 w-full text-center text-lg">
       {#each Object.keys(incoming) as c}
+        {@const totalIn = incoming[c]?.fiat || 0}
+        {@const tipsIn = incoming[c]?.fiatTips || 0}
+
+        {@const totalOut = -outgoing[c]?.fiat || 0}
+        {@const tipsOut = outgoing[c]?.fiatTips || 0}
+
         <span class="text-base text-secondary text-left"></span>
-        <!-- <span class="text-base text-secondary" -->
-        <!--   >{$t("payments.subtotal")}</span -->
-        <!-- > -->
         <span class="text-base text-secondary">
           {#if tipsIn > 0 || tipsOut > 0}{$t("payments.tips")}{/if}
         </span>
         <span class="text-base text-secondary text-right"
           >{$t("payments.total")}</span
         >
-
-        {@const totalIn = incoming[c]?.fiat || 0}
-        {@const tipsIn = incoming[c]?.fiatTips || 0}
-        {@const subtotalIn = totalIn - tipsIn}
-
-        {@const totalOut = -outgoing[c]?.fiat || 0}
-        {@const tipsOut = outgoing[c]?.fiatTips || 0}
-        {@const subtotalOut = totalOut - tipsOut}
 
         {#if totalIn > 0}
           <span class="text-left text-base text-secondary"

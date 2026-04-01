@@ -5,7 +5,6 @@
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { page } from "$app/stores";
   import { loc, s } from "$lib/utils";
   import { fiat, pin } from "$lib/store";
 
@@ -13,7 +12,6 @@
 
   let { user } = $derived(data);
   let { currency } = $derived(user);
-  let loading = $state();
   let { id, balance, rate } = $derived(data);
   let amount = $state(untrack(() => data.amount));
   let locale = $derived(loc(user));
@@ -23,7 +21,6 @@
   let toggle = () => (submitting = !submitting);
   $effect(() => {
     if (form?.message.includes("pin")) $pin = undefined;
-    loading = false;
   });
 
   let setMax = async (e) => {

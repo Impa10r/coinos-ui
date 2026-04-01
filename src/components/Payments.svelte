@@ -1,7 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import Avatar from "$comp/Avatar.svelte";
-  import { get, f, s, si, sat, loc, sats, types } from "$lib/utils";
+  import { f, s, sats, types } from "$lib/utils";
   import { format } from "date-fns";
   import { t } from "$lib/translations";
   import locales from "$lib/locales";

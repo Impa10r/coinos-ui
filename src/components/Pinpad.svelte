@@ -1,13 +1,10 @@
 <script>
   import Left from "$comp/Left.svelte";
-  import Icon from "$comp/Icon.svelte";
-  import { focus, post, warning } from "$lib/utils";
-  import { t } from "$lib/translations";
+  import { focus } from "$lib/utils";
 
   let { v = $bindable(), cancel } = $props();
 
   let arrow = "<";
-  let loading = false;
 
   const numPad = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "0", "<"];
 
@@ -53,6 +50,7 @@
       use:focus
       bind:value={v}
       type="password"
+      autocomplete="off"
       class="clean text-center !text-5xl !w-96 block"
       pattern="[0-9]+"
       placeholder="_ _ _ _ _ _"
@@ -64,6 +62,7 @@
       bind:value={v}
       class="clean text-center !text-5xl !w-96 block"
       type="text"
+      autocomplete="off"
       pattern="[0-9]+"
       placeholder="_ _ _ _ _ _"
     />

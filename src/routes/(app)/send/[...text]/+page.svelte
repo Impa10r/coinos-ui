@@ -1,15 +1,12 @@
 <script>
   import { invalidate } from "$app/navigation";
-  import { page } from "$app/stores";
-  import { fly } from "svelte/transition";
   import { enhance } from "$app/forms";
   import { tick } from "svelte";
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
-  import Icon from "$comp/Icon.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { back, get, post, fail, focus } from "$lib/utils";
+  import { get, post, focus } from "$lib/utils";
 
   let { data = $bindable(), form } = $props();
   data.subject = data.user;

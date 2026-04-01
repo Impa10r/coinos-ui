@@ -1,6 +1,4 @@
 <script>
-  import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
   import { page } from "$app/stores";
 
   let { data } = $props();

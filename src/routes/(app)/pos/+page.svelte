@@ -15,17 +15,16 @@
   }
 
   let { data, form } = $props();
-  let { token } = $state(data);
+  let { token } = $derived(data);
 
   // --- Defaults ---
   const LITTLEFS_ADDRESS_DEFAULT = 0x3d0000; // your existing LittleFS offset
   const FW_ADDRESS_DEFAULT = 0x10000; // typical app offset on ESP32-C3
   const CONNECT_BAUD = 115200; // initial
-  const WORK_BAUD = 921600; // fast flashing
 
   // --- Shared state ---
   let esploader = $state();
-  let chip, transport;
+  let transport;
   let connected = $state(false);
   let portInfo = $state("");
 
@@ -49,14 +48,16 @@
 
   let connect = async () => {
     try {
-      const device = await navigator.serial.requestPort({});
+      const device = await /** @type {any} */ (navigator).serial.requestPort(
+        {},
+      );
       transport = new Transport(device, true);
       esploader = new ESPLoader({
         transport,
         baudrate: CONNECT_BAUD,
       });
 
-      chip = await esploader.main();
+      await esploader.main();
 
       connected = true;
       portInfo = (await device.getInfo?.())
@@ -99,7 +100,7 @@
     }
     const reader = new FileReader();
     reader.onload = () => {
-      const buf = new Uint8Array(reader.result);
+      const buf = new Uint8Array(/** @type {ArrayBuffer} */ (reader.result));
       fwBytes = buf;
     };
     reader.onerror = () => {

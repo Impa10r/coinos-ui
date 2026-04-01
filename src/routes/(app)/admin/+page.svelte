@@ -1,8 +1,9 @@
 <script>
   import { post } from "$lib/utils";
+  import { untrack } from "svelte";
   let { data } = $props();
-  let reset = (username) => post(`/reset`, { password });
-  let { users } = data;
+  let reset = (username) => post(`/reset`, { username, password });
+  let { users } = $state(untrack(() => data));
   let password = $state();
 </script>
 

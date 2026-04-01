@@ -4,10 +4,12 @@ import { auth, get, post, register, sats } from "$lib/utils";
 import { error, redirect } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
 
-export async function load({ cookies, request, params, parent }) {
+export async function load({ cookies, request, params: _params, parent }) {
+  const params = _params as any;
   let { user } = await parent();
   const { id } = params;
-  let [amount, currency] = params.amount.split("/");
+  let [amountStr, currency] = (params.amount as string).split("/");
+  let amount: string | number = amountStr;
 
   if (!currency) currency = user?.currency;
   if (currency) currency = currency.toUpperCase();
@@ -19,7 +21,7 @@ export async function load({ cookies, request, params, parent }) {
     const balance = await get(`/fund/${id}`);
     amount = balance.authorization || balance.amount;
   } else if (currency) {
-    amount = Math.round((amount * sats) / rate);
+    amount = Math.round((parseFloat(amount) * sats) / rate);
   }
 
   const username = randomName() + Math.floor(Math.random() * 99) + 1;

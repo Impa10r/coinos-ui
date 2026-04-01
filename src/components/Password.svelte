@@ -5,7 +5,7 @@
   import { focus, fail, post } from "$lib/utils";
   import { password as pw, passwordPrompt } from "$lib/store";
 
-  let { user } = $props();
+  let {} = $props();
   let password = $state();
 
   let cancel = () => ($passwordPrompt = false);
@@ -13,7 +13,7 @@
   let submit = async (e) => {
     e.preventDefault();
     try {
-      let res = await post("/password", { password });
+      await post("/password", { password });
       $passwordPrompt = false;
       $pw = password;
     } catch (e) {

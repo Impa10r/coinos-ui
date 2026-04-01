@@ -1,17 +1,11 @@
 <script>
   import Amount from "$comp/Amount.svelte";
   import Payments from "$comp/Payments.svelte";
-  import { format } from "date-fns";
-  import { enhance } from "$app/forms";
   import { page } from "$app/stores";
   import Avatar from "$comp/Avatar.svelte";
-  import { toast } from "@zerodevx/svelte-toast";
   import { t } from "$lib/translations";
-  import { types, copy, f, s, sat, sats, loc } from "$lib/utils";
-  import { untrack } from "svelte";
+  import { loc } from "$lib/utils";
   import { loginRedirect } from "$lib/store";
-  import { bech32 } from "@scure/base";
-  const encoder = new TextEncoder();
 
   let { data } = $props();
 
@@ -21,16 +15,12 @@
 
   let currency = $derived(user ? user.currency : "CAD");
 
-  let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
-  $effect(() => ($loginRedirect = $page.url.pathname));
+  $effect(() => {
+    $loginRedirect = $page.url.pathname;
+  });
 
   let show = $state();
-  let toggle = () => (show = !show);
   let href = $derived(encodeURIComponent($page.url.href));
-  // let withdrawUrl = encoder.encode(
-  //   `${$page.url.origin}/api/fund/${id}/withdraw`,
-  // );
-  // let lnurlw = bech32.encode("lnurl", bech32.toWords(withdrawUrl), 20000);
 </script>
 
 <div class="container px-4 max-w-4xl mx-auto mt-10 space-y-5">

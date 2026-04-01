@@ -1,44 +1,28 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
-  import PasswordInput from "$comp/PasswordInput.svelte";
   import { Relay } from "nostr-tools/relay";
   import { bytesToHex, hexToBytes } from "@noble/hashes/utils.js";
-  import {
-    nip04,
-    nip19,
-    getEventHash,
-    generateSecretKey,
-    getPublicKey,
-  } from "nostr-tools";
+  import { nip04, nip19, generateSecretKey, getPublicKey } from "nostr-tools";
   import { getConversationKey, decrypt } from "nostr-tools/nip44";
 
-  import { copy, focus, fail, post } from "$lib/utils";
+  import { copy } from "$lib/utils";
   import { eventToSign, signer } from "$lib/store";
   import { nostrConnectRelay } from "$lib/nostr";
   import Success from "$comp/Success.svelte";
 
-  let { id } = $props();
-  let extensionAvailable = $derived(browser && window.nostr);
+  let {} = $props();
+  let extensionAvailable = $derived(browser && (window as any).nostr);
 
   let cancel = () => {
-    eventToSign.set();
-    showNsec = false;
+    eventToSign.set(undefined);
     connectUrl = undefined;
     $signer = "cancel";
   };
 
-  let signerAvailable = $derived(
-    browser &&
-      navigator.userAgent.includes("Android") &&
-      navigator.clipboard &&
-      navigator.clipboard.readText,
-  );
-
   let hadSigner = $state(!!$signer);
 
-  let connectUrl = $state();
+  let connectUrl = $state<string | undefined>();
   let nostrConnect = async () => {
     let connectionSecret = crypto.randomUUID();
 
@@ -81,7 +65,6 @@
   };
 
   let nsec = $state();
-  let showNsec = $state();
   let toggleNsec = () => {
     $signer = {
       method: "nsec",
@@ -90,8 +73,9 @@
 
   let nsecSign = async () => {
     let sk;
-    if (nsec.startsWith("nsec")) sk = nip19.decode(nsec).data as Uint8Array;
-    else sk = hexToBytes(nsec);
+    if ((nsec as string).startsWith("nsec"))
+      sk = nip19.decode(nsec as string).data as Uint8Array;
+    else sk = hexToBytes(nsec as string);
 
     $signer = {
       method: "nsec",
@@ -103,22 +87,6 @@
   let extensionSign = async () => {
     $signer = { method: "extension", ready: true };
   };
-
-  let signerSign = async () => {
-    document.addEventListener("focus", signerSigned, true);
-  };
-
-  const signerSigned = async () => {
-    await new Promise((r) => setTimeout(r, 100));
-    let sig = await navigator.clipboard.readText();
-    $signer.params.sig = sig;
-    $signer.ready = true;
-    $signer = $signer;
-  };
-
-  let signUrl = $derived(
-    `nostrsigner:${encodeURIComponent(JSON.stringify($eventToSign))}?compressionType=none&returnType=signature&type=sign_event&appName=Coinos`,
-  );
 </script>
 
 {#if $eventToSign && !$signer?.ready}
@@ -130,7 +98,7 @@
     >
       <h1 class="text-center text-2xl font-semibold">Nostr sign</h1>
 
-      {#if $eventToSign.sig && !hadSigner}
+      {#if ($eventToSign as any)?.sig && !hadSigner}
         <Success />
       {:else}
         {#if connectUrl}
@@ -153,7 +121,7 @@
               ></iconify-icon>
               {$t("payments.openLink")}</a
             >
-            <button class="btn" onclick={() => copy(connectUrl)}>
+            <button class="btn" onclick={() => copy(connectUrl!)}>
               <iconify-icon noobserver icon="ph:copy-bold" width="32"
               ></iconify-icon>
               {$t("payments.copy")}</button

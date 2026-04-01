@@ -2,17 +2,13 @@
   import { run, preventDefault } from "svelte/legacy";
 
   import { cubicInOut } from "svelte/easing";
-  import { browser } from "$app/environment";
-  import { t } from "$lib/translations";
   import { format } from "date-fns";
-  import { scale, fade, fly } from "svelte/transition";
-  import { enhance } from "$app/forms";
   import Avatar from "$comp/Avatar.svelte";
   import Icon from "$comp/Icon.svelte";
   import { back, fail, focus } from "$lib/utils";
   import { sign, send, encrypt, decrypt } from "$lib/nostr";
   import { event as e, password } from "$lib/store";
-  import { tick, onMount } from "svelte";
+  import { tick, untrack } from "svelte";
   import { getEventHash } from "nostr-tools";
 
   let { data } = $props();
@@ -38,14 +34,14 @@
     };
   }
 
-  let { messages, recipient, user } = $state(data);
-  let input,
-    pane = $state();
+  let { messages, recipient, user } = $state(untrack(() => ({ ...data })));
+  let pane = $state();
 
-  let initialize = async (p) => {
+  let initialize = async (_p) => {
     await Promise.all(
       messages.map(
-        async (event) => (event.message = await decrypt({ event, user })),
+        async (event) =>
+          /** @type {any} */ (event.message = await decrypt({ event, user })),
       ),
     );
 
@@ -53,9 +49,12 @@
     tick().then(() => pane && (pane.scrollTop = pane.scrollHeight));
   };
 
-  e.subscribe(async (event) => {
-    let found = ~messages.findIndex((m) => m.id === event?.id);
-    if (event?.recipient.id === user.id && !found) {
+  e.subscribe(async (ev) => {
+    const event = /** @type {any} */ (ev);
+    let found = ~messages.findIndex(
+      (m) => /** @type {any} */ (m).id === event?.id,
+    );
+    if (event?.recipient?.id === user.id && !found) {
       event.message = await decrypt({ event, user });
       messages.push(event);
       messages = messages;
@@ -63,12 +62,8 @@
     }
   });
 
-  let sent,
-    submitting,
-    message = $state();
+  let message = $state();
   let submit = async () => {
-    submitting = true;
-
     let event = {
       pubkey: user.pubkey,
       created_at: Math.floor(Date.now() / 1000),
@@ -93,18 +88,15 @@
         recipient: recipient.pubkey,
         user,
       });
-      event.id = getEventHash(event);
-      await sign(event);
+      event.id = getEventHash(/** @type {any} */ (event));
+      await sign(event, user);
       await send(event);
-
-      sent = true;
     } catch (e) {
       console.log(e);
       fail("Failed to send message");
     }
 
     message = "";
-    submitting = false;
   };
 
   let keydown = (e) => {
@@ -132,7 +124,8 @@
     class="h-[50vh] max-h-[50vh] overflow-y-scroll scrollbar-thin scrollbar-thumb-[#F2F6FC] scrollbar-track-white pr-8"
     bind:this={pane}
   >
-    {#each messages as { id, author, message, created_at, pubkey }}
+    {#each messages as _m (/** @type {any} */ (_m).id)}
+      {@const { author, message, created_at, pubkey } = /** @type {any} */ (_m)}
       {@const ours = pubkey === user.pubkey}
       {@const theirs = !ours}
 
@@ -150,12 +143,11 @@
             class="rounded-2xl px-4 py-2 max-w-[300px] mb-1 text-lg"
             class:ours
             class:theirs
-            :key={id}
           >
             {message}
           </div>
           <div class="mt-auto">
-            <Avatar user={author} size={"12"} />
+            <Avatar user={author} size={12} />
           </div>
         </div>
         <div class="text-sm text-gray-400 mb-6" class:text-right={ours}>
@@ -178,7 +170,7 @@
       use:focus
       contenteditable
       class="grow break-all py-4 outline-none mt-0 pl-4"
-      oninput={(e) => (message = e.target.innerText)}
+      oninput={(e) => (message = /** @type {any} */ (e.target)?.innerText)}
       onkeydown={keydown}
     ></div>
     <button type="submit" class="my-auto shrink-0">

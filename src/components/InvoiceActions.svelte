@@ -1,7 +1,6 @@
 <script>
   import { amountPrompt } from "$lib/store";
   import { types } from "$lib/utils";
-  import { page } from "$app/stores";
   import { goto } from "$app/navigation";
   let {
     user,
@@ -11,7 +10,6 @@
     link,
     showQr = $bindable(),
     txt,
-    setAmount,
     newAmount = $bindable(),
     toggleType,
     toggleAmount,
@@ -19,7 +17,7 @@
     toggleMemo,
   } = $props();
 
-  let { aid, address_type, type } = $derived(invoice);
+  let { type } = $derived(invoice);
 </script>
 
 <div class="text-secondary space-y-2 text-xl pt-2">

@@ -1,5 +1,4 @@
 <script>
-  import { back } from "$lib/utils";
   import Icon from "$comp/Icon.svelte";
   import { page } from "$app/stores";
 
@@ -22,7 +21,7 @@
         <h1 class="text-2xl md:text-3xl font-semibold text-center">Error</h1>
       </div>
       <p class="text-secondary text-center">Something went wrong</p>
-      <p class="text-secondary text-center">{$page.error.message}</p>
+      <p class="text-secondary text-center">{$page.error?.message ?? ""}</p>
 
       <div class="flex justify-center py-24">
         <a href={link}>

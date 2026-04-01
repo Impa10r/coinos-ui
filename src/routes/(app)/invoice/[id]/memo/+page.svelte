@@ -1,30 +1,19 @@
 <script>
-  import { run } from "svelte/legacy";
-
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
-  import { invoice as inv, request } from "$lib/store";
-  import { copy, select, f, sat, get, s, sats } from "$lib/utils";
+  import { select } from "$lib/utils";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
 
   let submitting;
-  let submit = $state();
 
   let { data } = $props();
-  let { invoice, id, user } = $derived(data);
+  let { invoice } = $derived(data);
   let {
     amount,
     hash,
     items,
-    memoPrompt,
     type,
-    rate,
-    received,
-    prompt,
-    text,
     tip,
-    user: { username, currency },
+    user: { username },
   } = $derived(invoice);
 </script>
 
@@ -58,7 +47,6 @@
 
   <button
     type="submit"
-    bind:this={submit}
     class="bg-black text-white border rounded-2xl px-6 py-5 w-full font-bold"
   >
     {$t("payments.next")}

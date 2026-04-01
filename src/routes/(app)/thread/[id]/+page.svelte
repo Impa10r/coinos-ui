@@ -3,6 +3,7 @@
 
   let { data } = $props();
   let { thread } = $derived(data);
+  let user = $derived(/** @type {any} */ (data).user);
 </script>
 
 <div class="container px-4 max-w-xl mx-auto space-y-5">
@@ -11,6 +12,6 @@
   </h1>
 
   {#each thread as event}
-    <Event {event} minimal={true} />
+    <Event {event} minimal={true} {user} />
   {/each}
 </div>

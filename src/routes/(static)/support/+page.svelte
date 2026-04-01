@@ -1,9 +1,6 @@
 <script>
-  import { PUBLIC_SIMPLEX_URL } from "$env/static/public";
+  import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
   import { t } from "$lib/translations";
-
-  let { data } = $props();
-  let { user } = $derived(data);
 </script>
 
 <div class="container max-w-lg mx-auto space-y-8 p-4 pb-20">
@@ -20,5 +17,16 @@
     <iconify-icon noobserver icon="ph:chat-circle-text-bold" width="32"
     ></iconify-icon>
     {$t("user.support.chat")}
+  </a>
+
+  <a
+    href={PUBLIC_TELEGRAM_URL}
+    target="_blank"
+    rel="noreferrer"
+    class="btn w-full"
+  >
+    <iconify-icon noobserver icon="ph:telegram-logo-bold" width="32"
+    ></iconify-icon>
+    Telegram
   </a>
 </div>

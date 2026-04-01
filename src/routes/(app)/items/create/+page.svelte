@@ -10,7 +10,7 @@
   run(() => {
     form?.message && fail(form.message);
   });
-  let { user } = data;
+  let { user } = $derived(data);
   let item = {};
 </script>
 

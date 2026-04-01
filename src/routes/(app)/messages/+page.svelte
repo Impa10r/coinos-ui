@@ -1,5 +1,6 @@
 <script>
   import { run } from "svelte/legacy";
+  import { untrack } from "svelte";
 
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
@@ -9,10 +10,8 @@
 
   let { data } = $props();
 
-  let { messages, notes, invoices, sent, received, subject, user } =
-    $state(data);
-  let refresh = (d) =>
-    ({ messages, notes, invoices, sent, received, subject, user } = d);
+  let { messages, subject, user } = $state(untrack(() => ({ ...data })));
+  let refresh = (d) => ({ messages, subject, user } = d);
 
   let keys = new Set();
   let latest = $state([]);
@@ -27,16 +26,15 @@
       event.content = await decrypt({ event, user });
 
       let i = latest.findIndex((m) => m.pubkey === event.pubkey);
-      let popped;
-      if (~i) popped = latest.splice(i, 1);
-      else popped = latest.pop();
+      if (~i) latest.splice(i, 1);
+      else latest.pop();
 
       latest.unshift(event);
       latest = latest;
     }
   });
 
-  let initialize = async (p) => {
+  let initialize = async (_p) => {
     let i = 0;
     ready = false;
     if (!(browser && user)) return;

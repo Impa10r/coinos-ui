@@ -2,40 +2,23 @@
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
-  import { t } from "$lib/translations";
-  import {
-    back,
-    copy,
-    f,
-    s,
-    toFiat,
-    post,
-    sats,
-    success,
-    types,
-  } from "$lib/utils";
-  import Avatar from "$comp/Avatar.svelte";
-  import Icon from "$comp/Icon.svelte";
+  import { f, toFiat } from "$lib/utils";
   import { format } from "date-fns";
-  import { PUBLIC_EXPLORER as expl } from "$env/static/public";
 
   let { data } = $props();
-  let { user, payment: p } = data;
+  let { payment: p } = $derived(data);
 
-  let { username } = user;
-  let { id, amount, created, rate, type, ref, tip, ourfee, fee, currency } = p;
-  let a = Math.abs(amount);
+  let { id, amount, created, rate, tip, currency, type } = $derived(p);
+  let a = $derived(Math.abs(amount));
 
   onMount(() => {
     if (browser) {
       let main = document.querySelector("main");
-      main.style.paddingBottom = "0";
+      if (main) main.style.paddingBottom = "0";
       window.onfocus = () => goto(`/payment/${id}`);
       window.print();
     }
   });
-
-  fee = fee || 0;
 </script>
 
 <div class="space-y-5">

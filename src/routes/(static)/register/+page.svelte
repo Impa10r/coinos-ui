@@ -1,4 +1,5 @@
 <script>
+  /* global grecaptcha */
   import { PUBLIC_RECAPTCHA_SITE_KEY } from "$env/static/public";
   import { onDestroy, onMount } from "svelte";
   import { browser } from "$app/environment";
@@ -8,7 +9,6 @@
   import { applyAction, deserialize } from "$app/forms";
   import { tick, untrack } from "svelte";
   import { fly } from "svelte/transition";
-  import { enhance } from "$app/forms";
 
   import Pin from "$comp/Pin.svelte";
   import Spinner from "$comp/Spinner.svelte";
@@ -22,7 +22,6 @@
     NumberDictionary,
     uniqueNamesGenerator,
     colors,
-    adjectives,
     animals,
   } from "unique-names-generator";
   import { sign } from "$lib/nostr";
@@ -94,24 +93,28 @@
     }
   });
 
-  let token = $state(),
-    formElement;
-  let code = [];
+  let token = $state();
   let redirect;
 
-  let cancel = () => (need2fa = false);
+  let cancel = () => {
+    need2fa = false;
+    return "";
+  };
 
-  let email,
-    btn = $state();
+  let btn = $state();
 
   let loading = $state();
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor || !recaptchaSiteKey) return resolve("");
-      if (!browser || typeof grecaptcha === "undefined") return resolve("");
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute(recaptchaSiteKey, { action: "register" })
+      if (
+        !browser ||
+        typeof (/** @type {any} */ (window).grecaptcha) === "undefined"
+      )
+        return resolve("");
+      let gc = /** @type {any} */ (window).grecaptcha;
+      gc.ready(() => {
+        gc.execute(recaptchaSiteKey, { action: "register" })
           .then(resolve)
           .catch(reject);
       });
@@ -122,32 +125,37 @@
 
     loading = true;
 
-    let data = new FormData(this);
-    let user = Object.fromEntries(data);
-    user.username = user.username.replace(/\s*/g, "");
+    let formEl = /** @type {HTMLFormElement} */ (e.currentTarget);
+    let formData = new FormData(formEl);
+    let user = Object.fromEntries(formData);
+    user.username = String(user.username).replace(/\s*/g, "");
 
     for (let k in user) {
-      data.set(k, user[k]);
+      formData.set(k, user[k]);
     }
 
     try {
       const recaptcha = await getRecaptchaToken();
-      data.set("recaptcha", recaptcha);
+      formData.set("recaptcha", recaptcha);
     } catch (err) {
-      fail(err.message || "captcha failed");
+      fail(err instanceof Error ? err.message : "captcha failed");
       loading = false;
       return;
     }
 
-    data.set("picture", `${$page.url.origin}/api/public/${punks[index]}.webp`);
+    formData.set(
+      "picture",
+      `${$page.url.origin}/api/public/${punks[index]}.webp`,
+    );
     if ($avatar) {
       try {
+        let av = /** @type {any} */ ($avatar);
         let { hash } = JSON.parse(
-          await upload($avatar.file, $avatar.type, $avatar.progress, token),
+          /** @type {string} */ (await upload(av.file, av.type, av.progress)),
         );
 
         let url = `${$page.url.origin}/api/public/${hash}.webp`;
-        data.set("picture", url);
+        formData.set("picture", url);
         await fetch(url, {
           cache: "reload",
           mode: "no-cors",
@@ -159,7 +167,7 @@
 
     const response = await fetch("/register", {
       method: "POST",
-      body: data,
+      body: formData,
     });
 
     const result = deserialize(await response.text());
@@ -178,31 +186,35 @@
   let selectAvatar = () => avatarInput.click();
 
   let progress;
+  let customSrc = $state("");
   let handleFile = async ({ target }) => {
     let type = "picture";
     let file = target.files[0];
     if (!file) return;
 
-    if (file.size > 10000000) form.error = "File too large";
+    if (file.size > 10000000) {
+      if (form) /** @type {any} */ (form).error = "File too large";
+    }
     $avatar = { file, type, progress };
 
     var reader = new FileReader();
     reader.onload = async (e) => {
-      src = e.target.result;
+      customSrc = /** @type {string} */ (e.target?.result) || "";
     };
 
     reader.readAsDataURL(file);
   };
 
-  let need2fa = $derived(form?.message === "2fa");
-  let src = $derived(`/api/public/${punks[index]}.webp`);
+  let need2fa = $derived(/** @type {any} */ (form)?.message === "2fa");
+  let defaultSrc = $derived(`/api/public/${punks[index]}.webp`);
+  let src = $derived(customSrc || defaultSrc);
 
   $effect(() => {
-    if (need2fa && form.token === token) token = "";
+    if (need2fa && /** @type {any} */ (form)?.token === token) token = "";
   });
 
   $effect(() => {
-    token && token?.length === 6 && tick().then(() => btn.click());
+    if (token && token?.length === 6) void tick().then(() => btn.click());
   });
 
   let nostrLogin = async () => {
@@ -217,14 +229,15 @@
       ],
     };
 
-    let signedEvent = await sign(event);
+    let user = /** @type {any} */ ({});
+    let signedEvent = await sign(event, user);
 
     const formData = new FormData();
 
     try {
       const recaptcha = await getRecaptchaToken();
-      formData.append("loginRedirect", redirect);
-      formData.append("token", token);
+      formData.append("loginRedirect", redirect ?? "");
+      formData.append("token", token ?? "");
       formData.append("event", JSON.stringify(signedEvent));
       formData.append("challenge", challenge);
       formData.append("recaptcha", recaptcha);
@@ -242,14 +255,14 @@
 
       applyAction(result);
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     }
   };
 
   onDestroy(() => {
     if (!browser) return;
     const nodeBadge = document.querySelector(".grecaptcha-badge");
-    if (nodeBadge) {
+    if (nodeBadge && nodeBadge.parentNode) {
       document.body.removeChild(nodeBadge.parentNode);
     }
 
@@ -276,7 +289,7 @@
     type="file"
     class="hidden!"
     bind:this={avatarInput}
-    onchange={(e) => handleFile(e, "picture")}
+    onchange={(e) => handleFile(e)}
   />
 
   <div class="relative">
@@ -315,10 +328,10 @@
     </button>
   </div>
 
-  {#if form?.error || form?.message}
+  {#if /** @type {any} */ (form)?.error || /** @type {any} */ (form)?.message}
     <div class="text-red-600 text-center" in:fly>
-      {form?.message}
-      {form?.error}
+      {/** @type {any} */ (form)?.message}
+      {/** @type {any} */ (form)?.error}
     </div>
   {/if}
 

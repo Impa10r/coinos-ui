@@ -6,7 +6,6 @@
 
   let { data } = $props();
   let { user } = $derived(data);
-  let { pubkey } = $derived(user);
   let content = $state();
 
   let submit = async (e) => {

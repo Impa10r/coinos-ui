@@ -1,16 +1,17 @@
 <script>
-  import { theme } from "$lib/store";
   import DarkToggle from "$comp/DarkToggle.svelte";
   import { OutClick } from "svelte-outclick";
-  let { t, user, w, opacity } = $props();
-
-  let dark = () => ($theme = $theme === "dark" ? "light" : "dark");
+  let { t, w, opacity } = $props();
   let showMenu = $state(false);
 
   let menuButtons = [
     { key: "nav.settings", icon: "ph:gear-bold", href: `/settings` },
     { key: "nav.support", icon: "ph:lifebuoy-bold", href: `/support` },
-    { key: "nav.map", icon: "ph:map-trifold-bold", href: `https://btcmap.org` },
+    {
+      key: "nav.map",
+      icon: "ph:map-trifold-bold",
+      href: `https://btcmap.org/map`,
+    },
     // {
     //   key: "nav.merch",
     //   icon: "ph:storefront-bold",

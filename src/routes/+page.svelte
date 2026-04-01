@@ -4,15 +4,13 @@
   import LandingInfoCard from "$comp/LandingInfoCard.svelte";
   import HowItWorksCard from "$comp/HowItWorksCard.svelte";
   import FaqCard from "$comp/FaqCard.svelte";
-  import Image from "$comp/Image.svelte";
   import Footer from "$comp/Footer.svelte";
   import About from "$comp/About.svelte";
 
-  import { locale, t } from "$lib/translations";
-  import { onDestroy, onMount, tick } from "svelte";
+  import { t } from "$lib/translations";
 
   let { data } = $props();
-  let { faqs, locations, user } = $derived(data);
+  let { faqs, user } = $derived(data as any);
 
   let howItWorks = $state();
   let faq = $state();

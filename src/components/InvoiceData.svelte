@@ -1,20 +1,9 @@
 <script>
   import Amount from "$comp/Amount.svelte";
 
-  import { btc, copy, f, sat, s, sats, types } from "$lib/utils";
-  let {
-    showQr,
-    link,
-    txt,
-    invoice,
-    amount,
-    amountFiat,
-    currency,
-    locale,
-    tip,
-    rate,
-    t,
-  } = $props();
+  import { btc, copy, f, sat, types } from "$lib/utils";
+  let { showQr, link, txt, invoice, amount, currency, locale, tip, rate, t } =
+    $props();
 
   let loaded = $state(false);
   let { memo } = $derived(invoice);

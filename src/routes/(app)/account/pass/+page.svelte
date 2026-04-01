@@ -1,16 +1,12 @@
 <script lang="ts">
   import { preventDefault } from "svelte/legacy";
 
-  import { tick, onMount } from "svelte";
+  import { tick, onMount, untrack } from "svelte";
   import { t } from "$lib/translations";
   import { mnemonic } from "$lib/store";
   import Spinner from "$comp/Spinner.svelte";
   import { encrypt } from "nostr-tools/nip49";
-  import {
-    mnemonicToSeed,
-    mnemonicToEntropy,
-    entropyToMnemonic,
-  } from "@scure/bip39";
+  import { mnemonicToSeed, mnemonicToEntropy } from "@scure/bip39";
   import { wordlist } from "@scure/bip39/wordlists/english.js";
   import { focus, versions, fail, post } from "$lib/utils";
   import { goto } from "$app/navigation";
@@ -18,13 +14,13 @@
 
   let { data } = $props();
 
-  let { user } = data;
-  let submitting = $state();
+  let { user } = $state(untrack(() => data));
+  let submitting = $state(false);
 
-  let confirm = $state(),
-    password = $state(),
-    revealPassword = $state(),
-    revealConfirm = $state();
+  let confirm = $state(""),
+    password = $state(""),
+    revealPassword = $state(false),
+    revealConfirm = $state(false);
   let type = "bitcoin";
   let name = $t("accounts.savings");
 
@@ -57,7 +53,7 @@
       await post("/account", { fingerprint, pubkey, name, seed, type });
       $mnemonic = "";
       goto(`/${user.username}`);
-    } catch (e) {
+    } catch (e: any) {
       console.log(e);
       fail(e.message);
     }

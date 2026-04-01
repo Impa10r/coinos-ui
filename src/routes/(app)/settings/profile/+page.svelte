@@ -1,8 +1,7 @@
 <script>
-  import { tick, untrack } from "svelte";
+  import { untrack } from "svelte";
   import { avatar, banner as bannerStore } from "$lib/store";
   import { t } from "$lib/translations";
-  import { page } from "$app/stores";
   import PasswordInput from "$comp/PasswordInput.svelte";
 
   let { data } = $props();
@@ -14,51 +13,43 @@
   let display = $state(untrack(() => user.display));
   let username = $state(untrack(() => user.username));
 
-  let avatarFile,
-    avatarInput = $state(),
-    bannerFile,
+  let avatarInput = $state(),
     password = $state(),
-    revealPassword = $state(),
     bannerInput = $state();
 
   let selectAvatar = () => avatarInput.click();
   let selectBanner = () => bannerInput.click();
 
-  let percent;
   let progress = async (event) => {
-    percent = Math.round((event.loaded / event.total) * 100);
+    Math.round((event.loaded / event.total) * 100);
   };
 
   let tooLarge = $state({});
 
   let handleFile = async ({ target }, type) => {
     tooLarge[type] = false;
-    let file = target.files[0];
+    let file = /** @type {HTMLInputElement} */ (target).files?.[0];
     if (!file) return;
 
     if (file.size > 10000000) return (tooLarge[type] = true);
 
     if (type === "picture") {
-      $avatar = { id, file, type, progress };
+      $avatar = /** @type {any} */ ({ id, file, type, progress });
     } else if (type === "banner") {
-      $bannerStore = { id, file, type, progress };
+      $bannerStore = /** @type {any} */ ({ id, file, type, progress });
     }
 
     var reader = new FileReader();
     reader.onload = async (e) => {
       if (type === "picture") {
-        $avatar.src = e.target.result;
+        /** @type {any} */ ($avatar).src = e.target?.result;
       } else if (type === "banner") {
-        $bannerStore.src = e.target.result;
+        /** @type {any} */ ($bannerStore).src = e.target?.result;
       }
     };
 
     reader.readAsDataURL(file);
   };
-
-  let url = $derived(`${$page.url.host}/${username}`);
-  let full = $derived(`${$page.url.protocol}//${url}`);
-  let addr = $derived(`${username}@${$page.url.host}`);
 </script>
 
 <div>
@@ -103,7 +94,7 @@
         onkeydown={selectAvatar}
       >
         <img
-          src={$avatar?.src || picture}
+          src={/** @type {any} */ ($avatar)?.src || picture}
           class="absolute w-full h-full object-cover object-center visible overflow-hidden"
           alt={username}
         />
@@ -152,7 +143,9 @@
       onkeydown={selectBanner}
     >
       <img
-        src={$bannerStore ? $bannerStore.src : banner}
+        src={/** @type {any} */ ($bannerStore)
+          ? /** @type {any} */ ($bannerStore).src
+          : banner}
         class="w-full object-cover object-center visible overflow-hidden h-48 mb-4 hover:opacity-80"
         alt="Banner"
       />
@@ -190,7 +183,6 @@
     >{$t("user.settings.about")}</label
   >
   <textarea
-    type="text"
     name="about"
     bind:value={about}
     placeholder={$t("user.settings.aboutPlaceholder")}

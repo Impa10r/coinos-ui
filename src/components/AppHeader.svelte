@@ -1,6 +1,5 @@
 <script>
-  import { banner, theme, newPayment } from "$lib/store";
-  import { goto } from "$app/navigation";
+  import { banner } from "$lib/store";
   import Avatar from "$comp/Avatar.svelte";
   import Menu from "$comp/Menu.svelte";
   import { loading, t } from "$lib/translations";
@@ -11,9 +10,10 @@
   let w = $state();
   $effect(() => (subject = subject || user));
 
+  let ban = $derived(/** @type {any} */ ($banner));
   let bg = $derived(
-    $banner?.id && $banner.id === subject?.id
-      ? `url(${$banner.src})`
+    ban?.id && ban.id === subject?.id
+      ? `url(${ban.src})`
       : subject?.banner
         ? subject.banner.includes(":")
           ? `url(${subject.banner})`
@@ -74,7 +74,7 @@
             </button>
           </a>
         {/each}
-        <Menu {opacity} {user} t={$t} {w} />
+        <Menu {opacity} t={$t} {w} />
       {:else}
         <a href={`/login?redirect=${$page.url.pathname}`}>
           <button class="btn !rounded-full">{$t("nav.signIn")}</button>

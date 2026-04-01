@@ -2,10 +2,9 @@
   import { PUBLIC_DOMAIN } from "$env/static/public";
   import Avatar from "$comp/Avatar.svelte";
   import { s } from "$lib/utils";
-  import Amount from "$comp/Amount.svelte";
 
   let { data } = $props();
-  let { users } = data;
+  let users = $derived(/** @type {any[]} */ (data.users));
 
   let bounties = [
     "Hardware Store",
@@ -102,7 +101,7 @@
             <div
               class="mt-2 flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300 min-w-0"
             >
-              <Avatar {user} size={8} class="shrink-0" />
+              <Avatar {user} size={8} />
               <span class="truncate max-w-full"
                 >Referred by @{user.username}</span
               >

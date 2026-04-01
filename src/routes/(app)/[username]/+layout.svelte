@@ -1,5 +1,5 @@
 <script>
-  let { data, children, fixed } = $props();
+  let { children, fixed } = $props();
 </script>
 
 <div class="content">

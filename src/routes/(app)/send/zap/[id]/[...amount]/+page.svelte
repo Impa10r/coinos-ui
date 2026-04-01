@@ -1,50 +1,45 @@
 <script>
-  import { tick } from "svelte";
   import { goto } from "$app/navigation";
   import { untrack } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
-  import Amount from "$comp/Amount.svelte";
   import Numpad from "$comp/Numpad.svelte";
-  import Spinner from "$comp/Spinner.svelte";
-  import { page } from "$app/stores";
-  import { loc, back, fail, post, toFiat, f, s, focus } from "$lib/utils";
-  import { sign, send } from "$lib/nostr";
+  import { loc, fail, post } from "$lib/utils";
+  import { sign } from "$lib/nostr";
   import { rate, pin } from "$lib/store";
 
   let { data, form } = $props();
 
-  let { id, request, user } = $derived({ ...data, ...form });
-  let a = $state(data.amount);
+  let { id, request, user } = $derived({
+    .../** @type {any} */ (data),
+    .../** @type {any} */ (form),
+  });
+  let a = $state(untrack(() => /** @type {any} */ (data).amount));
   let { currency } = $derived(user);
-  let locale = loc(user);
+  let locale = $derived(loc(user));
   let event = $state();
 
-  $effect(() => ($rate ||= data.rate));
-  $effect(async () => {
-    if (form || request) {
-      try {
-        loading = false;
-        event = await sign(request);
-        let { pr: payreq } = await post("/post/zap", { event });
-        await post("/post/payments", { amount, payreq, pin: $pin });
-        goto(`/e/${id}`);
-      } catch (e) {
-        console.log(e);
-        fail(e.message);
+  $effect(() => {
+    $rate ||= /** @type {any} */ (data).rate;
+  });
+  $effect(() => {
+    void (async () => {
+      if (form || request) {
+        try {
+          event = await sign(request, user);
+          let { pr: payreq } = await post("/post/zap", { event });
+          await post("/post/payments", { amount, payreq, pin: $pin });
+          goto(`/e/${id}`);
+        } catch (e) {
+          console.log(e);
+          fail(e instanceof Error ? e.message : String(e));
+        }
       }
-    }
+    })();
   });
 
-  let showMax = $state();
-
-  let loading = $state();
-  let submit = () => (loading = true);
-
   let next = $state();
-  let toggle = () => (show = !show);
   let amount = $derived(form?.amount || data.amount);
-  let maxfee = $state(Math.max(5, Math.round(untrack(() => amount) * 0.005)));
 </script>
 
 <div class="container px-4 max-w-xl mx-auto text-center space-y-2">

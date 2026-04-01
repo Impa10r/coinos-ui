@@ -1,19 +1,22 @@
 <script>
-  import { run } from "svelte/legacy";
   import { browser } from "$app/environment";
   import { PUBLIC_DOMAIN } from "$env/static/public";
   import "../app.css";
-  import { loading, locale, t } from "$lib/translations";
+  import { loading, locale } from "$lib/translations";
   import { onMount } from "svelte";
   import { installPrompt, theme as themeStore } from "$lib/store";
 
   const map = { light: "lofi", dark: "black", system: "system" };
 
   let { data, children } = $props();
-  let { pathname } = $derived(data);
+  let { pathname } = $derived(/** @type {any} */ (data));
   let theme = $state();
-  $effect(() => ($themeStore = data.theme));
-  $effect(() => (theme = $themeStore));
+  $effect(() => {
+    $themeStore = /** @type {any} */ (data).theme;
+  });
+  $effect(() => {
+    theme = $themeStore;
+  });
   $effect(() => {
     const v = map[theme] ?? theme;
     if (!v || v === "system") {
@@ -47,9 +50,10 @@
       if (document.visibilityState === "visible") clearBadge();
     });
 
-    let hasNotch = typeof window.AndroidNotch !== "undefined";
+    let hasNotch =
+      typeof (/** @type {any} */ (window).AndroidNotch) !== "undefined";
     if (hasNotch) {
-      window.AndroidNotch.getInsetTop(
+      /** @type {any} */ (window).AndroidNotch.getInsetTop(
         (px) => {
           document.documentElement.style.setProperty(
             "--safe-area-inset-top",
@@ -61,8 +65,8 @@
         },
       );
 
-      window.AndroidNotch.getInsetBottom(
-        (px) => {
+      /** @type {any} */ (window).AndroidNotch.getInsetBottom(
+        (_px) => {
           document.documentElement.style.setProperty(
             "--safe-area-inset-bottom",
             24 + "px",

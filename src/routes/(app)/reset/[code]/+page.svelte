@@ -11,9 +11,8 @@
   import { fail } from "$lib/utils";
 
   let { form } = $props();
-  let email;
-  let loading;
-  let recaptchaToken = "";
+  let loading = $state();
+  let recaptchaToken = $state("");
   let recaptchaSiteKey = PUBLIC_RECAPTCHA_SITE_KEY;
   let isTor = browser && location.hostname.endsWith(".onion");
 
@@ -29,11 +28,12 @@
   const getRecaptchaToken = () =>
     new Promise((resolve, reject) => {
       if (isTor) return resolve("");
-      if (!browser || !grecaptcha)
-        return reject(new Error("captcha unavailable"));
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute(recaptchaSiteKey, { action: "reset" })
+      const gr = browser
+        ? /** @type {any} */ (window)["grecaptcha"]
+        : undefined;
+      if (!browser || !gr) return reject(new Error("captcha unavailable"));
+      gr.ready(() => {
+        gr.execute(recaptchaSiteKey, { action: "reset" })
           .then(resolve)
           .catch(reject);
       });
@@ -47,7 +47,7 @@
       await tick();
       e.currentTarget.submit();
     } catch (err) {
-      fail(err.message || "captcha failed");
+      fail((err instanceof Error ? err.message : null) || "captcha failed");
       loading = false;
     }
   };
@@ -55,7 +55,7 @@
   onDestroy(() => {
     if (!browser) return;
     const nodeBadge = document.querySelector(".grecaptcha-badge");
-    if (nodeBadge) {
+    if (nodeBadge?.parentNode) {
       document.body.removeChild(nodeBadge.parentNode);
     }
 

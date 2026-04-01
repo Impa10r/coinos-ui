@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import { PUBLIC_DOMAIN } from "$env/static/public";
   let here = false;
   let ready = false;
@@ -8,9 +7,9 @@
   let NfcWriter: any;
 
   async function write() {
-    NfcWriter = window.Capacitor?.Plugins?.NfcWriter;
+    NfcWriter = (window as any).Capacitor?.Plugins?.NfcWriter;
     ready = true;
-    console.log(window.Capacitor);
+    console.log((window as any).Capacitor);
     if (!NfcWriter) return;
     here = true;
 
@@ -22,7 +21,7 @@
 
       ready = true;
 
-      const ndef = new NDEFReader();
+      const ndef = new (window as any).NDEFReader();
       await ndef.write(
         {
           records: [
@@ -37,11 +36,12 @@
 
       success = true;
     } catch (err) {
-      if (err.name === "AbortError") {
+      const e = err as Error;
+      if (e.name === "AbortError") {
         console.warn("Previous write aborted");
       } else {
         console.error("Write failed", err);
-        alert("❌ Write failed: " + err.message);
+        alert("❌ Write failed: " + e.message);
       }
     } finally {
       await NfcWriter.disableExclusiveNfcMode();

@@ -1,27 +1,23 @@
 <script>
-  import { browser } from "$app/environment";
-  import { onMount, tick } from "svelte";
-  import { fly } from "svelte/transition";
+  import { tick } from "svelte";
   import { applyAction, deserialize } from "$app/forms";
 
-  import Icon from "$comp/Icon.svelte";
   import Spinner from "$comp/Spinner.svelte";
   import Pin from "$comp/Pin.svelte";
   import { loading, t } from "$lib/translations";
-  import { fd, fail, auth, post, sleep, warning, success } from "$lib/utils";
+  import { fd, fail, post, warning, success } from "$lib/utils";
   import { avatar, banner, signer, password, pin, save } from "$lib/store";
   import { upload } from "$lib/upload";
   import { page } from "$app/stores";
-  import { sign, send, getPrivateKey } from "$lib/nostr";
+  import { sign, send } from "$lib/nostr";
   import { invalidateAll } from "$app/navigation";
-  import { getPublicKey } from "nostr-tools";
-  import { bytesToHex } from "@noble/hashes/utils.js";
 
-  let { children, data, form } = $props();
+  let { children, data } = $props();
+  let form = $state(/** @type {any} */ (undefined));
 
   let formElement = $state();
 
-  let { token, cookies, subscriptions } = $derived(data);
+  let { cookies } = $derived(data);
   let { tab } = $derived(data);
   let user = $derived({ ...data?.user, ...form?.user });
   let prev = $derived({ ...data.user });
@@ -42,7 +38,6 @@
     { name: "security", key: "SECURITY" },
   ];
 
-  let { about, id, username } = $derived(user);
   let submitting = $state();
 
   async function handleSubmit(e) {
@@ -51,11 +46,9 @@
       submitting = true;
       let body = new FormData(formElement);
       form = {
-        user: await fd({
-          formData() {
-            return body;
-          },
-        }),
+        user: await fd(
+          /** @type {any} */ ({ formData: () => Promise.resolve(body) }),
+        ),
       };
 
       await tick();
@@ -76,14 +69,17 @@
           ],
         };
 
-        let signedEvent = await sign(event);
+        let signedEvent = await sign(event, user);
         body.set("event", JSON.stringify(signedEvent));
       }
 
       if ($avatar) {
         try {
+          const av = /** @type {{ file: any, type: any, progress: any }} */ (
+            $avatar
+          );
           let { hash } = JSON.parse(
-            await upload($avatar.file, $avatar.type, $avatar.progress, token),
+            /** @type {string} */ (await upload(av.file, av.type, av.progress)),
           );
 
           let url = `${$page.url.origin}/api/public/${hash}.webp`;
@@ -97,8 +93,11 @@
 
       if ($banner) {
         try {
+          const bn = /** @type {{ file: any, type: any, progress: any }} */ (
+            $banner
+          );
           let { hash } = JSON.parse(
-            await upload($banner.file, $banner.type, $banner.progress, token),
+            /** @type {string} */ (await upload(bn.file, bn.type, bn.progress)),
           );
 
           let url = `${$page.url.origin}/api/public/${hash}.webp`;
@@ -140,8 +139,8 @@
       let email = body.get("email");
       if (email && email !== prev.email) {
         try {
-          cookies.get = function (n) {
-            return this.find((c) => c.name === n).value;
+          /** @type {any} */ (cookies).get = function (n) {
+            return this.find((c) => c.name === n)?.value;
           };
 
           user.verified = false;
@@ -150,7 +149,7 @@
 
           warning($t("user.settings.verifying"), false);
         } catch (e) {
-          fail(e.message);
+          fail(e instanceof Error ? e.message : String(e));
           console.log(e);
         }
       }
@@ -164,7 +163,7 @@
 
       if (result.type === "success") {
         await invalidateAll();
-        if (body.get("password")) $password = body.get("password");
+        if (body.get("password")) $password = String(body.get("password"));
       }
 
       applyAction(result);

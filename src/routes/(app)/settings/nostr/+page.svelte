@@ -2,27 +2,23 @@
   import { untrack } from "svelte";
   import { browser } from "$app/environment";
   import { getNsec } from "$lib/nostr";
-  import { page } from "$app/stores";
   import { tick } from "svelte";
   import { t } from "$lib/translations";
   import { s, copy, fail } from "$lib/utils";
-  import {
-    PUBLIC_COINOS_PUBKEY as pk,
-    PUBLIC_COINOS_RELAY as relay,
-  } from "$env/static/public";
   import { signer, save } from "$lib/store";
 
   let { data } = $props();
   let { apps, challenge, user } = $derived(data);
   let npub = $state(untrack(() => user.npub));
-  let extensionAvailable = $derived(browser && window.nostr);
+  let extensionAvailable = $derived(
+    browser && /** @type {any} */ (window).nostr,
+  );
   let { locale } = $derived(user);
 
-  let newNsec = $state(),
-    nsec = $state(),
-    pin = $state(""),
+  let nsec = $state(),
     revealNsec = $state(),
-    revealNwc = $state();
+    revealNwc = $state(),
+    nwc = $state("");
 
   let toggleNsec = async () => {
     try {
@@ -37,9 +33,9 @@
   let getPubkey = async () => {
     $signer = { method: "extension", ready: true };
     extension = true;
-    npub = await window.nostr.getPublicKey();
+    npub = await /** @type {any} */ (window).nostr.getPublicKey();
     await tick();
-    $save.click();
+    /** @type {any} */ ($save).click();
   };
 </script>
 
@@ -104,7 +100,6 @@
             href={`/qr/${encodeURIComponent(app.nwc)}`}
             class:btn-disabled={!app.secret}
             title={$t("user.receive.showQR")}
-            disabled={!app.secret}
           >
             <iconify-icon icon="ph:qr-code-bold" width="32"></iconify-icon>
           </a>

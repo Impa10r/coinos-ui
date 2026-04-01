@@ -1,14 +1,8 @@
 <script>
-  import { browser } from "$app/environment";
-  import { onMount } from "svelte";
-  import { scale } from "svelte/transition";
-  import { btc, f, sat } from "$lib/utils";
   import Account from "$comp/Account.svelte";
-  import Balance from "$comp/Balance.svelte";
   import { t } from "$lib/translations";
   import { installPrompt, password } from "$lib/store";
   import { afterNavigate, preloadData } from "$app/navigation";
-  import { page } from "$app/stores";
 
   let { data } = $props();
 
@@ -17,20 +11,18 @@
     preloadData("/send");
   });
 
-  let { accounts, subject, rate, user } = $derived(data);
+  let { accounts, subject, rate, user } = $derived(/** @type {any} */ (data));
   let locked = $derived(user.locked);
 
   let install = async () => {
     if (!$installPrompt) return;
-    await $installPrompt.prompt();
+    await /** @type {any} */ ($installPrompt).prompt();
     $installPrompt = null;
   };
 
-  let pubkey = $state();
   $effect(() => {
     if (user) user.savings = 0;
   });
-  let { host } = $derived($page.url);
 </script>
 
 <div class="space-y-2">

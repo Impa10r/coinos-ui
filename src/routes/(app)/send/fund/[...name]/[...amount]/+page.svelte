@@ -3,19 +3,18 @@
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { page } from "$app/stores";
   import { pin } from "$lib/store";
   import handler from "$lib/handler";
   import { loc, s } from "$lib/utils";
   import { untrack } from "svelte";
   import { applyAction, deserialize } from "$app/forms";
+  import { invalidateAll } from "$app/navigation";
 
   let { data, form } = $props();
   let amount = $state(untrack(() => data.amount));
   let user = $derived(data.user);
   let { balance, currency } = $derived(user);
   let { name, rate } = $derived(data);
-  let loading = $state();
   let fiat = $state();
   let locale = $derived(loc(user));
 
@@ -24,14 +23,13 @@
   let toggle = () => (submitting = !submitting);
   $effect(() => {
     if (form?.message?.includes("pin")) $pin = undefined;
-    loading = false;
   });
   let formElement = $state();
 
   let setMax = async (e) => {
     e.preventDefault();
     let body = new FormData(formElement);
-    body.set("fiat", false);
+    body.set("fiat", false.toString());
     body.set("amount", user.balance);
 
     const response = await fetch(formElement.action, {
@@ -74,7 +72,6 @@
       >
 
       <button
-        use:focus
         bind:this={submit}
         type="submit"
         class="btn btn-accent !w-auto grow"

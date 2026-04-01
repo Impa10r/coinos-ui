@@ -1,6 +1,5 @@
 <script>
   import InvoiceTypes from "$comp/InvoiceTypes.svelte";
-  import { focus } from "$lib/utils";
 
   let {
     newAmount = $bindable(),
@@ -13,8 +12,6 @@
     toggleType,
     t,
   } = $props();
-
-  let { aid, type } = $derived(invoice);
 </script>
 
 {#if settingType}

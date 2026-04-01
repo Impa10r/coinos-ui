@@ -1,12 +1,8 @@
 <script>
   import { untrack } from "svelte";
 
-  import { browser } from "$app/environment";
-  import { invoice as inv, request } from "$lib/store";
-  import { loc, copy, focus, f, sat, get, s, sats } from "$lib/utils";
-  import Icon from "$comp/Icon.svelte";
+  import { loc, focus, f, s, sats } from "$lib/utils";
   import Slider from "$comp/Slider.svelte";
-  import { goto } from "$app/navigation";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
   import { tick } from "svelte";
@@ -35,7 +31,6 @@
     tip = Math.round((amount / 100) * tipPercent);
   };
 
-  let timeout;
   const handleSlide = (e) => {
     customTipAmount = "";
     if (customInput) {
@@ -45,9 +40,7 @@
     tip = Math.round((amount / 100) * tipPercent);
   };
 
-  let submitting = $state();
   const handleTipButtonClick = async (v) => {
-    submitting = true;
     if (v === "No") {
       tipPercent = 0;
       tip = 0;
@@ -64,24 +57,10 @@
 
   let { data } = $props();
   let { invoice, id, user } = $state(data);
-  let {
-    aid,
-    amount,
-    hash,
-    items,
-    type,
-    received,
-    prompt,
-    text,
-    tip,
-    user: { username },
-  } = $state(invoice);
+  let { amount, tip } = $state(invoice);
   let locale = $derived(loc(user));
 
-  let qr;
   let tipPercent = $state((tip / amount) * 100);
-
-  let fullscreen;
 
   let currency = user?.currency || invoice.currency;
   let rate = invoice.rate * (data.rate / data.invoiceRate);
@@ -91,8 +70,7 @@
   });
 
   let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
-  let tipAmount = $derived(((tip * rate) / sats).toFixed(2));
-  let invoiceAmountFiatFormatted = $derived(f(amountFiat, currency));
+  let tipAmount = $derived((tip * rate) / sats);
 </script>
 
 <div class="container px-4 max-w-lg text-center mx-auto">
@@ -147,14 +125,14 @@
                 use:focus
                 type="button"
                 class="btn"
-                class:active={active(amount, tipPercent)}
+                class:active={active(amount)}
                 onclick={() => handleTipButtonClick(amount)}>{amount}</button
               >
             {:else}
               <button
                 type="button"
                 class="btn"
-                class:active={active(amount, tipPercent)}
+                class:active={active(amount)}
                 onclick={() => handleTipButtonClick(amount)}>{amount}</button
               >
             {/if}

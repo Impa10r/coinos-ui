@@ -1,15 +1,14 @@
 <script>
   import Mnemonic from "$comp/Mnemonic.svelte";
   import { browser } from "$app/environment";
-  import { tick, onMount } from "svelte";
+  import { onMount } from "svelte";
   import { copy } from "$lib/utils";
   import { t } from "$lib/translations";
   import { mnemonic } from "$lib/store";
   import { generateMnemonic } from "@scure/bip39";
   import { wordlist } from "@scure/bip39/wordlists/english.js";
 
-  let { data } = $props();
-  let { user } = $derived(data);
+  let {} = $props();
 
   onMount(async () => {
     if (!browser) return;

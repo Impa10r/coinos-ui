@@ -1,7 +1,5 @@
 <script>
   import { PUBLIC_DOMAIN } from "$env/static/public";
-  import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
 </script>
 
 <div class="space-y-5">

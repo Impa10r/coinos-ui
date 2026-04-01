@@ -5,9 +5,7 @@
   import { loc } from "$lib/utils";
 
   let { data } = $props();
-  let { amount, currency, rate, received, pending, tip, user, id } = $derived(
-    data.invoice,
-  );
+  let { currency, rate, received, pending, tip, user } = $derived(data.invoice);
   let locale = $derived(loc(user));
 
   // toast.pop(0);

@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-  import Icon from "$comp/Icon.svelte";
   import Image from "$comp/Image.svelte";
   import { t } from "$lib/translations";
 
@@ -78,7 +76,7 @@
 
   <div class="relative">
     <a
-      href="https://btcmap.org"
+      href="https://btcmap.org/map"
       target="_blank"
       rel="noreferrer"
       class="contents"
@@ -87,7 +85,7 @@
     </a>
 
     <a
-      href="https://btcmap.org"
+      href="https://btcmap.org/map"
       target="_blank"
       rel="noreferrer"
       class="contents"

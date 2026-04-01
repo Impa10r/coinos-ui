@@ -1,51 +1,26 @@
 <script>
-  import { enhance } from "$app/forms";
   import { send } from "$lib/socket";
-  import {
-    btc,
-    loc,
-    post,
-    copy,
-    f,
-    fail,
-    get,
-    types,
-    sat,
-    s,
-    sats,
-  } from "$lib/utils";
-  import { tick, onMount, onDestroy, untrack } from "svelte";
+  import { loc, post, copy, fail, types } from "$lib/utils";
+  import { onMount, untrack } from "svelte";
   import { browser } from "$app/environment";
   import { last, showQr, amountPrompt } from "$lib/store";
-  import Avatar from "$comp/Avatar.svelte";
   import InvoiceData from "$comp/InvoiceData.svelte";
   import InvoiceActions from "$comp/InvoiceActions.svelte";
   import SetAmount from "$comp/SetAmount.svelte";
   import SetMemo from "$comp/SetMemo.svelte";
   import SetType from "$comp/SetType.svelte";
   import { t } from "$lib/translations";
-  import { goto, invalidate } from "$app/navigation";
+  import { goto } from "$app/navigation";
 
   let { data } = $props();
 
-  let showOptions;
-
-  let reading = async ({ message, serialNumber }) => {
-    let name = serialNumber.replace(/:/g, "-");
-    let result = await post(`/fund/${name}/withdraw`, { amount, hash, name });
-  };
-
-  let readingerror = (e) => console.log("nfc error", e);
-
   let { subject, user } = $derived(data);
   let id = $state(untrack(() => data.id));
-  let { invoice, src } = $derived(data);
-  let { aid, amount, rate, tip, hash, text, type } = $derived(invoice);
+  let { invoice } = $derived(/** @type {any} */ (data));
+  let { amount, rate, tip, hash, text, type } = $derived(invoice);
   let memo = $state(untrack(() => invoice.memo));
   let { username, currency } = $derived(invoice.user);
   let locale = $derived(loc(user));
-
-  let tipPercent = $derived(tip ? (tip / amount) * 100 : 0);
 
   // if (browser && !subbed[id])
   //   send("subscribe", invoice)
@@ -84,7 +59,7 @@
 
       goto(url, { invalidateAll: true, noScroll: true });
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     }
   };
 
@@ -133,8 +108,7 @@
   let toggleMemo = () => (settingMemo = !settingMemo);
 
   let fiat = $state(true);
-  let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
-  let tipAmount = $derived(((tip * rate) / sats).toFixed(2));
+
   let link = $derived(
     [types.bitcoin, types.liquid].includes(type) ? text : `lightning:${text}`,
   );
@@ -146,12 +120,10 @@
 
 <div class="invoice container mx-auto max-w-xl px-4 space-y-2">
   <InvoiceData
-    {src}
     {link}
     {txt}
     {invoice}
     {amount}
-    {amountFiat}
     {currency}
     {locale}
     {tip}
@@ -162,7 +134,6 @@
 
   <InvoiceActions
     bind:newAmount
-    {setAmount}
     {setType}
     {toggleType}
     {toggleAmount}
@@ -171,7 +142,6 @@
     {invoice}
     {copy}
     {link}
-    {type}
     {txt}
     t={$t}
     bind:showQr={$showQr}
@@ -187,7 +157,6 @@
   {settingAmount}
   {setAmount}
   {toggleAmount}
-  amountPrompt={$amountPrompt}
   t={$t}
 />
 
@@ -198,7 +167,6 @@
   {setAmount}
   {invoice}
   {user}
-  {type}
   {settingType}
   {setType}
   {toggleType}

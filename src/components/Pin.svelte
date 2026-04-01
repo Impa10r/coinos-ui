@@ -1,6 +1,6 @@
 <script>
   import { t } from "$lib/translations";
-  import { post, success, fail, focus, setCookie } from "$lib/utils";
+  import { post, success, fail, setCookie } from "$lib/utils";
   import Pinpad from "$comp/Pinpad.svelte";
   import { pin } from "$lib/store";
   import { onMount } from "svelte";

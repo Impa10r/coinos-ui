@@ -3,9 +3,8 @@
   import { get, post } from "$lib/utils";
   import { onMount } from "svelte";
   import { Relay } from "nostr-tools/relay";
-  import { ignore } from "$lib/store";
 
-  let events = $state([]);
+  let events = $state<any[]>([]);
   let paused = $state();
   let pause = (e) => {
     e.preventDefault();
@@ -20,14 +19,13 @@
 
   onMount(async () => {
     const relay = await Relay.connect("wss://relay.primal.net");
-    const subscription = relay.subscribe([{ kinds: [1], limit: 20 }], {
+    relay.subscribe([{ kinds: [1], limit: 20 }], {
       async onevent(event) {
         if (paused) return;
         const { parts, names } = await post("/post/parseEvent", { event });
         event.author = await get(`/api/users/${event.pubkey}`);
         event.parts = parts;
         event.names = names;
-        let { content, pubkey } = event;
         events.push(event);
         if (events.length > 20) events.shift();
       },
@@ -42,7 +40,7 @@
 
   <div onpointerenter={pause} onpointerleave={unpause}>
     {#each events as event}
-      <Event {event} minimal={true} />
+      <Event {event} minimal={true} user={undefined} />
     {/each}
   </div>
 </div>

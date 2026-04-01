@@ -4,8 +4,6 @@
   import { toast } from "@zerodevx/svelte-toast";
   import { t } from "$lib/translations";
 
-  let { data } = $props();
-  let { user } = data;
   toast.pop(0);
 </script>
 

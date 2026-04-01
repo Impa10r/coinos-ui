@@ -1,14 +1,13 @@
 <script>
-  import { copy, sats, f, s } from "$lib/utils";
+  import { sats, f, s } from "$lib/utils";
   import { t } from "$lib/translations";
-  import Icon from "$comp/Icon.svelte";
 
   let { data, children } = $props();
 
-  let { id, user, token, total, spent, external, mint, rate } = data;
-  let currency = user?.currency || "USD";
+  let { user, total, spent, mint, rate } = $derived(data);
+  let currency = $derived(user?.currency || "USD");
 
-  let amount = total - spent;
+  let amount = $derived(total - spent);
 
   let amountFiat = $derived(parseFloat(((amount * rate) / sats).toFixed(2)));
   let spentFiat = $derived(parseFloat(((spent * rate) / sats).toFixed(2)));

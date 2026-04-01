@@ -5,19 +5,25 @@
   import Amount from "$comp/Amount.svelte";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { page } from "$app/stores";
-  import { loc, back, toFiat, f, s, focus } from "$lib/utils";
+  import { loc, toFiat, f, s, focus } from "$lib/utils";
   import { rate, pin } from "$lib/store";
 
   let { data, form } = $props();
 
-  let { alias, memo, payreq, ourfee, user } = $derived({ ...data, ...form });
+  let { alias, memo, payreq, ourfee, user } = $derived({
+    .../** @type {any} */ (data),
+    .../** @type {any} */ (form),
+  });
   let a = $state();
   let { currency, locked } = $derived(user);
   let locale = $derived(loc(user));
 
-  $effect(() => ($rate ||= data.rate));
-  $effect(() => form && (loading = false));
+  $effect(() => {
+    $rate ||= /** @type {any} */ (data).rate;
+  });
+  $effect(() => {
+    if (form) loading = false;
+  });
 
   let showMax = $state();
 
@@ -25,12 +31,15 @@
   let submit = () => (loading = true);
 
   let next = $state();
-  let toggle = () => (show = !show);
-  let amount = $derived(form?.amount || data.amount);
+  let amount = $derived(
+    /** @type {any} */ (form)?.amount || /** @type {any} */ (data).amount,
+  );
   let maxfee = $state(
     Math.max(5, Math.round(untrack(() => amount) * 0.02 || 0)),
   );
-  $effect(() => (maxfee = Math.max(5, Math.round(amount * 0.02) || 0)));
+  $effect(() => {
+    maxfee = Math.max(5, Math.round(amount * 0.02) || 0);
+  });
 </script>
 
 <div class="container px-4 max-w-xl mx-auto text-center space-y-2">
@@ -50,7 +59,14 @@
         {$t("payments.send")}
       </h1>
 
-      <Amount {amount} rate={$rate} {currency} {locale} />
+      <Amount
+        {amount}
+        tip={0}
+        rate={$rate}
+        {currency}
+        {locale}
+        align="center"
+      />
     </div>
 
     <div class="text-xl">
@@ -65,7 +81,7 @@
         <div class="flex flex-wrap gap-4 justify-center">
           <div class="my-auto">
             <h2 class="text-xl">
-              {f(toFiat(ourfee, $rate), currency)}
+              {f(toFiat(ourfee, /** @type {number} */ ($rate)), currency)}
             </h2>
             <h3 class="text-secondary">⚡️{s(ourfee)}</h3>
           </div>

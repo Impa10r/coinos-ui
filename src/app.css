@@ -1,8 +1,5 @@
 /* 1) Load Tailwind first */
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* 2) Register DaisyUI themes */
 @plugin "daisyui" {
@@ -26,11 +23,7 @@
   --color-error: #f87171;
 }
 
-/* 3) Tell Tailwind which layers we’ll @apply from */
-@reference utilities;
-@reference components;
-
-/* 4) Now your custom CSS that uses @apply */
+/* 3) Custom CSS using @apply */
 .btn-menu {
   @apply flex justify-center items-center bg-base-100 p-2 rounded-full
          w-12 h-12 sm:w-16 sm:h-16 drop-shadow-xl;

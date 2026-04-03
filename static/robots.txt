@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://coinos.pro/sitemap.xml

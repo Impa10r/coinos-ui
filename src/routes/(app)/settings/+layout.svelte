@@ -86,7 +86,7 @@
             await upload($avatar.file, $avatar.type, $avatar.progress, token),
           );
 
-          let url = `${$page.url.origin}/api/public/${hash}.webp`;
+          let url = `/api/public/${hash}.webp`;
           body.set("picture", url);
 
           await fetch(url, { cache: "reload", mode: "no-cors" });
@@ -101,7 +101,7 @@
             await upload($banner.file, $banner.type, $banner.progress, token),
           );
 
-          let url = `${$page.url.origin}/api/public/${hash}.webp`;
+          let url = `/api/public/${hash}.webp`;
           body.set("banner", url);
           await fetch(url, { cache: "reload", mode: "no-cors" });
         } catch (e) {

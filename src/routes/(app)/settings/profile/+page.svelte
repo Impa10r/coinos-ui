@@ -9,8 +9,9 @@
   let { user } = $derived(data);
   let id = $derived(user.id);
   let about = $state(untrack(() => user.about));
-  let banner = $derived(user.banner);
-  let picture = $derived(user.picture);
+  const toUrl = (v) => !v ? v : v.startsWith('/') ? v : v.startsWith('http') ? v : `/api/public/${v}.webp`;
+  let banner = $derived(toUrl(user.banner));
+  let picture = $derived(toUrl(user.picture));
   let display = $state(untrack(() => user.display));
   let username = $state(untrack(() => user.username));
 

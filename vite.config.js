@@ -27,6 +27,10 @@ export default defineConfig(({ mode }) => {
                 target: "http://localhost:3119",
                 rewrite: (path) => path.replace(/^\/api\//, ""),
               },
+              "/ws": {
+                target: "ws://localhost:3119",
+                ws: true,
+              },
             }
           : undefined,
     },

@@ -180,13 +180,16 @@
 </div>
 
 <style>
-  @reference "../../../../app.css";
-
   .ours {
-    @apply bg-gradient-to-r from-[#F2F6FC] to-[#E1E3FF] text-black rounded-br-none ml-auto;
+    background: linear-gradient(to right, #F2F6FC, #E1E3FF);
+    color: rgb(0 0 0);
+    border-bottom-right-radius: 0;
+    margin-left: auto;
   }
 
   .theirs {
-    @apply bg-gray-100 text-black rounded-bl-none;
+    background-color: rgb(243 244 246);
+    color: rgb(0 0 0);
+    border-bottom-left-radius: 0;
   }
 </style>

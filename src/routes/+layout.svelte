@@ -104,20 +104,3 @@
   </main>
 {/if}
 
-<style global>
-  :root {
-    --toastContainerTop: auto;
-    --toastContainerRight: auto;
-    --toastContainerBottom: 8rem;
-    --toastContainerLeft: calc(50vw - 8rem);
-    --toastBackground: #292929;
-
-    --safe-area-inset-top: 0px;
-    --safe-area-inset-bottom: 0px;
-  }
-
-  main {
-    padding-top: var(--safe-area-inset-top);
-    padding-bottom: var(--safe-area-inset-bottom);
-  }
-</style>

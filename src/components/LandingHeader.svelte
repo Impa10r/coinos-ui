@@ -75,7 +75,7 @@
 
     <button
       aria-label="Menu"
-      class="block lg:hidden absolute top-[34.5px] right-10 z"
+      class="block lg:hidden absolute top-[34.5px] right-10 z-[100]"
       onclick={() => (showMobileMenu = !showMobileMenu)}
     >
       <iconify-icon
@@ -126,9 +126,3 @@
     </div>
   </nav>
 </header>
-
-<style>
-  .z {
-    z-index: 100;
-  }
-</style>

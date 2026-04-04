@@ -89,9 +89,7 @@
 </div>
 
 <style>
-  @reference "../../../../app.css";
-
   .active {
-    @apply text-blue-500;
+    color: rgb(59 130 246);
   }
 </style>

@@ -248,18 +248,23 @@
 </div>
 
 <style>
-  @reference "../../../app.css";
-
   .btn {
-    @apply px-4 py-2 rounded-2xl shadow;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   .btn-neutral {
-    @apply bg-gray-200;
+    background-color: rgb(229 231 235);
   }
   .input {
-    @apply w-full px-3 py-2 border rounded-xl;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-width: 1px;
+    border-radius: 0.75rem;
   }
   .label {
-    @apply text-sm opacity-70;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    opacity: 0.7;
   }
 </style>

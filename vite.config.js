@@ -1,4 +1,5 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import tailwindcss from "@tailwindcss/vite";
 
 import { defineConfig, loadEnv } from "vite";
 
@@ -7,7 +8,7 @@ import path from "path";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
-    plugins: [sveltekit()],
+    plugins: [tailwindcss(), sveltekit()],
     resolve: {
       alias: {
         $comp: path.resolve("src/components"),

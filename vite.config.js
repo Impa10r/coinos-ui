@@ -8,7 +8,7 @@ import path from "path";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
-    plugins: [tailwindcss(), sveltekit()],
+    plugins: [sveltekit(), tailwindcss()],
     resolve: {
       alias: {
         $comp: path.resolve("src/components"),

@@ -18,6 +18,7 @@
 
   let all = $state();
   let loaded = $state();
+  let overrides = $state({});
   let loadMore = async () => {
     loaded = true;
     all = await get("/contacts");
@@ -37,31 +38,31 @@
     pasted = true;
   };
 
-  let pin = async (e, { id, pinned }) => {
+  let pin = async (e, c) => {
     e.preventDefault();
     e.stopPropagation();
-
+    const pinned = overrides[c.id]?.pinned ?? c.pinned;
+    overrides[c.id] = { ...overrides[c.id], pinned: !pinned };
     if (pinned) {
-      await post("/post/pins/delete", { id });
+      await post("/post/pins/delete", { id: c.id });
     } else {
-      await post("/post/pins", { id });
+      await post("/post/pins", { id: c.id });
     }
-
-    if (all) all = await get("/contacts");
+    if (all) { all = await get("/contacts"); overrides = {}; }
     invalidate("app:contacts");
   };
 
-  let trust = async (e, { id, trusted }) => {
+  let trust = async (e, c) => {
     e.preventDefault();
     e.stopPropagation();
-
+    const trusted = overrides[c.id]?.trusted ?? c.trusted;
+    overrides[c.id] = { ...overrides[c.id], trusted: !trusted };
     if (trusted) {
-      await post("/post/trust/delete", { id });
+      await post("/post/trust/delete", { id: c.id });
     } else {
-      await post("/post/trust", { id });
+      await post("/post/trust", { id: c.id });
     }
-
-    if (all) all = await get("/contacts");
+    if (all) { all = await get("/contacts"); overrides = {}; }
     invalidate("app:contacts");
   };
 
@@ -140,6 +141,8 @@
       </h1>
       <div>
         {#each all || contacts as c, i}
+          {@const pinned = overrides[c.id]?.pinned ?? c.pinned}
+          {@const trusted = overrides[c.id]?.trusted ?? c.trusted}
           <a href={`/pay/${c.username}`} class="contents">
             <div class="flex hover:bg-base-200 p-2">
               <Avatar user={c} size={20} disabled={true} />
@@ -148,21 +151,21 @@
               </div>
               <div class="flex ml-auto gap-1">
                 <button
-                  aria-label={c.pinned ? "Unpin contact" : "Pin contact"}
+                  aria-label={pinned ? "Unpin contact" : "Pin contact"}
                   onclick={(e) => pin(e, c)}
                 >
                   <iconify-icon
-                    icon={c.pinned ? "ph:push-pin-fill" : "ph:push-pin-bold"}
+                    icon={pinned ? "ph:push-pin-fill" : "ph:push-pin-bold"}
                     width={32}
                   ></iconify-icon>
                 </button>
                 <button
                   class="ml-auto"
-                  aria-label={c.trusted ? "Untrust contact" : "Trust contact"}
+                  aria-label={trusted ? "Untrust contact" : "Trust contact"}
                   onclick={(e) => trust(e, c)}
                 >
                   <iconify-icon
-                    icon={c.trusted ? "ph:star-fill" : "ph:star-bold"}
+                    icon={trusted ? "ph:star-fill" : "ph:star-bold"}
                     width={32}
                   ></iconify-icon>
                 </button>

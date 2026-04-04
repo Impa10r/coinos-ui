@@ -15,7 +15,7 @@
     $banner?.id && $banner.id === subject?.id
       ? `url(${$banner.src})`
       : subject?.banner
-        ? subject.banner.includes(":")
+        ? subject.banner.startsWith("/") || subject.banner.includes(":")
           ? `url(${subject.banner})`
           : `url(/api/public/${subject.banner}.webp)`
         : undefined,

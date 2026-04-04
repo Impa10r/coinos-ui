@@ -14,10 +14,12 @@ export const handle: Handle = async ({ event, resolve }) => {
   const response = await ipStore.run(ip, () => resolve(event));
 
   if (PUBLIC_DOMAIN_TOR) {
-    response.headers.set(
-      "Onion-Location",
-      `http://${PUBLIC_DOMAIN_TOR}${event.url.pathname}${event.url.search}`,
-    );
+    try {
+      response.headers.set(
+        "Onion-Location",
+        `http://${PUBLIC_DOMAIN_TOR}${event.url.pathname}${event.url.search}`,
+      );
+    } catch {}
   }
 
   return response;

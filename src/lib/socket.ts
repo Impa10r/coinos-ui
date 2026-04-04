@@ -1,6 +1,5 @@
 import { goto, invalidate } from "$app/navigation";
 import { navigating, page } from "$app/stores";
-import { PUBLIC_SOCKET } from "$env/static/public";
 import { event, invoice, last, request } from "$lib/store";
 import { s, sleep, success, wait } from "$lib/utils";
 import cookies from "js-cookie";
@@ -82,7 +81,8 @@ export function connect(t) {
 
   if (socket) return auth();
 
-  socket = new WebSocket(PUBLIC_SOCKET);
+  const wsUrl = `${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.host}/ws`;
+  socket = new WebSocket(wsUrl);
   socket.addEventListener("open", onWebsocketOpen);
   socket.addEventListener("close", onWebsocketClose);
   socket.addEventListener("message", onWebsocketMessage);

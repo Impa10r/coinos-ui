@@ -10,7 +10,14 @@ export const handleError: HandleServerError = ({ error, event }) => {
 
 setIpGetter(() => ipStore.getStore());
 
+const COINOS_URL = process.env.PUBLIC_COINOS_URL || "http://localhost:3119";
+
 export const handle: Handle = async ({ event, resolve }) => {
+  if (event.url.pathname === "/.well-known/nostr.json") {
+    const url = `${COINOS_URL}/nostr.json${event.url.search}`;
+    return fetch(url);
+  }
+
   const ip =
     event.request.headers.get("cf-connecting-ip") ||
     event.request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||

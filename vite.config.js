@@ -20,12 +20,19 @@ export default defineConfig(({ mode }) => {
         env.PUBLIC_DOMAIN_TOR,
         env.PUBLIC_DOMAIN_EXTRA,
       ].filter(Boolean),
+      hmr: {
+        path: "/vite-hmr",
+      },
       proxy:
         process.env.NODE_ENV === "development"
           ? {
               "/api/": {
                 target: "http://localhost:3119",
                 rewrite: (path) => path.replace(/^\/api\//, ""),
+              },
+              "/ws": {
+                target: "ws://localhost:3119",
+                ws: true,
               },
             }
           : undefined,

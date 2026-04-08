@@ -82,7 +82,7 @@
             /** @type {string} */ (await upload(av.file, av.type, av.progress)),
           );
 
-          let url = `${$page.url.origin}/api/public/${hash}.webp`;
+          let url = `/api/public/${hash}.webp`;
           body.set("picture", url);
 
           await fetch(url, { cache: "reload", mode: "no-cors" });
@@ -100,7 +100,7 @@
             /** @type {string} */ (await upload(bn.file, bn.type, bn.progress)),
           );
 
-          let url = `${$page.url.origin}/api/public/${hash}.webp`;
+          let url = `/api/public/${hash}.webp`;
           body.set("banner", url);
           await fetch(url, { cache: "reload", mode: "no-cors" });
         } catch (e) {

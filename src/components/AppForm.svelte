@@ -110,8 +110,8 @@
       >{$t("accounts.notifications")}</label
     >
     <select name="notify" bind:value={notify}>
-      <option value={false} selected>{$t("accounts.off")}</option>
-      <option value={true}>{$t("accounts.on")}</option>
+      <option value={false}>{$t("accounts.off")}</option>
+      <option value={true} selected>{$t("accounts.on")}</option>
     </select>
   </div>
 

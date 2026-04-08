@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": "404",
+    "pageNotFound": "Nie znaleziono strony."
+  },
   "accounts": {
     "showQR": "Pokaż QR",
     "revealNwc": "Pokaż ciąg połączeń",
@@ -54,30 +58,15 @@
     "connect": "Połącz",
     "copyNwc": "Kopiuj NWC"
   },
-  "404": {
-    "404": "404",
-    "pageNotFound": "Nie znaleziono strony."
-  },
   "about": {
-    "header": "O",
-    "team": {
-      "header": "Drużyna",
-      "adam": {
-        "name": "Przewodniczący",
-        "position": "Założyciel i CTO",
-        "bio": "Adam jest inżynierem oprogramowania, który wierzy, że przyjęcie dźwiękowych pieniędzy będzie napędzać globalny dobrobyt. Mieszka w North Vancouver z żoną, córką i synem."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Rozwój biznesu",
-        "bio": "Cole jest napędzanym indywidualistą z pasją do wolności, oczarowany przez Bitcoin od 2015 roku. Jego misją jest rozprzestrzenianie adopcji Bitcoin i Lightning Network w różnych społecznościach na całym świecie."
-      }
-    },
-    "locations": {
-      "viewMap": "Zobacz mapę",
-      "header": "Lokalizacja",
-      "description": "Ponad 500 firm na całym świecie akceptuje bitcoin z Coinos. Mamy nadzieję, że twój będzie następny!"
-    }
+    "header": "O nas",
+    "description": "Coinos Pro to fork oprogramowania popularnego webowego portfela Bitcoin Coinos. Skupia się na prywatności i oferuje następujące zalety w porównaniu z oryginalnym coinos.io:",
+    "feature1": "Zaślepione ścieżki w fakturach lightning Bolt12",
+    "feature2": "Nieogłoszone kanały ze wskazówkami trasy w fakturach lightning Bolt11",
+    "feature3": "Stawki prowizji sub-sat dla płatności Bitcoin on-chain",
+    "feature4": "Podwyżki stawek przez RBF, nie CPFP (taniej)",
+    "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras",
+    "feature6": "Linki do funduszy podarunkowych, które działają (rzeczywiście tworzą nowe portfele)"
   },
   "error": {
     "header": "Błąd",
@@ -557,5 +546,8 @@
     "withdrawAccess": "Wycofanie dostępu",
     "username": "Nazwa użytkownika",
     "returnToFund": "Powrót do funduszu"
+  },
+  "warning": {
+    "wrongSite": "Upewnij się, że używasz danych logowania coinos.pro, a NIE coinos.io"
   }
 }

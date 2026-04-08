@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": "404명",
+    "pageNotFound": "페이지를 찾을 수 없습니다."
+  },
   "accounts": {
     "showQR": "QR 코드",
     "revealNwc": "연결 문자열",
@@ -54,30 +58,15 @@
     "connect": "연결하기",
     "copyNwc": "복사 NWC"
   },
-  "404": {
-    "404": "404명",
-    "pageNotFound": "페이지를 찾을 수 없습니다."
-  },
   "about": {
-    "header": "제품정보",
-    "team": {
-      "header": "이 팀",
-      "adam": {
-        "name": "아담 Soltys",
-        "position": "설립자 및 CTO",
-        "bio": "Adam은 건강한 돈의 채택이 글로벌 번영을 구동 할 것이라고 믿는 소프트웨어 엔지니어입니다. 그는 그의 아내, 딸, 아들과 함께 노스 밴쿠버에 살고있다."
-      },
-      "cole": {
-        "name": "한국어",
-        "position": "사업영역",
-        "bio": "Cole은 2015년부터 비트코인에 의해 활성화된 자유의 열정과 함께 구동되는 개인입니다. 그의 임무는 Bitcoin과 Lightning Network의 채택을 전 세계적으로 확산시키는 것입니다."
-      }
-    },
-    "locations": {
-      "viewMap": "지도 보기",
-      "header": "회사연혁",
-      "description": "전세계 500 개 이상의 기업은 Coinos와 Bitcoin을 수용하고 있습니다. 우리는 당신의 다음이 될 희망!"
-    }
+    "header": "소개",
+    "description": "Coinos Pro는 인기 있는 웹 기반 비트코인 지갑 Coinos의 소프트웨어 포크입니다. 개인 정보 보호에 중점을 두고 원래 coinos.io에 비해 다음과 같은 장점을 제공합니다:",
+    "feature1": "Bolt12 라이트닝 인보이스의 블라인드 경로",
+    "feature2": "Bolt11 라이트닝 인보이스에서 경로 힌트가 있는 미발표 채널",
+    "feature3": "비트코인 온체인 결제의 서브-사트 수수료율",
+    "feature4": "CPFP가 아닌 RBF를 통한 수수료 인상 (더 저렴)",
+    "feature5": "최적의 경로 탐색을 위한 CLN 및 LND 노드를 통한 아웃바운드 라이트닝 결제",
+    "feature6": "작동하는 기프트 펀드 링크 (실제로 새 지갑을 생성함)"
   },
   "error": {
     "header": "계정 정보",
@@ -557,5 +546,8 @@
     "withdrawAccess": "비밀번호",
     "username": "사용자 이름",
     "returnToFund": "자금 지원"
+  },
+  "warning": {
+    "wrongSite": "coinos.io가 아닌 coinos.pro 자격증명을 사용하고 있는지 확인하세요"
   }
 }

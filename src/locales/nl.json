@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": "404",
+    "pageNotFound": "Pagina niet gevonden."
+  },
   "accounts": {
     "showQR": "QR tonen",
     "revealNwc": "Toon NWC string",
@@ -54,30 +58,15 @@
     "connect": "Verbinden",
     "copyNwc": "NWC kopiëren"
   },
-  "404": {
-    "404": "404",
-    "pageNotFound": "Pagina niet gevonden."
-  },
   "about": {
-    "header": "Info",
-    "team": {
-      "header": "Het team",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Oprichter en CTO",
-        "bio": "Adam is een software-ingenieur die gelooft dat de adoptie van gezond geld de wereldwijde welvaart zal stimuleren. Hij woont in Noord Vancouver (Canada) met zijn vrouw, dochter en zoon."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Bedrijfsontwikkeling",
-        "bio": "Cole is een gedreven individu met een passie voor vrijheid, sinds 2015 geboeid door Bitcoin. Zijn missie is wereldwijde adoptie van Bitcoin en het Lightning Netwerk verspreid over diverse gemeenschappen."
-      }
-    },
-    "locations": {
-      "viewMap": "Kaart bekijken",
-      "header": "Locaties",
-      "description": "Meer dan 500 bedrijven wereldwijd accepteren Bitcoin met Coinos. We hopen dat de jouwe de volgende zal zijn!"
-    }
+    "header": "Over",
+    "description": "Coinos Pro is een software-fork van de populaire webgebaseerde Bitcoin-wallet Coinos. Het richt zich op privacy en biedt de volgende voordelen ten opzichte van het originele coinos.io:",
+    "feature1": "Verblinde paden in Bolt12 lightning facturen",
+    "feature2": "Niet-aangekondigde kanalen met routehints in Bolt11 lightning facturen",
+    "feature3": "Sub-sat tarieven voor Bitcoin on-chain betalingen",
+    "feature4": "Tariefverhogingen via RBF, niet CPFP (goedkoper)",
+    "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling",
+    "feature6": "Cadeaufonds-links die werken (ze maken wel degelijk nieuwe wallets aan)"
   },
   "error": {
     "header": "Fout",
@@ -557,5 +546,8 @@
     "withdrawAccess": "Toegang intrekken",
     "username": "Gebruikersnaam",
     "returnToFund": "Terug naar financiering"
+  },
+  "warning": {
+    "wrongSite": "Zorg ervoor dat u coinos.pro-inloggegevens gebruikt en NIET coinos.io"
   }
 }

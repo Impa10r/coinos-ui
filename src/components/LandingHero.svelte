@@ -3,7 +3,7 @@
   import { t } from "$lib/translations";
 </script>
 
-<div class="mt-[96.88px] md:mt-0">
+<div class="mt-[96.88px] md:mt-16">
   <div class="space-y-10">
     <h1
       class="text-5xl md:text-6xl lg:text-7xl font-medium text-center w-full md:w-3/4 lg:w-1/2 max-w-7xl mx-auto leading-tight"
@@ -14,7 +14,7 @@
         <iconify-icon
           noobserver
           icon="coinos:rays"
-          class="absolute -top-16 left-5 md:left-8 lg:left-14 2xl:left-24"
+          class="absolute -top-16 left-1/2 -translate-x-1/2"
         ></iconify-icon>
       </span>
       {$t("landing.header_after_icon")}

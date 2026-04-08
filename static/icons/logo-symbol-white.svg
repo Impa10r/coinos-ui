@@ -1,4 +1,16 @@
-<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M36 72C55.8823 72 72 55.8823 72 36C72 16.1177 55.8823 0 36 0C16.1177 0 0 16.1177 0 36C0 55.8823 16.1177 72 36 72ZM36 67.2C53.2313 67.2 67.2 53.2313 67.2 36C67.2 18.7687 53.2313 4.8 36 4.8C18.7687 4.8 4.8 18.7687 4.8 36C4.8 53.2313 18.7687 67.2 36 67.2Z" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M36.001 12.7998C36.0009 12.7998 36.0008 12.7998 36.0008 12.7998C23.1878 12.7998 12.8008 23.1868 12.8008 35.9998C12.8008 48.8128 23.1878 59.1998 36.0008 59.1998C36.0008 59.1998 36.0009 59.1998 36.001 59.1998V12.7998Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <clipPath id="cl"><rect x="0" y="0" width="50" height="100"/></clipPath>
+    <clipPath id="cr"><rect x="50" y="0" width="50" height="100"/></clipPath>
+  </defs>
+  <circle cx="50" cy="50" r="21" fill="#fff" clip-path="url(#cl)"/>
+  <circle cx="50" cy="50" r="21" fill="#000" clip-path="url(#cr)"/>
+  <path d="M 50,16 A 34,34 0 0,1 84,50 L 71,50 A 21,21 0 0,0 50,29 Z" fill="#000"/>
+  <path d="M 84,50 A 34,34 0 0,1 50,84 L 50,71 A 21,21 0 0,0 71,50 Z" fill="#fff"/>
+  <path d="M 50,84 A 34,34 0 0,1 16,50 L 29,50 A 21,21 0 0,0 50,71 Z" fill="#000"/>
+  <path d="M 16,50 A 34,34 0 0,1 50,16 L 50,29 A 21,21 0 0,0 29,50 Z" fill="#fff"/>
+  <circle cx="50" cy="50" r="10" fill="#000"/>
+  <circle cx="50" cy="50" r="10" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="21" fill="none" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-width="1.2"/>
 </svg>

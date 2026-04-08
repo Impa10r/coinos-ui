@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": "404",
+    "pageNotFound": "Sayfa bulunamadı."
+  },
   "accounts": {
     "showQR": "Göster QR",
     "revealNwc": "Bağlantı dizesi",
@@ -54,30 +58,15 @@
     "connect": "Connect",
     "copyNwc": "Kopya NWC"
   },
-  "404": {
-    "404": "404",
-    "pageNotFound": "Sayfa bulunamadı."
-  },
   "about": {
-    "header": "About",
-    "team": {
-      "header": "Takım",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Kurucu ve CTO",
-        "bio": "Adam, ses parasının benimsenmesinin küresel refahı sağlayacağına inanan bir yazılım mühendisidir. Kuzey Vancouver'da eşi, kızı ve oğluyla yaşıyor."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "İş Geliştirme",
-        "bio": "Cole, 2015 yılından beri Bitcoin tarafından motive edilen bir bireydir. Görevi, Bitcoin'in benimsenmesini ve küresel olarak çeşitli topluluklardaki Lightning Network'ü yaymaktır."
-      }
-    },
-    "locations": {
-      "viewMap": "View map",
-      "header": "Konumlar",
-      "description": "Dünya çapında 500'den fazla işletme, Coinos ile Bitcoin'i kabul ediyor. Umarım sizinkiler bir sonraki olacak!"
-    }
+    "header": "Hakkında",
+    "description": "Coinos Pro, popüler web tabanlı Bitcoin cüzdanı Coinos'un bir yazılım çatalıdır. Gizliliğe odaklanır ve orijinal coinos.io'ya göre şu avantajları sunar:",
+    "feature1": "Bolt12 lightning faturalarında kör yollar",
+    "feature2": "Bolt11 lightning faturalarında rota ipuçları olan duyurulmamış kanallar",
+    "feature3": "Bitcoin zincir üstü ödemeler için sat-altı ücret oranları",
+    "feature4": "CPFP değil RBF ile ücret artışları (daha ucuz)",
+    "feature5": "Optimum rota bulmak için CLN ve LND düğümleri aracılığıyla giden lightning ödemeleri",
+    "feature6": "Çalışan hediye fonu bağlantıları (gerçekten yeni cüzdanlar oluşturur)"
   },
   "error": {
     "header": "Hata hatası",
@@ -557,5 +546,8 @@
     "withdrawAccess": "Withdraw access",
     "username": "Username",
     "returnToFund": "Geri finanse etmek için"
+  },
+  "warning": {
+    "wrongSite": "Lütfen coinos.io değil, coinos.pro kimlik bilgilerini kullandığınızdan emin olun"
   }
 }

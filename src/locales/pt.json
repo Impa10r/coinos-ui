@@ -5,24 +5,13 @@
   },
   "about": {
     "header": "Sobre",
-    "team": {
-      "header": "O time",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Responsável Técnico Principal",
-        "bio": "Adam é um desenvolvedor web e um entusiasta do bitcoin que acredita que o dinheiro sólido é a chave para aumentar a prosperidade global. Ele vive em North Vancouver com a sua esposa Chelsea e dois filhos."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Profissional Certificado de Bitcoin",
-        "bio": "Cole é um indivíduo motivado com uma paixão pela liberdade. Encontrou-se com o bitcoin em 2016 e estudou-o em profundidade. Agora quer introduzir a rede lightning ao maior número de utilizadores possível."
-      }
-    },
-    "locations": {
-      "header": "Locais",
-      "description": "Aqui estão algumas empresas que estão aceitando bitcoin com a Coinos. Esperamos que o seu seja o próximo!",
-      "viewMap": "Ver mapa"
-    }
+    "description": "Coinos Pro é um fork de software da popular carteira Bitcoin baseada na web Coinos. Foca em privacidade e oferece as seguintes vantagens sobre o coinos.io original:",
+    "feature1": "Caminhos cegos em faturas lightning Bolt12",
+    "feature2": "Canais não anunciados com dicas de rota em faturas lightning Bolt11",
+    "feature3": "Taxas sub-sat para pagamentos Bitcoin on-chain",
+    "feature4": "Aumentos de taxa via RBF, não CPFP (mais barato)",
+    "feature5": "Pagamentos lightning de saída via nós CLN e LND para encontrar rotas otimais",
+    "feature6": "Links de fundos presentes que funcionam (eles criam novas carteiras)"
   },
   "error": {
     "header": "Erro",
@@ -560,5 +549,8 @@
     "withdrawAccess": "Retirar o acesso",
     "username": "Utilizador",
     "returnToFund": "Voltar ao fundo"
+  },
+  "warning": {
+    "wrongSite": "Por favor, certifique-se de usar as credenciais do coinos.pro e NÃO do coinos.io"
   }
 }

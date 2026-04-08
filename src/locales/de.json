@@ -5,24 +5,13 @@
   },
   "about": {
     "header": "Über uns",
-    "team": {
-      "header": "Das Team",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Chief Technical Officer",
-        "bio": "Adam ist ein Webentwickler und Bitcoin-Enthusiast, der davon überzeugt ist, dass hartes Geld der Schlüssel zur Steigerung des globalen Wohlstands ist. Er lebt mit seiner Frau Chelsea und seinen zwei Kindern in North Vancouver."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Bitcoin Experte",
-        "bio": "Als zertifizierter Bitcoin-Experte ist Cole ein engagierter Mensch mit großer Leidenschaft für Freiheit. Er entdeckte Bitcoin im Jahr 2016 und beschäftigte sich eingehend damit. Jetzt möchte er das Lightning-Netzwerk so vielen Nutzern wie möglich näherbringen."
-      }
-    },
-    "locations": {
-      "header": "Standorte",
-      "description": "Hier finden Sie einige Unternehmen, welche bereits Zahlungen mit Bitcoin über Coinos akzeptieren. Wir hoffen, dass Ihr Unternehmen das nächste sein wird!",
-      "viewMap": "Karte anzeigen"
-    }
+    "description": "Coinos Pro ist ein Software-Fork der beliebten webbasierten Bitcoin-Wallet Coinos. Es konzentriert sich auf Datenschutz und bietet folgende Vorteile gegenüber dem ursprünglichen coinos.io:",
+    "feature1": "Blindpfade in Bolt12-Lightning-Rechnungen",
+    "feature2": "Unangekündigte Kanäle mit Routing-Hinweisen in Bolt11-Lightning-Rechnungen",
+    "feature3": "Sub-Sat-Gebührensätze für Bitcoin On-Chain-Zahlungen",
+    "feature4": "Gebührenerhöhungen via RBF, nicht CPFP (günstiger)",
+    "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche",
+    "feature6": "Geschenkfonds-Links, die funktionieren (sie erstellen tatsächlich neue Wallets)"
   },
   "error": {
     "header": "Error",
@@ -565,5 +554,8 @@
     "withdrawAccess": "Zugriff aufheben",
     "username": "Benutzername",
     "returnToFund": "Zurück zum Fonds"
+  },
+  "warning": {
+    "wrongSite": "Bitte stellen Sie sicher, dass Sie Ihre coinos.pro-Zugangsdaten verwenden und NICHT coinos.io"
   }
 }

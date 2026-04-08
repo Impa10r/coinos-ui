@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": "404",
+    "pageNotFound": "Page not found."
+  },
   "incident": "NOTICE: Funds deposited before May 10 are temporarily locked while we attempt to recover from a data loss incident. We had to restore our database from a day-old backup so we need to ensure that balances and payment history are corrected to account for all activity that occurred during that period before we can release funds. We don't have an ETA at this time but we are working diligently to resolve the issue. We are sincerely sorry for the inconvenience.",
   "funds": {
     "anyone": "Anyone with the link",
@@ -67,30 +71,15 @@
     "password": "Password",
     "confirmPassword": "Confirm password"
   },
-  "404": {
-    "404": "404",
-    "pageNotFound": "Page not found."
-  },
   "about": {
     "header": "About",
-    "team": {
-      "header": "The Team",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Founder and CTO",
-        "bio": "Adam is a software engineer who believes that the adoption of sound money will drive global prosperity. He lives in North Vancouver with his wife, daughter, and son."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Business Development",
-        "bio": "Cole is a driven individual with a passion for freedom, captivated by Bitcoin since 2015. His mission is to spread the adoption of Bitcoin and the Lightning Network across diverse communities globally."
-      }
-    },
-    "locations": {
-      "viewMap": "View map",
-      "header": "Locations",
-      "description": "Over 500 businesses worldwide are accepting bitcoin with Coinos. We hope that yours will be next!"
-    }
+    "description": "Coinos Pro is a software fork of the popular Coinos web-based Bitcoin wallet. It focuses on privacy and offers the following advantages over the original coinos.io:",
+    "feature1": "Blinded paths in Bolt12 lightning invoices",
+    "feature2": "Unannounced channels with route hints in Bolt11 lightning invoices",
+    "feature3": "Sub-sat fee rates for Bitcoin on-chain payments",
+    "feature4": "Fee rate bumps via RBF, not CPFP (cheaper)",
+    "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding",
+    "feature6": "Gift fund links that work (they do create new wallets)"
   },
   "error": {
     "header": "Error",
@@ -554,5 +543,8 @@
     "nl": "Nederlands",
     "th": "ไทย",
     "pl": "Polski"
+  },
+  "warning": {
+    "wrongSite": "Please make sure you use coinos.pro credentials and NOT coinos.io"
   }
 }

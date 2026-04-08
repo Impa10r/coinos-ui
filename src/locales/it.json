@@ -1,4 +1,8 @@
 {
+  "404": {
+    "404": " Errore: 404",
+    "pageNotFound": "Pagina non trovata."
+  },
   "accounts": {
     "showQR": "Mostra QR",
     "revealNwc": "Rivela stringa di connessione",
@@ -54,30 +58,15 @@
     "connect": "Collegamento",
     "copyNwc": "Copiare NWC"
   },
-  "404": {
-    "404": " Errore: 404",
-    "pageNotFound": "Pagina non trovata."
-  },
   "about": {
     "header": "Informazioni",
-    "team": {
-      "header": "La squadra",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Fondatore e CTO",
-        "bio": "Adam è un ingegnere informatico che crede che l'adozione di una moneta solida possa portare alla prosperità globale. Vive a North Vancouver con la moglie, la figlia e il figlio."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Sviluppo Aziendale",
-        "bio": "Cole è una persona guidata dalla passione per la libertà, affascinato dal Bitcoin dal 2015. La sua missione è diffondere l'adozione di Bitcoin e della Lightning Network in diverse comunità a livello globale."
-      }
-    },
-    "locations": {
-      "viewMap": "Visualizza mappa",
-      "header": "Località",
-      "description": "Oltre 500 aziende in tutto il mondo accettano bitcoin con Coinos. Ci auguriamo che la vostra sia la prossima!"
-    }
+    "description": "Coinos Pro è un fork software del popolare portafoglio Bitcoin basato sul web Coinos. Si concentra sulla privacy e offre i seguenti vantaggi rispetto all'originale coinos.io:",
+    "feature1": "Percorsi nascosti nelle fatture lightning Bolt12",
+    "feature2": "Canali non annunciati con suggerimenti di percorso nelle fatture lightning Bolt11",
+    "feature3": "Tariffe sub-sat per i pagamenti Bitcoin on-chain",
+    "feature4": "Aumenti di tariffa tramite RBF, non CPFP (più economico)",
+    "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali",
+    "feature6": "Link di fondi regalo funzionanti (creano effettivamente nuovi portafogli)"
   },
   "error": {
     "header": "Errore",
@@ -557,5 +546,8 @@
     "withdrawAccess": "Ritiro l'accesso",
     "username": "Nome utente",
     "returnToFund": "Torna a fondo"
+  },
+  "warning": {
+    "wrongSite": "Assicurati di utilizzare le credenziali di coinos.pro e NON di coinos.io"
   }
 }

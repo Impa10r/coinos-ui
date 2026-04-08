@@ -4,25 +4,14 @@
     "pageNotFound": "Page introuvable."
   },
   "about": {
-    "header": "À Propos",
-    "locations": {
-      "header": "Commerces",
-      "description": "Il y a déjà des commerces qui acceptent bitcoin utilisant un point de vente Coinos. Si vous utilisez notre appli, s'il vous plait <a href=\"mailto:contact@coinos.io\" class=\"underline underline-offset-4\">faites-le-nous savoir!</a>",
-      "viewMap": "Voir la carte"
-    },
-    "team": {
-      "header": "L'Équipe",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Fondateur et directeur technique",
-        "bio": "Adam est un ingénieur en informatique qui croit en l'adoption d'une monnaie saine comme moteur de la prospérité mondiale. Il vit à North Vancouver avec sa femme, sa fille et son fils."
-      },
-      "cole": {
-        "name": "Cole Goodwin",
-        "position": "Développement commercial",
-        "bio": "Cole est quelqu'un motivé et passionné par les libertés. Il a découvert le bitcoin en 2016 et l'a étudié en profondeur. Aujourd'hui, il souhaite faire découvrir le réseau Lightning au plus grand nombre d'utilisateurs possible."
-      }
-    }
+    "header": "À propos",
+    "description": "Coinos Pro est un fork logiciel du portefeuille Bitcoin web populaire Coinos. Il se concentre sur la confidentialité et offre les avantages suivants par rapport au coinos.io original :",
+    "feature1": "Chemins aveuglés dans les factures lightning Bolt12",
+    "feature2": "Canaux non annoncés avec hints de routage dans les factures lightning Bolt11",
+    "feature3": "Taux de frais sous-sat pour les paiements Bitcoin on-chain",
+    "feature4": "Augmentations de frais via RBF, pas CPFP (moins cher)",
+    "feature5": "Paiements lightning sortants via les nœuds CLN et LND pour une recherche de route optimale",
+    "feature6": "Liens de fonds cadeaux fonctionnels (ils créent bien de nouveaux portefeuilles)"
   },
   "error": {
     "header": "Erreur",
@@ -538,5 +527,8 @@
     "withdrawAccess": "Retrait de l'accès",
     "username": "Nom d'utilisateur",
     "returnToFund": "Retour au fonds"
+  },
+  "warning": {
+    "wrongSite": "Veuillez vous assurer d'utiliser vos identifiants coinos.pro et NON coinos.io"
   }
 }

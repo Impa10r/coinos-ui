@@ -5,24 +5,13 @@
   },
   "about": {
     "header": "关于",
-    "team": {
-      "header": "团队",
-      "adam": {
-        "name": "亚当·索尔蒂斯",
-        "position": "创始人兼首席技术官",
-        "bio": "亚当是一名软件工程师，他相信人们使用稳健的虚拟货币将推动全球繁荣。他与妻子、女儿和儿子住在北温哥华。"
-      },
-      "cole": {
-        "name": "科尔",
-        "position": "商务拓展",
-        "bio": "科尔是一个充满动力、热爱自由的人。他在2016年接触到了比特币并对其进行了深入研究，现在他想把比特币闪电网络介绍给尽可能多的用户。"
-      }
-    },
-    "locations": {
-      "header": "地点",
-      "description": "以下是一些接受 Coinos 比特币支付平台的企业，希望您的公司可以加入我们！",
-      "viewMap": "查看地图"
-    }
+    "description": "Coinos Pro 是流行的基于网络的比特币钱包 Coinos 的软件分叉。它专注于隐私保护，并提供以下相较于原始 coinos.io 的优势：",
+    "feature1": "Bolt12 闪电网络发票中的盲化路径",
+    "feature2": "Bolt11 闪电网络发票中带路由提示的未公告通道",
+    "feature3": "比特币链上支付的亚聪费率",
+    "feature4": "通过 RBF 而非 CPFP 提升费率（更便宜）",
+    "feature5": "通过 CLN 和 LND 节点进行出站闪电支付，实现最优路由查找",
+    "feature6": "有效的礼品基金链接（确实会创建新钱包）"
   },
   "error": {
     "header": "错误",
@@ -538,5 +527,8 @@
     "withdrawAccess": "撤销访问",
     "username": "用户名",
     "returnToFund": "回到资金"
+  },
+  "warning": {
+    "wrongSite": "请确保您使用的是 coinos.pro 的凭据，而不是 coinos.io"
   }
 }

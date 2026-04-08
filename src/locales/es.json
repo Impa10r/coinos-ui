@@ -4,25 +4,14 @@
     "pageNotFound": "Página no encontrada."
   },
   "about": {
-    "header": "Acerca de Ocultar",
-    "team": {
-      "header": "El Equipo",
-      "adam": {
-        "name": "Adam Soltys",
-        "position": "Fundador y CTO",
-        "bio": "Adam es un ingeniero de software que cree que la adopción de un dinero sólido impulsará la prosperidad mundial. Vive en North Vancouver con su esposa, hija e hijo."
-      },
-      "cole": {
-        "name": "Cole",
-        "position": "Desarrollo de Negocios",
-        "bio": "Cole es un individuo motivado con pasión por la libertad. Descubrió bitcoin en 2016 y lo estudió a fondo. Ahora quiere introducir la red Lightning a tantos usuarios como sea posible."
-      }
-    },
-    "locations": {
-      "header": "Ubicaciones",
-      "description": "Aquí hay algunos negocios que aceptan bitcoin con Coinos. ¡Esperamos que el tuyo sea el siguiente!",
-      "viewMap": "Ver mapa"
-    }
+    "header": "Acerca de",
+    "description": "Coinos Pro es una bifurcación de software de la popular billetera Bitcoin basada en web Coinos. Se centra en la privacidad y ofrece las siguientes ventajas sobre el coinos.io original:",
+    "feature1": "Rutas ciegas en facturas lightning Bolt12",
+    "feature2": "Canales no anunciados con sugerencias de ruta en facturas lightning Bolt11",
+    "feature3": "Tasas de comisión sub-sat para pagos Bitcoin on-chain",
+    "feature4": "Aumentos de tarifa mediante RBF, no CPFP (más barato)",
+    "feature5": "Pagos lightning salientes a través de nodos CLN y LND para encontrar rutas óptimas",
+    "feature6": "Enlaces de fondos de regalo que funcionan (crean nuevas billeteras)"
   },
   "error": {
     "header": "Error",
@@ -538,5 +527,8 @@
     "withdrawAccess": "Acceso retirado",
     "username": "Nombre de usuario",
     "returnToFund": "Regreso al fondo"
+  },
+  "warning": {
+    "wrongSite": "Por favor asegúrese de usar las credenciales de coinos.pro y NO las de coinos.io"
   }
 }

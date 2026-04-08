@@ -7,7 +7,6 @@
   const followLinks = [
     { url: PUBLIC_TELEGRAM_URL, titleID: "telegram" },
     { url: "https://github.com/coinos", titleID: "github" },
-    { url: "https://linktr.ee/coinos.io", titleID: "linktree" },
   ];
 
   const companyLinks = [

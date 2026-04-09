@@ -4,7 +4,10 @@ import { PUBLIC_DOMAIN_TOR } from "$env/static/public";
 import type { Handle, HandleServerError } from "@sveltejs/kit";
 
 export const handleError: HandleServerError = ({ error, event }) => {
-  console.error(`[handleError] ${event.request.method} ${event.url.pathname}`, error);
+  console.error(
+    `[handleError] ${event.request.method} ${event.url.pathname}`,
+    error,
+  );
   return { message: "Internal Error" };
 };
 

@@ -3,11 +3,23 @@
   "background_color": "#000",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/start",
-  "name": "Coinos",
+  "start_url": "/",
+  "name": "Coinos Pro",
   "description": "The easiest way to get started with Bitcoin",
-  "short_name": "Coinos",
+  "short_name": "Coinos Pro",
   "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icon-512x512.webp",
       "sizes": "512x512",

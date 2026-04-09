@@ -56,9 +56,7 @@
       >Checkout -> Additional scripts</a
     >
   </p>
-  <textarea rows={5} type="text" name="shopifyScripts" readonly
-    >{script}</textarea
-  >
+  <textarea rows={5} name="shopifyScripts" readonly>{script}</textarea>
 </div>
 
 <div>

@@ -105,7 +105,7 @@
 
 <svelte:head>
   {#if subject}
-    <title>coinos - {subject.username}</title>
+    <title>Coinos Pro - {subject.username}</title>
     <meta
       name="lightning"
       content={`lnurlp:${subject.username}@${PUBLIC_DOMAIN}`}

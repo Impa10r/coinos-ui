@@ -23,10 +23,11 @@
       async onevent(event) {
         if (paused) return;
         const { parts, names } = await post("/post/parseEvent", { event });
-        event.author = await get(`/api/users/${event.pubkey}`);
-        event.parts = parts;
-        event.names = names;
-        events.push(event);
+        const ev = event as any;
+        ev.author = await get(`/api/users/${event.pubkey}`);
+        ev.parts = parts;
+        ev.names = names;
+        events.push(ev);
         if (events.length > 20) events.shift();
       },
     });

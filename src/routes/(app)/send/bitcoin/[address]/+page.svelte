@@ -4,7 +4,7 @@
   import Numpad from "$comp/Numpad.svelte";
   import { page } from "$app/stores";
   import { rate } from "$lib/store";
-  import { loc, s } from "$lib/utils";
+  import { loc, s, focus } from "$lib/utils";
 
   let { data } = $props();
 

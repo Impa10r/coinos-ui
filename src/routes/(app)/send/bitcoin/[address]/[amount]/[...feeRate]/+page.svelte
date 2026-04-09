@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { tick } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
@@ -22,7 +22,7 @@
 
   let { decode } = hexUtil;
   let passwordPrompt = $state();
-  let password = $state();
+  let password = $state<string>();
   let cancel = $state(() => (passwordPrompt = false));
   let signed = $state();
 
@@ -40,28 +40,28 @@
   };
 
   let signTx = async () => {
-    let entropy = await decrypt(account.seed, password);
+    let entropy = await decrypt(account.seed as string, password as string);
     let mnemonic = entropyToMnemonic(entropy, wordlist);
-    let seed = await mnemonicToSeed(mnemonic, password);
-    let master = HDKey.fromMasterSeed(seed, network);
+    let seed = await mnemonicToSeed(mnemonic, password as string);
+    let master = HDKey.fromMasterSeed(seed, network as any);
     let child = master.derive("m/84'/0'/0'");
 
     let tx = btc.Transaction.fromRaw(decode(hex));
 
-    for (let [i] of tx.inputs.entries()) {
+    for (let [i] of (tx as any).inputs.entries()) {
       let { witnessUtxo, path } = inputs[i];
       witnessUtxo.amount = BigInt(witnessUtxo.amount);
       witnessUtxo.script = decode(witnessUtxo.script);
       let key = child.derive(path);
       tx.updateInput(i, { witnessUtxo });
-      tx.signIdx(key.privateKey, i);
+      tx.signIdx(key.privateKey!, i);
     }
 
     tx.finalize();
     hex = tx.hex;
     signed = true;
     await tick();
-    submit.click();
+    submit?.click();
   };
 
   let {
@@ -82,7 +82,7 @@
   $effect(() => {
     fees.fastestFee = Math.ceil(fees.fastestFee);
     feeRate = feeRate
-      ? closest(Object.values(fees), feeRate)
+      ? closest(Object.values(fees), Number(feeRate))
       : fees.halfHourFee;
   });
 
@@ -91,8 +91,8 @@
   });
 
   let { currency } = data.user;
-  let submitting = $state(),
-    submit = $state();
+  let submitting = $state();
+  let submit = $state<HTMLButtonElement>();
 
   let feeNames = {
     fastestFee: $t("payments.fastest"),
@@ -117,7 +117,7 @@
     <div class="text-xl text-secondary break-all">{address}</div>
 
     <Amount
-      amount={subtract ? amount - fee - ourfee : amount}
+      amount={subtract ? Number(amount) - Number(fee) - Number(ourfee) : amount}
       rate={$rate}
       {currency}
     />

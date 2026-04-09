@@ -1,6 +1,4 @@
-<script>
-  import { preventDefault } from "svelte/legacy";
-
+<script lang="ts">
   import { t } from "$lib/translations";
   import { upload } from "$lib/upload";
   import { fail } from "$lib/utils";
@@ -8,38 +6,42 @@
   import Spinner from "$comp/Spinner.svelte";
   let { item = $bindable(), user } = $props();
 
-  let fileInput = $state(),
-    formElement = $state(),
-    file,
-    submitting = $state(),
-    progress;
-  let select = () => fileInput.click();
-  let src = $state();
+  let fileInput = $state<HTMLInputElement | undefined>();
+  let formElement = $state<HTMLFormElement | undefined>();
+  let file: File | undefined;
+  let submitting = $state(false);
+  let progress: any;
+  let select = () => fileInput?.click();
+  let src = $state<string | undefined>();
 
-  let tooLarge = {};
-  let handleFile = async ({ target }, type) => {
+  let tooLarge: Record<string, boolean> = {};
+  let handleFile = async (e: Event, type: string) => {
+    const target = e.target as HTMLInputElement;
     tooLarge[type] = false;
-    file = target.files[0];
+    file = target.files?.[0];
     if (!file) return;
 
-    if (file.size > 10000000) return (tooLarge[type] = true);
+    if (file.size > 10000000) return void (tooLarge[type] = true);
 
     var reader = new FileReader();
-    reader.onload = async (e) => {
-      src = e.target.result;
+    reader.onload = async (ev) => {
+      src = ev.target?.result as string;
     };
 
     reader.readAsDataURL(file);
   };
 
-  async function handleSubmit() {
+  async function handleSubmit(e: Event) {
+    e.preventDefault();
     try {
       submitting = true;
       let data = new FormData(formElement);
 
-      if (src) {
+      if (src && file) {
         try {
-          let { hash } = JSON.parse(await upload(file, "item", progress));
+          let { hash } = JSON.parse(
+            (await upload(file, "item", progress)) as string,
+          );
 
           data.set("image", hash);
 
@@ -47,12 +49,12 @@
             cache: "reload",
             mode: "no-cors",
           });
-        } catch (e) {
-          console.log("problem upsubmitting avatar", e);
+        } catch (err) {
+          console.log("problem upsubmitting avatar", err);
         }
       }
 
-      const response = await fetch(formElement.action, {
+      const response = await fetch(formElement!.action, {
         method: "POST",
         body: data,
       });
@@ -60,8 +62,8 @@
       const result = deserialize(await response.text());
 
       applyAction(result);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
       fail("Something went wrong");
     }
 
@@ -72,7 +74,7 @@
 <form
   method="POST"
   class="space-y-5"
-  onsubmit={preventDefault(handleSubmit)}
+  onsubmit={handleSubmit}
   bind:this={formElement}
 >
   <input type="hidden" name="id" bind:value={item.id} />
@@ -125,7 +127,6 @@
             class="bg-gradient-to-r from-primary to-gradient mb-4 cursor-pointer hover:opacity-80 w-full h-full"
             onclick={select}
             onkeydown={select}
-            alt="Banner"
           ></div>
         {/if}
       </div>
@@ -135,7 +136,7 @@
       type="file"
       class="hidden"
       bind:this={fileInput}
-      onchange={(e) => handleFile(e, "item")}
+      onchange={(e) => handleFile(e as Event, "item")}
     />
   </div>
 

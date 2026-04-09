@@ -12,7 +12,7 @@
 
   let ban = $derived(/** @type {any} */ ($banner));
   let bg = $derived(
-    ban?.id && ban.id === subject?.id
+    ban?.id && ban.id === subject?.id && ban.src
       ? `url(${ban.src})`
       : subject?.banner
         ? subject.banner.startsWith("/") || subject.banner.includes(":")

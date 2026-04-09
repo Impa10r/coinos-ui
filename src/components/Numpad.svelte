@@ -13,7 +13,7 @@
     element = $bindable(undefined),
     rate = $bindable(),
     locale = undefined,
-    submit = undefined,
+    submit = $bindable(undefined),
     amountFiat = 0,
   } = $props();
 

@@ -6,7 +6,7 @@
   let {
     amount = $bindable(),
     none = $t("accounts.none"),
-    desc,
+    desc = undefined,
     currency,
     rate,
     label,

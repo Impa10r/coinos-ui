@@ -4,8 +4,6 @@
   import { enhance } from "$app/forms";
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
-  import Avatar from "$comp/Avatar.svelte";
-  import Spinner from "$comp/Spinner.svelte";
   import { focus } from "$lib/utils";
 
   let { data = $bindable(), form } = $props();

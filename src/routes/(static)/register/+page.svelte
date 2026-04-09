@@ -195,7 +195,7 @@
     if (file.size > 10000000) {
       if (form) /** @type {any} */ (form).error = "File too large";
     }
-    $avatar = { file, type, progress };
+    $avatar = /** @type {any} */ ({ file, type, progress });
 
     var reader = new FileReader();
     reader.onload = async (e) => {

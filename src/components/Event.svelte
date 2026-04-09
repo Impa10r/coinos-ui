@@ -7,7 +7,7 @@
   import { page } from "$app/stores";
 
   let amount = 21;
-  let { event, minimal, last = true, user } = $props();
+  let { event, minimal = false, last = true, user } = $props();
   let { author, parts, zaps, names, created_at, pubkey } = $derived(event);
   let id = $derived(event.id);
 
@@ -16,7 +16,7 @@
       if (!user) return goto(`/register?redirect=${$page.url.pathname}`);
       let request = await post("/post/zapRequest", { amount, id });
       let { pr: payreq } = await post("/post/zap", {
-        event: await sign(request),
+        event: await sign(request, user),
       });
       await post("/post/payments", { amount, payreq });
     } catch (e) {
@@ -67,7 +67,7 @@
       {#if type === "text"}
         {value}
       {:else if type === "link"}
-        <Media {value} {minimal} />
+        <Media {value} />
       {:else if type.match(/^nostr:np(rofile|ub)$/)}
         <a href={`/${value.pubkey}`} class="font-bold">@{names[value.pubkey]}</a
         >

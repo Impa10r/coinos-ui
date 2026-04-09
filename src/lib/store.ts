@@ -46,14 +46,14 @@ const persistLocal = (key, defaultValue: any = undefined) => {
 
 export const account = writable();
 export const amountPrompt = persistLocal("amountPrompt");
-export const avatar = writable();
+export const avatar = writable<{ id?: string; src?: string } | undefined>();
 export const banner = writable();
 export const event = writable();
 export const events = writable({});
 export const fiat = persistLocal("fiat", true);
 export const installPrompt = writable();
 export const invoice = writable();
-export const last = writable();
+export const last = writable<number | undefined>();
 export const loginRedirect = writable();
 export const decrypted = persistLocal("decrypted", {});
 export const ignore = persistLocal("ignore", []);

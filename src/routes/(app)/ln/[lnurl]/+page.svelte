@@ -1,12 +1,12 @@
 <script>
   import Lnurlp from "$comp/Lnurlp.svelte";
   import Lnurlw from "$comp/Lnurlw.svelte";
-  let { data } = $props();
-  let { tag } = $derived(data);
+  const props = $props();
+  let { tag } = $derived(props.data);
 </script>
 
 {#if tag === "payRequest"}
-  <Lnurlp {data} />
+  <Lnurlp data={props.data} form={props.form} />
 {:else if tag === "withdrawRequest"}
-  <Lnurlw {data} />
+  <Lnurlw data={props.data} form={props.form} />
 {/if}

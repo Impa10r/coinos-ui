@@ -1,6 +1,6 @@
 import { browser } from "$app/environment";
 import { theme as themeStore } from "$lib/store";
-import { addTranslations, setLocale, setRoute } from "$lib/translations/index";
+import { setLocale, setRoute } from "$lib/translations/index";
 import { addIcon } from "iconify-icon";
 import cookies from "js-cookie";
 
@@ -12,10 +12,8 @@ const opts = { path: "/", expires };
 /** @type {import('@sveltejs/kit').Load} */
 export const load = async ({ data }) => {
   if (!data) return {};
-  const { i18n, translations } = data;
+  const { i18n } = data;
   const { locale, route } = i18n;
-
-  addTranslations(translations);
 
   await setRoute(route);
   await setLocale(locale);

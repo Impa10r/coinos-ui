@@ -6,7 +6,7 @@
   import { password as pw, passwordPrompt } from "$lib/store";
 
   let {} = $props();
-  let password = $state();
+  let password = $state<string | undefined>();
 
   let cancel = () => ($passwordPrompt = false);
 

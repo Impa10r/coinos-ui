@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { focus, fail, post } from "$lib/utils";
   import { untrack } from "svelte";
   import { enhance } from "$app/forms";
@@ -6,7 +6,7 @@
   import Avatar from "$comp/Avatar.svelte";
 
   let { data } = $props();
-  let { id, managers } = $derived(data);
+  let { id } = $derived(data);
   let m = $state(untrack(() => data.managers));
   $effect(() => (m = data.managers));
   let username = $state();
@@ -17,7 +17,7 @@
         id: user.id,
       });
     } catch (e) {
-      fail(e.message);
+      fail((e as any).message);
     }
   };
 </script>

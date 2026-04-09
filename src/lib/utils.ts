@@ -371,7 +371,7 @@ export const sats = 100000000;
 export const back = (): any =>
   browser && (history.length ? history.go(-1) : goto("/"));
 
-export const focus = (el: HTMLElement): any =>
+export const focus = (el: HTMLElement, _params?: unknown): any =>
   browser && screen.width > 1280 && setTimeout(() => el.focus(), 1);
 
 export const select = (el: HTMLInputElement): any =>

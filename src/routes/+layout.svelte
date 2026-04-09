@@ -81,9 +81,9 @@
 </script>
 
 <svelte:head>
-  <title>coinos</title>
-  <meta property="og:title" content="coinos" />
-  <meta name="twitter:title" content="coinos" />
+  <title>Coinos Pro</title>
+  <meta property="og:title" content="Coinos Pro" />
+  <meta name="twitter:title" content="Coinos Pro" />
 
   <meta property="og:image" content={`${host}/images/logo.webp`} />
   <meta property="og:type" content="website" />
@@ -103,4 +103,3 @@
     {@render children?.()}
   </main>
 {/if}
-

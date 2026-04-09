@@ -5,8 +5,9 @@ import { error, redirect } from "@sveltejs/kit";
 export async function load({ cookies, params, parent }) {
   const { user } = await parent();
   const { id } = params;
-  let [amount, currency] = params.amount.split("/");
-  let fiat;
+  let [amountStr, currency] = params.amount.split("/");
+  let fiat: number | undefined;
+  let amount: number | string;
 
   if (!currency) currency = user?.currency;
   if (currency) currency = currency.toUpperCase();
@@ -15,12 +16,14 @@ export async function load({ cookies, params, parent }) {
   const rate = rates[currency || "USD"];
   if (currency && !rate) error(500, "Invalid currency symbol");
 
-  if (!amount) {
+  if (!amountStr) {
     const balance = await get(`/fund/${id}`);
     amount = balance.amount;
   } else if (currency) {
-    fiat = amount;
+    fiat = Number(amountStr);
     amount = Math.round((fiat * sats) / rate);
+  } else {
+    amount = amountStr;
   }
 
   if (!amount) redirect(307, `/fund/${id}`);

@@ -4,10 +4,10 @@
   let {
     newAmount = $bindable(),
     invoice,
-    user,
+    user: _user,
     submit = $bindable(),
     settingType,
-    setAmount,
+    setAmount: _setAmount,
     setType,
     toggleType,
     t,
@@ -21,15 +21,7 @@
     <div
       class="relative mx-auto p-12 max-w-xl shadow-lg rounded-md bg-base-100 space-y-2"
     >
-      <InvoiceTypes
-        bind:newAmount
-        {setAmount}
-        {invoice}
-        {user}
-        {setType}
-        {toggleType}
-        {t}
-      />
+      <InvoiceTypes bind:newAmount {invoice} {setType} {toggleType} {t} />
     </div>
   </div>
 {/if}

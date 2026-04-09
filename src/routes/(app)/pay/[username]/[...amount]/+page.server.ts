@@ -10,13 +10,14 @@ export async function load({ cookies, params, parent }) {
   if (user?.username === username) redirect(307, `/${username}/receive`);
   const subject = await get(`/users/${username}`);
 
-  let [amount, currency] = params.amount.split("/");
+  let [amountStr, currency] = params.amount.split("/");
+  let amount: number | string = amountStr;
 
   const rate = rates[currency ? currency.toUpperCase() : subject.currency];
   if (currency && !rate) error(500, "Invalid currency symbol");
 
-  if (amount) {
-    if (currency) amount = (amount * sats) / rate;
+  if (amountStr) {
+    if (currency) amount = (Number(amountStr) * sats) / rate;
 
     const { id } = await post(
       "/invoice",

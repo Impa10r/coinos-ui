@@ -11,17 +11,19 @@ export const load = async ({ parent, url }) => {
       `/login?redirect=${encodeURIComponent(url.pathname + url.search)}`,
     );
 
-  let max_amount = url.searchParams.get("max_amount");
-  max_amount = max_amount ? Math.round(Number(max_amount) / 1000) : undefined;
+  const rawMaxAmount = url.searchParams.get("max_amount");
+  const max_amount = rawMaxAmount
+    ? Math.round(Number(rawMaxAmount) / 1000)
+    : undefined;
 
   const rawPubkey = url.searchParams.get("pubkey") || "";
   const pubkey = /^[0-9a-f]{64}$/.test(rawPubkey) ? rawPubkey : undefined;
 
   const validRenewals = ["daily", "weekly", "monthly", "yearly", "never"];
-  const budget_renewal = validRenewals.includes(
+  const budget_renewal: string | undefined = validRenewals.includes(
     url.searchParams.get("budget_renewal") || "",
   )
-    ? url.searchParams.get("budget_renewal")
+    ? (url.searchParams.get("budget_renewal") as string)
     : undefined;
 
   const app = {

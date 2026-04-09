@@ -8,7 +8,7 @@
     t,
     toggleType,
     setType,
-    activeOnly,
+    activeOnly = false,
   } = $props();
 
   let { aid, address_type, type } = $derived(invoice);

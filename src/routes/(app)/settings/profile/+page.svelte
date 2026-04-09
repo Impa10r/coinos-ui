@@ -8,7 +8,14 @@
   let { user } = $derived(data);
   let id = $derived(user.id);
   let about = $state(untrack(() => user.about));
-  const toUrl = (v) => !v ? v : v.startsWith('/') ? v : v.startsWith('http') ? v : `/api/public/${v}.webp`;
+  const toUrl = (v) =>
+    !v
+      ? v
+      : v.startsWith("/")
+        ? v
+        : v.startsWith("http")
+          ? v
+          : `/api/public/${v}.webp`;
   let banner = $derived(toUrl(user.banner));
   let picture = $derived(toUrl(user.picture));
   let display = $state(untrack(() => user.display));
@@ -26,6 +33,8 @@
   };
 
   let tooLarge = $state({});
+  let avatarAny = $derived(/** @type {any} */ ($avatar));
+  let bannerAny = $derived(/** @type {any} */ ($bannerStore));
 
   let handleFile = async ({ target }, type) => {
     tooLarge[type] = false;
@@ -43,9 +52,15 @@
     var reader = new FileReader();
     reader.onload = async (e) => {
       if (type === "picture") {
-        /** @type {any} */ ($avatar).src = e.target?.result;
+        $avatar = /** @type {any} */ ({
+          .../** @type {any} */ ($avatar),
+          src: e.target?.result,
+        });
       } else if (type === "banner") {
-        /** @type {any} */ ($bannerStore).src = e.target?.result;
+        $bannerStore = /** @type {any} */ ({
+          .../** @type {any} */ ($bannerStore),
+          src: e.target?.result,
+        });
       }
     };
 
@@ -86,7 +101,7 @@
   <span class="font-bold">{$t("user.settings.profileImage")}</span>
 
   <div class="flex">
-    {#if $avatar || picture}
+    {#if avatarAny?.src || picture}
       <div
         class="relative rounded-full overflow-hidden text-center w-20 h-20 my-auto hover:opacity-80 cursor-pointer"
         role="button"
@@ -95,7 +110,7 @@
         onkeydown={selectAvatar}
       >
         <img
-          src={/** @type {any} */ ($avatar)?.src || picture}
+          src={avatarAny?.src || picture}
           class="absolute w-full h-full object-cover object-center visible overflow-hidden"
           alt={username}
         />
@@ -136,7 +151,7 @@
     <span class="font-bold">{$t("user.settings.bannerImage")}</span>
   </div>
 
-  {#if $bannerStore || banner}
+  {#if bannerAny?.src || banner}
     <div
       role="button"
       tabindex="0"
@@ -144,9 +159,7 @@
       onkeydown={selectBanner}
     >
       <img
-        src={/** @type {any} */ ($bannerStore)
-          ? /** @type {any} */ ($bannerStore).src
-          : banner}
+        src={bannerAny?.src || banner}
         class="w-full object-cover object-center visible overflow-hidden h-48 mb-4 hover:opacity-80"
         alt="Banner"
       />

@@ -28,7 +28,7 @@
       await post(`/reset`, { username: n, password });
       success("Password reset");
     } catch (e) {
-      fail(e.message);
+      fail(e instanceof Error ? e.message : String(e));
     }
   };
 

@@ -5,7 +5,6 @@
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
-  import Spinner from "$comp/Spinner.svelte";
   import { get, post, focus } from "$lib/utils";
 
   let { data = $bindable(), form } = $props();
@@ -45,7 +44,10 @@
     } else {
       await post("/post/pins", { id: c.id });
     }
-    if (all) { all = await get("/contacts"); overrides = {}; }
+    if (all) {
+      all = await get("/contacts");
+      overrides = {};
+    }
     invalidate("app:contacts");
   };
 
@@ -59,7 +61,10 @@
     } else {
       await post("/post/trust", { id: c.id });
     }
-    if (all) { all = await get("/contacts"); overrides = {}; }
+    if (all) {
+      all = await get("/contacts");
+      overrides = {};
+    }
     invalidate("app:contacts");
   };
 
@@ -137,7 +142,7 @@
         {$t("user.send.contacts")}
       </h1>
       <div>
-        {#each all || contacts as c, i}
+        {#each all || contacts as c}
           {@const pinned = overrides[c.id]?.pinned ?? c.pinned}
           {@const trusted = overrides[c.id]?.trusted ?? c.trusted}
           <a href={`/pay/${c.username}`} class="contents">

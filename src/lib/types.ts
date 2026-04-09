@@ -2,6 +2,12 @@ export interface Message {
   author: User;
   created_at: number;
   recipient: User;
+  id?: string;
+  pubkey?: string;
+  kind?: number;
+  tags?: any[][];
+  content?: string;
+  message?: string;
 }
 
 export interface Note {

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { enhance } from "$app/forms";
   import { ESPLoader, Transport } from "esptool-js";
   import { hex } from "@scure/base";
 
-  function bs(uint8Array) {
+  function bs(uint8Array: Uint8Array) {
     let binaryString = "";
     const chunkSize = 0x8000; // 32,768 bytes (safe limit)
 
@@ -20,27 +20,26 @@
   const address = 0x3d0000;
   const baudrate = 921600;
 
-  let file = $state();
   let ssid = $state();
   let key = $state();
   let username = $state();
   let password = $state();
-  let esploader = $state();
+  let esploader: any = $state();
   let data = $derived(form ? hex.decode(form.data) : undefined);
 
-  let chip, transport;
-  // let data = $state();
+  let transport: any;
   let connect = async () => {
     try {
-      let device = await navigator.serial.requestPort({});
+      let device = await (navigator as any).serial.requestPort({});
       transport = new Transport(device, true);
 
       esploader = new ESPLoader({
         transport,
         baudrate,
+        romBaudrate: baudrate,
       });
 
-      chip = await esploader.main();
+      await esploader.main();
     } catch (e) {
       console.log(e);
     }
@@ -48,15 +47,16 @@
 
   let progress = $state();
   let flash = async () => {
-    let fileArray = [{ data: bs(data), address }];
+    if (!data) return;
+    let fileArray = [{ data: bs(data!), address }];
 
     const flashOptions = {
       fileArray,
       flashSize: "keep",
       eraseAll: false,
       compress: true,
-      reportProgress: (fileIndex, written, total) => {
-        progress = parseInt((written / total) * 100);
+      reportProgress: (_fileIndex: number, written: number, total: number) => {
+        progress = Math.floor((written / total) * 100);
       },
     };
 

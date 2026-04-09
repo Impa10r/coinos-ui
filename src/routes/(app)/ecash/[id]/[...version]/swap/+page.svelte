@@ -1,5 +1,5 @@
 <script>
-  let { data } = $props();
+  let { data: _data } = $props();
 </script>
 
 <div class="text-center">

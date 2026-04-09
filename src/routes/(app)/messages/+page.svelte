@@ -14,10 +14,11 @@
   let refresh = (d) => ({ messages, subject, user } = d);
 
   let keys = new Set();
-  let latest = $state([]);
+  let latest = $state(/** @type {any[]} */ ([]));
   let ready;
 
-  e.subscribe(async (event) => {
+  e.subscribe(async (ev) => {
+    const event = /** @type {any} */ (ev);
     if (!(browser && event && ready)) return;
     if (
       event.recipient?.id === user.id &&
@@ -73,12 +74,12 @@
   </h1>
   {#if latest.length && user?.id === subject.id}
     <div class="relative">
-      {#each latest as { content, pubkey, author, recipient }}
+      {#each latest as { content, author, recipient }}
         {@const u = author.id === user.id ? recipient : author}
         <a href={`/messages/${u.username}`}>
           <div class="flex hover:bg-gray-100 p-4 rounded-2xl">
             <div class="my-auto">
-              <Avatar user={u} size={"20"} disabled={true} />
+              <Avatar user={u} size={20} disabled={true} />
             </div>
             <div class="my-auto truncate">
               <div class="my-auto ml-1 text-lg font-bold">{u.username}</div>

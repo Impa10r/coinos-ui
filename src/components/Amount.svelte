@@ -1,10 +1,10 @@
 <script>
   import { copy, s, f, toFiat } from "$lib/utils";
   const {
-    align,
+    align = "center",
     amount,
-    locale,
-    tip,
+    locale = undefined,
+    tip = 0,
     rate,
     currency,
     locked = false,

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { enhance } from "$app/forms";
   import { ESPLoader, Transport } from "esptool-js";
   import { hex } from "@scure/base";
@@ -23,20 +23,20 @@
   const CONNECT_BAUD = 115200; // initial
 
   // --- Shared state ---
-  let esploader = $state();
-  let transport;
+  let esploader: any = $state();
+  let transport: any;
   let connected = $state(false);
   let portInfo = $state("");
 
   // --- Existing config path (generated server-side to hex in form.bytes) ---
-  let bytes = $derived(form ? hex.decode(form.bytes) : undefined);
+  let bytes: any = $derived(form ? hex.decode(form.bytes) : undefined);
   let littlefsAddress = $state(LITTLEFS_ADDRESS_DEFAULT);
   let configProgress = $state(0);
   let configDone = $state(false);
 
   // --- New firmware flashing path ---
   let fwFile = $state(null);
-  let fwBytes = $state(); // Uint8Array
+  let fwBytes: any = $state(); // Uint8Array
   let fwAddress = $state(FW_ADDRESS_DEFAULT);
   let fwEraseAll = $state(false);
   let fwProgress = $state(0);
@@ -48,13 +48,12 @@
 
   let connect = async () => {
     try {
-      const device = await /** @type {any} */ (navigator).serial.requestPort(
-        {},
-      );
+      const device = await (navigator as any).serial.requestPort({});
       transport = new Transport(device, true);
       esploader = new ESPLoader({
         transport,
         baudrate: CONNECT_BAUD,
+        romBaudrate: CONNECT_BAUD,
       });
 
       await esploader.main();
@@ -100,7 +99,7 @@
     }
     const reader = new FileReader();
     reader.onload = () => {
-      const buf = new Uint8Array(/** @type {ArrayBuffer} */ (reader.result));
+      const buf = new Uint8Array(reader.result as unknown as ArrayBuffer);
       fwBytes = buf;
     };
     reader.onerror = () => {
@@ -139,7 +138,7 @@
       fwDone = true;
     } catch (e) {
       console.error(e);
-      fwError = e?.message || "Flash failed.";
+      fwError = (e as any)?.message || "Flash failed.";
     }
   };
 </script>
@@ -182,7 +181,8 @@
           <input
             class="input"
             bind:value={littlefsAddress}
-            onchange={(e) => (littlefsAddress = Number(e.target.value))}
+            onchange={(e) =>
+              (littlefsAddress = Number((e.target as HTMLInputElement).value))}
           />
           <div class="mt-3">
             <button class="btn" onclick={flashConfig}>Flash config</button>
@@ -219,7 +219,8 @@
         <input
           class="input"
           bind:value={fwAddress}
-          onchange={(e) => (fwAddress = Number(e.target.value))}
+          onchange={(e) =>
+            (fwAddress = Number((e.target as HTMLInputElement).value))}
         />
 
         <label class="flex items-center gap-2 mt-2">
@@ -251,7 +252,9 @@
   .btn {
     padding: 0.5rem 1rem;
     border-radius: 1rem;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
   .btn-neutral {
     background-color: rgb(229 231 235);

@@ -200,7 +200,9 @@
       >
     </div>
 
-    <div class="bg-warning text-warning-content rounded-xl p-3 text-center font-semibold text-sm">
+    <div
+      class="bg-warning text-warning-content rounded-xl p-3 text-center font-semibold text-sm"
+    >
       {$t("warning.wrongSite")}
     </div>
 

@@ -15,5 +15,5 @@
     </div>
   {/if}
 
-  <AppForm {...app} {rate} {user} />
+  <AppForm {.../** @type {any} */ (app} {rate} {user} />
 </div>

@@ -2,6 +2,7 @@
   import { run, preventDefault } from "svelte/legacy";
 
   import { goto } from "$app/navigation";
+  import { focus } from "$lib/utils";
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
   import Icon from "$comp/Icon.svelte";

@@ -4,7 +4,11 @@
   import { focus } from "$lib/utils";
   import { t } from "$lib/translations";
   import Icon from "$comp/Icon.svelte";
-  let { cancel, password = $bindable(), submit } = $props();
+  let {
+    cancel = $bindable(),
+    password = $bindable(),
+    submit = $bindable(),
+  } = $props();
   let revealPassword = $state();
 </script>
 

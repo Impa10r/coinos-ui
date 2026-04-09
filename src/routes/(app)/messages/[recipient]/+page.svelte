@@ -19,7 +19,7 @@
   ) {
     const o = +getComputedStyle(node).opacity;
     const m = getComputedStyle(node).transform.match(/scale\(([0-9.]+)\)/);
-    const s = m ? m[1] : 1;
+    const s = m ? Number(m[1]) : 1;
     const is = 1 - baseScale;
 
     return {
@@ -78,7 +78,7 @@
     event.author = user;
     event.recipient = recipient;
 
-    messages.push(event);
+    messages.push(/** @type {any} */ (event));
     messages = messages;
     tick().then(() => pane && (pane.scrollTop = pane.scrollHeight));
 
@@ -89,8 +89,8 @@
         user,
       });
       event.id = getEventHash(/** @type {any} */ (event));
-      await sign(event, user);
-      await send(event);
+      await sign(/** @type {any} */ (event), user);
+      await send(/** @type {any} */ (event));
     } catch (e) {
       console.log(e);
       fail("Failed to send message");
@@ -181,7 +181,7 @@
 
 <style>
   .ours {
-    background: linear-gradient(to right, #F2F6FC, #E1E3FF);
+    background: linear-gradient(to right, #f2f6fc, #e1e3ff);
     color: rgb(0 0 0);
     border-bottom-right-radius: 0;
     margin-left: auto;

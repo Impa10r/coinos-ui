@@ -5,7 +5,7 @@
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
-  import { loc, s } from "$lib/utils";
+  import { loc, s, focus } from "$lib/utils";
   import { fiat, pin } from "$lib/store";
 
   let { data, form } = $props();

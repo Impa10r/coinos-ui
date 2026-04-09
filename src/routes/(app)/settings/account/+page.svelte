@@ -322,7 +322,7 @@
   </div>
 {/if}
 
-{#if connect !== "connected"}
+{#if connect && connect !== "connected"}
   <a href={connect} class="btn flex">
     <img src="/images/square.svg" class="w-12" alt="Square" />
     <div>{$t("user.settings.connectSquare")}</div></a

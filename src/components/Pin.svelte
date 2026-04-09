@@ -7,7 +7,10 @@
 
   export let value = "";
   export let title = $t("user.settings.verifyPIN");
-  export let cancel = () => (p = "");
+  /** @type {() => void} */
+  export let cancel = () => {
+    p = "";
+  };
   export let notify = true;
 
   let p = "";

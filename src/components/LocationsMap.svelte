@@ -1,20 +1,23 @@
-<script>
+<script lang="ts">
   import { onMount, onDestroy, mount } from "svelte";
   import { browser } from "$app/environment";
   import Popup from "$comp/Popup.svelte";
   import { back } from "$lib/utils";
 
   import "maplibre-gl/dist/maplibre-gl.css";
+  import type { Marker as MaplibreMarker } from "maplibre-gl";
+
+  type AppMarker = MaplibreMarker & { id: number; tags: any };
 
   let { locations } = $props();
-  let map;
-  let mapContainer = $state();
-  let markers = [];
-  let search = $state();
+  let map: any;
+  let mapContainer = $state<HTMLElement | undefined>();
+  let markers: AppMarker[] = [];
+  let search = $state<string | undefined>();
   let clearSearch = () => (search = "");
 
   let currentIndex = -1;
-  let timeout = $state();
+  let timeout = $state<ReturnType<typeof setTimeout> | undefined>();
 
   let scroll = () => {
     const el = document.querySelector(".selected");
@@ -26,21 +29,21 @@
       });
   };
 
-  let selected = $state();
-  function select(m) {
+  let selected = $state<AppMarker | undefined>();
+  function select(m: AppMarker) {
     selected = m;
     stopFlying();
     currentIndex = inview.indexOf(m);
     flyToMarker(m, 500);
   }
 
-  async function flyToMarker(marker, duration = 1500) {
+  async function flyToMarker(marker: AppMarker | undefined, duration = 1500) {
     if (!marker) return;
     map.flyTo({
       zoom: 12,
       center: marker.getLngLat(),
       essential: true,
-      easing: function (t) {
+      easing: function (t: number) {
         return 1 - Math.pow(1 - t, 3);
       },
       duration,
@@ -70,9 +73,9 @@
   };
 
   let toggleList = () => (showList = !showList);
-  let showList = $state();
+  let showList = $state<boolean | undefined>();
 
-  let currentPopup;
+  let currentPopup: any;
   function startFlying() {
     currentIndex++;
 
@@ -83,11 +86,11 @@
     timeout = setTimeout(startFlying, 4000);
   }
 
-  function debounce(func, delay) {
-    let timeout;
+  function debounce(func: (...args: any[]) => void, delay: number) {
+    let t: ReturnType<typeof setTimeout> | undefined;
     let immediate = true;
 
-    return function (...args) {
+    return function (this: any, ...args: any[]) {
       const context = this;
 
       if (immediate) {
@@ -95,9 +98,9 @@
         immediate = false;
       }
 
-      clearTimeout(timeout);
+      clearTimeout(t);
 
-      timeout = setTimeout(() => {
+      t = setTimeout(() => {
         immediate = true;
       }, delay);
     };
@@ -106,7 +109,8 @@
   function stopFlying() {
     updateLabelVisibility();
     if (!timeout) return;
-    timeout = clearTimeout(timeout);
+    clearTimeout(timeout);
+    timeout = undefined;
 
     if (currentPopup) {
       currentPopup.remove();
@@ -116,7 +120,7 @@
     map.off("moveend");
   }
 
-  let inview = $state([]);
+  let inview = $state<AppMarker[]>([]);
 
   let updateLabelVisibility = debounce(() => {
     inview = [];
@@ -131,25 +135,27 @@
       }
     }
 
-    inview = inview.sort((a, b) => a.tags.name.localeCompare(b.tags.name));
+    inview = inview.sort((a: AppMarker, b: AppMarker) =>
+      a.tags.name.localeCompare(b.tags.name),
+    );
   }, 200);
 
-  let locationMarkers = {};
-  let popups = {};
+  let locationMarkers: Record<string, AppMarker> = {};
+  let popups: Record<string, any> = {};
   let counter = 0;
 
   onMount(() => {
     if (browser) {
       import("maplibre-gl").then(({ default: maplibre }) => {
         map = new maplibre.Map({
-          container: mapContainer,
+          container: mapContainer!,
           style: "https://tiles.stadiamaps.com/styles/stamen_toner.json",
           center: [-123.05, 49.26],
           zoom: 10.5,
         });
 
         map.on("load", () => {
-          locations.forEach((location) => {
+          locations.forEach((location: any) => {
             if (location["deleted_at"]) return;
 
             let { lat, lon, tags } = location["osm_json"];
@@ -168,19 +174,19 @@
             let marker = new maplibre.Marker({ color: "#F7931A", scale: 0.65 })
               .setLngLat([lon, lat])
               .setPopup(new maplibre.Popup().setDOMContent(popupContainer))
-              .addTo(map);
+              .addTo(map) as AppMarker;
 
             marker.id = counter++;
 
             marker.getElement().addEventListener("click", () => {
               let p = marker.getPopup();
               popups[marker.id] = p;
-              p.setDOMContent(popupContainer);
+              p?.setDOMContent(popupContainer);
               setTimeout(() => {
                 selected = marker;
                 setTimeout(scroll, 10);
               }, 50);
-              p.on("close", () => {
+              p?.on("close", () => {
                 selected = undefined;
                 delete popups[marker.id];
               });
@@ -214,7 +220,7 @@
   let list = $derived(
     search
       ? markers.filter((m) =>
-          m.tags.name.toLowerCase().includes(search.toLowerCase()),
+          m.tags.name.toLowerCase().includes((search as string).toLowerCase()),
         )
       : inview,
   );

@@ -1,7 +1,7 @@
 <script>
   import { tick, untrack } from "svelte";
   import handler from "$lib/handler";
-  import { sats, f, s } from "$lib/utils";
+  import { sats, f, s, focus } from "$lib/utils";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
   import Numpad from "$comp/Numpad.svelte";

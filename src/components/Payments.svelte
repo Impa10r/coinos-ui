@@ -5,7 +5,7 @@
   import { format } from "date-fns";
   import { t } from "$lib/translations";
   import locales from "$lib/locales";
-  const { fund, locale, user, payments } = $props();
+  const { fund = undefined, locale, user, payments } = $props();
   const language = $derived(user?.language || "en");
 </script>
 

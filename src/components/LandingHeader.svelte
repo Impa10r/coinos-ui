@@ -18,12 +18,13 @@
   let header = $state();
   const mobileMenuButtonClick = (section) => {
     showMobileMenu = false;
-    scroll(section);
+    if (section) scroll(section);
+    else goto("/");
   };
 </script>
 
 <header
-  class="w-full lg:w-5/6 p-4 mx-auto fixed sticky z-10 top-0 bg-base-100"
+  class="w-full lg:w-5/6 p-4 mx-auto fixed sticky z-50 top-0 bg-base-100"
   bind:this={header}
 >
   <nav class="block lg:flex justify-between items-center">
@@ -88,7 +89,7 @@
     <div
       class="container w-full p-10 lg:hidden absolute top-0 {showMobileMenu
         ? 'right-0'
-        : 'right-[-100%]'} transition-all ease-in-out duration-300 h-[100vh] w-full bg-base-100"
+        : 'right-[-100%]'} transition-all ease-in-out duration-300 h-[100vh] w-full bg-base-100 z-50"
     >
       <div class="space-y-5 mt-24 font-bold text-xl">
         <LocaleSelector />
@@ -103,21 +104,21 @@
           >{$t("about.header")}</button
         >
         {#if !user}
-          <button class="btn btn-accent" onclick={() => goto("/register")}
+          <button class="btn btn-accent" onclick={() => { showMobileMenu = false; goto("/register"); }}
             >{$t("nav.register")}
           </button>
-          <button class="btn" onclick={() => goto("/login")}>
+          <button class="btn" onclick={() => { showMobileMenu = false; goto("/login"); }}>
             {$t("nav.signIn")}
           </button>
         {:else}
           <button
             class="border rounded-full px-6 py-2 font-bold block"
-            onclick={() => goto(`/${user.username}`)}
+            onclick={() => { showMobileMenu = false; goto(`/${user.username}`); }}
             >{$t("nav.account")}
           </button>
           <button
             class="bg-primary text-white border rounded-full px-6 py-2 font-bold block"
-            onclick={() => goto("/logout")}
+            onclick={() => { showMobileMenu = false; goto("/logout"); }}
           >
             {$t("nav.signOut")}
           </button>

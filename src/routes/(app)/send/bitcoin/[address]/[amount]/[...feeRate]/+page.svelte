@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { tick } from "svelte";
+  import { tick, untrack } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
   import Spinner from "$comp/Spinner.svelte";
@@ -77,7 +77,7 @@
     inputs,
   } = $derived(data);
 
-  let feeRate = $state(data.feeRate ?? null);
+  let feeRate = $state(untrack(() => data.feeRate) ?? null);
 
   $effect(() => {
     fees.fastestFee = Math.ceil(fees.fastestFee);
@@ -90,7 +90,7 @@
     if (!$rate) $rate = data.rate;
   });
 
-  let { currency } = data.user;
+  let { currency } = untrack(() => data.user);
   let submitting = $state();
   let submit = $state<HTMLButtonElement>();
 

@@ -51,8 +51,7 @@
       title={$t("landing.info3.title")}
       description={$t("landing.info3.description")}
     />
-    <div bind:this={howItWorks}></div>
-    <div id="about"></div>
+    <div bind:this={howItWorks} id="how-it-works"></div>
   </div>
 
   <div>
@@ -76,7 +75,7 @@
         <FaqCard questionID={f} />
       {/each}
     </div>
-    <div bind:this={about}></div>
+    <div bind:this={about} id="about"></div>
   </div>
 
   <About />

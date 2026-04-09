@@ -16,10 +16,10 @@
 
   let showMobileMenu = $state(false);
   let header = $state();
-  const mobileMenuButtonClick = (section) => {
+  const mobileMenuButtonClick = (section, id) => {
     showMobileMenu = false;
     if (section) scroll(section);
-    else goto("/");
+    else goto(`/#${id}`);
   };
 </script>
 
@@ -94,13 +94,13 @@
       <div class="space-y-5 mt-24 font-bold text-xl">
         <LocaleSelector />
         <DarkToggle />
-        <button onclick={() => mobileMenuButtonClick(howItWorks)} class="block"
+        <button onclick={() => mobileMenuButtonClick(howItWorks, 'how-it-works')} class="block text-left"
           >{$t("howItWorks.header")}</button
         >
-        <button onclick={() => mobileMenuButtonClick(faq)} class="block"
+        <button onclick={() => mobileMenuButtonClick(faq, 'faq')} class="block text-left"
           >{$t("faq.header")}</button
         >
-        <button onclick={() => mobileMenuButtonClick(about)} class="block"
+        <button onclick={() => mobileMenuButtonClick(about, 'about')} class="block text-left"
           >{$t("about.header")}</button
         >
         {#if !user}

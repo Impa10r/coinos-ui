@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
   let {
     name = $bindable("password"),
     show = $bindable(),
     value = $bindable(),
     focus = () => {},
     placeholder = undefined,
+    autocomplete = "current-password" as AutoFill,
   } = $props();
 
-  let toggle = (e) => {
+  let toggle = (e?: Event) => {
     e?.preventDefault();
     show = !show;
   };
@@ -20,7 +21,7 @@
   class="input flex items-center justify-center gap-2 w-full"
 >
   {#if show}
-    <input {name} type="text" bind:value class="clean" {placeholder} />
+    <input {name} type="text" bind:value class="clean" {placeholder} {autocomplete} />
   {:else}
     <input
       {name}
@@ -29,6 +30,7 @@
       class="clean"
       use:focus
       {placeholder}
+      {autocomplete}
     />
   {/if}
   <button type="button" aria-label="Toggle" onclick={toggle} class="contents">

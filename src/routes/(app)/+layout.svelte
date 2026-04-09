@@ -104,14 +104,16 @@
 {/if}
 
 <svelte:head>
+  {#if subject || user}
+    <title>Coinos Pro - {(subject ?? user).username}</title>
+  {:else}
+    <title>Coinos Pro</title>
+  {/if}
   {#if subject}
-    <title>Coinos Pro - {subject.username}</title>
     <meta
       name="lightning"
       content={`lnurlp:${subject.username}@${PUBLIC_DOMAIN}`}
     />
-  {:else}
-    <title>coinos</title>
   {/if}
 
   {#if subject?.profile}

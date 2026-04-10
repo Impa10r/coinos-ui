@@ -149,7 +149,8 @@
     "continue": "Continue",
     "resetDesc": "Podemos enviar um link de reset se você adicionou e verificou seu e-mail caso contrário, por favor, acesse para",
     "nostr": "Entrar com Nostr",
-    "nostrConnect": "Nostr conectar"
+    "nostrConnect": "Nostr conectar",
+    "locked": "Muitas tentativas falhadas, por favor tente novamente em 10 minutos"
   },
   "nav": {
     "about": "Sobre",

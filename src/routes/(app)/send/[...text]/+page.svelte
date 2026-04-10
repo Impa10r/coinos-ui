@@ -23,15 +23,20 @@
   let el = $state(),
     text = $state(),
     pasted = $state(),
-    w = $state();
+    w = $state(),
+    textarea = $state();
 
   let keypress = (e) =>
     e.key === "Enter" ? e.preventDefault() || el.click() : (pasted = false);
 
   let paste = async () => {
-    text = await navigator.clipboard.readText();
-    await tick();
-    pasted = true;
+    try {
+      text = await navigator.clipboard.readText();
+      await tick();
+      pasted = true;
+    } catch {
+      textarea?.focus();
+    }
   };
 
   let pin = async (e, c) => {
@@ -114,6 +119,7 @@
       onkeypress={keypress}
       class="w-full p-4 border rounded-xl h-32 text-xl"
       bind:value={text}
+      bind:this={textarea}
       onpaste={() => (pasted = true)}
       autocapitalize="none"
     ></textarea>

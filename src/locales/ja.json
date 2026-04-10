@@ -133,7 +133,8 @@
     "continue": "お問い合わせ",
     "resetDesc": "追加して確認したメールが届かない場合は、リセットリンクを送信できます",
     "nostr": "Nostrでサインイン",
-    "nostrConnect": "ノスト接続"
+    "nostrConnect": "ノスト接続",
+    "locked": "ログイン試行回数が多すぎます。10分後に再試行してください"
   },
   "nav": {
     "about": "About",

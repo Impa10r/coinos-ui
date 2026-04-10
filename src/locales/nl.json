@@ -188,7 +188,8 @@
     "signUp": "Aanmelden",
     "failed": "Aanmelden mislukt",
     "nostr": "Aanmelden met Nostr",
-    "nostrConnect": "Nostr aanmelding"
+    "nostrConnect": "Nostr aanmelding",
+    "locked": "Te veel mislukte pogingen, probeer het over 10 minuten opnieuw"
   },
   "nav": {
     "dark": "Donker",

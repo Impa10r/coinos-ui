@@ -187,6 +187,8 @@ export const login = async (
 
   const text = await res.text();
 
+  if (res.status === 429) throw new Error("locked");
+
   if (res.status === 401) {
     if (text.startsWith("2fa")) throw new Error("2fa");
     throw new Error(text);

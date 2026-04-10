@@ -167,9 +167,9 @@
   class="mx-auto md:shadow-xl rounded-3xl max-w-xl w-full md:w-[480px] md:p-8 mb-20 space-y-5"
 >
   <h1 class="text-2xl font-bold text-center">{$t("login.signIn")}</h1>
-  {#if form?.error && !form?.message.includes("2fa")}
+  {#if form?.error && !/** @type {any} */ (form)?.message?.includes("2fa")}
     <div class="text-red-600 text-center" in:fly>
-      {form.error}
+      {/** @type {any} */ (form)?.message === "locked" ? $t("login.locked") : form.error}
     </div>
   {/if}
 

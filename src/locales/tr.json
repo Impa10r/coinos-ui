@@ -188,7 +188,8 @@
     "signUp": "Kayıt Ol",
     "failed": "Giriş başarısız oldu",
     "nostr": "Nostr ile oturum açın",
-    "nostrConnect": "Nostr bağlantı"
+    "nostrConnect": "Nostr bağlantı",
+    "locked": "Çok fazla başarısız deneme, lütfen 10 dakika sonra tekrar deneyin"
   },
   "nav": {
     "dark": "Dark",

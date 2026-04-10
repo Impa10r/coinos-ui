@@ -113,7 +113,8 @@
     "continue": "Continuer",
     "resetDesc": "Nous pouvons envoyer un lien de réinitialisation si vous avez ajouté et vérifié votre e-mail sinon veuillez contacter",
     "nostr": "Connexion avec nostra",
-    "nostrConnect": "Connecter nostra"
+    "nostrConnect": "Connecter nostra",
+    "locked": "Trop de tentatives échouées, veuillez réessayer dans 10 minutes"
   },
   "nav": {
     "startInSeconds": "Commencer en quelques secondes",

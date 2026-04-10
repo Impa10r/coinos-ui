@@ -188,7 +188,8 @@
     "signUp": "Podpisz",
     "failed": "Logowanie nie powiodło się",
     "nostr": "Zaloguj się do Nostr",
-    "nostrConnect": "Połączenie Nostr"
+    "nostrConnect": "Połączenie Nostr",
+    "locked": "Zbyt wiele nieudanych prób, spróbuj ponownie za 10 minut"
   },
   "nav": {
     "dark": "Ciemny",

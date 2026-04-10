@@ -133,7 +133,8 @@
     "continue": "Continuar",
     "resetDesc": "Podemos enviar un enlace de reajuste si usted agregó y verificó su correo electrónico de otra manera por favor contacte a",
     "nostr": "Iniciar sesión con Nostr",
-    "nostrConnect": "Nostr connect"
+    "nostrConnect": "Nostr connect",
+    "locked": "Demasiados intentos fallidos, por favor inténtalo de nuevo en 10 minutos"
   },
   "nav": {
     "about": "Acerca de",

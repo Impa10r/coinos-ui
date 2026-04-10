@@ -196,6 +196,7 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "failed": "Login failed",
+    "locked": "Too many failed attempts, please try again in 10 minutes",
     "nostr": "Sign in with Nostr",
     "nostrConnect": "Nostr connect"
   },

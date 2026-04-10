@@ -133,7 +133,8 @@
     "continue": "继续",
     "resetDesc": "我们可以发送一个重设链接 如果你添加和校验您的电子邮件 否则请联系",
     "nostr": "与鼻孔签名",
-    "nostrConnect": "鼻孔连接"
+    "nostrConnect": "鼻孔连接",
+    "locked": "失败尝试次数过多，请10分钟后重试"
   },
   "nav": {
     "about": "关于",

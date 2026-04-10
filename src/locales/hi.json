@@ -188,7 +188,8 @@
     "signUp": "साइन अप करें",
     "failed": "लॉग इन",
     "nostr": "Nostr साथ साइन इन करें",
-    "nostrConnect": "Nostr कनेक्ट"
+    "nostrConnect": "Nostr कनेक्ट",
+    "locked": "बहुत अधिक असफल प्रयास, कृपया 10 मिनट में पुनः प्रयास करें"
   },
   "nav": {
     "dark": "अंधेरा",

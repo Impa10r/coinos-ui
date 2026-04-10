@@ -188,7 +188,8 @@
     "signUp": "Registrati",
     "failed": "Login fallito",
     "nostr": "Accedi con Nostr",
-    "nostrConnect": "Collegamento Nostr"
+    "nostrConnect": "Collegamento Nostr",
+    "locked": "Troppi tentativi falliti, per favore riprova tra 10 minuti"
   },
   "nav": {
     "dark": "Scuro",

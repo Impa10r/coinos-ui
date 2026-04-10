@@ -228,7 +228,8 @@
       "paste": "Colar",
       "next": "Continuar",
       "placeholder": "Colar um endereço de bitcoin, fatura lightning ou nome de usuário na coinos",
-      "makeQR": "QR"
+      "makeQR": "QR",
+      "clipboardDenied": "Acesso à área de transferência negado. Por favor, cole manualmente."
     },
     "settings": {
       "saveSettings": "Salvar ajustes",

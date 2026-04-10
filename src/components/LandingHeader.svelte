@@ -94,31 +94,51 @@
       <div class="space-y-5 mt-24 font-bold text-xl">
         <LocaleSelector />
         <DarkToggle />
-        <button onclick={() => mobileMenuButtonClick(howItWorks, 'how-it-works')} class="block text-left"
-          >{$t("howItWorks.header")}</button
+        <button
+          onclick={() => mobileMenuButtonClick(howItWorks, "how-it-works")}
+          class="block text-left">{$t("howItWorks.header")}</button
         >
-        <button onclick={() => mobileMenuButtonClick(faq, 'faq')} class="block text-left"
-          >{$t("faq.header")}</button
+        <button
+          onclick={() => mobileMenuButtonClick(faq, "faq")}
+          class="block text-left">{$t("faq.header")}</button
         >
-        <button onclick={() => mobileMenuButtonClick(about, 'about')} class="block text-left"
-          >{$t("about.header")}</button
+        <button
+          onclick={() => mobileMenuButtonClick(about, "about")}
+          class="block text-left">{$t("about.header")}</button
         >
         {#if !user}
-          <button class="btn btn-accent" onclick={() => { showMobileMenu = false; goto("/register"); }}
+          <button
+            class="btn btn-accent"
+            onclick={() => {
+              showMobileMenu = false;
+              goto("/register");
+            }}
             >{$t("nav.register")}
           </button>
-          <button class="btn" onclick={() => { showMobileMenu = false; goto("/login"); }}>
+          <button
+            class="btn"
+            onclick={() => {
+              showMobileMenu = false;
+              goto("/login");
+            }}
+          >
             {$t("nav.signIn")}
           </button>
         {:else}
           <button
             class="border rounded-full px-6 py-2 font-bold block"
-            onclick={() => { showMobileMenu = false; goto(`/${user.username}`); }}
+            onclick={() => {
+              showMobileMenu = false;
+              goto(`/${user.username}`);
+            }}
             >{$t("nav.account")}
           </button>
           <button
             class="bg-primary text-white border rounded-full px-6 py-2 font-bold block"
-            onclick={() => { showMobileMenu = false; goto("/logout"); }}
+            onclick={() => {
+              showMobileMenu = false;
+              goto("/logout");
+            }}
           >
             {$t("nav.signOut")}
           </button>

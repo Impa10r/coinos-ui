@@ -276,12 +276,14 @@
     {/if}
     <div class="absolute flex top-2 right-2 gap-2">
       <button
+        aria-label="Toggle list"
         class="rounded-full border-2 border-primary bg-base-100 w-16 h-16 flex items-center justify-center bg-opacity-80"
         onclick={toggleList}
       >
         <iconify-icon noobserver icon="ph:list-bold" width="24"></iconify-icon>
       </button>
       <button
+        aria-label="Toggle play"
         class="rounded-full border-2 border-primary bg-base-100 w-16 h-16 flex items-center justify-center bg-opacity-80"
         onclick={toggle}
       >

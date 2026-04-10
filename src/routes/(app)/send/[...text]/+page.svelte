@@ -5,7 +5,7 @@
   import { browser } from "$app/environment";
   import { t } from "$lib/translations";
   import Avatar from "$comp/Avatar.svelte";
-  import { get, post, focus } from "$lib/utils";
+  import { get, post, focus, warning } from "$lib/utils";
 
   let { data = $bindable(), form } = $props();
   data.subject = data.user;
@@ -30,13 +30,21 @@
     e.key === "Enter" ? e.preventDefault() || el.click() : (pasted = false);
 
   let paste = async () => {
+    textarea?.focus();
     try {
-      text = await navigator.clipboard.readText();
-      await tick();
-      pasted = true;
-    } catch {
-      textarea?.focus();
-    }
+      const clipboardQuery = /** @type {any} */ ({ name: "clipboard-read" });
+      const perm = await navigator.permissions?.query(clipboardQuery);
+      if (perm?.state === "denied") {
+        warning($t("user.send.clipboardDenied"));
+        return;
+      }
+      const content = await navigator.clipboard.readText();
+      if (content) {
+        text = content;
+        await tick();
+        pasted = true;
+      }
+    } catch {}
   };
 
   let pin = async (e, c) => {

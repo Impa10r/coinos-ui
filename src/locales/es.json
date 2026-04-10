@@ -209,7 +209,8 @@
       "scan": "Escanear",
       "paste": "Pegar",
       "next": "Siguiente",
-      "placeholder": "Pegue una dirección de bitcoin, factura lightning o nombre de usuario de coinos"
+      "placeholder": "Pegue una dirección de bitcoin, factura lightning o nombre de usuario de coinos",
+      "clipboardDenied": "Acceso al portapapeles denegado. Por favor, pega manualmente."
     },
     "settings": {
       "shopify": "Integración con Shopify",

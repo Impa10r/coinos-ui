@@ -169,6 +169,10 @@
     <div
       use:focus
       contenteditable
+      role="textbox"
+      tabindex="0"
+      aria-multiline="true"
+      aria-label="Message"
       class="grow break-all py-4 outline-none mt-0 pl-4"
       oninput={(e) => (message = /** @type {any} */ (e.target)?.innerText)}
       onkeydown={keydown}

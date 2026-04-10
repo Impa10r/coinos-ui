@@ -56,14 +56,14 @@
   let submit = $state();
 
   let { data } = $props();
-  let { invoice, id, user } = $state(data);
-  let { amount, tip } = $state(invoice);
+  let { invoice, id, user } = $state(untrack(() => data));
+  let { amount, tip } = $state(untrack(() => invoice));
   let locale = $derived(loc(user));
 
-  let tipPercent = $state((tip / amount) * 100);
+  let tipPercent = $state(untrack(() => (tip / amount) * 100));
 
-  let currency = user?.currency || invoice.currency;
-  let rate = invoice.rate * (data.rate / data.invoiceRate);
+  let currency = $derived(user?.currency || invoice.currency);
+  let rate = $derived(invoice.rate * (data.rate / data.invoiceRate));
 
   $effect(() => {
     tip = Math.round((amount / 100) * untrack(() => tipPercent));
@@ -151,7 +151,7 @@
       </div>
     {/if}
 
-    <button type="submit" bind:this={submit}></button>
+    <button type="submit" bind:this={submit} aria-hidden="true" class="hidden"></button>
   </form>
 
   {#if showCustomAmount}

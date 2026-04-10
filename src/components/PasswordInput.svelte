@@ -21,7 +21,14 @@
   class="input flex items-center justify-center gap-2 w-full"
 >
   {#if show}
-    <input {name} type="text" bind:value class="clean" {placeholder} {autocomplete} />
+    <input
+      {name}
+      type="text"
+      bind:value
+      class="clean"
+      {placeholder}
+      {autocomplete}
+    />
   {:else}
     <input
       {name}

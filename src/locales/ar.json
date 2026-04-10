@@ -270,7 +270,8 @@
       "scan": "Scan",
       "paste": "Paste",
       "next": "التالي",
-      "placeholder": "إدخال عنوان أو فاتورة أو اسم مستخدم"
+      "placeholder": "إدخال عنوان أو فاتورة أو اسم مستخدم",
+      "clipboardDenied": "تم رفض الوصول إلى الحافظة. يرجى اللصق يدويًا."
     },
     "settings": {
       "integrations": "التكامل",

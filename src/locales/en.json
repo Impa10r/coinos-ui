@@ -279,6 +279,7 @@
       "contacts": "Contacts",
       "scan": "Scan",
       "paste": "Paste",
+      "clipboardDenied": "Clipboard access denied. Please paste manually.",
       "next": "Next",
       "placeholder": "Enter an address, invoice or username"
     },

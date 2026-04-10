@@ -103,13 +103,19 @@
         />
       {/if}
 
-      <iconify-icon
-        noobserver
-        class="cursor-pointer ml-auto"
+      <button
+        type="button"
+        aria-label="Toggle password visibility"
+        class="contents"
         onclick={() => (revealPassword = !revealPassword)}
-        icon={revealPassword ? "ph:eye-bold" : "ph:eye-slash-bold"}
-        width="32"
-      ></iconify-icon>
+      >
+        <iconify-icon
+          noobserver
+          class="cursor-pointer ml-auto"
+          icon={revealPassword ? "ph:eye-bold" : "ph:eye-slash-bold"}
+          width="32"
+        ></iconify-icon>
+      </button>
     </label>
 
     <label
@@ -136,13 +142,19 @@
           class="clean"
         />
       {/if}
-      <iconify-icon
-        noobserver
-        class="cursor-pointer ml-auto"
+      <button
+        type="button"
+        aria-label="Toggle confirm password visibility"
+        class="contents"
         onclick={() => (revealConfirm = !revealConfirm)}
-        icon={revealConfirm ? "ph:eye-bold" : "ph:eye-slash-bold"}
-        width="32"
-      ></iconify-icon>
+      >
+        <iconify-icon
+          noobserver
+          class="cursor-pointer ml-auto"
+          icon={revealConfirm ? "ph:eye-bold" : "ph:eye-slash-bold"}
+          width="32"
+        ></iconify-icon>
+      </button>
     </label>
 
     <div class="flex gap-2">

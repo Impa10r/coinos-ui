@@ -270,7 +270,8 @@
       "scan": "제품정보",
       "paste": "이름 *",
       "next": "이름 *",
-      "placeholder": "주소, 송장 또는 사용자 이름 입력"
+      "placeholder": "주소, 송장 또는 사용자 이름 입력",
+      "clipboardDenied": "클립보드 접근이 거부되었습니다. 수동으로 붙여넣기 해주세요."
     },
     "settings": {
       "integrations": "통합",

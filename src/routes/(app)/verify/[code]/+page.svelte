@@ -4,7 +4,8 @@
   import { t } from "$lib/translations";
 
   let { data } = $props();
-  let { user, error } = data;
+  let user = $derived(data.user);
+  let error = $derived(data.error);
 </script>
 
 <div class="container px-4 text-center mx-auto">
@@ -26,7 +27,7 @@
   {/if}
 </div>
 
-<a href={`/${user.username}`}>
+<a href={`/${user.username}`} aria-label={$t("payments.tapAnywhere")}>
   <div class="opacity-0 w-screen h-screen fixed top-0 left-0 z-50"></div>
 </a>
 

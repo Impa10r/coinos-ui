@@ -270,7 +270,8 @@
       "scan": "Scan",
       "paste": "Paste",
       "next": "Sonraki",
-      "placeholder": "Bir adres girin, fatura veya kullanıcı adı"
+      "placeholder": "Bir adres girin, fatura veya kullanıcı adı",
+      "clipboardDenied": "Pano erişimi reddedildi. Lütfen manuel olarak yapıştırın."
     },
     "settings": {
       "integrations": "Bütünleşmeler",

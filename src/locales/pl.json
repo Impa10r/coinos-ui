@@ -270,7 +270,8 @@
       "scan": "Przeskanuj",
       "paste": "Wklej",
       "next": "Następny",
-      "placeholder": "Wpisz adres, fakturę lub nazwę użytkownika"
+      "placeholder": "Wpisz adres, fakturę lub nazwę użytkownika",
+      "clipboardDenied": "Odmowa dostępu do schowka. Proszę wkleić ręcznie."
     },
     "settings": {
       "integrations": "Integracje",

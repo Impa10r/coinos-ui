@@ -270,7 +270,8 @@
       "scan": "Scannen",
       "paste": "Plakken",
       "next": "Volgende",
-      "placeholder": "Vul een adres, factuur of gebruikersnaam in"
+      "placeholder": "Vul een adres, factuur of gebruikersnaam in",
+      "clipboardDenied": "Toegang tot klembord geweigerd. Plak alstublieft handmatig."
     },
     "settings": {
       "integrations": "Integraties",

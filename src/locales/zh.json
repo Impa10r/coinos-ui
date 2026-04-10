@@ -209,7 +209,8 @@
       "scan": "扫描",
       "paste": "粘贴",
       "next": "下一个",
-      "placeholder": "粘贴比特币地址、闪电发票或 coinos 用户名"
+      "placeholder": "粘贴比特币地址、闪电发票或 coinos 用户名",
+      "clipboardDenied": "剪贴板访问被拒绝。请手动粘贴。"
     },
     "settings": {
       "shopify": "Shopify 集成",

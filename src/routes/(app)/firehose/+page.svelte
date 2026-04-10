@@ -39,7 +39,7 @@
     Events
   </h1>
 
-  <div onpointerenter={pause} onpointerleave={unpause}>
+  <div onpointerenter={pause} onpointerleave={unpause} role="feed" aria-label="Events">
     {#each events as event}
       <Event {event} minimal={true} user={undefined} />
     {/each}

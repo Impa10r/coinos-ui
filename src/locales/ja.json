@@ -209,7 +209,8 @@
       "scan": "スキャン",
       "paste": "ペースト",
       "next": "次",
-      "placeholder": "ビットコイン アドレス、Lightning 請求書、または Coinos ユーザー名を貼り付けます"
+      "placeholder": "ビットコイン アドレス、Lightning 請求書、または Coinos ユーザー名を貼り付けます",
+      "clipboardDenied": "クリップボードへのアクセスが拒否されました。手動で貼り付けてください。"
     },
     "settings": {
       "shopify": "Shopifyの統合",

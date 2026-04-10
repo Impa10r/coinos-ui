@@ -219,7 +219,8 @@
       "paste": "Einfügen",
       "next": "Weiter",
       "placeholder": "Geben Sie eine Bitcoin-Adresse, eine Lightning-Rechnung oder einen Coinos-Benutzernamen ein",
-      "makeQR": "QR"
+      "makeQR": "QR",
+      "clipboardDenied": "Zugriff auf die Zwischenablage verweigert. Bitte manuell einfügen."
     },
     "settings": {
       "bannerImage": "Logo",

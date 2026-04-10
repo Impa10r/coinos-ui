@@ -306,7 +306,8 @@
       "paste": "Collez",
       "next": "Suivant",
       "placeholder": "Collez une adresse de bitcoin, facture de lightning ou nom d'utilisateur coinos",
-      "makeQR": "QR"
+      "makeQR": "QR",
+      "clipboardDenied": "Accès au presse-papiers refusé. Veuillez coller manuellement."
     },
     "requestPayment": "Demander un Paiement",
     "welcome": "Bienvenue! Le solde de votre compte est vide. Vous pouvez commencer par déposer ou recevoir un paiement.",

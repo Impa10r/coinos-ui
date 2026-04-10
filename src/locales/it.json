@@ -270,7 +270,8 @@
       "scan": "Scansione",
       "paste": "Incolla",
       "next": "Prossimo",
-      "placeholder": "Inserisci un indirizzo, una fattura o un nome utente"
+      "placeholder": "Inserisci un indirizzo, una fattura o un nome utente",
+      "clipboardDenied": "Accesso agli appunti negato. Si prega di incollare manualmente."
     },
     "settings": {
       "integrations": "Integrazioni",

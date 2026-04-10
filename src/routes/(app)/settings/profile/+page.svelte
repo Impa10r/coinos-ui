@@ -28,7 +28,9 @@
   let selectAvatar = () => avatarInput.click();
   let selectBanner = () => bannerInput.click();
 
-  let progress = async (/** @type {{ loaded: number, total: number }} */ event) => {
+  let progress = async (
+    /** @type {{ loaded: number, total: number }} */ event,
+  ) => {
     Math.round((event.loaded / event.total) * 100);
   };
 
@@ -36,7 +38,10 @@
   let avatarAny = $derived(/** @type {any} */ ($avatar));
   let bannerAny = $derived(/** @type {any} */ ($bannerStore));
 
-  let handleFile = async ({ target } /** @type {Event & { target: HTMLInputElement }} */, /** @type {string} */ type) => {
+  let handleFile = async (
+    { target } /** @type {Event & { target: HTMLInputElement }} */,
+    /** @type {string} */ type,
+  ) => {
     tooLarge[type] = false;
     let file = /** @type {HTMLInputElement} */ (target).files?.[0];
     if (!file) return;
@@ -73,7 +78,12 @@
     >{$t("user.settings.username")}</label
   >
   <div class="flex mb-2">
-    <input type="text" name="username" bind:value={username} autocomplete="username" />
+    <input
+      type="text"
+      name="username"
+      bind:value={username}
+      autocomplete="username"
+    />
   </div>
 </div>
 

@@ -21,6 +21,10 @@ export const handle: Handle = async ({ event, resolve }) => {
     return fetch(url);
   }
 
+  if (event.url.pathname === "/.well-known/security.txt") {
+    return fetch(`${COINOS_URL}/.well-known/security.txt`);
+  }
+
   const ip =
     event.request.headers.get("cf-connecting-ip") ||
     event.request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||

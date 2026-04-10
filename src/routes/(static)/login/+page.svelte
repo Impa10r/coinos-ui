@@ -189,6 +189,7 @@
       bind:value={username}
       use:focus
       autocapitalize="none"
+      autocomplete="username"
       placeholder={$t("login.username")}
     />
 

@@ -357,6 +357,7 @@
         bind:value={username}
         onfocus={clear}
         autocapitalize="none"
+        autocomplete="username"
         placeholder={$t("login.username")}
       />
       <button

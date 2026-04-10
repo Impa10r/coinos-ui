@@ -377,6 +377,12 @@
       bind:show={revealPassword}
     />
 
+    <div
+      class="bg-warning text-warning-content rounded-xl p-3 text-center font-semibold text-sm"
+    >
+      {$t("warning.wrongSite")}
+    </div>
+
     <button
       type="submit"
       class="btn btn-accent"

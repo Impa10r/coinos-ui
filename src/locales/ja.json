@@ -44,7 +44,7 @@
   },
   "footer": {
     "company": "会社",
-    "followUs": "私たちに従ってください",
+    "connect": "接続",
     "github": "GitHub",
     "linktree": "リンクツリー",
     "jobs": "求人",
@@ -53,7 +53,8 @@
     "twitter": "ツイッター",
     "documentation": "ドキュメンテーション",
     "nostr": "ノストル",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "使い方",
@@ -532,5 +533,27 @@
   },
   "warning": {
     "wrongSite": "coinos.io ではなく coinos.pro の認証情報を使用していることを確認してください"
+  },
+  "fips": {
+    "title": "FIPSで接続する",
+    "description": "（Free Internetworking Peering System）は分散型メッシュネットワークです。FIPSで接続するとIPアドレスが隠され、DNSや中央サーバーなしで動作します。",
+    "step1": {
+      "title": "ステップ1 — FIPSをインストールする",
+      "description": "お使いのプラットフォーム用のFIPSクライアントをダウンロードしてインストールしてください。"
+    },
+    "step2": {
+      "title": "ステップ2 — CA証明書をインストールする",
+      "description": "ブラウザのセキュリティ警告を避けるため、Coinos ProのCA証明書をインストールしてください。これは一度だけ行う必要があります。",
+      "download": "CA証明書をダウンロード",
+      "firefox": "設定 → プライバシーとセキュリティ → 証明書 → 証明書を表示 → 認証局 → インポート → ダウンロードしたファイルを選択 →「このCAをウェブサイトの識別に信頼する」にチェック",
+      "chrome": "設定 → プライバシーとセキュリティ → セキュリティ → 証明書の管理 → 認証局 → インポート → ダウンロードしたファイルを選択",
+      "linux": "Linux（システム全体）"
+    },
+    "step3": {
+      "title": "ステップ3 — FIPSでCoinos Proを開く",
+      "description": "FIPSが起動してCAがインストールされたら：",
+      "open": "FIPSでCoinos Proを開く →",
+      "notConfigured": "このインスタンスにはFIPSアドレスが設定されていません。"
+    }
   }
 }

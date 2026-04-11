@@ -13,3 +13,4 @@ test-results/
 CLAUDE.md
 .gitignore
 .vscode/
+static/fips-ca.pem

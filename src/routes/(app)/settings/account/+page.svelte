@@ -106,7 +106,7 @@
   <label for="language" class="font-bold block mb-1"
     >{$t("user.settings.locale")}</label
   >
-  <LocaleSelector style="select-styles block py-3 w-full" />
+  <LocaleSelector />
 </div>
 
 <div>

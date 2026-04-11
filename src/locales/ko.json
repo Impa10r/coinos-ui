@@ -99,7 +99,7 @@
   },
   "footer": {
     "company": "제품정보",
-    "followUs": "우리를 따르라",
+    "connect": "연결",
     "github": "프로젝트",
     "linktree": "링크트리",
     "jobs": "한국어",
@@ -108,7 +108,8 @@
     "twitter": "사이트 맵",
     "nostr": "노스트",
     "documentation": "회사연혁",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "어떻게 작동하나요",
@@ -551,5 +552,27 @@
   },
   "warning": {
     "wrongSite": "coinos.io가 아닌 coinos.pro 자격증명을 사용하고 있는지 확인하세요"
+  },
+  "fips": {
+    "title": "FIPS를 통해 연결",
+    "description": "(Free Internetworking Peering System)는 분산형 메시 네트워크입니다. FIPS를 통해 연결하면 IP 주소가 숨겨지고 DNS나 중앙 서버 없이 작동합니다.",
+    "step1": {
+      "title": "1단계 — FIPS 설치",
+      "description": "플랫폼에 맞는 FIPS 클라이언트를 다운로드하여 설치하세요."
+    },
+    "step2": {
+      "title": "2단계 — CA 인증서 설치",
+      "description": "브라우저 보안 경고를 피하려면 Coinos Pro CA 인증서를 설치하세요. 한 번만 수행하면 됩니다.",
+      "download": "CA 인증서 다운로드",
+      "firefox": "설정 → 개인 정보 보호 및 보안 → 인증서 → 인증서 보기 → 기관 → 가져오기 → 다운로드한 파일 선택 → \"웹 사이트 식별을 위해 이 CA 신뢰\" 체크",
+      "chrome": "설정 → 개인 정보 보호 및 보안 → 보안 → 인증서 관리 → 기관 → 가져오기 → 다운로드한 파일 선택",
+      "linux": "Linux (시스템 전체)"
+    },
+    "step3": {
+      "title": "3단계 — FIPS를 통해 Coinos Pro 열기",
+      "description": "FIPS가 실행 중이고 CA가 설치되면:",
+      "open": "FIPS에서 Coinos Pro 열기 →",
+      "notConfigured": "이 인스턴스에 FIPS 주소가 구성되지 않았습니다."
+    }
   }
 }

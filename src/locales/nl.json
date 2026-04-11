@@ -99,7 +99,7 @@
   },
   "footer": {
     "company": "Over Coinos",
-    "followUs": "Volg ons",
+    "connect": "Verbinden",
     "github": "GitHub",
     "linktree": "Linktree",
     "jobs": "Vacatures",
@@ -108,7 +108,8 @@
     "twitter": "Twitter",
     "nostr": "Nostr",
     "documentation": "Documentatie",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "Hoe het werkt",
@@ -551,5 +552,27 @@
   },
   "warning": {
     "wrongSite": "Zorg ervoor dat u coinos.pro-inloggegevens gebruikt en NIET coinos.io"
+  },
+  "fips": {
+    "title": "Verbinden via FIPS",
+    "description": "(Free Internetworking Peering System) is een gedecentraliseerd mesh-netwerk. Verbinden via FIPS verbergt uw IP-adres en werkt zonder DNS of centrale server.",
+    "step1": {
+      "title": "Stap 1 — FIPS installeren",
+      "description": "Download en installeer de FIPS-client voor uw platform."
+    },
+    "step2": {
+      "title": "Stap 2 — CA-certificaat installeren",
+      "description": "Installeer het CA-certificaat van Coinos Pro om beveiligingswaarschuwingen van de browser te voorkomen. Dit hoeft maar één keer te worden gedaan.",
+      "download": "CA-certificaat downloaden",
+      "firefox": "Instellingen → Privacy en beveiliging → Certificaten → Certificaten bekijken → Certificaatinstanties → Importeren → selecteer het gedownloade bestand → vink \"Vertrouw deze CA voor het identificeren van websites\" aan",
+      "chrome": "Instellingen → Privacy en beveiliging → Beveiliging → Certificaten beheren → Certificaatinstanties → Importeren → selecteer het gedownloade bestand",
+      "linux": "Linux (systeembreed)"
+    },
+    "step3": {
+      "title": "Stap 3 — Coinos Pro via FIPS openen",
+      "description": "Zodra FIPS actief is en het CA geïnstalleerd is:",
+      "open": "Coinos Pro openen op FIPS →",
+      "notConfigured": "FIPS-adres niet geconfigureerd op deze instantie."
+    }
   }
 }

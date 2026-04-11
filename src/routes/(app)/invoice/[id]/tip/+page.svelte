@@ -151,7 +151,8 @@
       </div>
     {/if}
 
-    <button type="submit" bind:this={submit} aria-hidden="true" class="hidden"></button>
+    <button type="submit" bind:this={submit} aria-hidden="true" class="hidden"
+    ></button>
   </form>
 
   {#if showCustomAmount}

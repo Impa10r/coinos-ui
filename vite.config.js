@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
       allowedHosts: [
         env.PUBLIC_DOMAIN,
         env.PUBLIC_DOMAIN_TOR,
+        env.PUBLIC_DOMAIN_FIPS,
         env.PUBLIC_DOMAIN_EXTRA,
       ].filter(Boolean),
       hmr: true,

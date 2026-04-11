@@ -34,7 +34,7 @@ export const load = async ({ cookies, request, url }) => {
   }
 
   // Try to get the locale from cookie
-  let locale = user?.language || (cookies.get("lang") || "").toLowerCase();
+  let locale = (cookies.get("lang") || user?.language || "").toLowerCase();
 
   // Get user preferred locale
   if (!locale) {

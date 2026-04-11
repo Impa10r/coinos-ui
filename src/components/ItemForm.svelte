@@ -107,12 +107,24 @@
     <div class="grid sm:grid-cols-2 gap-4">
       <div class="h-64 rounded-2xl overflow-hidden">
         {#if src}
-          <button type="button" onclick={select} class="w-full h-full p-0 border-0">
+          <button
+            type="button"
+            onclick={select}
+            class="w-full h-full p-0 border-0"
+          >
             <img {src} alt={item.name} class="object-cover w-full h-full" />
           </button>
         {:else if item.image}
-          <button type="button" onclick={select} class="w-full h-full p-0 border-0">
-            <img src={`/api/public/${item.image}.webp`} alt={item.name} class="object-cover w-full h-full" />
+          <button
+            type="button"
+            onclick={select}
+            class="w-full h-full p-0 border-0"
+          >
+            <img
+              src={`/api/public/${item.image}.webp`}
+              alt={item.name}
+              class="object-cover w-full h-full"
+            />
           </button>
         {:else}
           <button

@@ -99,7 +99,7 @@
   },
   "footer": {
     "company": "Şirket Şirketi",
-    "followUs": "Bizi Takip Edin",
+    "connect": "Bağlan",
     "github": "GitHub",
     "linktree": "Linktree",
     "jobs": "Jobs",
@@ -108,7 +108,8 @@
     "twitter": "Twitter",
     "nostr": "Hayır",
     "documentation": "Dokümantasyon",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "Nasıl çalışır",
@@ -551,5 +552,27 @@
   },
   "warning": {
     "wrongSite": "Lütfen coinos.io değil, coinos.pro kimlik bilgilerini kullandığınızdan emin olun"
+  },
+  "fips": {
+    "title": "FIPS Üzerinden Bağlan",
+    "description": "(Free Internetworking Peering System), merkezi olmayan bir ağ örgüsüdür. FIPS üzerinden bağlanmak IP adresinizi gizler ve DNS veya merkezi sunucu olmadan çalışır.",
+    "step1": {
+      "title": "Adım 1 — FIPS'i Yükle",
+      "description": "Platformunuz için FIPS istemcisini indirip yükleyin."
+    },
+    "step2": {
+      "title": "Adım 2 — CA Sertifikasını Yükle",
+      "description": "Tarayıcı güvenlik uyarılarını önlemek için Coinos Pro CA sertifikasını yükleyin. Bu işlemin yalnızca bir kez yapılması gerekir.",
+      "download": "CA Sertifikasını İndir",
+      "firefox": "Ayarlar → Gizlilik ve Güvenlik → Sertifikalar → Sertifikaları Görüntüle → Yetkililer → İçe Aktar → indirilen dosyayı seçin → \"Web sitelerini tanımlamak için bu CA'ya güven\" seçeneğini işaretleyin",
+      "chrome": "Ayarlar → Gizlilik ve güvenlik → Güvenlik → Sertifikaları yönet → Yetkililer → İçe Aktar → indirilen dosyayı seçin",
+      "linux": "Linux (sistem genelinde)"
+    },
+    "step3": {
+      "title": "Adım 3 — FIPS Üzerinden Coinos Pro'yu Aç",
+      "description": "FIPS çalışır durumda ve CA yüklendikten sonra:",
+      "open": "FIPS'te Coinos Pro'yu Aç →",
+      "notConfigured": "Bu örnekte FIPS adresi yapılandırılmamış."
+    }
   }
 }

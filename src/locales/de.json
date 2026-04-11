@@ -60,7 +60,7 @@
   },
   "footer": {
     "company": "Unternehmen",
-    "followUs": "Folge uns",
+    "connect": "Verbinden",
     "github": "GitHub",
     "jobs": "Jobs",
     "support": "Support",
@@ -70,7 +70,8 @@
     "linktree": "Linktree",
     "documentation": "Dokumentation",
     "nostr": "Nostr",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "So funktioniert's",
@@ -559,5 +560,27 @@
   },
   "warning": {
     "wrongSite": "Bitte stellen Sie sicher, dass Sie Ihre coinos.pro-Zugangsdaten verwenden und NICHT coinos.io"
+  },
+  "fips": {
+    "title": "Verbindung über FIPS",
+    "description": "(Free Internetworking Peering System) ist ein dezentrales Mesh-Netzwerk. Die Verbindung über FIPS verbirgt Ihre IP-Adresse und funktioniert ohne DNS oder zentralen Server.",
+    "step1": {
+      "title": "Schritt 1 — FIPS installieren",
+      "description": "Laden Sie den FIPS-Client für Ihre Plattform herunter und installieren Sie ihn."
+    },
+    "step2": {
+      "title": "Schritt 2 — CA-Zertifikat installieren",
+      "description": "Um Browser-Sicherheitswarnungen zu vermeiden, installieren Sie das Coinos Pro CA-Zertifikat. Dies muss nur einmal durchgeführt werden.",
+      "download": "CA-Zertifikat herunterladen",
+      "firefox": "Einstellungen → Datenschutz & Sicherheit → Zertifikate → Zertifikate anzeigen → Zertifizierungsstellen → Importieren → heruntergeladene Datei auswählen → \"Dieser CA vertrauen, um Webseiten zu identifizieren\" ankreuzen",
+      "chrome": "Einstellungen → Datenschutz und Sicherheit → Sicherheit → Zertifikate verwalten → Zertifizierungsstellen → Importieren → heruntergeladene Datei auswählen",
+      "linux": "Linux (systemweit)"
+    },
+    "step3": {
+      "title": "Schritt 3 — Coinos Pro über FIPS öffnen",
+      "description": "Sobald FIPS läuft und das CA installiert ist:",
+      "open": "Coinos Pro über FIPS öffnen →",
+      "notConfigured": "FIPS-Adresse für diese Instanz nicht konfiguriert."
+    }
   }
 }

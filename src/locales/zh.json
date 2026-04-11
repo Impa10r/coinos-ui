@@ -44,7 +44,7 @@
   },
   "footer": {
     "company": "公司",
-    "followUs": "关注我们",
+    "connect": "连接",
     "github": "GitHub",
     "linktree": "链接树",
     "jobs": "工作",
@@ -53,7 +53,8 @@
     "twitter": "推特",
     "documentation": "文档",
     "nostr": "Nostr",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "如何操作",
@@ -532,5 +533,27 @@
   },
   "warning": {
     "wrongSite": "请确保您使用的是 coinos.pro 的凭据，而不是 coinos.io"
+  },
+  "fips": {
+    "title": "通过 FIPS 连接",
+    "description": "（自由互联网对等系统）是一个去中心化的网状网络。通过 FIPS 连接可隐藏您的 IP 地址，并无需 DNS 或中央服务器即可运行。",
+    "step1": {
+      "title": "第一步 — 安装 FIPS",
+      "description": "下载并安装适用于您平台的 FIPS 客户端。"
+    },
+    "step2": {
+      "title": "第二步 — 安装 CA 证书",
+      "description": "为避免浏览器安全警告，请安装 Coinos Pro CA 证书。只需执行一次。",
+      "download": "下载 CA 证书",
+      "firefox": "设置 → 隐私与安全 → 证书 → 查看证书 → 证书颁发机构 → 导入 → 选择下载的文件 → 勾选“信任此 CA 以识别网站”",
+      "chrome": "设置 → 隐私和安全 → 安全 → 管理证书 → 证书颁发机构 → 导入 → 选择下载的文件",
+      "linux": "Linux（系统级）"
+    },
+    "step3": {
+      "title": "第三步 — 通过 FIPS 打开 Coinos Pro",
+      "description": "FIPS 运行且 CA 安装完成后：",
+      "open": "在 FIPS 上打开 Coinos Pro →",
+      "notConfigured": "此实例未配置 FIPS 地址。"
+    }
   }
 }

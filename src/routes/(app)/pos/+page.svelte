@@ -177,7 +177,9 @@
           <div class="text-center text-2xl">Config written ✔</div>
         {:else}
           <div>Generated config file (<b>{bytes.length} bytes</b>)</div>
-          <label class="label mt-2" for="littlefs-address">LittleFS address (hex)</label>
+          <label class="label mt-2" for="littlefs-address"
+            >LittleFS address (hex)</label
+          >
           <input
             id="littlefs-address"
             class="input"
@@ -208,7 +210,9 @@
     {:else}
       <!-- NEW FIRMWARE FLOW -->
       <div class="space-y-3">
-        <label class="label" for="firmware-file">Select .ino.bin (firmware)</label>
+        <label class="label" for="firmware-file"
+          >Select .ino.bin (firmware)</label
+        >
         <input
           id="firmware-file"
           type="file"
@@ -217,7 +221,9 @@
           onchange={onPickFw}
         />
 
-        <label class="label" for="fw-address">Firmware address (hex, default 0x10000)</label>
+        <label class="label" for="fw-address"
+          >Firmware address (hex, default 0x10000)</label
+        >
         <input
           id="fw-address"
           class="input"

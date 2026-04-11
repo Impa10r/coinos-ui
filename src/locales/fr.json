@@ -43,7 +43,7 @@
     }
   },
   "footer": {
-    "followUs": "Suivez-Nous",
+    "connect": "Connexion",
     "twitter": "Twitter X",
     "github": "GitHub",
     "company": "Notre entreprise",
@@ -53,7 +53,8 @@
     "linktree": "Linktree",
     "documentation": "Documentation",
     "nostr": "Nostr",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "Comment cela Fonctionne",
@@ -532,5 +533,27 @@
   },
   "warning": {
     "wrongSite": "Veuillez vous assurer d'utiliser vos identifiants coinos.pro et NON coinos.io"
+  },
+  "fips": {
+    "title": "Se connecter via FIPS",
+    "description": "(Free Internetworking Peering System) est un réseau maillé décentralisé. Se connecter via FIPS masque votre adresse IP et fonctionne sans DNS ni serveur central.",
+    "step1": {
+      "title": "Étape 1 — Installer FIPS",
+      "description": "Téléchargez et installez le client FIPS pour votre plateforme."
+    },
+    "step2": {
+      "title": "Étape 2 — Installer le certificat CA",
+      "description": "Pour éviter les avertissements de sécurité du navigateur, installez le certificat CA de Coinos Pro. Cela ne doit être fait qu'une seule fois.",
+      "download": "Télécharger le certificat CA",
+      "firefox": "Paramètres → Vie privée et sécurité → Certificats → Afficher les certificats → Autorités → Importer → sélectionnez le fichier téléchargé → cochez \"Faire confiance à cette AC pour identifier les sites web\"",
+      "chrome": "Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats → Autorités → Importer → sélectionnez le fichier téléchargé",
+      "linux": "Linux (système entier)"
+    },
+    "step3": {
+      "title": "Étape 3 — Ouvrir Coinos Pro via FIPS",
+      "description": "Une fois FIPS en cours d'exécution et le CA installé :",
+      "open": "Ouvrir Coinos Pro sur FIPS →",
+      "notConfigured": "Adresse FIPS non configurée sur cette instance."
+    }
   }
 }

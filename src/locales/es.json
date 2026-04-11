@@ -44,7 +44,7 @@
   },
   "footer": {
     "company": "Compañía",
-    "followUs": "Síguenos",
+    "connect": "Conectar",
     "github": "GitHub",
     "linktree": "Linktree",
     "jobs": "Empleos",
@@ -53,7 +53,8 @@
     "twitter": "Twitter",
     "documentation": "Documentación",
     "nostr": "Nostálgico",
-    "onion": "Onion"
+    "onion": "Tor",
+    "fips": "FIPS"
   },
   "howItWorks": {
     "header": "Cómo Funciona",
@@ -532,5 +533,27 @@
   },
   "warning": {
     "wrongSite": "Por favor asegúrese de usar las credenciales de coinos.pro y NO las de coinos.io"
+  },
+  "fips": {
+    "title": "Conectar vía FIPS",
+    "description": "(Sistema de Interconexión entre Pares Libre) es una red de malla descentralizada. Conectarse vía FIPS oculta tu dirección IP y funciona sin DNS ni servidor central.",
+    "step1": {
+      "title": "Paso 1 — Instalar FIPS",
+      "description": "Descarga e instala el cliente FIPS para tu plataforma."
+    },
+    "step2": {
+      "title": "Paso 2 — Instalar el certificado CA",
+      "description": "Para evitar advertencias de seguridad del navegador, instala el certificado CA de Coinos Pro. Solo necesitas hacerlo una vez.",
+      "download": "Descargar certificado CA",
+      "firefox": "Configuración → Privacidad y seguridad → Certificados → Ver certificados → Autoridades → Importar → selecciona el archivo descargado → marca \"Confiar en esta CA para identificar sitios web\"",
+      "chrome": "Configuración → Privacidad y seguridad → Seguridad → Gestionar certificados → Autoridades → Importar → selecciona el archivo descargado",
+      "linux": "Linux (en todo el sistema)"
+    },
+    "step3": {
+      "title": "Paso 3 — Abrir Coinos Pro vía FIPS",
+      "description": "Una vez que FIPS esté en funcionamiento y el CA esté instalado:",
+      "open": "Abrir Coinos Pro en FIPS →",
+      "notConfigured": "Dirección FIPS no configurada en esta instancia."
+    }
   }
 }

@@ -339,7 +339,7 @@
     <input
       type="hidden"
       name="loginRedirect"
-      value={$loginRedirect || $page.url.searchParams.get("redirect")}
+      value={$loginRedirect || $page.url?.searchParams.get("redirect")}
     />
     <input type="hidden" name="token" value={token} />
     <input type="hidden" name="challenge" value={challenge} />
@@ -411,7 +411,7 @@
     <p class="text-secondary text-center font-medium">
       {$t("login.haveAccount")}
       <a
-        href={"/login" + $page.url.search}
+        href={"/login" + ($page.url?.search ?? "")}
         class="block md:inline text-secondary underline underline-offset-4 hover:opacity-80"
       >
         {$t("login.signIn")}

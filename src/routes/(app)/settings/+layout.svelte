@@ -183,7 +183,7 @@
     }
   });
   $effect(() => {
-    if (!$loading && $page.url.searchParams.get("verified"))
+    if (!$loading && $page.url?.searchParams.get("verified"))
       success($t("user.settings.verified"));
   });
 </script>

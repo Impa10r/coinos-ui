@@ -30,7 +30,7 @@
   });
 
   onMount(() => {
-    let lang = $page.url.searchParams.get("lang");
+    let lang = $page.url?.searchParams.get("lang");
     if (lang && /^[a-z]{2}(-[A-Z]{2})?$/.test(lang))
       document.cookie = `lang=${lang} ;`;
   });
@@ -104,7 +104,7 @@
   });
 
   let redirect = $derived(
-    $loginRedirect || $page.url.searchParams.get("redirect"),
+    $loginRedirect || $page.url?.searchParams.get("redirect"),
   );
 
   let nostrLogin = async () => {
@@ -113,7 +113,7 @@
       created_at: Date.now(),
       content: "",
       tags: [
-        ["u", `${$page.url.origin}/api/nostrAuth`],
+        ["u", `${$page.url?.origin ?? location.origin}/api/nostrAuth`],
         ["method", "POST"],
         ["challenge", challenge],
       ],
@@ -227,7 +227,7 @@
     <p class="text-secondary text-center font-medium">
       {$t("login.noAccount")}
       <a
-        href={"/register" + $page.url.search}
+        href={"/register" + ($page.url?.search ?? "")}
         class="block md:inline text-secondary underline underline-offset-4 hover:opacity-80"
       >
         {$t("login.register")}

@@ -1,4 +1,3 @@
-version: "3.6"
 services:
   ui:
     container_name: ui
@@ -26,6 +25,7 @@ services:
     environment:
       PORT: 5173
       ORIGIN: "${ORIGIN}"
+      INTERNAL_API_KEY: "${INTERNAL_API_KEY}"
       PUBLIC_COINOS_URL: "${PUBLIC_COINOS_URL}"
     extra_hosts:
       - host.docker.internal:host-gateway

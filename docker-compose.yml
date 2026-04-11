@@ -1,23 +1,30 @@
 version: "3.6"
 services:
-  v2:
-    container_name: v2
+  ui:
+    container_name: ui
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       args:
-        URL: "${PUBLIC_COINOS_URL}"
-        BTC: "${PUBLIC_BTC}"
-        SOCKET: "${PUBLIC_SOCKET}"
+        PUBLIC_COINOS_URL: "${PUBLIC_COINOS_URL}"
+        PUBLIC_BTC: "${PUBLIC_BTC}"
+        PUBLIC_DOMAIN: "${PUBLIC_DOMAIN}"
+        PUBLIC_DOMAIN_TOR: "${PUBLIC_DOMAIN_TOR}"
+        PUBLIC_DOMAIN_EXTRA: "${PUBLIC_DOMAIN_EXTRA}"
+        PUBLIC_COINOS_NETWORK: "${PUBLIC_COINOS_NETWORK}"
+        PUBLIC_COINOS_RELAY: "${PUBLIC_COINOS_RELAY}"
+        PUBLIC_COINOS_PUBKEY: "${PUBLIC_COINOS_PUBKEY}"
+        PUBLIC_EXPLORER: "${PUBLIC_EXPLORER}"
+        PUBLIC_LIQUID_EXPLORER: "${PUBLIC_LIQUID_EXPLORER}"
+        PUBLIC_RECAPTCHA_SITE_KEY: "${PUBLIC_RECAPTCHA_SITE_KEY}"
+        PUBLIC_TELEGRAM_URL: "${PUBLIC_TELEGRAM_URL}"
     restart: always
     ports:
-      - "3121:3121"
+      - "5173:5173"
     environment:
-      NODE_ENV: production
+      PORT: 5173
       ORIGIN: "${ORIGIN}"
-      PORT: 3121
-      STRIPE: "${STRIPE}"
-      LAUNCH: "${LAUNCH}"
+      PUBLIC_COINOS_URL: "${PUBLIC_COINOS_URL}"
     extra_hosts:
       - host.docker.internal:host-gateway
 networks:

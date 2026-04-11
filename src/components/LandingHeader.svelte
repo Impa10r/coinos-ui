@@ -93,7 +93,7 @@
     >
       <div class="space-y-5 mt-24 font-bold text-xl">
         <LocaleSelector />
-        <DarkToggle />
+        <DarkToggle onToggle={() => (showMobileMenu = false)} />
         <button
           onclick={() => mobileMenuButtonClick(howItWorks, "how-it-works")}
           class="block text-left">{$t("howItWorks.header")}</button

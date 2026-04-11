@@ -44,7 +44,7 @@
         {#each menuButtons as { href, icon, key }}
           <li>
             {#if key.includes("dark")}
-              <DarkToggle />
+              <DarkToggle onToggle={hideMenu} />
             {:else}
               <a
                 {href}

@@ -1,6 +1,5 @@
 <script>
-  import Icon from "$comp/Icon.svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
   let { data } = $props();
   let { user } = $derived(data);
@@ -10,8 +9,8 @@
 
 <div class="container px-4 max-w-xl mx-auto mt-10 space-y-5">
   <div class="w-full flex">
-    <a href="/" class="mx-auto">
-      <Icon icon="logo" />
+    <a href="/" class="mx-auto" aria-label="Home">
+      <iconify-icon noobserver icon="coinos:logo" width="224"></iconify-icon>
     </a>
   </div>
 
@@ -21,7 +20,7 @@
         <h1 class="text-2xl md:text-3xl font-semibold text-center">Error</h1>
       </div>
       <p class="text-secondary text-center">Something went wrong</p>
-      <p class="text-secondary text-center">{$page.error?.message ?? ""}</p>
+      <p class="text-secondary text-center">{page.error?.message ?? ""}</p>
 
       <div class="flex justify-center py-24">
         <a href={link}>

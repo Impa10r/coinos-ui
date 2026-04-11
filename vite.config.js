@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
+      headers: {
+        "Cache-Control": "no-store",
+      },
       allowedHosts: [
         env.PUBLIC_DOMAIN,
         env.PUBLIC_DOMAIN_TOR,

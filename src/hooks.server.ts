@@ -32,6 +32,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 
   const response = await ipStore.run(ip, () => resolve(event));
 
+  try {
+    response.headers.set("Cache-Control", "no-store");
+  } catch {}
+
   if (PUBLIC_DOMAIN_TOR) {
     try {
       response.headers.set(

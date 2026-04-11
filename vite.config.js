@@ -20,9 +20,7 @@ export default defineConfig(({ mode }) => {
         env.PUBLIC_DOMAIN_TOR,
         env.PUBLIC_DOMAIN_EXTRA,
       ].filter(Boolean),
-      hmr: {
-        path: "/vite-hmr",
-      },
+      hmr: true,
       proxy:
         process.env.NODE_ENV === "development"
           ? {

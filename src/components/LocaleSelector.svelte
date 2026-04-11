@@ -1,11 +1,12 @@
 <script>
   import { t, locale, locales } from "$lib/translations";
-  let {} = $props();
+  let { onClose = undefined } = $props();
 
   const handleChange = ({ currentTarget }) => {
     const { value } = currentTarget;
     document.cookie = `lang=${value}; path=/`;
     $locale = value;
+    onClose?.();
   };
 </script>
 

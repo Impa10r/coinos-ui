@@ -52,6 +52,7 @@ main {
 
 html {
   font-family: PublicSans, sans-serif;
+  overflow-x: hidden;
 }
 
 ::selection {

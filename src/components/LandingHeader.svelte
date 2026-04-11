@@ -92,7 +92,7 @@
         : 'right-[-100%]'} transition-all ease-in-out duration-300 h-[100vh] w-full bg-base-100 z-50"
     >
       <div class="space-y-5 mt-24 font-bold text-xl">
-        <LocaleSelector />
+        <LocaleSelector onClose={() => (showMobileMenu = false)} />
         <DarkToggle onToggle={() => (showMobileMenu = false)} />
         <button
           onclick={() => mobileMenuButtonClick(howItWorks, "how-it-works")}

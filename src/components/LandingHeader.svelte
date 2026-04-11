@@ -36,7 +36,7 @@
 
     <!-- desktop nav -->
     <div class="hidden space-x-5 lg:flex justify-center items-center font-bold">
-      {#if $page.url.pathname === "/"}
+      {#if $page.url?.pathname === "/"}
         <button class="hover:opacity-80" onclick={() => scroll(howItWorks)}
           >{$t("howItWorks.header")}</button
         >

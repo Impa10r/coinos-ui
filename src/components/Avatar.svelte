@@ -17,7 +17,11 @@
 
   let base = "/api/public";
   let profile = $derived(
-    user?.profile ? `${base}/${user.profile}.webp` : user?.picture,
+    user?.picture?.startsWith("/api/public/")
+      ? user.picture
+      : user?.profile
+        ? `${base}/${user.profile}.webp`
+        : user?.picture,
   );
   let fallback = $derived.by(() => {
     const k = user?.pubkey || user?.id || "aa";

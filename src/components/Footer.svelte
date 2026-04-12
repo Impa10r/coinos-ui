@@ -8,7 +8,7 @@
     ...(PUBLIC_DOMAIN_TOR
       ? [{ url: `http://${PUBLIC_DOMAIN_TOR}`, titleID: "onion" }]
       : []),
-    ...(PUBLIC_DOMAIN_FIPS ? [{ url: "/fips", titleID: "fips" }] : []),
+    ...(PUBLIC_DOMAIN_FIPS ? [{ url: "/connect-via-fips", titleID: "fips" }] : []),
   ];
 
   const companyLinks = [

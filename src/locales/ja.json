@@ -554,6 +554,10 @@
       "description": "FIPSが起動してCAがインストールされたら：",
       "open": "FIPSでCoinos Proを開く →",
       "notConfigured": "このインスタンスにはFIPSアドレスが設定されていません。"
+    },
+    "step4": {
+      "title": "ステップ4（任意）— Coinos Proをピアとして追加する",
+      "description": "Coinos Pro FIPSノードに直接接続するには、FIPSピアリストに以下を追加してください："
     }
   }
 }

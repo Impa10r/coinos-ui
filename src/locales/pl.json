@@ -573,6 +573,10 @@
       "description": "Gdy FIPS działa i CA jest zainstalowany:",
       "open": "Otwórz Coinos Pro przez FIPS →",
       "notConfigured": "Adres FIPS nie jest skonfigurowany w tej instancji."
+    },
+    "step4": {
+      "title": "Krok 4 (opcjonalny) — Dodaj Coinos Pro jako węzeł sieci",
+      "description": "Aby bezpośrednio połączyć się z węzłem FIPS Coinos Pro, dodaj poniższe do swojej listy węzłów FIPS:"
     }
   }
 }

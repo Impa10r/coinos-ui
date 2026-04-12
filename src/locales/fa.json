@@ -554,6 +554,10 @@
       "description": "پس از راه‌اندازی FIPS و نصب CA:",
       "open": "باز کردن Coinos Pro در FIPS →",
       "notConfigured": "آدرس FIPS برای این نمونه پیکربندی نشده است."
+    },
+    "step4": {
+      "title": "مرحله 4 (اختیاری) — Coinos Pro را به عنوان همتا اضافه کنید",
+      "description": "برای اتصال مستقیم به گره FIPS مربوط به Coinos Pro، موارد زیر را به لیست همتایان FIPS خود اضافه کنید:"
     }
   }
 }

@@ -573,6 +573,10 @@
       "description": "FIPS çalışır durumda ve CA yüklendikten sonra:",
       "open": "FIPS'te Coinos Pro'yu Aç →",
       "notConfigured": "Bu örnekte FIPS adresi yapılandırılmamış."
+    },
+    "step4": {
+      "title": "Adım 4 (isteğe bağlı) — Coinos Pro'yu eş olarak ekleyin",
+      "description": "Coinos Pro FIPS düğümüne doğrudan bağlanmak için FIPS eş listenize şunları ekleyin:"
     }
   }
 }

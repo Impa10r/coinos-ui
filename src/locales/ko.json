@@ -573,6 +573,10 @@
       "description": "FIPS가 실행 중이고 CA가 설치되면:",
       "open": "FIPS에서 Coinos Pro 열기 →",
       "notConfigured": "이 인스턴스에 FIPS 주소가 구성되지 않았습니다."
+    },
+    "step4": {
+      "title": "4단계 (선택사항) — Coinos Pro를 피어로 추가",
+      "description": "Coinos Pro FIPS 노드에 직접 연결하려면 FIPS 피어 목록에 다음을 추가하세요:"
     }
   }
 }

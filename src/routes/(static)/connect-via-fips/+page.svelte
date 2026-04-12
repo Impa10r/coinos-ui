@@ -1,9 +1,12 @@
 <script>
   import { t } from "$lib/translations";
-  import { PUBLIC_DOMAIN_FIPS } from "$env/static/public";
+  import { PUBLIC_DOMAIN_FIPS, PUBLIC_DOMAIN } from "$env/static/public";
 
   let fipsUrl = $derived(
     PUBLIC_DOMAIN_FIPS ? `https://${PUBLIC_DOMAIN_FIPS}` : null,
+  );
+  let npub = $derived(
+    PUBLIC_DOMAIN_FIPS ? PUBLIC_DOMAIN_FIPS.replace(/\.fips$/, "") : null,
   );
 </script>
 
@@ -60,10 +63,22 @@ sudo update-ca-certificates</pre>
         <a href={fipsUrl} target="_blank" rel="noreferrer">
           <button class="btn btn-accent">{$t("fips.step3.open")}</button>
         </a>
-        <p class="text-secondary text-sm break-all">{fipsUrl}</p>
       {:else}
         <p class="text-secondary italic">{$t("fips.step3.notConfigured")}</p>
       {/if}
     </div>
+
+    {#if npub}
+    <div class="space-y-3">
+      <h2 class="text-xl font-bold">{$t("fips.step4.title")}</h2>
+      <p class="text-secondary">{$t("fips.step4.description")}</p>
+      <pre class="bg-base-200 rounded-xl p-4 text-sm overflow-x-auto">- npub: "{npub}"
+  alias: "coinos"
+  addresses:
+    - transport: udp
+      addr: "{PUBLIC_DOMAIN}:2121"
+  connect_policy: auto_connect</pre>
+    </div>
+    {/if}
   </div>
 </div>

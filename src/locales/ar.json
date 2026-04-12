@@ -552,6 +552,10 @@
       "description": "بمجرد تشغيل FIPS وتثبيت CA:",
       "open": "فتح Coinos Pro على FIPS →",
       "notConfigured": "لم يتم تكوين عنوان FIPS في هذه المثيل."
+    },
+    "step4": {
+      "title": "الخطوة 4 (اختياري) — أضف Coinos Pro كنظير",
+      "description": "للاتصال مباشرةً بعقدة FIPS الخاصة بـ Coinos Pro، أضف ما يلي إلى قائمة النظراء FIPS لديك:"
     }
   }
 }

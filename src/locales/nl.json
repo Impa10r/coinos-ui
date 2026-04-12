@@ -573,6 +573,10 @@
       "description": "Zodra FIPS actief is en het CA geïnstalleerd is:",
       "open": "Coinos Pro openen op FIPS →",
       "notConfigured": "FIPS-adres niet geconfigureerd op deze instantie."
+    },
+    "step4": {
+      "title": "Stap 4 (optioneel) — Voeg Coinos Pro toe als peer",
+      "description": "Om rechtstreeks verbinding te maken met het Coinos Pro FIPS-knooppunt, voeg het volgende toe aan uw FIPS peer-lijst:"
     }
   }
 }

@@ -554,6 +554,10 @@
       "description": "Когда FIPS запущен и CA установлен:",
       "open": "Открыть Coinos Pro в FIPS →",
       "notConfigured": "FIPS-адрес не настроен для этого экземпляра."
+    },
+    "step4": {
+      "title": "Шаг 4 (необязательно) — Добавить Coinos Pro как пир",
+      "description": "Для прямого подключения к узлу FIPS Coinos Pro добавьте следующее в список пиров FIPS:"
     }
   }
 }

@@ -576,6 +576,10 @@
       "description": "Assim que o FIPS estiver em execução e o CA estiver instalado:",
       "open": "Abrir Coinos Pro no FIPS →",
       "notConfigured": "Endereço FIPS não configurado nesta instância."
+    },
+    "step4": {
+      "title": "Passo 4 (opcional) — Adicionar Coinos Pro como par",
+      "description": "Para se conectar diretamente ao nó FIPS do Coinos Pro, adicione o seguinte à sua lista de pares FIPS:"
     }
   }
 }

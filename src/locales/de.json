@@ -581,6 +581,10 @@
       "description": "Sobald FIPS läuft und das CA installiert ist:",
       "open": "Coinos Pro über FIPS öffnen →",
       "notConfigured": "FIPS-Adresse für diese Instanz nicht konfiguriert."
+    },
+    "step4": {
+      "title": "Schritt 4 (optional) — Coinos Pro als Peer hinzufügen",
+      "description": "Um sich direkt mit dem Coinos Pro FIPS-Knoten zu verbinden, fügen Sie Folgendes zu Ihrer FIPS-Peer-Liste hinzu:"
     }
   }
 }

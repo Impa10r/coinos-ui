@@ -573,6 +573,10 @@
       "description": "एक बार जब FIPS चल रहा हो और CA इंस्टॉल हो जाए:",
       "open": "FIPS पर Coinos Pro खोलें →",
       "notConfigured": "इस इंस्टेंस पर FIPS पता कॉन्फ़िगर नहीं किया गया है।"
+    },
+    "step4": {
+      "title": "चरण 4 (वैकल्पिक) — Coinos Pro को पीयर के रूप में जोड़ें",
+      "description": "Coinos Pro FIPS नोड से सीधे जुड़ने के लिए, अपनी FIPS पीयर सूची में निम्नलिखित जोड़ें:"
     }
   }
 }

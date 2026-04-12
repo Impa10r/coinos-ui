@@ -554,6 +554,10 @@
       "description": "FIPS 运行且 CA 安装完成后：",
       "open": "在 FIPS 上打开 Coinos Pro →",
       "notConfigured": "此实例未配置 FIPS 地址。"
+    },
+    "step4": {
+      "title": "第4步（可选）— 将 Coinos Pro 添加为对等节点",
+      "description": "要直接连接到 Coinos Pro FIPS 节点，请将以下内容添加到您的 FIPS 对等节点列表中："
     }
   }
 }

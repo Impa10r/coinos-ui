@@ -6,7 +6,7 @@ import { error, fail, redirect } from "@sveltejs/kit";
 const { decode, fromWords } = bech32;
 
 const lnurlFetch = async (url: string) =>
-	get(`/lnurl/proxy?url=${encodeURIComponent(url)}`);
+  get(`/lnurl/proxy?url=${encodeURIComponent(url)}`);
 
 export async function load({ params, parent }) {
   const { user } = await parent();

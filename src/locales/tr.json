@@ -65,8 +65,7 @@
     "feature2": "Bolt11 lightning faturalarında rota ipuçları olan duyurulmamış kanallar",
     "feature3": "Bitcoin zincir üstü ödemeler için sat-altı ücret oranları",
     "feature4": "CPFP değil RBF ile ücret artışları (daha ucuz)",
-    "feature5": "Optimum rota bulmak için CLN ve LND düğümleri aracılığıyla giden lightning ödemeleri",
-    "feature6": "Çalışan hediye fonu bağlantıları (gerçekten yeni cüzdanlar oluşturur)"
+    "feature5": "Optimum rota bulmak için CLN ve LND düğümleri aracılığıyla giden lightning ödemeleri"
   },
   "error": {
     "header": "Hata hatası",

@@ -78,8 +78,7 @@
     "feature2": "Unannounced channels with route hints in Bolt11 lightning invoices",
     "feature3": "Sub-sat fee rates for Bitcoin on-chain payments",
     "feature4": "Fee rate bumps via RBF, not CPFP (cheaper)",
-    "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding",
-    "feature6": "Gift fund links that work (they do create new wallets)"
+    "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding"
   },
   "error": {
     "header": "Error",

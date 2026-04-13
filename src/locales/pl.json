@@ -65,8 +65,7 @@
     "feature2": "Nieogłoszone kanały ze wskazówkami trasy w fakturach lightning Bolt11",
     "feature3": "Stawki prowizji sub-sat dla płatności Bitcoin on-chain",
     "feature4": "Podwyżki stawek przez RBF, nie CPFP (taniej)",
-    "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras",
-    "feature6": "Linki do funduszy podarunkowych, które działają (rzeczywiście tworzą nowe portfele)"
+    "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras"
   },
   "error": {
     "header": "Błąd",

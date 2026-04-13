@@ -65,8 +65,7 @@
     "feature2": "Canali non annunciati con suggerimenti di percorso nelle fatture lightning Bolt11",
     "feature3": "Tariffe sub-sat per i pagamenti Bitcoin on-chain",
     "feature4": "Aumenti di tariffa tramite RBF, non CPFP (più economico)",
-    "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali",
-    "feature6": "Link di fondi regalo funzionanti (creano effettivamente nuovi portafogli)"
+    "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali"
   },
   "error": {
     "header": "Errore",

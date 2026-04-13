@@ -65,8 +65,7 @@
     "feature2": "Niet-aangekondigde kanalen met routehints in Bolt11 lightning facturen",
     "feature3": "Sub-sat tarieven voor Bitcoin on-chain betalingen",
     "feature4": "Tariefverhogingen via RBF, niet CPFP (goedkoper)",
-    "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling",
-    "feature6": "Cadeaufonds-links die werken (ze maken wel degelijk nieuwe wallets aan)"
+    "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling"
   },
   "error": {
     "header": "Fout",

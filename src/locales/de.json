@@ -10,8 +10,7 @@
     "feature2": "Unangekündigte Kanäle mit Routing-Hinweisen in Bolt11-Lightning-Rechnungen",
     "feature3": "Sub-Sat-Gebührensätze für Bitcoin On-Chain-Zahlungen",
     "feature4": "Gebührenerhöhungen via RBF, nicht CPFP (günstiger)",
-    "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche",
-    "feature6": "Geschenkfonds-Links, die funktionieren (sie erstellen tatsächlich neue Wallets)"
+    "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche"
   },
   "error": {
     "header": "Error",

@@ -51,8 +51,8 @@
         <li>
           <a
             href={link.url}
-            target="_blank"
-            rel="noreferrer"
+            target={link.url.startsWith("http") ? "_blank" : undefined}
+            rel={link.url.startsWith("http") ? "noreferrer" : undefined}
             class="hover:opacity-80">{$t("footer." + link.titleID)}</a
           >
         </li>

@@ -65,7 +65,8 @@
     "feature2": "Niet-aangekondigde kanalen met routehints in Bolt11 lightning facturen",
     "feature3": "Sub-sat tarieven voor Bitcoin on-chain betalingen",
     "feature4": "Tariefverhogingen via RBF, niet CPFP (goedkoper)",
-    "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling"
+    "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling",
+    "feature6": "Liquid USDT verzenden en ontvangen"
   },
   "error": {
     "header": "Fout",
@@ -77,7 +78,7 @@
     "header": "Veelgestelde vragen",
     "cost": {
       "question": "Wat kost het?",
-      "answer": "Het ontvangen van betalingen op jouw rekening is gratis. Verzenden naar andere Coinos is gratis. Verzendingen naar externe portemonnees zijn gratis als je hetzelfde netwerk gebruikt waar je van ontvangen hebt. In andere gevallen is er een vergoeding van 0,4% voor Bitcoin en 0,1 voor Lightning of Liquid."
+      "answer": "Het ontvangen van betalingen op jouw rekening is gratis. Verzenden naar andere Coinos is gratis. Verzendingen naar externe portemonnees zijn gratis als je hetzelfde netwerk gebruikt waar je van ontvangen hebt. In andere gevallen is er een vergoeding van {{bitcoinFee}} voor Bitcoin en {{lightningFee}} voor Lightning of Liquid. Liquid USDT kan worden verzonden en ontvangen door te converteren van/naar sats met een spread van {{usdtFee}} op de middenprijskoers."
     },
     "compatibility": {
       "question": "Heb ik een speciaal apparaat of software nodig?",
@@ -409,6 +410,8 @@
     "tips": "Fooien",
     "options": "opties",
     "bump": "Verhoog de vergoeding",
+    "assetToSend": "Te verzenden asset",
+    "originalAsset": "Origineel asset",
     "networkFee": "Netwerkvergoeding",
     "platformFee": "Platformvergoeding",
     "fastest": "Snelste",
@@ -487,6 +490,7 @@
     "sendMessage": "Een bericht schrijven...",
     "fundsClaimed": "Geld geclaimd!",
     "print": "Afdrukken",
+    "and": "en",
     "onlyLbtc": "Wij ondersteunen alleen",
     "dontDeposit": "Gelieve geen andere soorten te sturen",
     "other": "Andere",
@@ -497,6 +501,8 @@
     "exchangeRate": "Wisselkoers",
     "pending": "In afwachting",
     "minted": "Mint",
+    "exceedsBalance": "Bedrag overschrijdt uw saldo",
+    "exceedsHotWallet": "Bedrag overschrijdt het hot wallet saldo",
     "insufficientFunds": "Onvoldoende middelen",
     "lockedBalance": "Gesloten balans",
     "sweep": "Veegverbinding",

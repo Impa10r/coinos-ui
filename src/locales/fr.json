@@ -10,7 +10,8 @@
     "feature2": "Canaux non annoncés avec hints de routage dans les factures lightning Bolt11",
     "feature3": "Taux de frais sous-sat pour les paiements Bitcoin on-chain",
     "feature4": "Augmentations de frais via RBF, pas CPFP (moins cher)",
-    "feature5": "Paiements lightning sortants via les nœuds CLN et LND pour une recherche de route optimale"
+    "feature5": "Paiements lightning sortants via les nœuds CLN et LND pour une recherche de route optimale",
+    "feature6": "Envoyer et recevoir des Liquid USDT"
   },
   "error": {
     "header": "Erreur",
@@ -22,7 +23,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Combien cela coûte ?",
-      "answer": "Recevoir des paiements sur votre compte est gratuit. Les retraits vers des portefeuilles externes entraînent des frais minimes qui varient en fonction des conditions du réseau. Nous facturons 0,1% de conversion entre le réseau lightning et le réseau on-chain. L'envoie à d'autres comptes Coinos est gratuit."
+      "answer": "Recevoir des paiements sur votre compte est gratuit. Les retraits vers des portefeuilles externes entraînent des frais minimes qui varient en fonction des conditions du réseau. Nous facturons {{lightningFee}} de conversion entre le réseau lightning et le réseau on-chain. L'envoie à d'autres comptes Coinos est gratuit. Le Liquid USDT peut être envoyé et reçu en convertissant depuis/vers des sats avec un spread de {{usdtFee}} par rapport au prix médian du marché."
     },
     "compatibility": {
       "question": "Ai-je besoin d'un appareil ou d'un logiciel spécial?",
@@ -390,6 +391,8 @@
     "print": "Imprimer",
     "create": "Créer",
     "fund": "Fond",
+    "assetToSend": "Actif à envoyer",
+    "originalAsset": "Actif original",
     "networkFee": "Prix de réseau",
     "platformFee": "Prix de plateforme",
     "fastest": "Plus rapide",
@@ -397,6 +400,7 @@
     "medium": "Moyen",
     "slow": "Lent",
     "maxfee": "Frais maximum de routage",
+    "and": "et",
     "onlyLbtc": "Nous soutenons uniquement bitcoin",
     "dontDeposit": "ne déposez pas d'autres actifs",
     "tips": "Conseils",
@@ -444,6 +448,8 @@
     "exchangeRate": "Taux de change",
     "pending": "En attente",
     "minted": "Mentionné",
+    "exceedsBalance": "Le montant dépasse votre solde",
+    "exceedsHotWallet": "Le montant dépasse le solde du hot wallet",
     "insufficientFunds": "Insuffisance des fonds",
     "lockedBalance": "Solde verrouillé",
     "sweep": "Lien de balayage",

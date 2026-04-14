@@ -65,7 +65,8 @@
     "feature2": "Bolt11 lightning faturalarında rota ipuçları olan duyurulmamış kanallar",
     "feature3": "Bitcoin zincir üstü ödemeler için sat-altı ücret oranları",
     "feature4": "CPFP değil RBF ile ücret artışları (daha ucuz)",
-    "feature5": "Optimum rota bulmak için CLN ve LND düğümleri aracılığıyla giden lightning ödemeleri"
+    "feature5": "Optimum rota bulmak için CLN ve LND düğümleri aracılığıyla giden lightning ödemeleri",
+    "feature6": "Liquid USDT gönder ve al"
   },
   "error": {
     "header": "Hata hatası",
@@ -77,7 +78,7 @@
     "header": "SSS",
     "cost": {
       "question": "Maliyet nedir?",
-      "answer": "Hesabınıza ödeme yapmak ücretsizdir. Dış cüzdanlara geri dönmek, ağ koşullarına bağlı olarak değişen küçük bir ücret alır."
+      "answer": "Hesabınıza ödeme yapmak ücretsizdir. Dış cüzdanlara geri dönmek, ağ koşullarına bağlı olarak değişen küçük bir ücret alır. Liquid USDT, piyasa orta fiyatına göre {{usdtFee}} spread ile sats'tan/sats'a dönüştürülerek gönderilebilir ve alınabilir."
     },
     "compatibility": {
       "question": "Özel bir cihaz veya yazılıma ihtiyacım var mı?",
@@ -409,6 +410,8 @@
     "tips": "İpuçları",
     "options": "seçenek seçenekleri",
     "bump": "Bump ücreti",
+    "assetToSend": "Gönderilecek varlık",
+    "originalAsset": "Orijinal varlık",
     "networkFee": "Ağ ücreti",
     "platformFee": "Platform ücreti",
     "fastest": "En hızlı",
@@ -487,6 +490,7 @@
     "sendMessage": "Bir mesaj yazın...",
     "fundsClaimed": "Fonlar iddia etti!",
     "print": "Baskı",
+    "and": "ve",
     "onlyLbtc": "Sadece destek veriyoruz",
     "dontDeposit": "Lütfen diğer Sıvı varlıklardan depozito almayın",
     "other": "Diğer",
@@ -497,6 +501,8 @@
     "exchangeRate": "Değişim oranı",
     "pending": "Pending",
     "minted": "Minted",
+    "exceedsBalance": "Miktar bakiyenizi aşıyor",
+    "exceedsHotWallet": "Miktar sıcak cüzdan bakiyesini aşıyor",
     "insufficientFunds": "Yetersiz fonlarda",
     "lockedBalance": "Locked bakiye",
     "sweep": "Sweep link",

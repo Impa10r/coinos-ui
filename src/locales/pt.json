@@ -10,7 +10,8 @@
     "feature2": "Canais não anunciados com dicas de rota em faturas lightning Bolt11",
     "feature3": "Taxas sub-sat para pagamentos Bitcoin on-chain",
     "feature4": "Aumentos de taxa via RBF, não CPFP (mais barato)",
-    "feature5": "Pagamentos lightning de saída via nós CLN e LND para encontrar rotas otimais"
+    "feature5": "Pagamentos lightning de saída via nós CLN e LND para encontrar rotas otimais",
+    "feature6": "Enviar e receber Liquid USDT"
   },
   "error": {
     "header": "Erro",
@@ -26,7 +27,7 @@
     },
     "cost": {
       "question": "Quanto custa?",
-      "answer": "Receber pagamentos em sua conta é gratuito. Retiradas para carteiras externas incorrem em uma pequena taxa que varia com as condições da rede. Cobramos 0.1% para converter entre Bitcoin lightning e on-chain. Enviar para outras contas Coinos é gratuito."
+      "answer": "Receber pagamentos em sua conta é gratuito. Retiradas para carteiras externas incorrem em uma pequena taxa que varia com as condições da rede. Cobramos {{lightningFee}} para converter entre Bitcoin lightning e on-chain. Enviar para outras contas Coinos é gratuito. O Liquid USDT pode ser enviado e recebido por meio de conversão de/para sats com spread de {{usdtFee}} em relação ao preço médio de mercado."
     },
     "individuals": {
       "question": "Quem pode usar?",
@@ -396,6 +397,8 @@
     "redeemed": "Resgatado",
     "redeemedBy": "Resgatado por",
     "sendMessage": "Escreva uma mensagem...",
+    "assetToSend": "Ativo a enviar",
+    "originalAsset": "Ativo original",
     "networkFee": "Taxa de rede",
     "platformFee": "Taxa de plataforma",
     "fastest": "O mais rápido",
@@ -419,6 +422,7 @@
     "maxfee": "Taxa máxima de roteamento",
     "fundsClaimed": "Fundos reivindicados!",
     "print": "Imprimir",
+    "and": "e",
     "onlyLbtc": "Nós apenas apoiamos",
     "dontDeposit": "não deposite outros ativos ainda",
     "tips": "Pontas",
@@ -466,6 +470,8 @@
     "exchangeRate": "Taxa de câmbio",
     "pending": "Pendente",
     "minted": "Minado",
+    "exceedsBalance": "O valor excede o seu saldo",
+    "exceedsHotWallet": "O valor excede o saldo da carteira quente",
     "insufficientFunds": "Fundos insuficientes",
     "lockedBalance": "Saldo bloqueado",
     "sweep": "Varrer a ligação",

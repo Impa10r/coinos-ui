@@ -288,8 +288,7 @@
   >
     <div class="text-secondary flex mr-auto">
       <div class="flex mr-1">
-        <div class="my-auto mr-1">1</div>
-        <img src="/images/bitcoin.svg" class="w-5 my-auto" alt="Bitcoin" />
+        <span class="my-auto">1 <span style="color:#F7931A" class="font-bold">₿</span></span>
       </div>
       <div>&#61; {f(rate, currency, locale, 0, 0)}</div>
     </div>

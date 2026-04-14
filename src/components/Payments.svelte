@@ -24,13 +24,18 @@
       <div class="whitespace-nowrap my-auto col-span-3">
         <div class="font-bold flex items-center">
           <div class="flex items-center">
-            <iconify-icon
-              noobserver
-              icon="ph:lightning-fill"
-              width="24"
-              class="text-yellow-300"
-            ></iconify-icon>
-            <div>{s(Math.abs(amount), locale)}</div>
+            {#if p.assetType === "USDT"}
+              <span style="color:#26A17B" class="text-2xl font-bold mr-0.5">₮</span>
+              <div>{(p.assetAmount ?? 0).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+            {:else}
+              <iconify-icon
+                noobserver
+                icon="ph:lightning-fill"
+                width="24"
+                class="text-yellow-300"
+              ></iconify-icon>
+              <div>{s(Math.abs(amount), locale)}</div>
+            {/if}
           </div>
         </div>
 
@@ -97,13 +102,17 @@
               <iconify-icon noobserver icon="logos:bitcoin" class="text-3xl"
               ></iconify-icon>
             {:else if p.type === types.liquid}
-              <div class="my-auto">
-                <img
-                  src="/images/liquid.svg"
-                  class="w-10 border-4 border-transparent"
-                  alt="Liquid"
-                />
-              </div>
+              {#if p.assetType === "USDT"}
+                <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="28"></iconify-icon>
+              {:else}
+                <div class="my-auto">
+                  <img
+                    src="/images/liquid.svg"
+                    class="w-10 border-4 border-transparent"
+                    alt="Liquid"
+                  />
+                </div>
+              {/if}
             {/if}
 
             <div class="my-auto">

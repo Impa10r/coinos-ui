@@ -10,7 +10,8 @@
     "feature2": "Canales no anunciados con sugerencias de ruta en facturas lightning Bolt11",
     "feature3": "Tasas de comisión sub-sat para pagos Bitcoin on-chain",
     "feature4": "Aumentos de tarifa mediante RBF, no CPFP (más barato)",
-    "feature5": "Pagos lightning salientes a través de nodos CLN y LND para encontrar rutas óptimas"
+    "feature5": "Pagos lightning salientes a través de nodos CLN y LND para encontrar rutas óptimas",
+    "feature6": "Enviar y recibir Liquid USDT"
   },
   "error": {
     "header": "Error",
@@ -22,7 +23,7 @@
     "header": "Preguntas Frecuentes",
     "cost": {
       "question": "¿Cuál es el costo?",
-      "answer": "Recibir pagos en tu cuenta es gratuito. Las retiradas a carteras externas tienen una pequeña tarifa que varía según las condiciones de la red."
+      "answer": "Recibir pagos en tu cuenta es gratuito. Las retiradas a carteras externas tienen una pequeña tarifa que varía según las condiciones de la red. El USDT de Liquid puede enviarse y recibirse convirtiendo desde/hacia sats con un spread del {{usdtFee}} sobre el precio medio de mercado."
     },
     "compatibility": {
       "question": "¿Necesito algún dispositivo o software especial?",
@@ -335,7 +336,11 @@
     "lnurl": "Código de pago reutilizable"
   },
   "payments": {
+    "exceedsBalance": "El monto supera tu saldo",
+    "exceedsHotWallet": "El monto supera el saldo de la billetera caliente",
     "insufficientFunds": "Fondos insuficientes",
+    "assetToSend": "Activo a enviar",
+    "originalAsset": "Activo original",
     "networkFee": "Tarifa de Red",
     "platformFee": "Tarifa de Plataforma",
     "fastest": "Más rápido",
@@ -398,6 +403,7 @@
     "sendMessage": "Escribir un mensaje...",
     "fundsClaimed": "¡Fondos reclamados!",
     "print": "Imprimir",
+    "and": "y",
     "onlyLbtc": "Solo admitimos",
     "dontDeposit": "no deposite otros activos todavía",
     "tips": "Consejos",

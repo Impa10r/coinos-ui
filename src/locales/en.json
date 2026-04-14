@@ -78,7 +78,8 @@
     "feature2": "Unannounced channels with route hints in Bolt11 lightning invoices",
     "feature3": "Sub-sat fee rates for Bitcoin on-chain payments",
     "feature4": "Fee rate bumps via RBF, not CPFP (cheaper)",
-    "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding"
+    "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding",
+    "feature6": "Send and receive Liquid USDT"
   },
   "error": {
     "header": "Error",
@@ -90,7 +91,7 @@
     "header": "FAQ",
     "cost": {
       "question": "What does it cost?",
-      "answer": "Receiving payments is free. Sending to other Coinos accounts is free. Withdrawals to external wallets are free if you use the same network you received on, otherwise there's a 0.4% fee for Bitcoin or 0.1% for Lightning or Liquid."
+      "answer": "Receiving payments is free. Sending to other Coinos accounts is free. Withdrawals to external wallets are free if you use the same network you received on, otherwise there's a {{bitcoinFee}} fee for Bitcoin or {{lightningFee}} for Lightning or Liquid. Liquid USDT can be sent and received by converting from/to sats with {{usdtFee}} spread to mid market."
     },
     "compatibility": {
       "question": "Do I need any special device or software?",
@@ -407,6 +408,8 @@
     "giftDesc2": "If they are logged in, the funds will go to their account, otherwise a new account will be generated.",
     "sweep": "Sweep link",
     "lockedBalance": "Locked balance",
+    "exceedsBalance": "Amount exceeds your balance",
+    "exceedsHotWallet": "Amount exceeds hot wallet balance",
     "insufficientFunds": "Insufficient funds",
     "pending": "Pending",
     "minted": "Minted",
@@ -439,6 +442,8 @@
     "options": "options",
     "bump": "Bump fee",
     "networkFee": "Network fee",
+    "assetToSend": "Asset to send",
+    "originalAsset": "Original asset",
     "platformFee": "Platform fee",
     "fastest": "Fastest",
     "fundingAmount": "Funding amount",
@@ -514,6 +519,7 @@
     "sendMessage": "Write a message...",
     "fundsClaimed": "Funds claimed!",
     "print": "Print",
+    "and": "and",
     "onlyLbtc": "We only support",
     "dontDeposit": "Please don't deposit other Liquid assets"
   },

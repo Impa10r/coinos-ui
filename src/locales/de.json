@@ -10,7 +10,8 @@
     "feature2": "Unangekündigte Kanäle mit Routing-Hinweisen in Bolt11-Lightning-Rechnungen",
     "feature3": "Sub-Sat-Gebührensätze für Bitcoin On-Chain-Zahlungen",
     "feature4": "Gebührenerhöhungen via RBF, nicht CPFP (günstiger)",
-    "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche"
+    "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche",
+    "feature6": "Liquid USDT senden und empfangen"
   },
   "error": {
     "header": "Error",
@@ -26,7 +27,7 @@
     },
     "cost": {
       "question": "Was kostet das?",
-      "answer": "Zahlungen auf Ihr Konto zu erhalten ist kostenlos. Auszahlungen an externe Wallets verursachen eine geringe Gebühr, die je nach Netzwerkbedingungen variiert. Wir berechnen 0,1% für die Umwandlung zwischen Lightning und On-Chain Bitcoin. Das Senden zu anderen Coinos-Konten ist kostenlos."
+      "answer": "Zahlungen auf Ihr Konto zu erhalten ist kostenlos. Auszahlungen an externe Wallets verursachen eine geringe Gebühr, die je nach Netzwerkbedingungen variiert. Wir berechnen {{lightningFee}} für die Umwandlung zwischen Lightning und On-Chain Bitcoin. Das Senden zu anderen Coinos-Konten ist kostenlos. Liquid USDT kann durch Umrechnung von/zu Sats mit einem Spread von {{usdtFee}} zum Mittelkurs gesendet und empfangen werden."
     },
     "individuals": {
       "question": "Wer kann es nutzen?",
@@ -387,6 +388,8 @@
     "submit": "Übermitteln",
     "isRequesting": "Anfragen",
     "awaiting": "Warten auf",
+    "assetToSend": "Zu sendendes Asset",
+    "originalAsset": "Ursprüngliches Asset",
     "networkFee": "Netzwerkgebühr",
     "platformFee": "Plattformgebühr",
     "fastest": "Am schnellsten",
@@ -424,6 +427,7 @@
     "sendMessage": "Nachricht schreiben...",
     "fundsClaimed": "Gelder beansprucht!",
     "print": "Drucken",
+    "and": "und",
     "onlyLbtc": "Wir unterstützen nur",
     "dontDeposit": "Hinterlegen Sie noch keine anderen Vermögenswerte",
     "tips": "Tipps",
@@ -471,6 +475,8 @@
     "exchangeRate": "Wechselkurs",
     "pending": "Andauernd",
     "minted": "Minted",
+    "exceedsBalance": "Betrag übersteigt dein Guthaben",
+    "exceedsHotWallet": "Betrag übersteigt das Hot-Wallet-Guthaben",
     "insufficientFunds": "Unzureichende Mittel",
     "lockedBalance": "Gesperrter Saldo",
     "sweep": "Sweep Link",

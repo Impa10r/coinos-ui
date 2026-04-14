@@ -10,7 +10,8 @@
     "feature2": "Bolt11 ライトニング請求書のルートヒント付き未公開チャネル",
     "feature3": "Bitcoin オンチェーン支払いのサブサット手数料率",
     "feature4": "CPFP ではなく RBF による手数料引き上げ（より安価）",
-    "feature5": "最適なルート検索のための CLN と LND ノードによる送信ライトニング支払い"
+    "feature5": "最適なルート検索のための CLN と LND ノードによる送信ライトニング支払い",
+    "feature6": "Liquid USDT の送受信"
   },
   "error": {
     "header": "エラー",
@@ -22,7 +23,7 @@
     "header": "よくある質問",
     "cost": {
       "question": "どれくらいかかるか？",
-      "answer": "アカウントへの支払いの受け取りは無料です。外部ウォレットへの出金には、ネットワークの状況によって異なる少額の手数料がかかります。"
+      "answer": "アカウントへの支払いの受け取りは無料です。外部ウォレットへの出金には、ネットワークの状況によって異なる少額の手数料がかかります。 Liquid USDTは、市場中値に対して{{usdtFee}}のスプレッドでsatsと相互変換することで送受信できます。"
     },
     "compatibility": {
       "question": "特別なデバイスやソフトウェアが必要ですか?",
@@ -335,6 +336,8 @@
     "lnurl": "再利用可能な決済コード"
   },
   "payments": {
+    "assetToSend": "送信するアセット",
+    "originalAsset": "元の資産",
     "networkFee": "ネットワーク料金",
     "platformFee": "プラットフォーム料金",
     "fastest": "最速",
@@ -397,6 +400,7 @@
     "sendMessage": "メッセージを書く...",
     "fundsClaimed": "資金が請求されました!",
     "print": "印刷する",
+    "and": "と",
     "onlyLbtc": "私たちはサポートするだけです",
     "dontDeposit": "他の資産はまだ預けないでください",
     "tips": "チップ",
@@ -444,6 +448,8 @@
     "exchangeRate": "為替レート",
     "pending": "ペンディング",
     "minted": "ログイン",
+    "exceedsBalance": "金額が残高を超えています",
+    "exceedsHotWallet": "金額がホットウォレットの残高を超えています",
     "insufficientFunds": "十分な資金",
     "lockedBalance": "ロックバランス",
     "sweep": "スイープリンク",

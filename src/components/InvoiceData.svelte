@@ -35,7 +35,9 @@
     <div>
       <div class="my-auto text-xl text-center text-secondary">
         {t("payments.onlyLbtc")}
-        <span class="text-teal-500 font-bold">L-BTC</span> &mdash;
+        <span class="text-teal-500 font-bold">L-BTC</span>
+        {t("payments.and")}
+        <span class="text-teal-500 font-bold">L-USDT</span> &mdash;
         {t("payments.dontDeposit")}
       </div>
     </div>

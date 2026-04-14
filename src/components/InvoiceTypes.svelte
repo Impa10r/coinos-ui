@@ -162,6 +162,7 @@
       onclick={() => (activeOnly ? toggleType() : setType(types.liquid))}
     >
       <img src="/images/liquid.svg" class="w-8" alt="Liquid" />
+      <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="32"></iconify-icon>
       <div class="my-auto text-lg">Liquid</div>
     </button>
   </div>

@@ -14,7 +14,8 @@
     rate = $bindable(),
     locale = undefined,
     submit = $bindable(undefined),
-    amountFiat = 0,
+    amountFiat = $bindable(0),
+    symbolOverride = undefined,
   } = $props();
 
   // ---- Local state ----
@@ -46,10 +47,15 @@
 
   // reflect external prop/locale changes
   $effect(() => {
-    const info = getCurrencyInfo(locale, currency);
-    decimalChar = info.decimal;
-    symbol = info.symbol;
-    position = info.position;
+    if (symbolOverride) {
+      symbol = symbolOverride;
+      position = "before";
+    } else {
+      const info = getCurrencyInfo(locale, currency);
+      decimalChar = info.decimal;
+      symbol = info.symbol;
+      position = info.position;
+    }
   });
 
   function formatFiatFromDigits(digits, dec = ".") {
@@ -268,7 +274,9 @@
       >
         <div class="my-auto" class:text-5xl={!fiat}>
           {#if fiat}
-            {#if position === "before"}{symbol}{/if}
+            {#if position === "before"}
+              {#if symbolOverride === "₮"}<span style="color:#26A17B">{symbol}</span>{:else}{symbol}{/if}
+            {/if}
           {:else}
             <iconify-icon
               noobserver

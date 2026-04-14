@@ -24,7 +24,6 @@
     class="border-8 border-black p-8 max-w-[580px] mx-auto mt-20 space-y-2 rounded-3xl relative"
   >
     <div class="flex gap-2 mx-auto justify-center">
-      <!-- <img src="/images/bitcoin.png" class="w-16 h-16 my-auto" /> -->
       <img src="/images/bitcoin-logo.png" class="my-auto w-[400px]" alt="" />
       <!-- <h3 class="text-5xl font-bold text-center my-auto"> -->
       <!--   bitcoin -->

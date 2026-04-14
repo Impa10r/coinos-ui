@@ -65,7 +65,8 @@
     "feature2": "Nieogłoszone kanały ze wskazówkami trasy w fakturach lightning Bolt11",
     "feature3": "Stawki prowizji sub-sat dla płatności Bitcoin on-chain",
     "feature4": "Podwyżki stawek przez RBF, nie CPFP (taniej)",
-    "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras"
+    "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras",
+    "feature6": "Wysyłaj i odbieraj Liquid USDT"
   },
   "error": {
     "header": "Błąd",
@@ -77,7 +78,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Ile to kosztuje?",
-      "answer": "Przyjmowanie płatności na konto jest bezpłatne. Wycofanie się do portfeli zewnętrznych wiąże się z niewielką opłatą, która różni się w zależności od warunków sieciowych."
+      "answer": "Przyjmowanie płatności na konto jest bezpłatne. Wycofanie się do portfeli zewnętrznych wiąże się z niewielką opłatą, która różni się w zależności od warunków sieciowych. Liquid USDT można wysyłać i odbierać, konwertując z/na saty ze spreadem {{usdtFee}} od ceny środkowej rynku."
     },
     "compatibility": {
       "question": "Potrzebuję jakiegoś specjalnego urządzenia lub oprogramowania?",
@@ -409,6 +410,8 @@
     "tips": "Wskazówki",
     "options": "opcje",
     "bump": "Opłata Bump",
+    "assetToSend": "Aktywo do wysłania",
+    "originalAsset": "Oryginalny zasób",
     "networkFee": "Opłata sieciowa",
     "platformFee": "Opłata za platformę",
     "fastest": "Najszybszy",
@@ -487,6 +490,7 @@
     "sendMessage": "Napisz wiadomość...",
     "fundsClaimed": "Pieniądze!",
     "print": "Drukuj",
+    "and": "i",
     "onlyLbtc": "My tylko popieramy",
     "dontDeposit": "Proszę nie deponować innych aktywów płynnych",
     "other": "Inne",
@@ -497,6 +501,8 @@
     "exchangeRate": "Kurs wymiany",
     "pending": "Oczekiwanie",
     "minted": "Puste",
+    "exceedsBalance": "Kwota przekracza Twoje saldo",
+    "exceedsHotWallet": "Kwota przekracza saldo hot portfela",
     "insufficientFunds": "Niewystarczające fundusze",
     "lockedBalance": "Saldo zablokowane",
     "sweep": "Połączenie zamiatające",

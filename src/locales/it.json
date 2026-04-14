@@ -65,7 +65,8 @@
     "feature2": "Canali non annunciati con suggerimenti di percorso nelle fatture lightning Bolt11",
     "feature3": "Tariffe sub-sat per i pagamenti Bitcoin on-chain",
     "feature4": "Aumenti di tariffa tramite RBF, non CPFP (più economico)",
-    "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali"
+    "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali",
+    "feature6": "Invia e ricevi Liquid USDT"
   },
   "error": {
     "header": "Errore",
@@ -77,7 +78,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Quanto costa?",
-      "answer": "La ricezione dei pagamenti sul tuo account è gratuita. I prelievi su portafogli esterni comportano una piccola commissione che varia a seconda delle condizioni della rete."
+      "answer": "La ricezione dei pagamenti sul tuo account è gratuita. I prelievi su portafogli esterni comportano una piccola commissione che varia a seconda delle condizioni della rete. Liquid USDT può essere inviato e ricevuto convertendo da/in sats con uno spread dello {{usdtFee}} sul prezzo medio di mercato."
     },
     "compatibility": {
       "question": "Ho bisogno di qualche dispositivo o software speciale?",
@@ -409,6 +410,8 @@
     "tips": "Mance",
     "options": "opzioni",
     "bump": "Aumenta commissione",
+    "assetToSend": "Asset da inviare",
+    "originalAsset": "Asset originale",
     "networkFee": "Commissione di rete",
     "platformFee": "Commissione della piattaforma",
     "fastest": "Più veloce",
@@ -487,6 +490,7 @@
     "sendMessage": "Scrivi un messaggio...",
     "fundsClaimed": "Fondi richiesti!",
     "print": "Stampa",
+    "and": "e",
     "onlyLbtc": "Supportiamo solo",
     "dontDeposit": "Non depositare altri beni Liquid",
     "other": "Altri",
@@ -497,6 +501,8 @@
     "exchangeRate": "Tasso di cambio",
     "pending": "Finanziamenti",
     "minted": "Minted",
+    "exceedsBalance": "L'importo supera il tuo saldo",
+    "exceedsHotWallet": "L'importo supera il saldo del hot wallet",
     "insufficientFunds": "Fondi insufficienti",
     "lockedBalance": "Bilancia chiusa",
     "sweep": "Collegamento di nuoto",

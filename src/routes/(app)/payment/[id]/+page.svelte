@@ -41,6 +41,8 @@
     ourfee,
     fee = 0,
     currency,
+    assetAmount,
+    assetType,
   } = $derived(p);
   let [txid, vout] = $derived(amount > 0 ? ref.split(":") : [hash]);
   let a = $derived(Math.abs(amount));
@@ -118,6 +120,15 @@
 
   {@render field("payments.amount", a)}
 
+  {#if assetType === "USDT" && assetAmount}
+    <div>
+      <span class="text-lg text-secondary">{$t("payments.originalAsset")}</span>
+      <div class="flex items-center gap-1">
+        <span style="color:#26A17B">₮</span>{assetAmount.toLocaleString(userLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"></iconify-icon>
+      </div>
+    </div>
+  {/if}
+
   {#if tip}
     {@render field("invoice.tip", tip)}
     {@render field("payments.total", a + (tip || 0))}
@@ -134,8 +145,7 @@
     <div class="flex justify-left gap-2">
       <div class="text-secondary flex">
         <div class="flex mr-1">
-          <div class="my-auto mr-1">1</div>
-          <img src="/images/bitcoin.svg" class="w-5 my-auto" alt="Bitcoin" />
+          <span class="my-auto">1 <span style="color:#F7931A" class="font-bold">₿</span></span>
         </div>
         <div>&#61; {f(rate, currency, userLocale, 0, 0)}</div>
       </div>

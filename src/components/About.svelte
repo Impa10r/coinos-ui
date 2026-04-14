@@ -23,6 +23,7 @@
       <li>{$t("about.feature3")}</li>
       <li>{$t("about.feature4")}</li>
       <li>{$t("about.feature5")}</li>
+      <li>{$t("about.feature6")}</li>
     </ul>
   </div>
 </div>

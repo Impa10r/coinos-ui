@@ -10,7 +10,8 @@
     "feature2": "Bolt11 闪电网络发票中带路由提示的未公告通道",
     "feature3": "比特币链上支付的亚聪费率",
     "feature4": "通过 RBF 而非 CPFP 提升费率（更便宜）",
-    "feature5": "通过 CLN 和 LND 节点进行出站闪电支付，实现最优路由查找"
+    "feature5": "通过 CLN 和 LND 节点进行出站闪电支付，实现最优路由查找",
+    "feature6": "发送和接收 Liquid USDT"
   },
   "error": {
     "header": "错误",
@@ -22,7 +23,7 @@
     "header": "常见问题",
     "cost": {
       "question": "费用是多少？",
-      "answer": "接收付款到您的账户是免费的。提现到外部钱包会产生小额费用，该费用会根据网络状况而有所变化。"
+      "answer": "接收付款到您的账户是免费的。提现到外部钱包会产生小额费用，该费用会根据网络状况而有所变化。 Liquid USDT 可通过以市场中间价{{usdtFee}}的点差与sats相互兑换来发送和接收。"
     },
     "compatibility": {
       "question": "我需要特殊的设备或软件吗？",
@@ -335,6 +336,8 @@
     "lnurl": "可重复使用的付款代码"
   },
   "payments": {
+    "assetToSend": "要发送的资产",
+    "originalAsset": "原始资产",
     "networkFee": "网络费",
     "platformFee": "平台费",
     "fastest": "最快的",
@@ -397,6 +400,7 @@
     "sendMessage": "写一个信息...",
     "fundsClaimed": "资金被认领！",
     "print": "打印",
+    "and": "和",
     "onlyLbtc": "我们只支持",
     "dontDeposit": "暂时不要存入其他资产",
     "tips": "提示",
@@ -444,6 +448,8 @@
     "exchangeRate": "汇率",
     "pending": "待决",
     "minted": "已剪切",
+    "exceedsBalance": "金额超过您的余额",
+    "exceedsHotWallet": "金额超过热钱包余额",
     "insufficientFunds": "资金不足",
     "lockedBalance": "锁定余额",
     "sweep": "扫描链接",

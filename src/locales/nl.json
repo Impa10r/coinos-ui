@@ -511,7 +511,8 @@
     "gift": "Alle fondsen cadeau",
     "giftLink": "Kadokoppeling",
     "giftDesc1": "Wie de onderstaande link opent, ontvangt alle beschikbare fondsen.",
-    "giftDesc2": "Als ze ingelogd zijn, gaan de fondsen naar hun account, anders wordt er een nieuwe account gegenereerd."
+    "giftDesc2": "Als ze ingelogd zijn, gaan de fondsen naar hun account, anders wordt er een nieuwe account gegenereerd.",
+    "amountToDebit": "Te debiteren bedrag"
   },
   "items": {
     "add": "Item toevoegen",

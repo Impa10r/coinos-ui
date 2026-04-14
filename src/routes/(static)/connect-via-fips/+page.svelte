@@ -69,16 +69,17 @@ sudo update-ca-certificates</pre>
     </div>
 
     {#if npub}
-    <div class="space-y-3">
-      <h2 class="text-xl font-bold">{$t("fips.step4.title")}</h2>
-      <p class="text-secondary">{$t("fips.step4.description")}</p>
-      <pre class="bg-base-200 rounded-xl p-4 text-sm overflow-x-auto">- npub: "{npub}"
+      <div class="space-y-3">
+        <h2 class="text-xl font-bold">{$t("fips.step4.title")}</h2>
+        <p class="text-secondary">{$t("fips.step4.description")}</p>
+        <pre
+          class="bg-base-200 rounded-xl p-4 text-sm overflow-x-auto">- npub: "{npub}"
   alias: "coinos"
   addresses:
     - transport: udp
       addr: "{PUBLIC_DOMAIN}:2121"
   connect_policy: auto_connect</pre>
-    </div>
+      </div>
     {/if}
   </div>
 </div>

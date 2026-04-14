@@ -521,7 +521,8 @@
     "print": "Print",
     "and": "and",
     "onlyLbtc": "We only support",
-    "dontDeposit": "Please don't deposit other Liquid assets"
+    "dontDeposit": "Please don't deposit other Liquid assets",
+    "amountToDebit": "Amount to debit"
   },
   "items": {
     "add": "Add item",

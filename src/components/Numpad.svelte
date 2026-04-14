@@ -275,7 +275,9 @@
         <div class="my-auto" class:text-5xl={!fiat}>
           {#if fiat}
             {#if position === "before"}
-              {#if symbolOverride === "₮"}<span style="color:#26A17B">{symbol}</span>{:else}{symbol}{/if}
+              {#if symbolOverride === "₮"}<span style="color:#26A17B"
+                  >{symbol}</span
+                >{:else}{symbol}{/if}
             {/if}
           {:else}
             <iconify-icon

@@ -49,35 +49,61 @@
     };
 
     const stopPolling = () => {
-      if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
     };
 
     const connectBitfinex = () => {
       bfxWs = new WebSocket("wss://api-pub.bitfinex.com/ws/2");
       let chanId = null;
-      let bid = 0, ask = 0;
+      let bid = 0,
+        ask = 0;
 
       bfxWs.onopen = () => {
         stopPolling();
-        bfxWs.send(JSON.stringify({ event: "subscribe", channel: "book", symbol: "tBTCUST", prec: "P0", freq: "F0", len: "1" }));
+        bfxWs.send(
+          JSON.stringify({
+            event: "subscribe",
+            channel: "book",
+            symbol: "tBTCUST",
+            prec: "P0",
+            freq: "F0",
+            len: "1",
+          }),
+        );
       };
 
       bfxWs.onmessage = (event) => {
         try {
           const msg = JSON.parse(event.data);
-          if (msg.event === "subscribed") { chanId = msg.chanId; return; }
-          if (!Array.isArray(msg) || msg[0] !== chanId || msg[1] === "hb") return;
+          if (msg.event === "subscribed") {
+            chanId = msg.chanId;
+            return;
+          }
+          if (!Array.isArray(msg) || msg[0] !== chanId || msg[1] === "hb")
+            return;
           const data = msg[1];
           if (Array.isArray(data[0])) {
-            for (const [price, , amount] of data) { if (amount > 0) bid = price; else ask = price; }
+            for (const [price, , amount] of data) {
+              if (amount > 0) bid = price;
+              else ask = price;
+            }
           } else {
             const [price, count, amount] = data;
-            if (count === 0) { if (amount === 1) bid = 0; else ask = 0; }
-            else { if (amount > 0) bid = price; else ask = price; }
+            if (count === 0) {
+              if (amount === 1) bid = 0;
+              else ask = 0;
+            } else {
+              if (amount > 0) bid = price;
+              else ask = price;
+            }
           }
           if (bid && ask) {
             const mid = (bid + ask) / 2;
-            if (Math.abs(mid - liveUsdtRate) / (liveUsdtRate || mid) > 0.0001) liveUsdtRate = mid;
+            if (Math.abs(mid - liveUsdtRate) / (liveUsdtRate || mid) > 0.0001)
+              liveUsdtRate = mid;
           }
         } catch {}
       };
@@ -100,18 +126,24 @@
   let totalSatsCost = $derived.by(() => {
     if (!a) return 0;
     if (useUsdt && liveUsdtRate > 0) {
-      const btcSats = Math.round((amountFiat / (liveUsdtRate / 1.0015)) * 100_000_000);
-      return Math.round(btcSats * 1.001); // btcSats + liquid platform fee (network fee = 0)
+      const btcSats = Math.round(
+        (amountFiat / (liveUsdtRate / 1.0015)) * 100_000_000,
+      );
+      return btcSats;
     }
     return Math.round(a * 1.001) + LIQUID_NETWORK_FEE; // a + liquid platform fee + network fee
   });
 
   let exceedsSats = $derived(totalSatsCost > 0 && totalSatsCost > balance);
-  let exceedsUsdt = $derived(useUsdt && amountFiat > 0 && amountFiat > usdtHotBalance);
+  let exceedsUsdt = $derived(
+    useUsdt && amountFiat > 0 && amountFiat > usdtHotBalance,
+  );
   let canProceed = $derived(!exceedsSats && !exceedsUsdt);
 
   let maxSendable = $derived(
-    balance > LIQUID_NETWORK_FEE ? Math.floor((balance - LIQUID_NETWORK_FEE) / 1.001) : 0,
+    balance > LIQUID_NETWORK_FEE
+      ? Math.floor((balance - LIQUID_NETWORK_FEE) / 1.001)
+      : 0,
   );
 
   let setMax = async (e) => {
@@ -130,7 +162,9 @@
       goto(`/send/liquid/${address}/usdt/${n}`);
     } else {
       if (!a || a <= 0) return;
-      const usdtEquiv = parseFloat(((a / 100_000_000) * liveUsdtRate / 1.0015).toFixed(2));
+      const usdtEquiv = parseFloat(
+        (((a / 100_000_000) * liveUsdtRate) / 1.0015).toFixed(2),
+      );
       goto(`/send/liquid/${address}/usdt/${usdtEquiv}?sats=${a}`);
     }
   };
@@ -147,7 +181,12 @@
         type="button"
         class="btn !w-auto grow"
         class:btn-accent={!useUsdt}
-        onclick={() => { a = 0; amountFiat = 0; fiat = false; useUsdt = false; }}
+        onclick={() => {
+          a = 0;
+          amountFiat = 0;
+          fiat = false;
+          useUsdt = false;
+        }}
       >
         <img src="/images/liquid.svg" class="w-6" alt="Liquid" />
         L-BTC
@@ -156,9 +195,15 @@
         type="button"
         class="btn !w-auto grow"
         class:btn-accent={useUsdt}
-        onclick={() => { a = 0; amountFiat = 0; fiat = true; useUsdt = true; }}
+        onclick={() => {
+          a = 0;
+          amountFiat = 0;
+          fiat = true;
+          useUsdt = true;
+        }}
       >
-        <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"></iconify-icon>
+        <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"
+        ></iconify-icon>
         USDT
       </button>
     </div>
@@ -194,8 +239,19 @@
     {/if}
 
     {#if useUsdt}
-      <div class="btn !w-auto grow font-bold">1 <span style="color:#F7931A">₿</span> = <span style="color:#26A17B">₮</span> <span style="font-variant-numeric:tabular-nums">{Math.round(liveUsdtRate / 1.0015).toLocaleString(locale)}</span></div>
-      <button type="button" class="btn !w-auto grow btn-accent" onclick={nextUsdt} disabled={!canProceed}>
+      <div class="btn !w-auto grow font-bold">
+        1 <span style="color:#F7931A">₿</span> =
+        <span style="color:#26A17B">₮</span>
+        <span style="font-variant-numeric:tabular-nums"
+          >{Math.round(liveUsdtRate / 1.0015).toLocaleString(locale)}</span
+        >
+      </div>
+      <button
+        type="button"
+        class="btn !w-auto grow btn-accent"
+        onclick={nextUsdt}
+        disabled={!canProceed}
+      >
         {$t("payments.next")}
       </button>
     {:else}

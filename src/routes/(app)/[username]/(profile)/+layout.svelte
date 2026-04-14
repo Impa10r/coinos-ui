@@ -288,7 +288,9 @@
   >
     <div class="text-secondary flex mr-auto">
       <div class="flex mr-1">
-        <span class="my-auto">1 <span style="color:#F7931A" class="font-bold">₿</span></span>
+        <span class="my-auto"
+          >1 <span style="color:#F7931A" class="font-bold">₿</span></span
+        >
       </div>
       <div>&#61; {f(rate, currency, locale, 0, 0)}</div>
     </div>

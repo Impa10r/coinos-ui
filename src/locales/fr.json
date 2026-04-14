@@ -458,7 +458,8 @@
     "gift": "Donner tous les fonds",
     "giftLink": "Lien cadeau",
     "giftDesc1": "Quiconque ouvre le lien ci-dessous recevra tous les fonds disponibles.",
-    "giftDesc2": "S'ils sont connectés, les fonds vont à leur compte, sinon un nouveau compte sera généré."
+    "giftDesc2": "S'ils sont connectés, les fonds vont à leur compte, sinon un nouveau compte sera généré.",
+    "amountToDebit": "Montant à débiter"
   },
   "items": {
     "add": "Ajouter un article",

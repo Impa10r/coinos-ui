@@ -511,7 +511,8 @@
     "gift": "Dawać wszystkie fundusze",
     "giftLink": "Link prezent",
     "giftDesc1": "Ktokolwiek otworzy poniższy link otrzyma wszystkie dostępne fundusze.",
-    "giftDesc2": "Jeśli są one zalogowane, fundusze trafią na ich konto, w przeciwnym razie powstanie nowe konto."
+    "giftDesc2": "Jeśli są one zalogowane, fundusze trafią na ich konto, w przeciwnym razie powstanie nowe konto.",
+    "amountToDebit": "Kwota do obciążenia"
   },
   "items": {
     "add": "Dodaj element",

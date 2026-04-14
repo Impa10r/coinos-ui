@@ -124,7 +124,11 @@
     <div>
       <span class="text-lg text-secondary">{$t("payments.originalAsset")}</span>
       <div class="flex items-center gap-1">
-        <span style="color:#26A17B">₮</span>{assetAmount.toLocaleString(userLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"></iconify-icon>
+        <span style="color:#26A17B">₮</span>{assetAmount.toLocaleString(
+          userLocale,
+          { minimumFractionDigits: 2, maximumFractionDigits: 2 },
+        )}<iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"
+        ></iconify-icon>
       </div>
     </div>
   {/if}
@@ -145,7 +149,9 @@
     <div class="flex justify-left gap-2">
       <div class="text-secondary flex">
         <div class="flex mr-1">
-          <span class="my-auto">1 <span style="color:#F7931A" class="font-bold">₿</span></span>
+          <span class="my-auto"
+            >1 <span style="color:#F7931A" class="font-bold">₿</span></span
+          >
         </div>
         <div>&#61; {f(rate, currency, userLocale, 0, 0)}</div>
       </div>

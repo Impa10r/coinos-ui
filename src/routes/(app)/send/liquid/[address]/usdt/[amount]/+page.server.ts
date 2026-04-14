@@ -13,7 +13,8 @@ export async function load({ params, url, parent }) {
   const effectiveRate = usdtRate / 1.0015;
 
   const usdtAmount = parseFloat(amount);
-  const btcSats = fixedSats ?? Math.round((usdtAmount / effectiveRate) * 100_000_000);
+  const btcSats =
+    fixedSats ?? Math.round((usdtAmount / effectiveRate) * 100_000_000);
   const liquidFee = Math.round(btcSats * 0.001);
 
   return {
@@ -35,11 +36,7 @@ export const actions = {
     const amount = parseFloat(formData.get("amount") as string);
     let p;
     try {
-      p = await post(
-        "/liquid/usdt/send",
-        { address, amount },
-        auth(cookies),
-      );
+      p = await post("/liquid/usdt/send", { address, amount }, auth(cookies));
     } catch (e) {
       const { message } = e as Error;
       return fail(400, { message });

@@ -144,7 +144,8 @@
 
   <button type="button" class="btn" onclick={toggleType}>
     <img src="/images/liquid.svg" class="w-8" alt="Liquid" />
-    <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="32"></iconify-icon>
+    <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="32"
+    ></iconify-icon>
     <img src="/images/cash.png" class="w-8 my-auto" alt="Ecash" />
     <div class="my-auto">{t("payments.moreOptions")}</div>
   </button>

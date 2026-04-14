@@ -480,7 +480,8 @@
     "gift": "Dar todos os fundos",
     "giftLink": "Ligação do presente",
     "giftDesc1": "Quem abrir o link abaixo receberá todos os fundos disponíveis.",
-    "giftDesc2": "Se eles estiverem conectados, os fundos irão para sua conta, caso contrário uma nova conta será gerada."
+    "giftDesc2": "Se eles estiverem conectados, os fundos irão para sua conta, caso contrário uma nova conta será gerada.",
+    "amountToDebit": "Valor a debitar"
   },
   "items": {
     "add": "Adicionar item",

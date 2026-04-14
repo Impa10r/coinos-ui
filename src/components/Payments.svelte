@@ -25,8 +25,15 @@
         <div class="font-bold flex items-center">
           <div class="flex items-center">
             {#if p.assetType === "USDT"}
-              <span style="color:#26A17B" class="text-2xl font-bold mr-0.5">₮</span>
-              <div>{(p.assetAmount ?? 0).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+              <span style="color:#26A17B" class="text-2xl font-bold mr-0.5"
+                >₮</span
+              >
+              <div>
+                {(p.assetAmount ?? 0).toLocaleString(locale, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             {:else}
               <iconify-icon
                 noobserver
@@ -103,7 +110,11 @@
               ></iconify-icon>
             {:else if p.type === types.liquid}
               {#if p.assetType === "USDT"}
-                <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="28"></iconify-icon>
+                <iconify-icon
+                  noobserver
+                  icon="cryptocurrency-color:usdt"
+                  width="28"
+                ></iconify-icon>
               {:else}
                 <div class="my-auto">
                   <img

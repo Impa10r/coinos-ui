@@ -15,5 +15,6 @@
     </div>
   {/if}
 
+  <!-- prettier-ignore -->
   <AppForm {.../** @type {any} */ (app)} {rate} {user} />
 </div>

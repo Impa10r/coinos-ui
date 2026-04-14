@@ -78,7 +78,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Ile to kosztuje?",
-      "answer": "Przyjmowanie płatności na konto jest bezpłatne. Wycofanie się do portfeli zewnętrznych wiąże się z niewielką opłatą, która różni się w zależności od warunków sieciowych. Liquid USDT można wysyłać i odbierać, konwertując z/na saty ze spreadem {{usdtFee}} od ceny środkowej rynku."
+      "answer": "Odbieranie płatności jest bezpłatne. Wysyłanie do innych kont Coinos Pro jest bezpłatne. Wypłaty do zewnętrznych portfeli są bezpłatne, jeśli używasz tej samej sieci, w której otrzymałeś, w przeciwnym razie naliczana jest opłata {{bitcoinFee}} dla Bitcoin lub {{lightningFee}} dla Lightning lub Liquid. Liquid USDT można wysyłać i odbierać, konwertując z/na saty ze spreadem {{usdtFee}} od ceny środkowej rynku."
     },
     "compatibility": {
       "question": "Potrzebuję jakiegoś specjalnego urządzenia lub oprogramowania?",

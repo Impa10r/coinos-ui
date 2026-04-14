@@ -27,7 +27,7 @@
     },
     "cost": {
       "question": "Quanto custa?",
-      "answer": "Receber pagamentos em sua conta é gratuito. Retiradas para carteiras externas incorrem em uma pequena taxa que varia com as condições da rede. Cobramos {{lightningFee}} para converter entre Bitcoin lightning e on-chain. Enviar para outras contas Coinos é gratuito. O Liquid USDT pode ser enviado e recebido por meio de conversão de/para sats com spread de {{usdtFee}} em relação ao preço médio de mercado."
+      "answer": "Receber pagamentos é gratuito. Enviar para outras contas Coinos Pro é gratuito. Saques para carteiras externas são gratuitos se você usar a mesma rede em que recebeu, caso contrário há uma taxa de {{bitcoinFee}} para Bitcoin ou {{lightningFee}} para Lightning ou Liquid. O Liquid USDT pode ser enviado e recebido por meio de conversão de/para sats com spread de {{usdtFee}} em relação ao preço médio de mercado."
     },
     "individuals": {
       "question": "Quem pode usar?",

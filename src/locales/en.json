@@ -91,7 +91,7 @@
     "header": "FAQ",
     "cost": {
       "question": "What does it cost?",
-      "answer": "Receiving payments is free. Sending to other Coinos accounts is free. Withdrawals to external wallets are free if you use the same network you received on, otherwise there's a {{bitcoinFee}} fee for Bitcoin or {{lightningFee}} for Lightning or Liquid. Liquid USDT can be sent and received by converting from/to sats with {{usdtFee}} spread to mid market."
+      "answer": "Receiving payments is free. Sending to other Coinos Pro accounts is free. Withdrawals to external wallets are free if you use the same network you received on, otherwise there's a {{bitcoinFee}} fee for Bitcoin or {{lightningFee}} for Lightning or Liquid. Liquid USDT can be sent and received by converting from/to sats with {{usdtFee}} spread to mid market."
     },
     "compatibility": {
       "question": "Do I need any special device or software?",

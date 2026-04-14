@@ -23,7 +23,7 @@
     "header": "よくある質問",
     "cost": {
       "question": "どれくらいかかるか？",
-      "answer": "アカウントへの支払いの受け取りは無料です。外部ウォレットへの出金には、ネットワークの状況によって異なる少額の手数料がかかります。 Liquid USDTは、市場中値に対して{{usdtFee}}のスプレッドでsatsと相互変換することで送受信できます。"
+      "answer": "支払いの受け取りは無料です。他の Coinos Pro アカウントへの送金は無料です。外部ウォレットへの出金は、受け取ったのと同じネットワークを使用する場合は無料ですが、それ以外は Bitcoin で {{bitcoinFee}}、Lightning または Liquid で {{lightningFee}} の手数料がかかります。Liquid USDT は、市場中値に対して {{usdtFee}} のスプレッドで sats と相互変換することで送受信できます。"
     },
     "compatibility": {
       "question": "特別なデバイスやソフトウェアが必要ですか?",

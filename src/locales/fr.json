@@ -23,7 +23,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Combien cela coûte ?",
-      "answer": "Recevoir des paiements sur votre compte est gratuit. Les retraits vers des portefeuilles externes entraînent des frais minimes qui varient en fonction des conditions du réseau. Nous facturons {{lightningFee}} de conversion entre le réseau lightning et le réseau on-chain. L'envoie à d'autres comptes Coinos est gratuit. Le Liquid USDT peut être envoyé et reçu en convertissant depuis/vers des sats avec un spread de {{usdtFee}} par rapport au prix médian du marché."
+      "answer": "Recevoir des paiements est gratuit. Envoyer vers d'autres comptes Coinos Pro est gratuit. Les retraits vers des portefeuilles externes sont gratuits si vous utilisez le même réseau sur lequel vous avez reçu, sinon des frais de {{bitcoinFee}} s'appliquent pour Bitcoin ou {{lightningFee}} pour Lightning ou Liquid. Le Liquid USDT peut être envoyé et reçu en convertissant depuis/vers des sats avec un spread de {{usdtFee}} par rapport au prix médian du marché."
     },
     "compatibility": {
       "question": "Ai-je besoin d'un appareil ou d'un logiciel spécial?",

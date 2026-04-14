@@ -118,11 +118,22 @@
     </a>
   {/if}
 
-  {@render field("payments.amount", a)}
+  {@render field(
+    assetType === "USDT"
+      ? amount < 0
+        ? "payments.amountDebited"
+        : "payments.amountCredited"
+      : "payments.amount",
+    a,
+  )}
 
   {#if assetType === "USDT" && assetAmount}
     <div>
-      <span class="text-lg text-secondary">{$t("payments.originalAsset")}</span>
+      <span class="text-lg text-secondary"
+        >{$t(
+          amount < 0 ? "payments.sentAsset" : "payments.receivedAsset",
+        )}</span
+      >
       <div class="flex items-center gap-1">
         <span style="color:#26A17B">₮</span>{assetAmount.toLocaleString(
           userLocale,

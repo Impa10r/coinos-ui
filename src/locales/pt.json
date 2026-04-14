@@ -481,7 +481,11 @@
     "giftLink": "Ligação do presente",
     "giftDesc1": "Quem abrir o link abaixo receberá todos os fundos disponíveis.",
     "giftDesc2": "Se eles estiverem conectados, os fundos irão para sua conta, caso contrário uma nova conta será gerada.",
-    "amountToDebit": "Valor a debitar"
+    "amountToDebit": "Valor a debitar",
+    "amountDebited": "Valor debitado",
+    "amountCredited": "Valor creditado",
+    "sentAsset": "Ativo enviado",
+    "receivedAsset": "Ativo recebido"
   },
   "items": {
     "add": "Adicionar item",

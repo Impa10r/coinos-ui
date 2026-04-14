@@ -204,7 +204,7 @@
       >
         <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="24"
         ></iconify-icon>
-        USDT
+        L-USDT
       </button>
     </div>
   {/if}

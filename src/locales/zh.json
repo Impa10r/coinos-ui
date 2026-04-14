@@ -459,7 +459,11 @@
     "giftLink": "礼品链接",
     "giftDesc1": "任何人打开以下链接,都将获得所有可用资金.",
     "giftDesc2": "如果登录,资金将存入其账户,否则将产生一个新的账户.",
-    "amountToDebit": "扣款金额"
+    "amountToDebit": "扣款金额",
+    "amountDebited": "扣款金额",
+    "amountCredited": "入账金额",
+    "sentAsset": "已发送资产",
+    "receivedAsset": "已收到资产"
   },
   "items": {
     "add": "新增项目",

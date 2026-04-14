@@ -512,7 +512,11 @@
     "giftLink": "Link prezent",
     "giftDesc1": "Ktokolwiek otworzy poniższy link otrzyma wszystkie dostępne fundusze.",
     "giftDesc2": "Jeśli są one zalogowane, fundusze trafią na ich konto, w przeciwnym razie powstanie nowe konto.",
-    "amountToDebit": "Kwota do obciążenia"
+    "amountToDebit": "Kwota do obciążenia",
+    "amountDebited": "Kwota pobrana",
+    "amountCredited": "Kwota uznana",
+    "sentAsset": "Wysłany zasób",
+    "receivedAsset": "Otrzymany zasób"
   },
   "items": {
     "add": "Dodaj element",

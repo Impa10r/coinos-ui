@@ -5,7 +5,8 @@
   import { loc } from "$lib/utils";
 
   let { data } = $props();
-  let { currency, rate, received, pending, tip, user } = $derived(data.invoice);
+  let { currency, rate, received, pending, tip, user, assetType, assetAmount } =
+    $derived(data.invoice);
   let locale = $derived(loc(user));
 
   // toast.pop(0);
@@ -22,7 +23,20 @@
 
     <h1 class="text-3xl md:text-4xl font-bold mb-6">Payment detected</h1>
 
-    <Amount amount={pending - tip} {tip} {rate} {currency} {locale} />
+    {#if assetType === "USDT"}
+      <div
+        class="text-4xl font-semibold flex items-center justify-center gap-2"
+      >
+        <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="36"
+        ></iconify-icon>
+        {assetAmount?.toLocaleString(locale, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })} USDT
+      </div>
+    {:else}
+      <Amount amount={pending - tip} {tip} {rate} {currency} {locale} />
+    {/if}
   {:else}
     <Success
       amount={received - tip}
@@ -30,6 +44,8 @@
       {tip}
       {currency}
       {locale}
+      {assetType}
+      {assetAmount}
       title={$t("invoice.paymentSuccessful")}
     />
   {/if}

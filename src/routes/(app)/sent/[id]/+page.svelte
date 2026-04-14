@@ -4,7 +4,7 @@
   import Success from "$comp/Success.svelte";
 
   let { data } = $props();
-  let { rate, tip, user } = $derived(data);
+  let { rate, tip, user, assetType, assetAmount } = $derived(data);
   let { currency, username } = $derived(user);
   let amount = $derived(Math.abs(data.amount));
   let locale = $derived(loc(user));
@@ -16,6 +16,8 @@
   {tip}
   {currency}
   {locale}
+  {assetType}
+  {assetAmount}
   title={`${$t("payments.sent")}!`}
 />
 <a href={`/${username}`} use:focus aria-label="Continue">

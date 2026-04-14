@@ -512,7 +512,11 @@
     "giftLink": "선물 링크",
     "giftDesc1": "아래 링크를 열면 모든 가능한 자금을 받게됩니다.",
     "giftDesc2": "그들이 로그인한 경우, 자금은 계정으로 갈 것입니다. 그렇지 않으면 새로운 계정이 생성됩니다.",
-    "amountToDebit": "출금 금액"
+    "amountToDebit": "출금 금액",
+    "amountDebited": "출금 금액",
+    "amountCredited": "입금 금액",
+    "sentAsset": "전송 자산",
+    "receivedAsset": "수신 자산"
   },
   "items": {
     "add": "더 보기",

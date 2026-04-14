@@ -124,7 +124,7 @@
 
 <div class="container px-4 max-w-lg mx-auto space-y-8 text-2xl">
   <h1 class="text-center text-3xl md:text-4xl font-semibold">
-    {$t("payments.send")} USDT
+    {$t("payments.send")} L-USDT
   </h1>
 
   <div class="text-xl text-secondary break-all text-center">{address}</div>
@@ -185,6 +185,22 @@
       </div>
     </div>
 
+    <div>
+      <div class="text-lg text-secondary">{$t("payments.networkFee")}</div>
+      <div class="flex items-center gap-2">
+        <iconify-icon
+          noobserver
+          icon="ph:lightning-fill"
+          class="text-yellow-300"
+          width="24"
+        ></iconify-icon>
+        {s(50, locale)}
+        <span class="text-secondary text-lg"
+          >{f((50 / sats) * fiatRate, currency, locale)}</span
+        >
+      </div>
+    </div>
+
     <div class="border-t border-base-200 pt-4">
       <div class="text-lg text-secondary">{$t("payments.total")}</div>
       <div class="flex items-center gap-2">
@@ -194,9 +210,9 @@
           class="text-yellow-300"
           width="24"
         ></iconify-icon>
-        {s(currentSats, locale)}
+        {s(currentSats + 50, locale)}
         <span class="text-secondary text-lg"
-          >{f((currentSats / sats) * fiatRate, currency, locale)}</span
+          >{f(((currentSats + 50) / sats) * fiatRate, currency, locale)}</span
         >
       </div>
     </div>

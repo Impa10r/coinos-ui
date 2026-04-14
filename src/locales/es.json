@@ -459,7 +459,11 @@
     "giftLink": "Enlace de regalo",
     "giftDesc1": "Quien abra el enlace de abajo recibirá todos los fondos disponibles.",
     "giftDesc2": "Si se registran, los fondos irán a su cuenta, de lo contrario se generará una nueva cuenta.",
-    "amountToDebit": "Importe a debitar"
+    "amountToDebit": "Importe a debitar",
+    "amountDebited": "Monto debitado",
+    "amountCredited": "Monto acreditado",
+    "sentAsset": "Activo enviado",
+    "receivedAsset": "Activo recibido"
   },
   "items": {
     "add": "Añadir artículo",

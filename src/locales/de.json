@@ -486,7 +486,11 @@
     "giftLink": "Giftlink",
     "giftDesc1": "Wer den Link unten öffnet, erhält alle verfügbaren Mittel.",
     "giftDesc2": "Wenn sie eingeloggt sind, gehen die Fonds auf ihr Konto, ansonsten wird ein neues Konto generiert.",
-    "amountToDebit": "Zu belastender Betrag"
+    "amountToDebit": "Zu belastender Betrag",
+    "amountDebited": "Abgebuchter Betrag",
+    "amountCredited": "Gutgeschriebener Betrag",
+    "sentAsset": "Gesendetes Asset",
+    "receivedAsset": "Empfangenes Asset"
   },
   "items": {
     "add": "Artikel hinzufügen",

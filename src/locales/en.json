@@ -522,7 +522,11 @@
     "and": "and",
     "onlyLbtc": "We only support",
     "dontDeposit": "Please don't deposit other Liquid assets",
-    "amountToDebit": "Amount to debit"
+    "amountToDebit": "Amount to debit",
+    "amountDebited": "Amount debited",
+    "amountCredited": "Amount credited",
+    "sentAsset": "Sent asset",
+    "receivedAsset": "Received asset"
   },
   "items": {
     "add": "Add item",

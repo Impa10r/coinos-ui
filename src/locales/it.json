@@ -512,7 +512,11 @@
     "giftLink": "Link regalo",
     "giftDesc1": "Chi apre il link qui sotto riceverà tutti i fondi disponibili.",
     "giftDesc2": "Se sono connessi, i fondi andranno al loro account, altrimenti verrà generato un nuovo account.",
-    "amountToDebit": "Importo da addebitare"
+    "amountToDebit": "Importo da addebitare",
+    "amountDebited": "Importo addebitato",
+    "amountCredited": "Importo accreditato",
+    "sentAsset": "Asset inviato",
+    "receivedAsset": "Asset ricevuto"
   },
   "items": {
     "add": "Aggiungi articolo",

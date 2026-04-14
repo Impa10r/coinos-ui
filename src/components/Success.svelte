@@ -10,6 +10,8 @@
     currency = undefined,
     locale = undefined,
     title = "",
+    assetType = undefined,
+    assetAmount = undefined,
   } = $props();
 
   let loaded = $state(false);
@@ -63,7 +65,16 @@
     ></iconify-icon>
   {/if}
   <h1 class="text-3xl md:text-4xl font-bold mb-6">{title}</h1>
-  {#if amount !== undefined}
+  {#if assetType === "USDT" && assetAmount !== undefined}
+    <div class="text-4xl font-semibold flex items-center justify-center gap-2">
+      <iconify-icon noobserver icon="cryptocurrency-color:usdt" width="36"
+      ></iconify-icon>
+      {assetAmount.toLocaleString(locale, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })} USDT
+    </div>
+  {:else if amount !== undefined}
     <Amount {amount} {tip} {rate} {currency} {locale} align="center" />
   {/if}
 </div>

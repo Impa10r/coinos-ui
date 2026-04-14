@@ -17,6 +17,7 @@
   import { wordlist } from "@scure/bip39/wordlists/english.js";
 
   import Amount from "$comp/Amount.svelte";
+  import { isLiquid } from "$lib/utils";
 
   let { data, form } = $props();
 
@@ -126,13 +127,15 @@
       <h2 class="text-secondary text-lg">{$t("payments.networkFee")}</h2>
 
       <div class="flex flex-wrap gap-4 justify-center">
-        <select bind:value={feeRate} onchange={setFee}>
-          {#each Object.keys(feeNames) as feeName}
-            <option value={fees[feeName]}
-              >{feeNames[feeName]} &mdash; {fees[feeName]} sats/vb</option
-            >
-          {/each}
-        </select>
+        {#if !isLiquid(address)}
+          <select bind:value={feeRate} onchange={setFee}>
+            {#each Object.keys(feeNames) as feeName}
+              <option value={fees[feeName]}
+                >{feeNames[feeName]} &mdash; {fees[feeName]} sats/vb</option
+              >
+            {/each}
+          </select>
+        {/if}
         <Amount amount={fee} rate={$rate} {currency} />
       </div>
     </div>

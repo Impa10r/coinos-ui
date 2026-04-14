@@ -512,7 +512,11 @@
     "giftLink": "Kadokoppeling",
     "giftDesc1": "Wie de onderstaande link opent, ontvangt alle beschikbare fondsen.",
     "giftDesc2": "Als ze ingelogd zijn, gaan de fondsen naar hun account, anders wordt er een nieuwe account gegenereerd.",
-    "amountToDebit": "Te debiteren bedrag"
+    "amountToDebit": "Te debiteren bedrag",
+    "amountDebited": "Gedebiteerd bedrag",
+    "amountCredited": "Gecrediteerd bedrag",
+    "sentAsset": "Verzonden activa",
+    "receivedAsset": "Ontvangen activa"
   },
   "items": {
     "add": "Item toevoegen",

@@ -512,7 +512,11 @@
     "giftLink": "Hediye linki",
     "giftDesc1": "Aşağıdaki bağlantıyı açan herkes mevcut tüm fonları alacak.",
     "giftDesc2": "Eğer giriş yapılırsa, fonlar hesabına gidecek, aksi takdirde yeni bir hesap oluşturulacaktır.",
-    "amountToDebit": "Borçlandırılacak tutar"
+    "amountToDebit": "Borçlandırılacak tutar",
+    "amountDebited": "Borçlandırılan tutar",
+    "amountCredited": "Alacaklandırılan tutar",
+    "sentAsset": "Gönderilen varlık",
+    "receivedAsset": "Alınan varlık"
   },
   "items": {
     "add": "Ekle item",

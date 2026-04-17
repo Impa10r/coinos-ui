@@ -23,7 +23,7 @@
     "header": "Preguntas Frecuentes",
     "cost": {
       "question": "¿Cuál es el costo?",
-      "answer": "Recibir pagos es gratuito. Enviar a otras cuentas de Coinos Pro es gratuito. Los retiros a carteras externas son gratuitos si usas la misma red en la que recibiste, de lo contrario hay una comisión del {{bitcoinFee}} para Bitcoin o {{lightningFee}} para Lightning o Liquid. El USDT de Liquid puede enviarse y recibirse convirtiendo desde/hacia sats con un spread del {{usdtFee}} sobre el precio medio de mercado."
+      "answer": "Recibir pagos es gratuito. Enviar a otras cuentas de Coinos Pro es gratuito. Los retiros a carteras externas son gratuitos si usas la misma red en la que recibiste, de lo contrario hay una comisión del {{bitcoinFee}} para Bitcoin o {{lightningFee}} para Lightning o Liquid. El USDT de Liquid puede enviarse y recibirse convirtiendo desde/hacia sats con un spread del {{usdtFee}} sobre el precio de Bitfinex."
     },
     "compatibility": {
       "question": "¿Necesito algún dispositivo o software especial?",

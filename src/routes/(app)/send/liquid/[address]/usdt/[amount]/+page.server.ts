@@ -9,7 +9,7 @@ export async function load({ params, url, parent }) {
   const fixedSatsParam = url.searchParams.get("sats");
   const fixedSats = fixedSatsParam ? parseInt(fixedSatsParam) : null;
 
-  const usdtRate = rates["USDT"] || rates["USD"];
+  const usdtRate = rates["USD"];
   const effectiveRate = usdtRate / 1.0015;
 
   const usdtAmount = parseFloat(amount);

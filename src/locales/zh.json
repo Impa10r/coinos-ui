@@ -23,7 +23,7 @@
     "header": "常见问题",
     "cost": {
       "question": "费用是多少？",
-      "answer": "接收付款免费。发送到其他 Coinos Pro 账户免费。如果使用与接收时相同的网络，提现到外部钱包免费，否则 Bitcoin 收取 {{bitcoinFee}} 手续费，Lightning 或 Liquid 收取 {{lightningFee}}。Liquid USDT 可通过以市场中间价 {{usdtFee}} 的点差与 sats 相互兑换来发送和接收。"
+      "answer": "接收付款免费。发送到其他 Coinos Pro 账户免费。如果使用与接收时相同的网络，提现到外部钱包免费，否则 Bitcoin 收取 {{bitcoinFee}} 手续费，Lightning 或 Liquid 收取 {{lightningFee}}。Liquid USDT 可通过以 Bitfinex 价格 {{usdtFee}} 点差与 sats 相互兑换来发送和接收。"
     },
     "compatibility": {
       "question": "我需要特殊的设备或软件吗？",

@@ -13,6 +13,6 @@ export async function load({ cookies, parent }) {
     balance,
     usdtHotBalance,
     rate: rates[user.currency],
-    usdtRate: rates["USDT"] || rates["USD"],
+    usdtRate: rates["USD"],
   };
 }

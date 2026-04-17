@@ -78,7 +78,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Ile to kosztuje?",
-      "answer": "Odbieranie płatności jest bezpłatne. Wysyłanie do innych kont Coinos Pro jest bezpłatne. Wypłaty do zewnętrznych portfeli są bezpłatne, jeśli używasz tej samej sieci, w której otrzymałeś, w przeciwnym razie naliczana jest opłata {{bitcoinFee}} dla Bitcoin lub {{lightningFee}} dla Lightning lub Liquid. Liquid USDT można wysyłać i odbierać, konwertując z/na saty ze spreadem {{usdtFee}} od ceny środkowej rynku."
+      "answer": "Odbieranie płatności jest bezpłatne. Wysyłanie do innych kont Coinos Pro jest bezpłatne. Wypłaty do zewnętrznych portfeli są bezpłatne, jeśli używasz tej samej sieci, w której otrzymałeś, w przeciwnym razie naliczana jest opłata {{bitcoinFee}} dla Bitcoin lub {{lightningFee}} dla Lightning lub Liquid. Liquid USDT można wysyłać i odbierać, konwertując z/na saty ze spreadem {{usdtFee}} na Bitfinex."
     },
     "compatibility": {
       "question": "Potrzebuję jakiegoś specjalnego urządzenia lub oprogramowania?",

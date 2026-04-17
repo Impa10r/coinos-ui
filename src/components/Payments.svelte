@@ -114,6 +114,7 @@
                   noobserver
                   icon="cryptocurrency-color:usdt"
                   width="28"
+                  class="mr-1"
                 ></iconify-icon>
               {:else}
                 <div class="my-auto">

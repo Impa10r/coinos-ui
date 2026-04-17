@@ -78,7 +78,7 @@
     "header": "Veelgestelde vragen",
     "cost": {
       "question": "Wat kost het?",
-      "answer": "Betalingen ontvangen is gratis. Verzenden naar andere Coinos Pro-accounts is gratis. Opnames naar externe portemonnees zijn gratis als u hetzelfde netwerk gebruikt waarop u heeft ontvangen, anders zijn er kosten van {{bitcoinFee}} voor Bitcoin of {{lightningFee}} voor Lightning of Liquid. Liquid USDT kan worden verzonden en ontvangen door te converteren van/naar sats met een spread van {{usdtFee}} op de middenprijskoers."
+      "answer": "Betalingen ontvangen is gratis. Verzenden naar andere Coinos Pro-accounts is gratis. Opnames naar externe portemonnees zijn gratis als u hetzelfde netwerk gebruikt waarop u heeft ontvangen, anders zijn er kosten van {{bitcoinFee}} voor Bitcoin of {{lightningFee}} voor Lightning of Liquid. Liquid USDT kan worden verzonden en ontvangen door te converteren van/naar sats met een spread van {{usdtFee}} naar Bitfinex."
     },
     "compatibility": {
       "question": "Heb ik een speciaal apparaat of software nodig?",

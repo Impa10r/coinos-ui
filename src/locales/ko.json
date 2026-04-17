@@ -78,7 +78,7 @@
     "header": "제품 정보",
     "cost": {
       "question": "어떤 비용?",
-      "answer": "결제 수신은 무료입니다. 다른 Coinos Pro 계정으로의 전송은 무료입니다. 외부 지갑으로의 출금은 수신한 것과 동일한 네트워크를 사용하는 경우 무료이며, 그렇지 않으면 Bitcoin은 {{bitcoinFee}}, Lightning 또는 Liquid는 {{lightningFee}} 수수료가 부과됩니다. Liquid USDT는 시장 중간가 대비 {{usdtFee}} 스프레드로 sats로/에서 환전하여 보내고 받을 수 있습니다."
+      "answer": "결제 수신은 무료입니다. 다른 Coinos Pro 계정으로의 전송은 무료입니다. 외부 지갑으로의 출금은 수신한 것과 동일한 네트워크를 사용하는 경우 무료이며, 그렇지 않으면 Bitcoin은 {{bitcoinFee}}, Lightning 또는 Liquid는 {{lightningFee}} 수수료가 부과됩니다. Liquid USDT는 Bitfinex 기준 {{usdtFee}} 스프레드로 sats로/에서 환전하여 보내고 받을 수 있습니다."
     },
     "compatibility": {
       "question": "특별한 장치 또는 소프트웨어가 필요합니까?",

@@ -34,6 +34,38 @@
 
   onMount(() => {
     liveUsdtRate = data.usdtRate || 0;
+    const size = data.usdtAmount;
+
+    const bids = new Map(); // price → btcSize
+
+    const walkBids = (usdtNeeded) => {
+      const sorted = [...bids.entries()].sort((a, b) => b[0] - a[0]);
+      let usdtFilled = 0;
+      let btcTotal = 0;
+      for (const [price, btcSize] of sorted) {
+        const usdtTake = Math.min(price * btcSize, usdtNeeded - usdtFilled);
+        btcTotal += usdtTake / price;
+        usdtFilled += usdtTake;
+        if (usdtFilled >= usdtNeeded) break;
+      }
+      return btcTotal > 0 ? usdtFilled / btcTotal : 0;
+    };
+
+    // Seed bids from REST immediately so the rate is ready before the WS connects
+    (async () => {
+      try {
+        const res = await fetch(
+          "https://api-pub.bitfinex.com/v2/book/tBTCUST/P0?len=25",
+        );
+        const book = await res.json();
+        bids.clear();
+        for (const [price, , amount] of book) {
+          if (amount > 0) bids.set(price, amount);
+        }
+        const walkRate = walkBids(size);
+        if (walkRate > 0) liveUsdtRate = walkRate;
+      } catch {}
+    })();
 
     let bfxWs = null;
     let pollInterval = null;
@@ -44,7 +76,7 @@
         try {
           const res = await fetch("/api/rates");
           const rates = await res.json();
-          liveUsdtRate = rates["USDT"] || rates["USD"];
+          liveUsdtRate = rates["USD"];
         } catch {}
       }, 5000);
     };
@@ -59,8 +91,6 @@
     const connectBitfinex = () => {
       bfxWs = new WebSocket("wss://api-pub.bitfinex.com/ws/2");
       let chanId = null;
-      let bid = 0,
-        ask = 0;
 
       bfxWs.onopen = () => {
         stopPolling();
@@ -71,7 +101,7 @@
             symbol: "tBTCUST",
             prec: "P0",
             freq: "F0",
-            len: "1",
+            len: "25",
           }),
         );
       };
@@ -85,27 +115,20 @@
           }
           if (!Array.isArray(msg) || msg[0] !== chanId || msg[1] === "hb")
             return;
-          const data = msg[1];
-          if (Array.isArray(data[0])) {
-            for (const [price, , amount] of data) {
-              if (amount > 0) bid = price;
-              else ask = price;
+          const payload = msg[1];
+          if (Array.isArray(payload[0])) {
+            // WS snapshot: reinitialise bids from authoritative state
+            bids.clear();
+            for (const [price, , amount] of payload) {
+              if (amount > 0) bids.set(price, amount);
             }
           } else {
-            const [price, count, amount] = data;
-            if (count === 0) {
-              if (amount === 1) bid = 0;
-              else ask = 0;
-            } else {
-              if (amount > 0) bid = price;
-              else ask = price;
-            }
+            const [price, count, amount] = payload;
+            if (count === 0) bids.delete(price);
+            else if (amount > 0) bids.set(price, amount);
           }
-          if (bid && ask) {
-            const mid = (bid + ask) / 2;
-            if (Math.abs(mid - liveUsdtRate) / (liveUsdtRate || mid) > 0.0001)
-              liveUsdtRate = mid;
-          }
+          const walkRate = walkBids(size);
+          if (walkRate > 0) liveUsdtRate = walkRate;
         } catch {}
       };
 

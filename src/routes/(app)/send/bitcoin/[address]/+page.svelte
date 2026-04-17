@@ -43,7 +43,7 @@
         try {
           const res = await fetch("/api/rates");
           const rates = await res.json();
-          liveUsdtRate = rates["USDT"] || rates["USD"];
+          liveUsdtRate = rates["USD"];
         } catch {}
       }, 5000);
     };

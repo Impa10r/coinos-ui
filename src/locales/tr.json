@@ -78,7 +78,7 @@
     "header": "SSS",
     "cost": {
       "question": "Maliyet nedir?",
-      "answer": "Ödeme almak ücretsizdir. Diğer Coinos Pro hesaplarına göndermek ücretsizdir. Dış cüzdanlara çekim, alındığı ağla aynı ağ kullanılırsa ücretsizdir, aksi takdirde Bitcoin için {{bitcoinFee}} veya Lightning ya da Liquid için {{lightningFee}} ücreti uygulanır. Liquid USDT, piyasa orta fiyatına göre {{usdtFee}} spread ile sats'tan/sats'a dönüştürülerek gönderilebilir ve alınabilir."
+      "answer": "Ödeme almak ücretsizdir. Diğer Coinos Pro hesaplarına göndermek ücretsizdir. Dış cüzdanlara çekim, alındığı ağla aynı ağ kullanılırsa ücretsizdir, aksi takdirde Bitcoin için {{bitcoinFee}} veya Lightning ya da Liquid için {{lightningFee}} ücreti uygulanır. Liquid USDT, Bitfinex fiyatına göre {{usdtFee}} spread ile sats'tan/sats'a dönüştürülerek gönderilebilir ve alınabilir."
     },
     "compatibility": {
       "question": "Özel bir cihaz veya yazılıma ihtiyacım var mı?",

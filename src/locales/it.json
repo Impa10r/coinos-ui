@@ -78,7 +78,7 @@
     "header": "FAQ",
     "cost": {
       "question": "Quanto costa?",
-      "answer": "Ricevere pagamenti è gratuito. Inviare ad altri account Coinos Pro è gratuito. I prelievi verso portafogli esterni sono gratuiti se si utilizza la stessa rete con cui si è ricevuto, altrimenti viene applicata una commissione del {{bitcoinFee}} per Bitcoin o {{lightningFee}} per Lightning o Liquid. Liquid USDT può essere inviato e ricevuto convertendo da/in sats con uno spread dello {{usdtFee}} sul prezzo medio di mercato."
+      "answer": "Ricevere pagamenti è gratuito. Inviare ad altri account Coinos Pro è gratuito. I prelievi verso portafogli esterni sono gratuiti se si utilizza la stessa rete con cui si è ricevuto, altrimenti viene applicata una commissione del {{bitcoinFee}} per Bitcoin o {{lightningFee}} per Lightning o Liquid. Liquid USDT può essere inviato e ricevuto convertendo da/in sats con uno spread del {{usdtFee}} su Bitfinex."
     },
     "compatibility": {
       "question": "Ho bisogno di qualche dispositivo o software speciale?",

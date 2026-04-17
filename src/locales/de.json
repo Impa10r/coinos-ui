@@ -27,7 +27,7 @@
     },
     "cost": {
       "question": "Was kostet das?",
-      "answer": "Zahlungen empfangen ist kostenlos. Senden an andere Coinos Pro-Konten ist kostenlos. Auszahlungen an externe Wallets sind kostenlos, wenn Sie dasselbe Netzwerk verwenden, über das Sie empfangen haben, andernfalls fällt eine {{bitcoinFee}}-Gebühr für Bitcoin oder {{lightningFee}} für Lightning oder Liquid an. Liquid USDT kann durch Umrechnung von/zu Sats mit einem Spread von {{usdtFee}} zum Mittelkurs gesendet und empfangen werden."
+      "answer": "Zahlungen empfangen ist kostenlos. Senden an andere Coinos Pro-Konten ist kostenlos. Auszahlungen an externe Wallets sind kostenlos, wenn Sie dasselbe Netzwerk verwenden, über das Sie empfangen haben, andernfalls fällt eine {{bitcoinFee}}-Gebühr für Bitcoin oder {{lightningFee}} für Lightning oder Liquid an. Liquid USDT kann durch Umrechnung von/zu Sats mit einem Spread von {{usdtFee}} zum Bitfinex gesendet und empfangen werden."
     },
     "individuals": {
       "question": "Wer kann es nutzen?",

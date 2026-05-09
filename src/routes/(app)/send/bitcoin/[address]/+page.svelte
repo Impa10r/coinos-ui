@@ -9,7 +9,7 @@
 
   let { data } = $props();
 
-  let { balance, usdtHotBalance, user } = $derived(data);
+  let { balance, usdtHotBalance, btcHotBalance, user } = $derived(data);
   let { address } = $page.params;
   let { currency } = $derived(user);
   let locale = $derived(loc(user));
@@ -138,7 +138,8 @@
   let exceedsUsdt = $derived(
     useUsdt && amountFiat > 0 && amountFiat > usdtHotBalance,
   );
-  let canProceed = $derived(!exceedsSats && !exceedsUsdt);
+  let exceedsBtcHot = $derived(!useUsdt && a > 0 && a > btcHotBalance);
+  let canProceed = $derived(!exceedsSats && !exceedsUsdt && !exceedsBtcHot);
 
   let maxSendable = $derived(
     balance > LIQUID_NETWORK_FEE
@@ -224,7 +225,7 @@
 
   {#if exceedsSats}
     <div class="text-error">{$t("payments.exceedsBalance")}</div>
-  {:else if exceedsUsdt}
+  {:else if exceedsUsdt || exceedsBtcHot}
     <div class="text-error">{$t("payments.exceedsHotWallet")}</div>
   {/if}
 
@@ -261,7 +262,7 @@
           bind:this={submit}
           type="submit"
           class="btn !w-auto grow btn-accent"
-          disabled={exceedsSats}
+          disabled={exceedsSats || exceedsBtcHot}
         >
           {$t("payments.next")}
         </button>

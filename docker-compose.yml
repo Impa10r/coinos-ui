@@ -32,6 +32,7 @@ services:
       ORIGIN: "${ORIGIN}"
       INTERNAL_API_KEY: "${INTERNAL_API_KEY}"
       PUBLIC_COINOS_URL: "${PUBLIC_COINOS_URL}"
+      SUPPORT_EMAIL: "${SUPPORT_EMAIL}"
     extra_hosts:
       - host.docker.internal:host-gateway
 networks:

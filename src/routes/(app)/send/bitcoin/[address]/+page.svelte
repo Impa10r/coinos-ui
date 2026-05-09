@@ -9,7 +9,8 @@
 
   let { data } = $props();
 
-  let { balance, usdtHotBalance, btcHotBalance, user } = $derived(data);
+  let { balance, usdtHotBalance, btcHotBalance, lbtcHotBalance, user } =
+    $derived(data);
   let { address } = $page.params;
   let { currency } = $derived(user);
   let locale = $derived(loc(user));
@@ -138,8 +139,15 @@
   let exceedsUsdt = $derived(
     useUsdt && amountFiat > 0 && amountFiat > usdtHotBalance,
   );
-  let exceedsBtcHot = $derived(!useUsdt && a > 0 && a > btcHotBalance);
-  let canProceed = $derived(!exceedsSats && !exceedsUsdt && !exceedsBtcHot);
+  let exceedsBtcHot = $derived(
+    !useUsdt && !liquid && a > 0 && a > btcHotBalance,
+  );
+  let exceedsLbtcHot = $derived(
+    !useUsdt && liquid && a > 0 && a > lbtcHotBalance,
+  );
+  let canProceed = $derived(
+    !exceedsSats && !exceedsUsdt && !exceedsBtcHot && !exceedsLbtcHot,
+  );
 
   let maxSendable = $derived(
     balance > LIQUID_NETWORK_FEE
@@ -225,7 +233,7 @@
 
   {#if exceedsSats}
     <div class="text-error">{$t("payments.exceedsBalance")}</div>
-  {:else if exceedsUsdt || exceedsBtcHot}
+  {:else if exceedsUsdt || exceedsBtcHot || exceedsLbtcHot}
     <div class="text-error">{$t("payments.exceedsHotWallet")}</div>
   {/if}
 
@@ -262,7 +270,7 @@
           bind:this={submit}
           type="submit"
           class="btn !w-auto grow btn-accent"
-          disabled={exceedsSats || exceedsBtcHot}
+          disabled={exceedsSats || exceedsBtcHot || exceedsLbtcHot}
         >
           {$t("payments.next")}
         </button>

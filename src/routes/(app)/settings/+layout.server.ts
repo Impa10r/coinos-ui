@@ -3,7 +3,7 @@ import { redirect } from "@sveltejs/kit";
 
 export async function load({ cookies, params, parent, url }) {
   const { user } = await parent();
-  if (!user) redirect(307, `/register?redirect=${url.pathname}`);
+  if (!user) redirect(307, `/signup?redirect=${url.pathname}`);
   const tab = url.pathname.split("/").filter(Boolean).pop();
   if (tab === "settings") redirect(307, `${url.pathname}/account`);
   (params as any).cookies = cookies.getAll();

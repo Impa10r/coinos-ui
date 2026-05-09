@@ -26,7 +26,7 @@
     </h2>
 
     <div class="flex justify-center">
-      <a href="/register">
+      <a href="/signup">
         <button
           class="btn !rounded-full bg-primary text-primary-content hover:bg-primary hover:bg-opacity-80"
         >

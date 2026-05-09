@@ -9,7 +9,7 @@ export default {
   update: `curl "${api}/user" -H "content-type: application/json" -d '{
     "username": "demo",
   }'`,
-  register: `curl "${api}/register" -H "content-type: application/json" -d '{
+  register: `curl "${api}/signup" -H "content-type: application/json" -d '{
   "user": {
     "username": "demo",
     "password": "hunter2"

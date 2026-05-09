@@ -13,7 +13,7 @@
 
   let zap = async () => {
     try {
-      if (!user) return goto(`/register?redirect=${$page.url.pathname}`);
+      if (!user) return goto(`/signup?redirect=${$page.url.pathname}`);
       let request = await post("/post/zapRequest", { amount, id });
       let { pr: payreq } = await post("/post/zap", {
         event: await sign(request, user),

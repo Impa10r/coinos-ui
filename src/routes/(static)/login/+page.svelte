@@ -227,7 +227,7 @@
     <p class="text-secondary text-center font-medium">
       {$t("login.noAccount")}
       <a
-        href={"/register" + ($page.url?.search ?? "")}
+        href={"/signup" + ($page.url?.search ?? "")}
         class="block md:inline text-secondary underline underline-offset-4 hover:opacity-80"
       >
         {$t("login.register")}

@@ -10,6 +10,6 @@ export const actions = {
       redirect(307, "/payments");
     }
 
-    redirect(307, "/register");
+    redirect(307, "/signup");
   },
 };

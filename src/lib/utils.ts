@@ -516,7 +516,7 @@ export const register = async (
 
   let sk;
   try {
-    ({ sk } = await post("/register", { user }, headers));
+    ({ sk } = await post("/signup", { user }, headers));
   } catch (e) {
     ({ message: error } = e as Error);
   }

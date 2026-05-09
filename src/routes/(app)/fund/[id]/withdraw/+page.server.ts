@@ -4,7 +4,7 @@ import { fail, redirect } from "@sveltejs/kit";
 
 export async function load({ params, parent }) {
   const { user } = await parent();
-  if (!user) redirect(307, "/register");
+  if (!user) redirect(307, "/signup");
   const rates = await getRates();
   const rate = rates[user.currency];
   const fund = await get(`/fund/${params.id}`);

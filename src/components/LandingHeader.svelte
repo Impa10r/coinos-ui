@@ -62,7 +62,7 @@
       {:else}
         <button
           class="btn btn-accent !w-auto !rounded-full"
-          onclick={() => goto("/register")}
+          onclick={() => goto("/signup")}
           >{$t("nav.register")}
         </button>
         <button
@@ -111,7 +111,7 @@
             class="btn btn-accent"
             onclick={() => {
               showMobileMenu = false;
-              goto("/register");
+              goto("/signup");
             }}
             >{$t("nav.register")}
           </button>

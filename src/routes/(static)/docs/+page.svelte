@@ -89,7 +89,7 @@
     </div>
   {/if}
 
-  <h2 class="text-2xl">POST /register</h2>
+  <h2 class="text-2xl">POST /signup</h2>
   <p class="text-secondary">
     Register a new user account with a username and password
   </p>

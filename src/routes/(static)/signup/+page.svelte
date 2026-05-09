@@ -165,7 +165,7 @@
       }
     }
 
-    const response = await fetch("/register", {
+    const response = await fetch("/signup", {
       method: "POST",
       body: formData,
     });

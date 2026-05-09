@@ -31,7 +31,7 @@
     </div>
     <div class="flex gap-2 justify-center sm:hidden">
       <div>
-        <a href="/register">
+        <a href="/signup">
           <button class="btn">
             {$t("nav.startInSeconds")}
           </button>

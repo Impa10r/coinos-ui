@@ -1,5 +1,9 @@
 <script>
-  import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
+  import {
+    PUBLIC_SIMPLEX_URL,
+    PUBLIC_SUPPORT_EMAIL,
+    PUBLIC_TELEGRAM_URL,
+  } from "$env/static/public";
   import { t } from "$lib/translations";
 </script>
 
@@ -29,4 +33,12 @@
     ></iconify-icon>
     Telegram
   </a>
+
+  {#if PUBLIC_SUPPORT_EMAIL}
+    <a href={`mailto:${PUBLIC_SUPPORT_EMAIL}`} class="btn w-full">
+      <iconify-icon noobserver icon="ph:envelope-bold" width="32"
+      ></iconify-icon>
+      {PUBLIC_SUPPORT_EMAIL}
+    </a>
+  {/if}
 </div>

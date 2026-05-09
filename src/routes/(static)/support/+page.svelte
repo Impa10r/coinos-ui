@@ -1,13 +1,19 @@
 <script>
   import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
   import { t } from "$lib/translations";
+  import { page } from "$app/stores";
 
   let { data } = $props();
 
   async function compose() {
     const r = await fetch("/support/email");
     const { email } = await r.json();
-    if (email) window.location.href = `mailto:${email}`;
+    if (!email) return;
+    const username = $page.data.user?.username;
+    const subject = username
+      ? `?subject=${encodeURIComponent(`Username: ${username}`)}`
+      : "";
+    window.location.href = `mailto:${email}${subject}`;
   }
 </script>
 

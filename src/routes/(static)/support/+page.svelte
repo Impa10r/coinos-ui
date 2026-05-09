@@ -1,10 +1,14 @@
 <script>
-  import {
-    PUBLIC_SIMPLEX_URL,
-    PUBLIC_SUPPORT_EMAIL,
-    PUBLIC_TELEGRAM_URL,
-  } from "$env/static/public";
+  import { PUBLIC_SIMPLEX_URL, PUBLIC_TELEGRAM_URL } from "$env/static/public";
   import { t } from "$lib/translations";
+
+  let { data } = $props();
+
+  async function compose() {
+    const r = await fetch("/support/email");
+    const { email } = await r.json();
+    if (email) window.location.href = `mailto:${email}`;
+  }
 </script>
 
 <div class="container max-w-lg mx-auto space-y-8 p-4 pb-20">
@@ -34,11 +38,11 @@
     Telegram
   </a>
 
-  {#if PUBLIC_SUPPORT_EMAIL}
-    <a href={`mailto:${PUBLIC_SUPPORT_EMAIL}`} class="btn w-full">
+  {#if data.hasEmail}
+    <button type="button" class="btn w-full" onclick={compose}>
       <iconify-icon noobserver icon="ph:envelope-bold" width="32"
       ></iconify-icon>
-      {PUBLIC_SUPPORT_EMAIL}
-    </a>
+      {$t("user.support.email")}
+    </button>
   {/if}
 </div>

@@ -516,7 +516,10 @@
     "amountDebited": "Importo addebitato",
     "amountCredited": "Importo accreditato",
     "sentAsset": "Asset inviato",
-    "receivedAsset": "Asset ricevuto"
+    "receivedAsset": "Asset ricevuto",
+    "retryFor": "Riprova per (secondi)",
+    "retryForDesc": "Per quanto tempo il nodo continuerà a provare percorsi prima di arrendersi. Intervallo 5–300. Valori più bassi falliscono più rapidamente; valori più alti hanno più probabilità di trovare un percorso funzionante per destinazioni meno connesse.",
+    "sendTimedOut": "La richiesta ha impiegato troppo tempo. Il tuo pagamento potrebbe essere ancora in elaborazione — controlla la cronologia dei pagamenti prima di riprovare."
   },
   "items": {
     "add": "Aggiungi articolo",

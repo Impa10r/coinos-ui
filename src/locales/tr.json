@@ -516,7 +516,10 @@
     "amountDebited": "Borçlandırılan tutar",
     "amountCredited": "Alacaklandırılan tutar",
     "sentAsset": "Gönderilen varlık",
-    "receivedAsset": "Alınan varlık"
+    "receivedAsset": "Alınan varlık",
+    "retryFor": "Yeniden deneme süresi (saniye)",
+    "retryForDesc": "Düğümün vazgeçmeden önce ne kadar süre rota deneyeceği. Aralık 5–300. Daha düşük değerler daha hızlı başarısız olur; daha yüksek değerlerin az bağlantılı hedefler için çalışan bir rota bulma olasılığı daha yüksektir.",
+    "sendTimedOut": "İstek tamamlanması çok uzun sürdü. Ödemeniz hâlâ işlemde olabilir — tekrar denemeden önce ödeme geçmişinizi kontrol edin."
   },
   "items": {
     "add": "Ekle item",

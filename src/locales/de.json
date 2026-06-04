@@ -490,7 +490,10 @@
     "amountDebited": "Abgebuchter Betrag",
     "amountCredited": "Gutgeschriebener Betrag",
     "sentAsset": "Gesendetes Asset",
-    "receivedAsset": "Empfangenes Asset"
+    "receivedAsset": "Empfangenes Asset",
+    "retryFor": "Wiederholungszeit (Sekunden)",
+    "retryForDesc": "Wie lange der Node Routen ausprobiert, bevor er aufgibt. Bereich 5–300. Niedrigere Werte schlagen schneller fehl; höhere Werte finden eher eine funktionierende Route für schlechter angebundene Empfänger.",
+    "sendTimedOut": "Die Anfrage hat zu lange gedauert. Deine Zahlung wird möglicherweise noch verarbeitet — überprüfe deinen Zahlungsverlauf, bevor du es erneut versuchst."
   },
   "items": {
     "add": "Artikel hinzufügen",

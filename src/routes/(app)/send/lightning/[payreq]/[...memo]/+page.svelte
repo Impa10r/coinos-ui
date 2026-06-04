@@ -26,9 +26,13 @@
   });
 
   let showMax = $state();
+  let timedOut = $state(false);
 
   let loading = $state();
-  let submit = () => (loading = true);
+  let submit = () => {
+    loading = true;
+    timedOut = false;
+  };
 
   let next = $state();
   let amount = $derived(
@@ -53,6 +57,11 @@
       {:else}
         {$t("payments.failedToRoute")}
       {/if}
+    </div>
+  {/if}
+  {#if timedOut}
+    <div class="text-yellow-600 text-center">
+      {$t("payments.sendTimedOut")}
     </div>
   {/if}
   {#if amount}
@@ -93,7 +102,16 @@
 
     <form
       method="POST"
-      use:enhance
+      use:enhance={() => {
+        return async ({ result, update }) => {
+          loading = false;
+          if (result.type === "error") {
+            timedOut = true;
+          } else {
+            await update();
+          }
+        };
+      }}
       onsubmit={submit}
       action="?/send"
       class="space-y-2"

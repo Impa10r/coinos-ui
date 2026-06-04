@@ -463,7 +463,10 @@
     "amountDebited": "Montant débité",
     "amountCredited": "Montant crédité",
     "sentAsset": "Actif envoyé",
-    "receivedAsset": "Actif reçu"
+    "receivedAsset": "Actif reçu",
+    "retryFor": "Réessayer pendant (secondes)",
+    "retryForDesc": "Combien de temps le nœud continuera d'essayer des routes avant d'abandonner. Plage 5–300. Les valeurs plus basses échouent plus vite ; les valeurs plus hautes ont plus de chances de trouver une route fonctionnelle pour des destinations moins connectées.",
+    "sendTimedOut": "La requête a pris trop de temps. Votre paiement est peut-être encore en traitement — vérifiez votre historique de paiements avant de réessayer."
   },
   "items": {
     "add": "Ajouter un article",

@@ -485,7 +485,10 @@
     "amountDebited": "Valor debitado",
     "amountCredited": "Valor creditado",
     "sentAsset": "Ativo enviado",
-    "receivedAsset": "Ativo recebido"
+    "receivedAsset": "Ativo recebido",
+    "retryFor": "Tentar novamente por (segundos)",
+    "retryForDesc": "Por quanto tempo o nó continuará tentando rotas antes de desistir. Intervalo 5–300. Valores menores falham mais rápido; valores maiores têm mais chance de encontrar uma rota funcional para destinos menos conectados.",
+    "sendTimedOut": "A solicitação demorou muito para ser concluída. Seu pagamento ainda pode estar em processamento — verifique o histórico de pagamentos antes de tentar novamente."
   },
   "items": {
     "add": "Adicionar item",

@@ -454,6 +454,8 @@
     "ecashToken": "Ecash token",
     "medium": "Medium",
     "maxFeeDesc": "Set an upper limit on the network routing fee. If set too low the payment may fail. You can set it higher and try again. We debit the full amount while attempting the payment but credit back any unused portion.",
+    "retryFor": "Retry for (seconds)",
+    "retryForDesc": "How long the node will keep trying routes before giving up. Range 5–300. Lower values fail faster; higher values are more likely to find a working route for less-connected destinations.",
     "slow": "Slow",
     "create": "Create",
     "fund": "Fund",

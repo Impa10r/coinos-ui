@@ -40,6 +40,8 @@
   $effect(() => {
     maxfee = Math.max(5, Math.round(amount * 0.02) || 0);
   });
+
+  let retryFor = $state(60);
 </script>
 
 <div class="container px-4 max-w-xl mx-auto text-center space-y-2">
@@ -122,6 +124,29 @@
             />
             <div class="ml-auto">⚡️</div>
           </label>
+
+          <label for="retryFor" class="text-lg text-secondary"
+            >{$t("payments.retryFor")}</label
+          >
+
+          <div class="text-secondary">
+            {$t("payments.retryForDesc")}
+          </div>
+
+          <label
+            class="input input-bordered border-primary input-lg rounded-2xl flex items-center gap-2 text-left"
+          >
+            <input
+              id="retryFor"
+              name="retryFor"
+              type="number"
+              min="5"
+              max="300"
+              bind:value={retryFor}
+              class="clean !grow"
+            />
+            <div class="ml-auto text-secondary">s</div>
+          </label>
         </div>
       {/if}
 
@@ -143,6 +168,7 @@
           >{$t("payments.advancedSettings")}</button
         >
         <input name="fee" type="hidden" bind:value={maxfee} />
+        <input name="retryFor" type="hidden" bind:value={retryFor} />
       {/if}
     </form>
   {:else}

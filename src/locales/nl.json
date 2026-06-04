@@ -519,7 +519,11 @@
     "receivedAsset": "Ontvangen activa",
     "retryFor": "Opnieuw proberen voor (seconden)",
     "retryForDesc": "Hoe lang de node routes blijft proberen voordat hij opgeeft. Bereik 5–300. Lagere waarden falen sneller; hogere waarden hebben meer kans om een werkende route te vinden voor minder verbonden bestemmingen.",
-    "sendTimedOut": "Het verzoek duurde te lang. Je betaling wordt mogelijk nog verwerkt — controleer je betalingsgeschiedenis voordat je het opnieuw probeert."
+    "sendTimedOut": "Het verzoek duurde te lang. Je betaling wordt mogelijk nog verwerkt — controleer je betalingsgeschiedenis voordat je het opnieuw probeert.",
+    "sending": "Betaling wordt verzonden…",
+    "sendingDesc": "Zoekt een route via het Lightning Network. Dit duurt meestal enkele seconden maar kan tot een paar minuten duren.",
+    "sendFailed": "Betaling mislukt",
+    "sendFailedDesc": "Er kon geen route gevonden worden. Het volledige bedrag is terugbetaald op je saldo."
   },
   "items": {
     "add": "Item toevoegen",

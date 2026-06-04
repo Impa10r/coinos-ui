@@ -466,7 +466,11 @@
     "receivedAsset": "Actif reçu",
     "retryFor": "Réessayer pendant (secondes)",
     "retryForDesc": "Combien de temps le nœud continuera d'essayer des routes avant d'abandonner. Plage 5–300. Les valeurs plus basses échouent plus vite ; les valeurs plus hautes ont plus de chances de trouver une route fonctionnelle pour des destinations moins connectées.",
-    "sendTimedOut": "La requête a pris trop de temps. Votre paiement est peut-être encore en traitement — vérifiez votre historique de paiements avant de réessayer."
+    "sendTimedOut": "La requête a pris trop de temps. Votre paiement est peut-être encore en traitement — vérifiez votre historique de paiements avant de réessayer.",
+    "sending": "Envoi du paiement…",
+    "sendingDesc": "Recherche d'une route à travers le réseau Lightning. Cela prend généralement quelques secondes mais peut prendre jusqu'à quelques minutes.",
+    "sendFailed": "Échec du paiement",
+    "sendFailedDesc": "Aucune route n'a pu être trouvée. Le montant total a été remboursé sur votre solde."
   },
   "items": {
     "add": "Ajouter un article",

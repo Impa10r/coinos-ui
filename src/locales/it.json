@@ -519,7 +519,11 @@
     "receivedAsset": "Asset ricevuto",
     "retryFor": "Riprova per (secondi)",
     "retryForDesc": "Per quanto tempo il nodo continuerà a provare percorsi prima di arrendersi. Intervallo 5–300. Valori più bassi falliscono più rapidamente; valori più alti hanno più probabilità di trovare un percorso funzionante per destinazioni meno connesse.",
-    "sendTimedOut": "La richiesta ha impiegato troppo tempo. Il tuo pagamento potrebbe essere ancora in elaborazione — controlla la cronologia dei pagamenti prima di riprovare."
+    "sendTimedOut": "La richiesta ha impiegato troppo tempo. Il tuo pagamento potrebbe essere ancora in elaborazione — controlla la cronologia dei pagamenti prima di riprovare.",
+    "sending": "Invio del pagamento…",
+    "sendingDesc": "Ricerca di un percorso attraverso la rete Lightning. Di solito richiede pochi secondi ma può richiedere fino a un paio di minuti.",
+    "sendFailed": "Pagamento fallito",
+    "sendFailedDesc": "Non è stato possibile trovare un percorso. L'intero importo è stato rimborsato sul tuo saldo."
   },
   "items": {
     "add": "Aggiungi articolo",

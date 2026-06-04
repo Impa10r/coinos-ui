@@ -43,6 +43,7 @@ export const messages = (data) => ({
     invalidate("app:user");
     invalidate("app:invoice");
     invalidate("app:payments");
+    invalidate("app:sent-payment");
 
     const {
       url: { pathname },

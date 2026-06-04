@@ -466,7 +466,6 @@
     "receivedAsset": "Activo recibido",
     "retryFor": "Reintentar durante (segundos)",
     "retryForDesc": "Cuánto tiempo seguirá el nodo probando rutas antes de rendirse. Rango 5–300. Valores más bajos fallan más rápido; valores más altos tienen más probabilidades de encontrar una ruta funcional para destinos menos conectados.",
-    "sendTimedOut": "La solicitud tardó demasiado en completarse. Tu pago puede seguir procesándose — revisa tu historial de pagos antes de volver a intentarlo.",
     "sending": "Enviando pago…",
     "sendingDesc": "Buscando una ruta a través de la red Lightning. Esto suele tardar unos segundos pero puede llegar hasta un par de minutos.",
     "sendFailed": "Pago fallido",

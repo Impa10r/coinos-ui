@@ -519,7 +519,6 @@
     "receivedAsset": "Otrzymany zasób",
     "retryFor": "Ponawiaj przez (sekundy)",
     "retryForDesc": "Jak długo węzeł będzie próbował tras przed poddaniem się. Zakres 5–300. Niższe wartości szybciej zawodzą; wyższe wartości mają większą szansę znalezienia działającej trasy do mniej połączonych adresatów.",
-    "sendTimedOut": "Żądanie trwało zbyt długo. Twoja płatność może być nadal przetwarzana — sprawdź historię płatności przed ponowieniem próby.",
     "sending": "Wysyłanie płatności…",
     "sendingDesc": "Szukanie trasy w sieci Lightning. Zwykle zajmuje to kilka sekund, ale może potrwać do kilku minut.",
     "sendFailed": "Płatność nieudana",

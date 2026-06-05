@@ -522,7 +522,9 @@
     "sending": "Ödeme gönderiliyor…",
     "sendingDesc": "Lightning Ağı üzerinden bir rota aranıyor. Bu genellikle birkaç saniye sürer ancak birkaç dakikaya kadar uzayabilir.",
     "sendFailed": "Ödeme başarısız",
-    "sendFailedDesc": "Bir rota bulunamadı. Tüm tutar bakiyenize iade edildi."
+    "sendFailedDesc": "Bir rota bulunamadı. Tüm tutar bakiyenize iade edildi.",
+    "continue": "Devam et",
+    "retry": "Yeniden dene"
   },
   "items": {
     "add": "Ekle item",

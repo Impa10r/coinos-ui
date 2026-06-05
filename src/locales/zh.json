@@ -469,7 +469,9 @@
     "sending": "正在发送付款…",
     "sendingDesc": "正在通过闪电网络寻找路由。通常需要几秒钟,但可能需要几分钟。",
     "sendFailed": "付款失败",
-    "sendFailedDesc": "未找到可用路由。全部金额已退还至您的余额。"
+    "sendFailedDesc": "未找到可用路由。全部金额已退还至您的余额。",
+    "continue": "继续",
+    "retry": "重试"
   },
   "items": {
     "add": "新增项目",

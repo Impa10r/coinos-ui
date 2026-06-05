@@ -469,7 +469,9 @@
     "sending": "Enviando pago…",
     "sendingDesc": "Buscando una ruta a través de la red Lightning. Esto suele tardar unos segundos pero puede llegar hasta un par de minutos.",
     "sendFailed": "Pago fallido",
-    "sendFailedDesc": "No se pudo encontrar una ruta. El importe completo ha sido reembolsado a tu saldo."
+    "sendFailedDesc": "No se pudo encontrar una ruta. El importe completo ha sido reembolsado a tu saldo.",
+    "continue": "Continuar",
+    "retry": "Reintentar"
   },
   "items": {
     "add": "Añadir artículo",

@@ -496,7 +496,9 @@
     "sending": "Zahlung wird gesendet…",
     "sendingDesc": "Suche nach einer Route durch das Lightning Network. Dies dauert üblicherweise einige Sekunden, kann aber bis zu ein paar Minuten dauern.",
     "sendFailed": "Zahlung fehlgeschlagen",
-    "sendFailedDesc": "Es konnte keine Route gefunden werden. Der volle Betrag wurde deinem Guthaben zurückerstattet."
+    "sendFailedDesc": "Es konnte keine Route gefunden werden. Der volle Betrag wurde deinem Guthaben zurückerstattet.",
+    "continue": "Weiter",
+    "retry": "Erneut versuchen"
   },
   "items": {
     "add": "Artikel hinzufügen",

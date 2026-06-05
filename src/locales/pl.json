@@ -522,7 +522,9 @@
     "sending": "Wysyłanie płatności…",
     "sendingDesc": "Szukanie trasy w sieci Lightning. Zwykle zajmuje to kilka sekund, ale może potrwać do kilku minut.",
     "sendFailed": "Płatność nieudana",
-    "sendFailedDesc": "Nie można znaleźć trasy. Pełna kwota została zwrócona na Twoje saldo."
+    "sendFailedDesc": "Nie można znaleźć trasy. Pełna kwota została zwrócona na Twoje saldo.",
+    "continue": "Kontynuuj",
+    "retry": "Ponów próbę"
   },
   "items": {
     "add": "Dodaj element",

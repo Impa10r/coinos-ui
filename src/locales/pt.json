@@ -491,7 +491,9 @@
     "sending": "Enviando pagamento…",
     "sendingDesc": "Procurando uma rota pela rede Lightning. Geralmente leva alguns segundos, mas pode demorar até alguns minutos.",
     "sendFailed": "Pagamento falhou",
-    "sendFailedDesc": "Nenhuma rota pôde ser encontrada. O valor total foi reembolsado para o seu saldo."
+    "sendFailedDesc": "Nenhuma rota pôde ser encontrada. O valor total foi reembolsado para o seu saldo.",
+    "continue": "Continuar",
+    "retry": "Tentar novamente"
   },
   "items": {
     "add": "Adicionar item",

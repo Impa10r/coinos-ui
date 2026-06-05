@@ -522,7 +522,9 @@
     "sending": "Betaling wordt verzonden…",
     "sendingDesc": "Zoekt een route via het Lightning Network. Dit duurt meestal enkele seconden maar kan tot een paar minuten duren.",
     "sendFailed": "Betaling mislukt",
-    "sendFailedDesc": "Er kon geen route gevonden worden. Het volledige bedrag is terugbetaald op je saldo."
+    "sendFailedDesc": "Er kon geen route gevonden worden. Het volledige bedrag is terugbetaald op je saldo.",
+    "continue": "Doorgaan",
+    "retry": "Opnieuw proberen"
   },
   "items": {
     "add": "Item toevoegen",

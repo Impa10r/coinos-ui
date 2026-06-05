@@ -469,7 +469,9 @@
     "sending": "Envoi du paiement…",
     "sendingDesc": "Recherche d'une route à travers le réseau Lightning. Cela prend généralement quelques secondes mais peut prendre jusqu'à quelques minutes.",
     "sendFailed": "Échec du paiement",
-    "sendFailedDesc": "Aucune route n'a pu être trouvée. Le montant total a été remboursé sur votre solde."
+    "sendFailedDesc": "Aucune route n'a pu être trouvée. Le montant total a été remboursé sur votre solde.",
+    "continue": "Continuer",
+    "retry": "Réessayer"
   },
   "items": {
     "add": "Ajouter un article",

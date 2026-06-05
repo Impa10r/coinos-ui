@@ -522,7 +522,9 @@
     "sending": "Invio del pagamento…",
     "sendingDesc": "Ricerca di un percorso attraverso la rete Lightning. Di solito richiede pochi secondi ma può richiedere fino a un paio di minuti.",
     "sendFailed": "Pagamento fallito",
-    "sendFailedDesc": "Non è stato possibile trovare un percorso. L'intero importo è stato rimborsato sul tuo saldo."
+    "sendFailedDesc": "Non è stato possibile trovare un percorso. L'intero importo è stato rimborsato sul tuo saldo.",
+    "continue": "Continua",
+    "retry": "Riprova"
   },
   "items": {
     "add": "Aggiungi articolo",

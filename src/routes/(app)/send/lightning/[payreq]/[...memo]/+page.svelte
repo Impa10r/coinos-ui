@@ -2,6 +2,7 @@
   import { untrack } from "svelte";
   import { t } from "$lib/translations";
   import { enhance } from "$app/forms";
+  import { page } from "$app/stores";
   import Amount from "$comp/Amount.svelte";
   import Numpad from "$comp/Numpad.svelte";
   import Spinner from "$comp/Spinner.svelte";
@@ -25,7 +26,9 @@
     if (form) loading = false;
   });
 
-  let showMax = $state();
+  // Open the advanced settings drawer by default when ?advanced=1 is set
+  // (e.g. when redirected here from a failed /sent/<id> retry button).
+  let showMax = $state($page.url.searchParams.get("advanced") === "1");
 
   let loading = $state();
   let submit = () => (loading = true);

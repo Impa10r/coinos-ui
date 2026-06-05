@@ -10,9 +10,16 @@
   let amount = $derived(Math.abs(data.amount ?? 0));
   let locale = $derived(loc(user));
 
+  // Capture the bolt11 on first render so the retry button still has it
+  // after a reversal nulls out p.
+  let hash = $state();
+  $effect.pre(() => {
+    if (p?.hash && !hash) hash = p.hash;
+  });
+
   // Lightning payments are async: the record exists from `debit` but has no
   // `ref` (preimage) until xpay finalizes. p === null means it was reversed.
-  let state = $derived(
+  let view = $derived(
     p === null
       ? "failed"
       : p?.type === "lightning" && (p?.amount ?? 0) < 0 && !p?.ref
@@ -21,19 +28,26 @@
   );
 </script>
 
-{#if state === "sending"}
+{#if view === "sending"}
   <div class="container px-4 max-w-xl mx-auto text-center space-y-4 mt-12">
     <Spinner />
     <h1 class="text-xl text-secondary">{$t("payments.sending")}</h1>
     <div class="text-secondary">{$t("payments.sendingDesc")}</div>
   </div>
-{:else if state === "failed"}
+{:else if view === "failed"}
   <div class="container px-4 max-w-xl mx-auto text-center space-y-4 mt-12">
     <h1 class="text-xl text-red-600">{$t("payments.sendFailed")}</h1>
     <div class="text-secondary">{$t("payments.sendFailedDesc")}</div>
-    <a href={`/${username ?? ""}`} class="btn" use:focus
-      >{$t("payments.continue") ?? "Continue"}</a
-    >
+    {#if hash}
+      <a
+        href={`/send/lightning/${hash}?advanced=1`}
+        class="btn btn-primary"
+        use:focus
+      >
+        {$t("payments.retry")}
+      </a>
+    {/if}
+    <a href={`/${username}`} class="btn">{$t("payments.continue")}</a>
   </div>
 {:else}
   <Success

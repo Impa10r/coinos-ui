@@ -127,17 +127,22 @@
               {/if}
             {/if}
 
-            <div class="my-auto">
-              {#if p.type === types.ecash}
-                {amount > 0 ? $t("payments.redeemed") : $t("payments.minted")}
-              {:else}
-                {amount > 0
-                  ? p.confirmed
-                    ? $t("payments.received")
-                    : $t("payments.pending")
-                  : p.type === types.bitcoin && !p.confirmed
-                    ? $t("payments.pending")
-                    : $t("payments.sent")}
+            <div class="my-auto truncate">
+              <div>
+                {#if p.type === types.ecash}
+                  {amount > 0 ? $t("payments.redeemed") : $t("payments.minted")}
+                {:else}
+                  {amount > 0
+                    ? p.confirmed
+                      ? $t("payments.received")
+                      : $t("payments.pending")
+                    : p.type === types.bitcoin && !p.confirmed
+                      ? $t("payments.pending")
+                      : $t("payments.sent")}
+                {/if}
+              </div>
+              {#if p.memo && p.type !== types.fund}
+                <div class="text-xs text-secondary truncate">{p.memo}</div>
               {/if}
             </div>
           </div>

@@ -141,7 +141,7 @@
                       : $t("payments.sent")}
                 {/if}
               </div>
-              {#if p.memo && p.type !== types.fund}
+              {#if p.memo && p.type !== types.fund && amount < 0}
                 <div class="text-xs text-secondary truncate">{p.memo}</div>
               {/if}
             </div>

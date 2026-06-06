@@ -7,8 +7,15 @@
 
   let { data, form, send = $bindable(), comment = $bindable() } = $props();
   let { currency } = $derived(data.user);
-  let { minSendable, maxSendable, commentAllowed, callback, metadata, rate } =
-    $derived(data);
+  let {
+    minSendable,
+    maxSendable,
+    commentAllowed,
+    callback,
+    metadata,
+    rate,
+    lnaddress,
+  } = $derived(data);
 
   let amount = $state(0),
     loading = $state();
@@ -42,6 +49,7 @@
     <input name="minSendable" value={minSendable} type="hidden" />
     <input name="maxSendable" value={maxSendable} type="hidden" />
     <input name="callback" value={callback} type="hidden" />
+    <input name="lnaddress" value={lnaddress} type="hidden" />
     <input name="pin" value={$pin} type="hidden" />
 
     {#if commentAllowed}

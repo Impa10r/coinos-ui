@@ -26,6 +26,14 @@ export async function load({ params, parent }) {
     error(500, message);
   }
 
+  // Extract the lightning address from the decoded LNURL URL so we can
+  // stamp it onto the payment memo. URLs look like
+  // https://example.com/.well-known/lnurlp/alice
+  const lnaddrMatch = url.match(
+    /https?:\/\/([^/]+)\/\.well-known\/lnurlp\/([^/?#]+)/,
+  );
+  const lnaddress = lnaddrMatch ? `${lnaddrMatch[2]}@${lnaddrMatch[1]}` : "";
+
   let { callback, minSendable, maxSendable, comment, tag } = data;
   if (tag === "payRequest" && minSendable === maxSendable) {
     minSendable = Math.round(minSendable / 1000);
@@ -48,8 +56,13 @@ export async function load({ params, parent }) {
 
     if (invoice) redirect(307, `/invoice/${invoice.id}`);
 
+    const memo = lnaddress
+      ? comment
+        ? `Paid to ${lnaddress}: ${comment}`
+        : `Paid to ${lnaddress}`
+      : comment || "";
     let path = `/send/lightning/${pr}`;
-    if (comment) path += `/${encodeURIComponent(comment)}`;
+    if (memo) path += `/${encodeURIComponent(memo)}`;
     redirect(307, path);
   } else if (url.startsWith(`https://${PUBLIC_DOMAIN}/`)) {
     const username = url.split(`https://${PUBLIC_DOMAIN}/p/`)[1];
@@ -60,6 +73,7 @@ export async function load({ params, parent }) {
     error(500, "We only support LNURLp and LNURLw at this time");
 
   data.rate = rates[user?.currency || "USD"];
+  data.lnaddress = lnaddress;
   return data;
 }
 
@@ -67,7 +81,7 @@ export const actions = {
   pay: async ({ request }) => {
     let error;
 
-    let { callback, amount, minSendable, maxSendable, comment } =
+    let { callback, amount, minSendable, maxSendable, comment, lnaddress } =
       await fd(request);
     minSendable = Math.round(minSendable / 1000);
     maxSendable = Math.round(maxSendable / 1000);
@@ -85,8 +99,13 @@ export const actions = {
 
     const { pr } = await lnurlFetch(url);
 
+    const memo = lnaddress
+      ? comment
+        ? `Paid to ${lnaddress}: ${comment}`
+        : `Paid to ${lnaddress}`
+      : comment || "";
     let path = `/send/lightning/${pr}`;
-    if (comment) path += `/${encodeURIComponent(comment)}`;
+    if (memo) path += `/${encodeURIComponent(memo)}`;
     redirect(307, path);
   },
 

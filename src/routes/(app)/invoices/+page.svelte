@@ -57,7 +57,11 @@
             class="shrink-0"
           ></iconify-icon>
         {:else if i.type === types.liquid}
-          <img src="/images/liquid.svg" class="w-[22px] shrink-0" alt="Liquid" />
+          <img
+            src="/images/liquid.svg"
+            class="w-[22px] shrink-0"
+            alt="Liquid"
+          />
         {:else if i.type === types.ecash}
           <img src="/images/cash.png" class="w-[22px] shrink-0" alt="Ecash" />
         {/if}

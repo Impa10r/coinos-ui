@@ -184,8 +184,8 @@
         class="my-auto btn btn-circle !w-auto grow"
         onclick={() => copy(offer)}
         aria-label="Copy"
-        ><iconify-icon noobserver icon="ph:copy-bold" width="32"
-        ></iconify-icon> {$t("accounts.copy")}</button
+        ><iconify-icon noobserver icon="ph:copy-bold" width="32"></iconify-icon>
+        {$t("accounts.copy")}</button
       >
 
       <a

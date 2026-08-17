@@ -28,28 +28,35 @@
   <h1 class="text-2xl font-bold">Move your account to coinos v3</h1>
 
   {#if !to}
-    <p class="text-red-600">This page needs a destination — start the move from coinos v3.</p>
+    <p class="text-red-600">
+      This page needs a destination — start the move from coinos v3.
+    </p>
   {:else if form?.ok}
     <div class="space-y-3">
       <p class="text-xl">✓ All done!</p>
       {#if form.sent}
-        <p>{form.sent.toLocaleString()} sats are on their way to your new wallet.</p>
+        <p>
+          {form.sent.toLocaleString()} sats are on their way to your new wallet.
+        </p>
       {/if}
       <p>
-        <strong>{form.released}@coinos.io</strong> now receives into your coinos v3 wallet.
+        <strong>{form.released}@coinos.io</strong> now receives into your coinos v3
+        wallet.
       </p>
       <a class="btn btn-primary w-full" href={backUrl}>Back to coinos v3</a>
     </div>
   {:else}
     <p>
       This sends your balance to your new wallet and points
-      <strong>{user.username}@coinos.io</strong> at it, so payments to your address arrive
-      there from now on. This account stays exactly as it is — same name, same history —
-      you just receive on coinos v3.
+      <strong>{user.username}@coinos.io</strong> at it, so payments to your address
+      arrive there from now on. This account stays exactly as it is — same name, same
+      history — you just receive on coinos v3.
     </p>
 
     <div class="rounded-xl border p-3">
-      <div class="flex justify-between"><span>Balance</span><strong>{balance.toLocaleString()} sats</strong></div>
+      <div class="flex justify-between">
+        <span>Balance</span><strong>{balance.toLocaleString()} sats</strong>
+      </div>
     </div>
 
     {#if form?.error}<p class="text-red-600">{form.error}</p>{/if}
@@ -69,14 +76,21 @@
       <input type="hidden" name="balance" value={balance} />
       <input type="hidden" name="username" value={user.username} />
       {#if user?.haspin}
-        <input class="input input-bordered w-full" type="password" inputmode="numeric"
-          name="pin" placeholder="Your PIN" />
+        <input
+          class="input input-bordered w-full"
+          type="password"
+          inputmode="numeric"
+          name="pin"
+          placeholder="Your PIN"
+        />
       {/if}
       <button class="btn btn-primary w-full" disabled={working}>
         {#if working}Migrating…{:else}Migrate{/if}
       </button>
     </form>
 
-    <p class="text-sm opacity-60">You can also do nothing — your old account keeps working as it is.</p>
+    <p class="text-sm opacity-60">
+      You can also do nothing — your old account keeps working as it is.
+    </p>
   {/if}
 </div>

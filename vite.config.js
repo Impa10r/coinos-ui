@@ -9,6 +9,12 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
     plugins: [sveltekit(), tailwindcss()],
+    build: {
+      // One vendor chunk (crypto/bitcoin libs) sits around 1MB minified —
+      // above the 500kB default. Splitting it is a real refactor with its
+      // own risk; just raise the advisory threshold past it.
+      chunkSizeWarningLimit: 1100,
+    },
     resolve: {
       alias: {
         $comp: path.resolve("src/components"),

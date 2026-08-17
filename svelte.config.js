@@ -13,7 +13,7 @@ const config = {
       "$comp/*": "src/components/*",
     },
     csrf: {
-      checkOrigin: false,
+      trustedOrigins: ["*"],
     },
     prerender: {
       crawl: false,

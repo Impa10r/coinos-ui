@@ -11,7 +11,25 @@
     "feature3": "Sub-Sat-Gebührensätze für Bitcoin On-Chain-Zahlungen",
     "feature4": "Gebührenerhöhungen via RBF, nicht CPFP (günstiger)",
     "feature5": "Ausgehende Lightning-Zahlungen über CLN- und LND-Knoten für optimale Routensuche",
-    "feature6": "Liquid USDT senden und empfangen"
+    "feature6": "Liquid USDT senden und empfangen",
+    "team": {
+      "header": "Das Team",
+      "adam": {
+        "name": "Adam Soltys",
+        "position": "Chief Technical Officer",
+        "bio": "Adam ist ein Webentwickler und Bitcoin-Enthusiast, der davon überzeugt ist, dass hartes Geld der Schlüssel zur Steigerung des globalen Wohlstands ist. Er lebt mit seiner Frau Chelsea und seinen zwei Kindern in North Vancouver."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Bitcoin Experte",
+        "bio": "Als zertifizierter Bitcoin-Experte ist Cole ein engagierter Mensch mit großer Leidenschaft für Freiheit. Er entdeckte Bitcoin im Jahr 2016 und beschäftigte sich eingehend damit. Jetzt möchte er das Lightning-Netzwerk so vielen Nutzern wie möglich näherbringen."
+      }
+    },
+    "locations": {
+      "header": "Standorte",
+      "description": "Hier finden Sie einige Unternehmen, welche bereits Zahlungen mit Bitcoin über Coinos akzeptieren. Wir hoffen, dass Ihr Unternehmen das nächste sein wird!",
+      "viewMap": "Karte anzeigen"
+    }
   },
   "error": {
     "header": "Error",
@@ -71,7 +89,8 @@
     "documentation": "Dokumentation",
     "nostr": "Nostr",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Folge uns"
   },
   "howItWorks": {
     "header": "So funktioniert's",
@@ -323,7 +342,13 @@
       "yourUsername": "Ihr Benutzername ist",
       "yourPassword": "und ihr passwort ist",
       "welcome": "Willkommen!",
-      "clickBelow": "Klicken Sie unten, um die Einrichtung Ihres Kontos abzuschließen"
+      "clickBelow": "Klicken Sie unten, um die Einrichtung Ihres Kontos abzuschließen",
+      "bolt12Offer": "Blitzangebot (BOLT12)",
+      "bolt12OfferDescription": "Ein wiederverwendbarer Zahlungscode für den Empfang von Blitzzahlungen und BOLT12 Zaps. Fügen Sie es zu der Liste Ihres nostr-Clients hinzu, um über BOLT12 gezappt zu werden.",
+      "continueSettingUp": "Konto einrichten",
+      "publishOffer": "Veröffentlichen an nostr",
+      "offerPublished": "Veröffentlicht!",
+      "offerPublishFailed": "Das Angebot konnte nicht veröffentlicht werden"
     },
     "support": {
       "header": "Support",

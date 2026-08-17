@@ -66,7 +66,25 @@
     "feature3": "비트코인 온체인 결제의 서브-사트 수수료율",
     "feature4": "CPFP가 아닌 RBF를 통한 수수료 인상 (더 저렴)",
     "feature5": "최적의 경로 탐색을 위한 CLN 및 LND 노드를 통한 아웃바운드 라이트닝 결제",
-    "feature6": "Liquid USDT 보내기 및 받기"
+    "feature6": "Liquid USDT 보내기 및 받기",
+    "team": {
+      "header": "이 팀",
+      "adam": {
+        "name": "아담 Soltys",
+        "position": "설립자 및 CTO",
+        "bio": "Adam은 건강한 돈의 채택이 글로벌 번영을 구동 할 것이라고 믿는 소프트웨어 엔지니어입니다. 그는 그의 아내, 딸, 아들과 함께 노스 밴쿠버에 살고있다."
+      },
+      "cole": {
+        "name": "한국어",
+        "position": "사업영역",
+        "bio": "Cole은 2015년부터 비트코인에 의해 활성화된 자유의 열정과 함께 구동되는 개인입니다. 그의 임무는 Bitcoin과 Lightning Network의 채택을 전 세계적으로 확산시키는 것입니다."
+      }
+    },
+    "locations": {
+      "viewMap": "지도 보기",
+      "header": "회사연혁",
+      "description": "전세계 500 개 이상의 기업은 Coinos와 Bitcoin을 수용하고 있습니다. 우리는 당신의 다음이 될 희망!"
+    }
   },
   "error": {
     "header": "계정 정보",
@@ -109,7 +127,8 @@
     "nostr": "노스트",
     "documentation": "회사연혁",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "우리를 따르라"
   },
   "howItWorks": {
     "header": "어떻게 작동하나요",
@@ -373,7 +392,13 @@
       "yourUsername": "사용자 이름",
       "yourPassword": "비밀번호",
       "welcome": "제품 정보!",
-      "clickBelow": "계정 설정하기"
+      "clickBelow": "계정 설정하기",
+      "bolt12Offer": "번개 제안 (BOLT12)",
+      "bolt12OfferDescription": "번개 결제 및 BOLT12 zaps를 수신하기위한 재사용 가능한 지불 코드. nostr 클라이언트의 제안 목록에 추가하여 BOLT12를 통해 zapped를 얻을 수 있습니다.",
+      "continueSettingUp": "계정 설정",
+      "publishOffer": "Nostr에 게시",
+      "offerPublished": "이름 *!",
+      "offerPublishFailed": "게시 제안에 실패"
     },
     "support": {
       "header": "지원하다",

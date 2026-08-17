@@ -66,7 +66,25 @@
     "feature3": "Sub-sat tarieven voor Bitcoin on-chain betalingen",
     "feature4": "Tariefverhogingen via RBF, niet CPFP (goedkoper)",
     "feature5": "Uitgaande lightning betalingen via CLN- en LND-nodes voor optimale routebepaling",
-    "feature6": "Liquid USDT verzenden en ontvangen"
+    "feature6": "Liquid USDT verzenden en ontvangen",
+    "team": {
+      "header": "Het team",
+      "adam": {
+        "name": "Adam Soltys",
+        "position": "Oprichter en CTO",
+        "bio": "Adam is een software-ingenieur die gelooft dat de adoptie van gezond geld de wereldwijde welvaart zal stimuleren. Hij woont in Noord Vancouver (Canada) met zijn vrouw, dochter en zoon."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Bedrijfsontwikkeling",
+        "bio": "Cole is een gedreven individu met een passie voor vrijheid, sinds 2015 geboeid door Bitcoin. Zijn missie is wereldwijde adoptie van Bitcoin en het Lightning Netwerk verspreid over diverse gemeenschappen."
+      }
+    },
+    "locations": {
+      "viewMap": "Kaart bekijken",
+      "header": "Locaties",
+      "description": "Meer dan 500 bedrijven wereldwijd accepteren Bitcoin met Coinos. We hopen dat de jouwe de volgende zal zijn!"
+    }
   },
   "error": {
     "header": "Fout",
@@ -109,7 +127,8 @@
     "nostr": "Nostr",
     "documentation": "Documentatie",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Volg ons"
   },
   "howItWorks": {
     "header": "Hoe het werkt",
@@ -373,7 +392,13 @@
       "yourUsername": "Uw gebruikersnaam is:",
       "yourPassword": "Uw wachtwoord is:",
       "welcome": "Welkom!",
-      "clickBelow": "Klik hieronder om het aanmaken van uw account af te ronden"
+      "clickBelow": "Klik hieronder om het aanmaken van uw account af te ronden",
+      "bolt12Offer": "Bliksemaanbieding (BOLT12)",
+      "bolt12OfferDescription": "Een herbruikbare betaalcode voor het ontvangen van bliksem betalingen en BOLT12 zaps. Voeg het toe aan de aanbiedingenlijst van uw nostr-cliënt om over BOLT12 te worden gezapt.",
+      "continueSettingUp": "Accountinstellingen",
+      "publishOffer": "Publiceren naar nostr",
+      "offerPublished": "Gepubliceerd!",
+      "offerPublishFailed": "Kon aanbod niet publiceren"
     },
     "support": {
       "header": "Ondersteuning",

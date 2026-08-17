@@ -11,7 +11,25 @@
     "feature3": "Taxas sub-sat para pagamentos Bitcoin on-chain",
     "feature4": "Aumentos de taxa via RBF, não CPFP (mais barato)",
     "feature5": "Pagamentos lightning de saída via nós CLN e LND para encontrar rotas otimais",
-    "feature6": "Enviar e receber Liquid USDT"
+    "feature6": "Enviar e receber Liquid USDT",
+    "team": {
+      "header": "O time",
+      "adam": {
+        "name": "Adam Soltys",
+        "position": "Responsável Técnico Principal",
+        "bio": "Adam é um desenvolvedor web e um entusiasta do bitcoin que acredita que o dinheiro sólido é a chave para aumentar a prosperidade global. Ele vive em North Vancouver com a sua esposa Chelsea e dois filhos."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Profissional Certificado de Bitcoin",
+        "bio": "Cole é um indivíduo motivado com uma paixão pela liberdade. Encontrou-se com o bitcoin em 2016 e estudou-o em profundidade. Agora quer introduzir a rede lightning ao maior número de utilizadores possível."
+      }
+    },
+    "locations": {
+      "header": "Locais",
+      "description": "Aqui estão algumas empresas que estão aceitando bitcoin com a Coinos. Esperamos que o seu seja o próximo!",
+      "viewMap": "Ver mapa"
+    }
   },
   "error": {
     "header": "Erro",
@@ -70,7 +88,8 @@
     "documentation": "Documentação",
     "nostr": "Nostr",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Siga-nos"
   },
   "howItWorks": {
     "header": "Como funciona",
@@ -331,7 +350,13 @@
       "yourUsername": "Seu nome de usuário é",
       "yourPassword": "e sua senha é",
       "welcome": "Bem-vindos!",
-      "clickBelow": "Clique abaixo para terminar de configurar sua conta"
+      "clickBelow": "Clique abaixo para terminar de configurar sua conta",
+      "bolt12Offer": "Oferta relâmpago (BOLT12)",
+      "bolt12OfferDescription": "Um código de pagamento reutilizável para receber pagamentos relâmpagos e BOLT12 zaps. Adicione-o à lista de ofertas do seu cliente nostr para ser zapped sobre BOLT12.",
+      "continueSettingUp": "Configuração da conta",
+      "publishOffer": "Publicar em nostr",
+      "offerPublished": "Publicado!",
+      "offerPublishFailed": "Falha ao publicar a oferta"
     },
     "support": {
       "header": "Suporte",

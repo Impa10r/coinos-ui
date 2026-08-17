@@ -101,9 +101,11 @@
 
 <div class="container mx-auto max-w-lg px-4 space-y-8 break-all text-2xl">
   <h1 class="px-3 md:px-0 text-center text-3xl md:text-4xl font-semibold mb-10">
-    {(type === "bitcoin" || type === "liquid" || type === "usdt") && !confirmed
-      ? $t("payments.pending")
-      : $t(amount < 0 ? "payments.sent" : "payments.received")}
+    {#if !confirmed && ((type === "bitcoin" || type === "liquid" || type === "usdt") || (amount < 0 && (type === types.lightning || type === types.bolt12)))}
+      {$t("payments.pending")}
+    {:else}
+      {$t(amount < 0 ? "payments.sent" : "payments.received")}
+    {/if}
   </h1>
 
   {#if p.with}
@@ -226,7 +228,13 @@
 
     <div>
       <span class="text-lg text-secondary">{$t("payments.preimage")}</span>
-      <div>{ref}</div>
+      <div>
+        {#if ref}
+          {ref}
+        {:else}
+          <span class="text-secondary">{$t("payments.pending")}</span>
+        {/if}
+      </div>
     </div>
   {/if}
 

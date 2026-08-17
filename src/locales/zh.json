@@ -11,7 +11,25 @@
     "feature3": "比特币链上支付的亚聪费率",
     "feature4": "通过 RBF 而非 CPFP 提升费率（更便宜）",
     "feature5": "通过 CLN 和 LND 节点进行出站闪电支付，实现最优路由查找",
-    "feature6": "发送和接收 Liquid USDT"
+    "feature6": "发送和接收 Liquid USDT",
+    "team": {
+      "header": "团队",
+      "adam": {
+        "name": "亚当·索尔蒂斯",
+        "position": "创始人兼首席技术官",
+        "bio": "亚当是一名软件工程师，他相信人们使用稳健的虚拟货币将推动全球繁荣。他与妻子、女儿和儿子住在北温哥华。"
+      },
+      "cole": {
+        "name": "科尔",
+        "position": "商务拓展",
+        "bio": "科尔是一个充满动力、热爱自由的人。他在2016年接触到了比特币并对其进行了深入研究，现在他想把比特币闪电网络介绍给尽可能多的用户。"
+      }
+    },
+    "locations": {
+      "header": "地点",
+      "description": "以下是一些接受 Coinos 比特币支付平台的企业，希望您的公司可以加入我们！",
+      "viewMap": "查看地图"
+    }
   },
   "error": {
     "header": "错误",
@@ -54,7 +72,8 @@
     "documentation": "文档",
     "nostr": "Nostr",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "关注我们"
   },
   "howItWorks": {
     "header": "如何操作",
@@ -312,7 +331,13 @@
       "yourUsername": "您的用户名是",
       "yourPassword": "而您的密码是",
       "welcome": "欢迎光临!",
-      "clickBelow": "点击下面完成您的账户设置"
+      "clickBelow": "点击下面完成您的账户设置",
+      "bolt12Offer": "闪电报价(BOLT12)",
+      "bolt12OfferDescription": "用于接收闪电支付和BOLT12 zaps的可再用支付代码. 把它添加到你的鼻孔客户端的要约列表里 以获得被ZALT12.",
+      "continueSettingUp": "账户设置",
+      "publishOffer": "发布到节点",
+      "offerPublished": "发表!",
+      "offerPublishFailed": "发布要约失败"
     },
     "support": {
       "header": "支持",

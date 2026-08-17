@@ -66,7 +66,25 @@
     "feature3": "Tariffe sub-sat per i pagamenti Bitcoin on-chain",
     "feature4": "Aumenti di tariffa tramite RBF, non CPFP (più economico)",
     "feature5": "Pagamenti lightning in uscita tramite nodi CLN e LND per trovare percorsi ottimali",
-    "feature6": "Invia e ricevi Liquid USDT"
+    "feature6": "Invia e ricevi Liquid USDT",
+    "team": {
+      "header": "La squadra",
+      "adam": {
+        "name": "Adam Soltys",
+        "position": "Fondatore e CTO",
+        "bio": "Adam è un ingegnere informatico che crede che l'adozione di una moneta solida possa portare alla prosperità globale. Vive a North Vancouver con la moglie, la figlia e il figlio."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Sviluppo Aziendale",
+        "bio": "Cole è una persona guidata dalla passione per la libertà, affascinato dal Bitcoin dal 2015. La sua missione è diffondere l'adozione di Bitcoin e della Lightning Network in diverse comunità a livello globale."
+      }
+    },
+    "locations": {
+      "viewMap": "Visualizza mappa",
+      "header": "Località",
+      "description": "Oltre 500 aziende in tutto il mondo accettano bitcoin con Coinos. Ci auguriamo che la vostra sia la prossima!"
+    }
   },
   "error": {
     "header": "Errore",
@@ -109,7 +127,8 @@
     "nostr": "Nostr",
     "documentation": "Documentazione",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Seguici"
   },
   "howItWorks": {
     "header": "Come funziona",
@@ -373,7 +392,13 @@
       "yourUsername": "Il tuo nome utente è",
       "yourPassword": "e la tua password è",
       "welcome": "Benvenuto!",
-      "clickBelow": "Clicca qui sotto per completare l'impostazione del tuo account"
+      "clickBelow": "Clicca qui sotto per completare l'impostazione del tuo account",
+      "bolt12Offer": "Offerta fulmine (BOLT12)",
+      "bolt12OfferDescription": "Un codice di pagamento riutilizzabile per ricevere pagamenti fulmini e zaps BOLT12. Aggiungilo alla lista di offerta del tuo cliente nostr per ottenere zapped oltre BOLT12.",
+      "continueSettingUp": "Configurazione account",
+      "publishOffer": "Pubblica a nostr",
+      "offerPublished": "Pubblicato!",
+      "offerPublishFailed": "Non pubblicare l'offerta"
     },
     "support": {
       "header": "Supporto",

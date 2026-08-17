@@ -66,7 +66,25 @@
     "feature3": "Stawki prowizji sub-sat dla płatności Bitcoin on-chain",
     "feature4": "Podwyżki stawek przez RBF, nie CPFP (taniej)",
     "feature5": "Wychodzące płatności lightning przez węzły CLN i LND dla optymalnego znajdowania tras",
-    "feature6": "Wysyłaj i odbieraj Liquid USDT"
+    "feature6": "Wysyłaj i odbieraj Liquid USDT",
+    "team": {
+      "header": "Drużyna",
+      "adam": {
+        "name": "Przewodniczący",
+        "position": "Założyciel i CTO",
+        "bio": "Adam jest inżynierem oprogramowania, który wierzy, że przyjęcie dźwiękowych pieniędzy będzie napędzać globalny dobrobyt. Mieszka w North Vancouver z żoną, córką i synem."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Rozwój biznesu",
+        "bio": "Cole jest napędzanym indywidualistą z pasją do wolności, oczarowany przez Bitcoin od 2015 roku. Jego misją jest rozprzestrzenianie adopcji Bitcoin i Lightning Network w różnych społecznościach na całym świecie."
+      }
+    },
+    "locations": {
+      "viewMap": "Zobacz mapę",
+      "header": "Lokalizacja",
+      "description": "Ponad 500 firm na całym świecie akceptuje bitcoin z Coinos. Mamy nadzieję, że twój będzie następny!"
+    }
   },
   "error": {
     "header": "Błąd",
@@ -109,7 +127,8 @@
     "nostr": "Nostr Przewodniczący",
     "documentation": "Dokumentacja",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Idźcie za nami"
   },
   "howItWorks": {
     "header": "Jak to działa",
@@ -373,7 +392,13 @@
       "yourUsername": "Twoja nazwa użytkownika jest",
       "yourPassword": "twoje hasło jest",
       "welcome": "Witamy!",
-      "clickBelow": "Kliknij poniżej, aby skonfigurować konto"
+      "clickBelow": "Kliknij poniżej, aby skonfigurować konto",
+      "bolt12Offer": "Oferta błyskawicy (BOLT12)",
+      "bolt12OfferDescription": "Kod płatności wielokrotnego użytku do otrzymywania płatności błyskawicznych i BOLT12 zaps. Dodaj go do listy ofert klienta nostr, aby dostać zapped nad BOLT12.",
+      "continueSettingUp": "Konfiguracja konta",
+      "publishOffer": "Publikuj do nostr",
+      "offerPublished": "Opublikowane!",
+      "offerPublishFailed": "Nie udało się opublikować oferty"
     },
     "support": {
       "header": "Wsparcie",

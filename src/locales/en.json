@@ -79,7 +79,25 @@
     "feature3": "Sub-sat fee rates for Bitcoin on-chain payments",
     "feature4": "Fee rate bumps via RBF, not CPFP (cheaper)",
     "feature5": "Outbound lightning payments via both CLN and LND nodes for optimal route finding",
-    "feature6": "Send and receive Liquid USDT"
+    "feature6": "Send and receive Liquid USDT",
+    "team": {
+      "header": "The Team",
+      "adam": {
+        "name": "Adam Soltys",
+        "position": "Founder and CTO",
+        "bio": "Adam is a software engineer who believes that the adoption of sound money will drive global prosperity. He lives in North Vancouver with his wife, daughter, and son."
+      },
+      "cole": {
+        "name": "Cole",
+        "position": "Business Development",
+        "bio": "Cole is a driven individual with a passion for freedom, captivated by Bitcoin since 2015. His mission is to spread the adoption of Bitcoin and the Lightning Network across diverse communities globally."
+      }
+    },
+    "locations": {
+      "viewMap": "View map",
+      "header": "Locations",
+      "description": "Over 500 businesses worldwide are accepting bitcoin with Coinos. We hope that yours will be next!"
+    }
   },
   "error": {
     "header": "Error",
@@ -118,7 +136,8 @@
     "nostr": "Nostr",
     "documentation": "Documentation",
     "onion": "Tor",
-    "fips": "FIPS"
+    "fips": "FIPS",
+    "followUs": "Follow Us"
   },
   "howItWorks": {
     "header": "How it works",
@@ -384,7 +403,12 @@
       "disablePIN": "Disable PIN",
       "publishNip5": "Publish nostr identity",
       "nip5a": "Use",
-      "nip5b": "as your publicly verified nostr address"
+      "nip5b": "as your publicly verified nostr address",
+      "bolt12Offer": "Lightning offer (BOLT12)",
+      "bolt12OfferDescription": "A reusable payment code for receiving lightning payments and BOLT12 zaps. Add it to your nostr client's offer list to get zapped over BOLT12.",
+      "publishOffer": "Publish to nostr",
+      "offerPublished": "Published!",
+      "offerPublishFailed": "Failed to publish offer"
     },
     "support": {
       "fillForm": "Fill out this form or email us directly at",

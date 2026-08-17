@@ -47,13 +47,17 @@
     </div>
   {:else}
     <p>
-      This sends your balance to your new wallet and points
+      This sends your balance to <strong>{to}</strong> and points
       <strong>{user.username}@coinos.io</strong> at it, so payments to your address
       arrive there from now on. This account stays exactly as it is — same name, same
       history — you just receive on coinos v3.
     </p>
 
-    <div class="rounded-xl border p-3">
+    <div class="rounded-xl border p-3 space-y-2">
+      <div class="flex justify-between gap-4">
+        <span>Sending to</span><strong class="break-all text-right">{to}</strong
+        >
+      </div>
       <div class="flex justify-between">
         <span>Balance</span><strong>{balance.toLocaleString()} sats</strong>
       </div>

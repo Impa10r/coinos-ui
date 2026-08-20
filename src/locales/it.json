@@ -56,7 +56,8 @@
     "edit": "Modifica",
     "payments": "Pagamenti",
     "connect": "Collegamento",
-    "copyNwc": "Copiare NWC"
+    "copyNwc": "Copiare NWC",
+    "nwcShownOnce": "Questa stringa di connessione viene mostrata una sola volta. Copiala ora — non potrà essere recuperata di nuovo."
   },
   "about": {
     "header": "Informazioni",

@@ -56,7 +56,8 @@
     "edit": "Edycja",
     "payments": "Płatności",
     "connect": "Połącz",
-    "copyNwc": "Kopiuj NWC"
+    "copyNwc": "Kopiuj NWC",
+    "nwcShownOnce": "Ten ciąg połączenia jest wyświetlany tylko raz. Skopiuj go teraz — nie będzie można go ponownie odzyskać."
   },
   "about": {
     "header": "O nas",

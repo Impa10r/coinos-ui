@@ -26,6 +26,7 @@
     notify,
   } = $props();
   let { currency } = $derived(user);
+  let isNew = !pubkey;
 
   onMount(() => {
     if (!pubkey) secret || generate();
@@ -54,6 +55,17 @@
       let type = "nwc:success";
       let msg = { relayUrl, lud16, walletPubkey, type };
       if (browser && window.opener) window.opener.postMessage(msg, "*");
+
+      // The server never stores this secret, so this is the only chance to
+      // show the connection URI — carry it to the list page via the hash
+      // (never sent to the server) rather than losing it on redirect.
+      if (isNew && secret) {
+        let nwc = `nostr+walletconnect://${walletPubkey}?relay=${encodeURIComponent(relayUrl)}&secret=${secret}&lud16=${encodeURIComponent(lud16)}`;
+        goto(
+          `${result.location}#nwc=${encodeURIComponent(nwc)}&pubkey=${pubkey}`,
+        );
+        return;
+      }
     }
 
     applyAction(result);

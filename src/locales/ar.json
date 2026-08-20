@@ -56,7 +56,8 @@
     "edit": "Edit",
     "payments": "المدفوعات",
     "connect": "Connect",
-    "copyNwc": "نسخة NWC"
+    "copyNwc": "نسخة NWC",
+    "nwcShownOnce": "يتم عرض سلسلة الاتصال هذه مرة واحدة فقط. انسخها الآن — لا يمكن استرجاعها لاحقًا."
   },
   "about": {
     "header": "حول",

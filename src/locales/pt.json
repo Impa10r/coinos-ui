@@ -581,7 +581,8 @@
     "edit": "Editar",
     "payments": "Pagamentos",
     "connect": "Conecte-se",
-    "copyNwc": "Copiar NWC"
+    "copyNwc": "Copiar NWC",
+    "nwcShownOnce": "Esta string de conexão só é exibida uma vez. Copie-a agora — ela não poderá ser recuperada novamente."
   },
   "notes": {
     "contents": "Conteúdo de nota",

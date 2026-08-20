@@ -586,7 +586,8 @@
     "edit": "Bearbeiten",
     "payments": "Zahlungen",
     "connect": "Verbinden",
-    "copyNwc": "NWC kopieren"
+    "copyNwc": "NWC kopieren",
+    "nwcShownOnce": "Diese Verbindungszeichenfolge wird nur einmal angezeigt. Kopieren Sie sie jetzt — sie kann später nicht mehr abgerufen werden."
   },
   "notes": {
     "contents": "Inhalt",

@@ -54,6 +54,7 @@
     "save": "Save",
     "copy": "Copy",
     "copyNwc": "Copy NWC",
+    "nwcShownOnce": "This connection string is only shown once. Copy it now — it can't be retrieved again.",
     "revealMnemonic": "Reveal seed phrase",
     "regenerate": "Regenerate",
     "deleteAccount": "Delete account",

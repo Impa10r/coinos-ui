@@ -56,7 +56,8 @@
     "edit": "Bewerken",
     "payments": "Betalingen",
     "connect": "Verbinden",
-    "copyNwc": "NWC kopiëren"
+    "copyNwc": "NWC kopiëren",
+    "nwcShownOnce": "Deze verbindingsreeks wordt maar één keer getoond. Kopieer hem nu — hij kan niet opnieuw worden opgehaald."
   },
   "about": {
     "header": "Over",

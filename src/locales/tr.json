@@ -56,7 +56,8 @@
     "edit": "Edit",
     "payments": "Ödemeler",
     "connect": "Connect",
-    "copyNwc": "Kopya NWC"
+    "copyNwc": "Kopya NWC",
+    "nwcShownOnce": "Bu bağlantı dizesi yalnızca bir kez gösterilir. Şimdi kopyalayın — daha sonra tekrar alınamaz."
   },
   "about": {
     "header": "Hakkında",

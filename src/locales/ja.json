@@ -559,7 +559,8 @@
     "edit": "編集",
     "payments": "お支払い",
     "connect": "ログイン",
-    "copyNwc": "コピー NWC"
+    "copyNwc": "コピー NWC",
+    "nwcShownOnce": "この接続文字列は一度しか表示されません。今すぐコピーしてください。二度と取得できません。"
   },
   "notes": {
     "contents": "コンテンツ",

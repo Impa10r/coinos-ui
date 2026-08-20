@@ -559,7 +559,8 @@
     "edit": "编辑",
     "payments": "付款",
     "connect": "连接",
-    "copyNwc": "复制 NWC"
+    "copyNwc": "复制 NWC",
+    "nwcShownOnce": "此连接字符串仅显示一次，请立即复制——之后将无法再次获取。"
   },
   "notes": {
     "contents": "说明内容",

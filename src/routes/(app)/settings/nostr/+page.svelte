@@ -1,5 +1,5 @@
 <script>
-  import { untrack } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { browser } from "$app/environment";
   import { getNsec, send, sign } from "$lib/nostr";
   import { tick } from "svelte";
@@ -17,8 +17,18 @@
 
   let nsec = $state(),
     revealNsec = $state(),
-    revealNwc = $state(),
-    nwc = $state("");
+    revealedNwc = $state(""),
+    revealedPubkey = $state("");
+
+  onMount(() => {
+    if (!browser) return;
+    let hash = new URLSearchParams(window.location.hash.slice(1));
+    let revealed = hash.get("nwc");
+    if (revealed) {
+      revealedNwc = revealed;
+      revealedPubkey = hash.get("pubkey") || "";
+    }
+  });
 
   let toggleNsec = async () => {
     try {
@@ -80,6 +90,7 @@
   <div class="space-y-2">
     {#each apps as app, i}
       {@const last = i === apps.length - 1}
+      {@const revealed = app.pubkey === revealedPubkey}
       <div class:border-b-8={!last} class="pb-4">
         <div class="flex justify-center gap-2 p-4">
           <div class="grow text-xl break-words min-w-0">
@@ -116,47 +127,56 @@
           <a
             href={`/apps/${app.pubkey}/payments`}
             aria-label={$t("accounts.payments")}
-            class:btn-disabled={!app.secret}
             title={$t("accounts.payments")}
           >
             <iconify-icon icon="ph:clock-bold" width="32"></iconify-icon>
           </a>
 
-          <a
-            aria-label="QR"
-            href={`/qr/${encodeURIComponent(app.nwc)}`}
-            class:btn-disabled={!app.secret}
-            title={$t("user.receive.showQR")}
-          >
-            <iconify-icon icon="ph:qr-code-bold" width="32"></iconify-icon>
-          </a>
+          {#if revealed}
+            <a
+              aria-label="QR"
+              href={`/qr/${encodeURIComponent(revealedNwc)}`}
+              title={$t("user.receive.showQR")}
+            >
+              <iconify-icon icon="ph:qr-code-bold" width="32"></iconify-icon>
+            </a>
+          {/if}
         </div>
 
         <div class="flex gap-1 w-full"></div>
 
-        <div class="flex flex-wrap justify-center gap-1">
-          <button
-            aria-label="Copy"
-            type="button"
-            onclick={() => copy(app.nwc)}
-            class="btn !w-auto grow"
-            class:btn-disabled={!app.secret}
-            title={$t("accounts.copy")}
-          >
-            <iconify-icon icon="ph:copy-bold" width="32"></iconify-icon>
-            <div>{$t("accounts.copyNwc")}</div>
-          </button>
-          <a
-            href={app.nwc}
-            class="btn bg-gradient-to-tr from-purple-500 to-pink-500 !w-auto text-white grow whitespace-nowrap"
-            class:btn-disabled={!app.secret}
-            aria-label="Open nostr"
-          >
-            <iconify-icon icon="ph:arrow-square-out-bold" width="32"
-            ></iconify-icon>
-            <div>{$t("accounts.connect")}</div>
-          </a>
-        </div>
+        {#if revealed}
+          <div class="flex flex-wrap justify-center gap-1">
+            <button
+              aria-label="Copy"
+              type="button"
+              onclick={() => copy(revealedNwc)}
+              class="btn !w-auto grow"
+              title={$t("accounts.copy")}
+            >
+              <iconify-icon icon="ph:copy-bold" width="32"></iconify-icon>
+              <div>{$t("accounts.copyNwc")}</div>
+            </button>
+            <a
+              href={revealedNwc}
+              class="btn bg-gradient-to-tr from-purple-500 to-pink-500 !w-auto text-white grow whitespace-nowrap"
+              aria-label="Open nostr"
+            >
+              <iconify-icon icon="ph:arrow-square-out-bold" width="32"
+              ></iconify-icon>
+              <div>{$t("accounts.connect")}</div>
+            </a>
+          </div>
+        {/if}
+
+        {#if revealed}
+          <div class="space-y-2 mt-4 p-2 border-2 border-accent rounded">
+            <p class="text-warning font-bold">
+              {$t("accounts.nwcShownOnce")}
+            </p>
+            <div class="break-all grow">{revealedNwc}</div>
+          </div>
+        {/if}
       </div>
     {/each}
 
@@ -211,22 +231,6 @@
           : $t("user.settings.publishOffer")}</button
       >
     </div>
-  </div>
-{/if}
-
-{#if revealNwc}
-  <div class="break-all grow">
-    {nwc}
-  </div>
-  <div class="flex flex-wrap gap-2">
-    <button onclick={() => copy(nwc)} type="button" class="btn grow">
-      <iconify-icon noobserver icon="ph:copy-bold" width="32"></iconify-icon>
-      <div class="my-auto">{$t("accounts.copy")}</div></button
-    >
-    <a href={`/qr/${encodeURIComponent(nwc)}`} class="btn grow">
-      <iconify-icon noobserver icon="ph:qr-code-bold" width="32"></iconify-icon>
-      <div class="my-auto">{$t("user.receive.showQR")}</div>
-    </a>
   </div>
 {/if}
 

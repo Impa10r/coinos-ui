@@ -559,7 +559,8 @@
     "edit": "Modifier",
     "payments": "Paiements",
     "connect": "Connexion",
-    "copyNwc": "Copier NWC"
+    "copyNwc": "Copier NWC",
+    "nwcShownOnce": "Cette chaîne de connexion ne s'affiche qu'une seule fois. Copiez-la maintenant — elle ne pourra plus être récupérée."
   },
   "notes": {
     "contents": "Table des matières",

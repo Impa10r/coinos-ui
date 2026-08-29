@@ -144,11 +144,12 @@
   <div class="text-xl">{t("payments.other")}</div>
   <div class="flex flex-wrap gap-2">
     <button
-      class="btn flex-nowrap !w-auto grow"
+      class="btn flex-nowrap !w-auto grow opacity-50 cursor-not-allowed"
       class:bg-base-300={type === types.ecash}
       class:text-secondary={type === types.ecash}
       class:hidden={activeOnly && type !== types.ecash}
-      onclick={() => (activeOnly ? toggleType() : setType(types.ecash))}
+      disabled
+      title="Ecash receiving is temporarily unavailable"
     >
       <img src="/images/cash.png" class="w-8 my-auto" alt="Ecash" />
       <div class="my-auto text-lg">Ecash</div>

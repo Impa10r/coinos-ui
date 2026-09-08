@@ -293,13 +293,19 @@
         {$t("payments.next")}
       </button>
     {:else}
+      <!-- `!a` in the disabled check matters: every other guard here is
+           deliberately inert at zero — totalSatsCost returns 0, and both
+           exceeds*Hot require a > 0 — so with no amount entered nothing was
+           disabled and this submitted /send/bitcoin/<address>/0, which fires a
+           /fee quote for 0 sats that can only come back as an error. The USDT
+           button above already refuses, via nextUsdt's `if (!a || a <= 0)`. -->
       <form action={`/send/bitcoin/${address}/${amount}`} class="contents">
         <button
           use:focus
           bind:this={submit}
           type="submit"
           class="btn !w-auto grow btn-accent"
-          disabled={exceedsSats || exceedsBtcHot || exceedsLbtcHot}
+          disabled={!a || exceedsSats || exceedsBtcHot || exceedsLbtcHot}
         >
           {$t("payments.next")}
         </button>

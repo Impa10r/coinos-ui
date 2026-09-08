@@ -112,7 +112,18 @@
 
   {#if form?.message || message}
     <div class="mb-5">
-      <div class="text-red-600">{form?.message || message}</div>
+      <div class="text-red-600">
+        {#if (form?.message || message).includes("hot wallet")}
+          <!-- The server can't fund the transaction from the hot wallet. Its
+               raw message is bitcoind's "Insufficient funds", which reads as
+               if the user's own balance were short — it isn't, and there is
+               nothing they can do about it. Show the translated text the
+               amount-entry screen already uses for the same condition. -->
+          {$t("payments.exceedsHotWallet")}
+        {:else}
+          {form?.message || message}
+        {/if}
+      </div>
     </div>
   {:else}
     <div class="text-xl text-secondary break-all">{address}</div>

@@ -141,6 +141,12 @@
     </button>
   </div>
 
+  <!-- "Other" (Ecash + Liquid) hidden from the receive picker. Ecash was
+       already disabled (no mint in prod); Liquid is hidden alongside it.
+
+       This only removes the UI entry point — the server still issues liquid
+       addresses and still credits L-BTC and USDT deposits, and any address
+       already handed out keeps working. Restore by uncommenting.
   <div class="text-xl">{t("payments.other")}</div>
   <div class="flex flex-wrap gap-2">
     <button
@@ -168,6 +174,7 @@
       <div class="my-auto text-lg">Liquid</div>
     </button>
   </div>
+  -->
 
   <div></div>
   <button type="button" class="btn" onclick={toggleType}>

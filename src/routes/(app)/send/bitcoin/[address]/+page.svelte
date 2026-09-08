@@ -262,11 +262,17 @@
 
   <div class="flex justify-center gap-2">
     {#if !useUsdt}
+      <!-- Label the figure only for liquid, where it's exact (flat network fee
+           + 0.1%). For bitcoin it isn't knowable here — the miner fee depends
+           on the transaction the server builds — and setMax hands over the
+           whole balance for the server to reduce, so printing a number would
+           advertise more than the next screen quotes, by the miner fee plus
+           0.4%. -->
       <button
         type="button"
         class="btn !w-auto grow"
         onclick={setMax}
-        onkeydown={setMax}>Max ⚡️{s(maxSendable)}</button
+        onkeydown={setMax}>Max{liquid ? ` ⚡️${s(maxSendable)}` : ""}</button
       >
     {/if}
 

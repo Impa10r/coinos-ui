@@ -181,6 +181,12 @@
   let setMax = async (e) => {
     e.preventDefault();
     fiat = false;
+    // Set `a`, not just `amount`. `a` is the Numpad-bound value that every
+    // guard reads (including the submit button's `!a`, which otherwise stays
+    // disabled and makes the click below a no-op); `amount` only feeds the
+    // form action and tracks `a` one-way via the $effect above. Assign both so
+    // this doesn't depend on that effect having flushed by the time we submit.
+    a = maxSendable;
     amount = maxSendable;
     await tick();
     submit.click();

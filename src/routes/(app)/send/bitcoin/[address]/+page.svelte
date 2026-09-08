@@ -122,8 +122,21 @@
   });
 
   const LIQUID_NETWORK_FEE = 50; // sats estimate for Liquid tx fee
+  const LIQUID_FEE_RATE = 1.001; // coinos liquid fee, 0.1%
 
   // Total sats the user's account will be debited (amount + network fee + platform fee)
+  //
+  // Liquid is predictable — a flat network fee and 0.1% — so it can be priced
+  // here. Bitcoin cannot: the miner fee depends on the transaction the server
+  // builds at the current feerate, and coinos takes 0.4%, not 0.1%. This page
+  // serves both (see `liquid` above, already used for exceedsBtcHot vs
+  // exceedsLbtcHot) but priced everything as liquid, understating a bitcoin
+  // send by the entire miner fee plus 0.3%.
+  //
+  // So for bitcoin the only thing knowable here is that you can't send more
+  // than you hold; the server subtracts the real fee itself when the amount
+  // won't fit (build()'s full-withdrawal path), and the confirmation screen
+  // already shows the reduced figure.
   let totalSatsCost = $derived.by(() => {
     if (!a) return 0;
     if (useUsdt && liveUsdtRate > 0) {
@@ -132,7 +145,8 @@
       );
       return btcSats;
     }
-    return Math.round(a * 1.001) + LIQUID_NETWORK_FEE; // a + liquid platform fee + network fee
+    if (!liquid) return a;
+    return Math.round(a * LIQUID_FEE_RATE) + LIQUID_NETWORK_FEE; // a + liquid platform fee + network fee
   });
 
   let exceedsSats = $derived(totalSatsCost > 0 && totalSatsCost > balance);
@@ -149,10 +163,19 @@
     !exceedsSats && !exceedsUsdt && !exceedsBtcHot && !exceedsLbtcHot,
   );
 
+  // For bitcoin, hand the server the whole balance and let it reduce the
+  // amount to whatever actually fits: build() already switches to a full
+  // withdrawal when amount + fee + ourfee exceeds the balance, subtracting the
+  // real miner fee from the output. Reserving a guess here is what produced an
+  // unsendable Max — a 21,000 balance gave 20,929, which then failed the
+  // ledger check because the true cost is the miner fee plus 0.4%, not 50 sats
+  // plus 0.1%.
   let maxSendable = $derived(
-    balance > LIQUID_NETWORK_FEE
-      ? Math.floor((balance - LIQUID_NETWORK_FEE) / 1.001)
-      : 0,
+    liquid
+      ? balance > LIQUID_NETWORK_FEE
+        ? Math.floor((balance - LIQUID_NETWORK_FEE) / LIQUID_FEE_RATE)
+        : 0
+      : balance,
   );
 
   let setMax = async (e) => {

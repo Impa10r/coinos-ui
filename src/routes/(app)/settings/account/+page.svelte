@@ -96,7 +96,12 @@
   });
 
   $effect(() => {
-    if (email !== user.email) verified = false;
+    // Follow user.verified rather than latching to false. Editing the field
+    // away from the saved address should drop the tick, but putting the saved
+    // address back — or re-adding one this account already confirmed, which
+    // the server restores without a link — has to bring it back, otherwise
+    // the account reads as unverified until a reload.
+    verified = email === user.email ? user.verified : false;
     // No address means nowhere to send mail — the server forces notify off in
     // this case, so reflect that here instead of leaving the toggle stuck on.
     if (!email) user.notify = false;

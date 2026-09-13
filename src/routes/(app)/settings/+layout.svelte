@@ -144,11 +144,20 @@
             return this.find((c) => c.name === n)?.value;
           };
 
-          user.verified = false;
+          // The server answers `verified: true` when this account has already
+          // confirmed this address — re-adding one you removed earlier is a
+          // restore, and no link is sent. Telling the user to check their
+          // email in that case points them at a message that will never
+          // arrive. Only assume unverified when a link is actually on its way.
+          const res = await post("/email", { email });
 
-          await post("/email", { email });
-
-          warning($t("user.settings.verifying"), false);
+          if (res?.verified) {
+            user.verified = true;
+            success($t("user.settings.verified"));
+          } else {
+            user.verified = false;
+            warning($t("user.settings.verifying"), false);
+          }
         } catch (e) {
           fail(e instanceof Error ? e.message : String(e));
           console.log(e);

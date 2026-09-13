@@ -10,7 +10,7 @@
   import { upload } from "$lib/upload";
   import { page } from "$app/stores";
   import { sign, send } from "$lib/nostr";
-  import { invalidateAll } from "$app/navigation";
+  import { invalidateAll, replaceState } from "$app/navigation";
 
   let { children, data } = $props();
   let form = $state(/** @type {any} */ (undefined));
@@ -183,8 +183,14 @@
     }
   });
   $effect(() => {
-    if (!$loading && $page.url?.searchParams.get("verified"))
+    if (!$loading && $page.url?.searchParams.get("verified")) {
       success($t("user.settings.verified"));
+      // Drop the flag so it doesn't fire again on every subsequent save —
+      // invalidateAll() updates $page, which would otherwise re-run this.
+      const url = new URL($page.url);
+      url.searchParams.delete("verified");
+      replaceState(url, {});
+    }
   });
 </script>
 

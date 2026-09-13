@@ -97,6 +97,9 @@
 
   $effect(() => {
     if (email !== user.email) verified = false;
+    // No address means nowhere to send mail — the server forces notify off in
+    // this case, so reflect that here instead of leaving the toggle stuck on.
+    if (!email) user.notify = false;
   });
 
   let revoke = () => {};

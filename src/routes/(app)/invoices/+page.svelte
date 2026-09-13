@@ -39,7 +39,15 @@
       class="flex gap-3 border-b border-base-200 hover:bg-base-200 px-2 py-3 cursor-pointer select-none"
       class:items-center={!open[idx]}
       class:items-start={open[idx]}
+      role="button"
+      tabindex="0"
       onclick={() => toggle(idx)}
+      onkeydown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle(idx);
+        }
+      }}
     >
       <div class="w-24 sm:w-28 shrink-0 flex items-center gap-2 min-w-0">
         {#if i.type === types.lightning || i.type === types.bolt12}

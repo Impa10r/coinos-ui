@@ -113,7 +113,7 @@
   {#if form?.message || message}
     <div class="mb-5">
       <div class="text-red-600">
-        {#if (form?.message || message).includes("hot wallet")}
+        {#if (form?.message || message || "").includes("hot wallet")}
           <!-- The server can't fund the transaction from the hot wallet. Its
                raw message is bitcoind's "Insufficient funds", which reads as
                if the user's own balance were short — it isn't, and there is

@@ -4,7 +4,7 @@
   import { page } from "$app/stores";
   import AmountField from "$comp/AmountField.svelte";
   import { getPublicKey } from "nostr-tools";
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { bytesToHex, randomBytes } from "@noble/hashes/utils.js";
   import { goto } from "$app/navigation";
   import { copy, focus, fail, post } from "$lib/utils";
@@ -26,7 +26,9 @@
     notify,
   } = $props();
   let { currency } = $derived(user);
-  let isNew = !pubkey;
+  // Whether this connection was new when the form opened — generate() fills in
+  // pubkey afterwards, so capture the initial value deliberately.
+  let isNew = untrack(() => !pubkey);
 
   onMount(() => {
     if (!pubkey) secret || generate();

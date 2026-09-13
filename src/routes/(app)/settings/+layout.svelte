@@ -10,7 +10,8 @@
   import { upload } from "$lib/upload";
   import { page } from "$app/stores";
   import { sign, send } from "$lib/nostr";
-  import { invalidateAll, replaceState } from "$app/navigation";
+  import { invalidateAll } from "$app/navigation";
+  import { browser } from "$app/environment";
 
   let { children, data } = $props();
   let form = $state(/** @type {any} */ (undefined));
@@ -182,14 +183,21 @@
       $pin = "";
     }
   });
+  let verifiedShown = false;
   $effect(() => {
-    if (!$loading && $page.url?.searchParams.get("verified")) {
-      success($t("user.settings.verified"));
-      // Drop the flag so it doesn't fire again on every subsequent save —
-      // invalidateAll() updates $page, which would otherwise re-run this.
-      const url = new URL($page.url);
+    if (verifiedShown || $loading || !$page.url?.searchParams.get("verified"))
+      return;
+    verifiedShown = true;
+    success($t("user.settings.verified"));
+    // Strip the flag so it can't re-fire on later saves (invalidateAll updates
+    // $page). Use the native History API rather than SvelteKit's replaceState:
+    // arriving here straight from the verify email link is a fresh page load
+    // where the client router isn't initialized yet, and replaceState() throws
+    // in that state — which swallowed the toast entirely.
+    if (browser) {
+      const url = new URL(window.location.href);
       url.searchParams.delete("verified");
-      replaceState(url, {});
+      history.replaceState(history.state, "", url);
     }
   });
 </script>

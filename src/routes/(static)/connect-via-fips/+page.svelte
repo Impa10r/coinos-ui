@@ -32,7 +32,7 @@
     <div class="space-y-3">
       <h2 class="text-xl font-bold">{$t("fips.step2.title")}</h2>
       <p class="text-secondary">{$t("fips.step2.description")}</p>
-      <a href="/fips-ca.pem" download="coinos-fips-ca.pem">
+      <a href="/fips-ca.pem" download="fips-ca.pem">
         <button class="btn">{$t("fips.step2.download")}</button>
       </a>
       <div class="space-y-4 mt-4">
@@ -47,7 +47,7 @@
         <div class="space-y-1">
           <p class="font-semibold">{$t("fips.step2.linux")}</p>
           <pre
-            class="bg-base-200 rounded-xl p-4 text-sm overflow-x-auto">sudo cp coinos-fips-ca.pem /usr/local/share/ca-certificates/coinos-fips.crt
+            class="bg-base-200 rounded-xl p-4 text-sm overflow-x-auto">sudo cp fips-ca.pem /usr/local/share/ca-certificates/coinos-fips.crt
 sudo update-ca-certificates</pre>
         </div>
       </div>

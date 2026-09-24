@@ -18,7 +18,7 @@ export async function load({ cookies, request, params: _params, parent }) {
   if (currency && !rate) error(500, "Invalid currency symbol");
 
   if (!amount) {
-    const balance = await get(`/fund/${id}`);
+    const balance = await get(`/fund/${id}`, auth(cookies));
     amount = balance.authorization || balance.amount;
   } else if (currency) {
     amount = Math.round((parseFloat(amount) * sats) / rate);

@@ -3,7 +3,7 @@ import { auth, get } from "$lib/utils";
 
 export const load = async ({ cookies, depends, params: { id }, parent }) => {
   depends("app:payments");
-  const data = await get(`/fund/${id}`);
+  const data = await get(`/fund/${id}`, auth(cookies));
   data.managers = await get(`/fund/${id}/managers`, auth(cookies));
   const rates = await getRates();
   const { user } = await parent();

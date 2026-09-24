@@ -127,7 +127,7 @@ export default async (s, host, cookies) => {
   if (t.includes("/fund")) redirect(307, t.substring(t.indexOf("/fund")));
 
   try {
-    fund = await get(`/fund/${t}`);
+    fund = await get(`/fund/${t}`, auth(cookies));
   } catch (e) {}
 
   if (fund) redirect(307, `/send/fund/${t}`);

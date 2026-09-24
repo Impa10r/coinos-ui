@@ -1,8 +1,8 @@
 import { auth, fd, get, post } from "$lib/utils";
 import { fail } from "@sveltejs/kit";
 
-export const load = async ({ params: { id } }) => {
-  const managers = await get(`/fund/${id}/managers`);
+export const load = async ({ cookies, params: { id } }) => {
+  const managers = await get(`/fund/${id}/managers`, auth(cookies));
   return { managers, id };
 };
 

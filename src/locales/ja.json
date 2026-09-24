@@ -131,7 +131,6 @@
     }
   },
   "login": {
-    "forgot": "パスワードをお忘れですか？",
     "reset": "パスワードのリセット",
     "optional": "オプション",
     "submit": "提出する",
@@ -141,7 +140,6 @@
     "newPassword": "新しいパスワード",
     "email": "Eメール",
     "passwordRecommendation": "アカウントに資金を保管する場合は、長くてランダムなパスワードを使用することをお勧めします。",
-    "forgotUserOrPassword": "パスワードをお忘れですか？",
     "haveAccount": "すでにアカウントをお持ちですか？",
     "noAccount": "アカウントをお持ちでない場合は、",
     "register": "登録する",

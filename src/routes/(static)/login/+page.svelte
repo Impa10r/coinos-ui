@@ -197,12 +197,6 @@
 
     <PasswordInput bind:value={$password} placeholder={$t("login.password")} />
 
-    <div class="flex justify-end items-center">
-      <a href="/forgot" class="underline underline-offset-4 text-secondary"
-        >{$t("login.forgotUserOrPassword")}</a
-      >
-    </div>
-
     <div
       class="bg-warning text-warning-content rounded-xl p-3 text-center font-semibold text-sm"
     >

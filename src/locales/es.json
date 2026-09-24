@@ -131,7 +131,6 @@
     }
   },
   "login": {
-    "forgot": "¿Olvidaste la contraseña?",
     "reset": "Restablecer contraseña",
     "optional": "Opcional",
     "submit": "Enviar",
@@ -141,7 +140,6 @@
     "newPassword": "Nueva contraseña",
     "email": "Correo electrónico",
     "passwordRecommendation": "Recomendamos usar una contraseña larga y aleatoria si piensas mantener fondos en tu cuenta.",
-    "forgotUserOrPassword": "¿Olvidaste la contraseña?",
     "haveAccount": "¿Ya tienes una cuenta?",
     "noAccount": "¿No tienes una cuenta?",
     "register": "Registrarse",

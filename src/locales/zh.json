@@ -131,7 +131,6 @@
     }
   },
   "login": {
-    "forgot": "忘记密码？",
     "reset": "重设密码",
     "optional": "可选的",
     "submit": "提交",
@@ -141,7 +140,6 @@
     "newPassword": "新密码",
     "email": "电子邮件",
     "passwordRecommendation": "如果您打算将资金保留在帐户中，我们建议您使用较长的随机密码。",
-    "forgotUserOrPassword": "忘记密码？",
     "haveAccount": "已经有帐户？",
     "noAccount": "没有帐户？",
     "register": "注册",

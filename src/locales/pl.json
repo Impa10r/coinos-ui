@@ -187,7 +187,6 @@
     }
   },
   "login": {
-    "forgot": "Zapomniałeś hasła?",
     "resetSent": "Link do resetu hasła zostanie wysłany na email, jeśli mamy go w pliku.",
     "continue": "Kontynuuj",
     "reset": "Zresetuj hasło",
@@ -200,7 +199,6 @@
     "newPassword": "Nowe hasło",
     "email": "E-mail",
     "passwordRecommendation": "Zaleca się użycie długiego, losowego hasła, jeśli zamierza się utrzymać środki na koncie.",
-    "forgotUserOrPassword": "Zapomniałeś hasła?",
     "haveAccount": "Masz już konto?",
     "noAccount": "Nie masz konta?",
     "register": "Rejestr",

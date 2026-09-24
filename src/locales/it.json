@@ -187,7 +187,6 @@
     }
   },
   "login": {
-    "forgot": "Password dimenticata?",
     "resetSent": "Un link per il reset della password verrà inviato al vostro indirizzo e-mail, se lo abbiamo in archivio.",
     "continue": "Continua",
     "reset": "Reimposta password",
@@ -200,7 +199,6 @@
     "newPassword": "Nuova password",
     "email": "Email",
     "passwordRecommendation": "Si consiglia di utilizzare una password lunga e casuale se si intende conservare i fondi sul proprio conto.",
-    "forgotUserOrPassword": "Password dimenticata?",
     "haveAccount": "Hai già un account?",
     "noAccount": "Non hai un account?",
     "register": "Registrazione",

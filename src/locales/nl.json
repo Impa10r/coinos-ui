@@ -187,7 +187,6 @@
     }
   },
   "login": {
-    "forgot": "Wachtwoord vergeten?",
     "resetSent": "Een wachtwoord reset link zal worden verzonden naar jouw e-mail adres als deze bekend is.",
     "continue": "Doorgaan",
     "reset": "Wachtwoord resetten",
@@ -200,7 +199,6 @@
     "newPassword": "Nieuw wachtwoord",
     "email": "E-mail",
     "passwordRecommendation": "Wij raden het gebruik van een lang, willekeurig wachtwoord aan, als je van plan bent om Bitcoin tegoeden op jouw account aan te houden.",
-    "forgotUserOrPassword": "Wachtwoord vergeten?",
     "haveAccount": "Heb je al een rekening?",
     "noAccount": "Heb je geen rekening?",
     "register": "Registreren",

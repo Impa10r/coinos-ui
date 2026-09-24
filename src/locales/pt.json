@@ -147,7 +147,6 @@
     }
   },
   "login": {
-    "forgot": "Esqueceu a senha?",
     "reset": "Redefinição de senha",
     "optional": "Opcional",
     "submit": "Enviar",
@@ -157,7 +156,6 @@
     "newPassword": "Nova senha",
     "email": "Email",
     "passwordRecommendation": "Recomendamos o uso de uma senha longa e aleatória se você pretende manter fundos em sua conta.",
-    "forgotUserOrPassword": "Esqueceu a senha?",
     "haveAccount": "Já tem uma conta?",
     "noAccount": "Não tem uma conta?",
     "register": "Registre",

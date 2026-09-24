@@ -196,7 +196,6 @@
     }
   },
   "login": {
-    "forgot": "Forgot password?",
     "resetSent": "A password reset link will be sent to your email if we have it on file.",
     "continue": "Continue",
     "reset": "Password reset",
@@ -209,7 +208,6 @@
     "newPassword": "New password",
     "email": "Email",
     "passwordRecommendation": "We recommend using a long, random password if you intend to keep funds in your account.",
-    "forgotUserOrPassword": "Forgot password?",
     "haveAccount": "Already have an account?",
     "noAccount": "Don't have an account?",
     "register": "Register",

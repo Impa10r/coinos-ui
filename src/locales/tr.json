@@ -187,7 +187,6 @@
     }
   },
   "login": {
-    "forgot": "Şifreyi mi unuttunuz?",
     "resetSent": "Bir parola sıfırlama linki, dosya üzerinde varsa e-postanıza gönderilir.",
     "continue": "Devam etmeye devam et",
     "reset": "Şifre sıfırlama",
@@ -200,7 +199,6 @@
     "newPassword": "Yeni şifre",
     "email": "E-posta e-posta e-posta",
     "passwordRecommendation": "Hesabınızda para tutmak niyetindeyseniz uzun, rastgele bir şifre kullanmanızı öneririz.",
-    "forgotUserOrPassword": "Şifreyi mi unuttunuz?",
     "haveAccount": "Zaten bir hesabı var mı?",
     "noAccount": "Bir hesabınız yok mu?",
     "register": "Register",

@@ -109,7 +109,7 @@
     },
     "pos": {
       "question": "Kan ik Coinos combineren met mijn bestaande kassasysteem?",
-      "answer": "We kunnen verkopen automatisch in Square vastleggen. Als je een ander kassasysteem gebruikt, raden we aan Bitcoin als cash in jouw bestaande kassasysteem aan te slaan."
+      "answer": "We raden aan Bitcoin als cash in jouw bestaande kassasysteem aan te slaan."
     },
     "bitcoin": {
       "question": "Wat kan ik doen met Bitcoin?",
@@ -385,8 +385,6 @@
       "NOSTR": "NOST",
       "tip": "Standaard tip",
       "tipDesc": "Standaard tippercentage bij het automatisch betalen van vertrouwde gebruikers",
-      "connectSquare": "Verbinden met Square",
-      "revokeSquare": "Square verbinding ongedaan maken",
       "confirmAutoWithdrawal": "Auto-opnameinstellingen bevestigen",
       "confirmAutoWithdrawalDesc": "Je auto opnames zijn uitgeschakeld. Controleer uw bestemmingsadres voordat u deze opnieuw toevoegd of verwijder het adres om dit bericht te verwijderen.",
       "newPasswordDesc": "(Laat leeg om ongewijzigd te blijven)",

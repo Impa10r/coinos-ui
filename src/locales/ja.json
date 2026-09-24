@@ -323,8 +323,6 @@
       "NOSTR": "ログイン",
       "tip": "デフォルトチップ",
       "tipDesc": "信頼できるユーザーを自動支払するときのデフォルトのヒントパーセンテージ",
-      "connectSquare": "スクエアに接続する",
-      "revokeSquare": "Revokeスクエア接続",
       "confirmAutoWithdrawal": "自動出金設定の確認",
       "confirmAutoWithdrawalDesc": "自動出金が無効になっています。 アドレスを再エナブルするか、このメッセージを却下するアドレスを削除する前に、宛先アドレスをダブルクリックしてください.",
       "newPasswordDesc": "(変更されないままにブランクを残す)",

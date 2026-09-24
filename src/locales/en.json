@@ -118,7 +118,7 @@
     },
     "pos": {
       "question": "Can Coinos integrate with my existing PoS?",
-      "answer": "We can log sales into Square automatically. On other systems you might choose to record Bitcoin sales under \"cash\"."
+      "answer": "You might choose to record Bitcoin sales under \"cash\" in your existing point-of-sale system."
     },
     "bitcoin": {
       "question": "What can I do with Bitcoin?",
@@ -305,8 +305,6 @@
       "placeholder": "Enter an address, invoice or username"
     },
     "settings": {
-      "connectSquare": "Connect to Square",
-      "revokeSquare": "Revoke Square Connection",
       "confirmAutoWithdrawal": "Confirm auto withdrawal settings",
       "confirmAutoWithdrawalDesc": "Your auto withdrawals have been disabled. Please double check your destination address before re-enabling them or remove the address to dismiss this message.",
       "tip": "Default tip",

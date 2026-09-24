@@ -323,8 +323,6 @@
       "NOSTR": "无",
       "tip": "默认提示",
       "tipDesc": "自动付费信任用户时默认提示百分比",
-      "connectSquare": "连接到平方",
-      "revokeSquare": "撤销正方形连接",
       "confirmAutoWithdrawal": "确认自动退出设置",
       "confirmAutoWithdrawalDesc": "您的自动取款被禁用 。 在重新启用之前, 请重复检查您的地址, 或是删除地址以删除此信件 .",
       "newPasswordDesc": "(空出以不变)",

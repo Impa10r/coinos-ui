@@ -385,8 +385,6 @@
       "NOSTR": "NOSTR",
       "tip": "Varsayılan ipucu",
       "tipDesc": "Otomatik ücretli güvenilen kullanıcıların ortalama yüzdesi",
-      "connectSquare": "Square",
-      "revokeSquare": "Revoke Square Connection",
       "confirmAutoWithdrawal": "Otomatik geri çekilme ayarlarını onaylayın",
       "confirmAutoWithdrawalDesc": "Otomatik geri çekilmeleriniz devre dışı bırakıldı. Lütfen hedef adresinizi yeniden etkinleştirin veya bu mesajı reddetme adresi ortadan kaldırın.",
       "newPasswordDesc": "(Değişmemek için boş tut)",

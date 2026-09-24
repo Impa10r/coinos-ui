@@ -291,8 +291,6 @@
       "NOSTR": "NOSTR",
       "tip": "Conseil par défaut",
       "tipDesc": "Pourcentage de pointe par défaut lors du paiement automatique d'utilisateurs de confiance",
-      "connectSquare": "Se connecter à Square",
-      "revokeSquare": "Renverser la connexion carrée",
       "confirmAutoWithdrawal": "Confirmer les paramètres de retrait automatique",
       "confirmAutoWithdrawalDesc": "Vos retraits automatiques ont été désactivés. Veuillez vérifier à nouveau votre adresse de destination avant de les renflouer ou supprimer l'adresse pour rejeter ce message.",
       "newPasswordDesc": "(Laisser blanc pour garder inchangé)",

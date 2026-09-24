@@ -1,6 +1,5 @@
 <script>
   import { run } from "svelte/legacy";
-  import { theme } from "$lib/store";
 
   import { onMount, tick, untrack } from "svelte";
   import { browser } from "$app/environment";
@@ -13,7 +12,7 @@
 
   let { data } = $props();
   let user = $state(untrack(() => data.user));
-  let { connect, rates, subscriptions } = $derived(data);
+  let { rates, subscriptions } = $derived(data);
   let currency = $state(untrack(() => data.user?.currency));
   let email = $state(untrack(() => data.user?.email));
   let tip = $state(untrack(() => data.user?.tip));
@@ -113,7 +112,6 @@
     if (!email) user.notify = false;
   });
 
-  let revoke = () => {};
 </script>
 
 <div>
@@ -334,21 +332,4 @@
       >
     </div>
   </div>
-{/if}
-
-{#if connect && connect !== "connected"}
-  <a href={connect} class="btn flex">
-    <img src="/images/square.svg" class="w-12" alt="Square" />
-    <div>{$t("user.settings.connectSquare")}</div></a
-  >
-{:else}
-  <button type="button" onclick={revoke} class="btn">
-    <img
-      src="/images/square.svg"
-      class="w-12"
-      class:invert={$theme === "dark"}
-      alt="Square"
-    />
-    <div>{$t("user.settings.revokeSquare")}</div>
-  </button>
 {/if}

@@ -385,8 +385,6 @@
       "NOSTR": "NOSTR",
       "tip": "النص الأصلي",
       "tipDesc": "النسبة المئوية للمستخدمين الموثوقين الذين يدفعون بالسيارة",
-      "connectSquare": "Connect to Square",
-      "revokeSquare": "Revoke Squanection",
       "confirmAutoWithdrawal": "التأكد من عمليات سحب السيارات",
       "confirmAutoWithdrawalDesc": "سحبك للسيارات تم تعطيله يرجى التحقق من عنوان الوجهة الخاصة بك قبل إعادة فتحها أو إزالة العنوان لرفض هذه الرسالة.",
       "newPasswordDesc": "(يَتْركُ فارغاً للإبْقاء بدون تغيير)",

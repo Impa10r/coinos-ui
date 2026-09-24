@@ -385,8 +385,6 @@
       "NOSTR": "NOSTR",
       "tip": "Domyślny napiwek",
       "tipDesc": "Domyślny procent napiwku przy autopłatnych zaufanych użytkowników",
-      "connectSquare": "Połącz z kwadratem",
-      "revokeSquare": "Połączenie kwadratowe Revoke",
       "confirmAutoWithdrawal": "Potwierdź ustawienia automatycznego wycofania",
       "confirmAutoWithdrawalDesc": "Wypłaty samochodów zostały wyłączone. Proszę sprawdzić adres docelowy przed ponownym włączeniem lub usunięciem adresu do odrzucenia tej wiadomości.",
       "newPasswordDesc": "(Pozostawić puste, aby pozostać niezmienione)",

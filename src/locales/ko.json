@@ -385,8 +385,6 @@
       "NOSTR": "사이트맵",
       "tip": "기본 팁",
       "tipDesc": "자동 결제가 가능한 경우 기본 팁 비율",
-      "connectSquare": "Square에 연결",
-      "revokeSquare": "Revoke 광장 연결",
       "confirmAutoWithdrawal": "자동 인출 설정 확인",
       "confirmAutoWithdrawalDesc": "자동 인출이 비활성화되었습니다. 해당 이용 후기에 달린 코멘트가 없습니다.",
       "newPasswordDesc": "(변경되지 않도록 공백을 사용하십시오)",

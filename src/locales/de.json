@@ -334,8 +334,6 @@
       "NOSTR": "NOSTR",
       "tip": "Standardtipp",
       "tipDesc": "Standard-Tip-Prozentsatz bei automatischer Bezahlung vertrauenswürdiger Benutzer",
-      "connectSquare": "Verbindung zum Quadrat",
-      "revokeSquare": "Wiederherstellung Quadratische Verbindung",
       "confirmAutoWithdrawal": "Auto-Entzugseinstellungen bestätigen",
       "confirmAutoWithdrawalDesc": "Ihre Autoentnahmen wurden deaktiviert. Bitte überprüfen Sie Ihre Zieladresse, bevor Sie sie erneut aktivieren oder entfernen Sie die Adresse, um diese Nachricht zu entlassen.",
       "newPasswordDesc": "(Leave blank to keep unverändert)",

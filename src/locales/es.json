@@ -323,8 +323,6 @@
       "NOSTR": "NOSTR",
       "tip": "Consejo predeterminado",
       "tipDesc": "Porcentaje de punta predeterminada cuando los usuarios de confianza pagan auto",
-      "connectSquare": "Conectarse a la Plaza",
-      "revokeSquare": "Revoke Square Connection",
       "confirmAutoWithdrawal": "Confirme la configuración de retiro automático",
       "confirmAutoWithdrawalDesc": "Sus retiros de automóviles han sido desactivados. Por favor, compruebe su dirección de destino antes de volver a habilitarlas o retirar la dirección para desestimar este mensaje.",
       "newPasswordDesc": "(Leave blank to keep unchanged)",

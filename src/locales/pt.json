@@ -342,8 +342,6 @@
       "NOSTR": "NOSTR",
       "tip": "Dica padrão",
       "tipDesc": "Percentagem de dica padrão ao pagar automaticamente usuários confiáveis",
-      "connectSquare": "Ligar ao Quadrado",
-      "revokeSquare": "Revogar a Ligação Quadrada",
       "confirmAutoWithdrawal": "Confirmar as configurações de retirada automática",
       "confirmAutoWithdrawalDesc": "As suas retiradas automáticas foram desactivadas. Por favor, verifique o seu endereço de destino antes de voltar a acedê-los ou remova o endereço para descartar esta mensagem.",
       "newPasswordDesc": "(Deixe em branco para manter inalterada)",

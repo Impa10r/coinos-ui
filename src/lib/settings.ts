@@ -17,7 +17,16 @@ export default async ({ cookies, request }) => {
   }
 
   try {
-    const { user } = await post("/user", form, auth(cookies));
+    const { user, token } = await post("/user", form, auth(cookies));
+
+    // A password change revokes every session older than it, including this
+    // one, so the server hands back a replacement. Store it or the user is
+    // logged out the moment they change their own password.
+    if (token)
+      cookies.set("token", token, {
+        path: "/",
+        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+      });
 
     if (user.language) cookies.set("lang", user.language, { path: "/" });
 

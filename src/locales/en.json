@@ -196,7 +196,6 @@
     }
   },
   "login": {
-    "resetSent": "A password reset link will be sent to your email if we have it on file.",
     "continue": "Continue",
     "reset": "Password reset",
     "resetDesc": "Please send an email with your username and any other details you can recall to",

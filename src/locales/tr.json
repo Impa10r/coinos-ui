@@ -187,10 +187,9 @@
     }
   },
   "login": {
-    "resetSent": "Bir parola sıfırlama linki, dosya üzerinde varsa e-postanıza gönderilir.",
     "continue": "Devam etmeye devam et",
     "reset": "Şifre sıfırlama",
-    "resetDesc": "E-postanızı ekledikten ve doğrulayan bir sıfırlama linkini gönderebiliriz, aksi takdirde lütfen e-postanızı onaylayın",
+    "resetDesc": "Kullanıcı adınızı ve hatırlayabildiğiniz diğer bilgileri içeren bir e-postayı şu adrese gönderin:",
     "optional": "Seçmeli",
     "submit": "Gönder",
     "token": "2FA Hediye",

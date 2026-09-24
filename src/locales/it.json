@@ -187,10 +187,9 @@
     }
   },
   "login": {
-    "resetSent": "Un link per il reset della password verrà inviato al vostro indirizzo e-mail, se lo abbiamo in archivio.",
     "continue": "Continua",
     "reset": "Reimposta password",
-    "resetDesc": "Possiamo inviare un link di ripristino se avete aggiunto e verificato il vostro indirizzo e-mail, altrimenti contattate",
+    "resetDesc": "Invia un'email con il tuo nome utente e qualsiasi altro dettaglio che ricordi a",
     "optional": "Facoltativo",
     "submit": "Invia",
     "token": "Token 2FA",

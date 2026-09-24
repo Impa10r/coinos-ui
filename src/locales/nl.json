@@ -187,10 +187,9 @@
     }
   },
   "login": {
-    "resetSent": "Een wachtwoord reset link zal worden verzonden naar jouw e-mail adres als deze bekend is.",
     "continue": "Doorgaan",
     "reset": "Wachtwoord resetten",
-    "resetDesc": "We kunnen een reset link sturen als je jouw e-mail hebt toegevoegd en geverifieerd. Anders kun je contact opnemen met",
+    "resetDesc": "Stuur een e-mail met je gebruikersnaam en eventuele andere gegevens die je je herinnert naar",
     "optional": "Facultatief",
     "submit": "Verzenden",
     "token": "2FA Token",

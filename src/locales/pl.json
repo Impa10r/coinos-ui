@@ -187,10 +187,9 @@
     }
   },
   "login": {
-    "resetSent": "Link do resetu hasła zostanie wysłany na email, jeśli mamy go w pliku.",
     "continue": "Kontynuuj",
     "reset": "Zresetuj hasło",
-    "resetDesc": "Możemy wysłać link reset jeśli dodano i zweryfikowałeś swój e-mail w przeciwnym razie prosimy o kontakt z",
+    "resetDesc": "Wyślij e-mail ze swoją nazwą użytkownika i wszelkimi innymi szczegółami, które pamiętasz, na adres",
     "optional": "Opcjonalnie",
     "submit": "Prześlij",
     "token": "2FA Token",

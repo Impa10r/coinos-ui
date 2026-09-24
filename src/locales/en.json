@@ -217,7 +217,8 @@
     "failed": "Login failed",
     "locked": "Too many failed attempts, please try again in 10 minutes",
     "nostr": "Sign in with Nostr",
-    "nostrConnect": "Nostr connect"
+    "nostrConnect": "Nostr connect",
+    "forgotUserOrPassword": "Forgot password?"
   },
   "nav": {
     "home": "Home",

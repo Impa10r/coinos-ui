@@ -208,7 +208,8 @@
     "failed": "Giriş başarısız oldu",
     "nostr": "Nostr ile oturum açın",
     "nostrConnect": "Nostr bağlantı",
-    "locked": "Çok fazla başarısız deneme, lütfen 10 dakika sonra tekrar deneyin"
+    "locked": "Çok fazla başarısız deneme, lütfen 10 dakika sonra tekrar deneyin",
+    "forgotUserOrPassword": "Şifreyi mi unuttunuz?"
   },
   "nav": {
     "dark": "Dark",

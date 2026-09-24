@@ -169,7 +169,8 @@
     "resetDesc": "Wir können einen Reset Link senden, wenn Sie Ihre E-Mail hinzugefügt und verifiziert haben",
     "nostr": "Einloggen mit Nostr",
     "nostrConnect": "Nostr-Verbindung",
-    "locked": "Zu viele fehlgeschlagene Versuche, bitte versuche es in 10 Minuten erneut"
+    "locked": "Zu viele fehlgeschlagene Versuche, bitte versuche es in 10 Minuten erneut",
+    "forgotUserOrPassword": "Benutzername oder Passwort vergessen?"
   },
   "nav": {
     "profile": "Profil",

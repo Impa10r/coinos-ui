@@ -208,7 +208,8 @@
     "failed": "로그인 실패",
     "nostr": "Nostr로 로그인",
     "nostrConnect": "Nostr 연결",
-    "locked": "실패한 시도가 너무 많습니다. 10분 후에 다시 시도해 주세요"
+    "locked": "실패한 시도가 너무 많습니다. 10분 후에 다시 시도해 주세요",
+    "forgotUserOrPassword": "비밀번호를 잊으셨나요?"
   },
   "nav": {
     "dark": "한국어",

@@ -208,7 +208,8 @@
     "failed": "Login fallito",
     "nostr": "Accedi con Nostr",
     "nostrConnect": "Collegamento Nostr",
-    "locked": "Troppi tentativi falliti, per favore riprova tra 10 minuti"
+    "locked": "Troppi tentativi falliti, per favore riprova tra 10 minuti",
+    "forgotUserOrPassword": "Password dimenticata?"
   },
   "nav": {
     "dark": "Scuro",

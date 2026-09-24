@@ -208,7 +208,8 @@
     "failed": "Logowanie nie powiodło się",
     "nostr": "Zaloguj się do Nostr",
     "nostrConnect": "Połączenie Nostr",
-    "locked": "Zbyt wiele nieudanych prób, spróbuj ponownie za 10 minut"
+    "locked": "Zbyt wiele nieudanych prób, spróbuj ponownie za 10 minut",
+    "forgotUserOrPassword": "Zapomniałeś hasła?"
   },
   "nav": {
     "dark": "Ciemny",
